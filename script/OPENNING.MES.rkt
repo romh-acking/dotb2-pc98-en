@@ -805,23 +805,23 @@
   (text
    #:col
    15
-   "Ghoul... You're a very lucky soul. Even though your body's been destroyed, it seems only your brain survived...")
+   "Ghoul... You're a very lucky soul. Even though your body's  been destroyed, it seems only your brain survived...")
   (wait)
   (text-reset 1)
   (text "But thanks to that, I will be able to revive you once more.")
   (wait)
   (text-reset 1)
   (text
-   "This is your last chance. Kill those who know about the reanimation serum that Cooger made... Yes, kill Cole and the woman who did this to you.")
+   "This is your last chance. Kill those who know about the     reanimation serum that Cooger made... Yes, kill Cole and thewoman who did this to you.")
   (wait)
   (text-reset 1)
-  (text "I've implanted a detonator in your head so you won't disobey me like you did before.")
+  (text "I've implanted a detonator in your head so you won't disobeyme like you did before.")
   (wait)
   (text-reset 1)
   (text "The detonator is small in size, but can easily destroy your brain in its entirety.")
   (wait)
   (text-reset 1)
-  (text "If you follow my orders you'll have nothing to worry about, but if you choose to disobey me, I will not hesitate to destroy your brain.")
+  (text "If you follow my orders you'll have nothing to worry about, but if you choose to disobey me, I will not hesitate to     destroy your brain.")
   (wait)
   (text-reset 1)
   (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")

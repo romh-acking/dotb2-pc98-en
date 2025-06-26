@@ -36,7 +36,7 @@
   (text "Cole: i'm gonna go see her.")
   (wait)
   (text-reset 1)
-  (text "Steve: When you're done talking, come to the main lab up front. We need to talk about our next steps.")
+  (text "Steve: When you're done talking, come to the main lab up    front. We need to talk about our next steps.")
   (wait)
   (text-reset 1)
   (text "Cole: Okay.")

@@ -58,15 +58,15 @@
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
  (seg (? (= P 5) (= 181 #f))
-   (text "Cole: The Bloody Fox members are assaulting that woman... And I've gotta get answers out of them.")
+   (text "Cole: The Bloody Fox members are assaulting that woman...   And I've gotta get answers out of them.")
    (set-reg 181 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 182 #f))
-   (text "Cole: Wait, is that guy holding a syringe? What's going on here?")
+   (text "Cole: Wait, is that guy holding a syringe? What's going on  here?")
    (wait)
    (text-reset 1)
-   (text "Cole: The Bloody Fox members are assaulting that woman... And I've gotta get answers out of them.")
+   (text "Cole: The Bloody Fox members are assaulting that woman...   And I've gotta get answers out of them.")
    (set-reg 182 #t)
    (wait)
    (text-reset 1))
@@ -103,7 +103,7 @@
         (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_05.USO"))
         (// (sound '|| "A:¥USO_D¥BR2_05.USO"))))
    (sound '|| 1)
-   (text "B.F.: Forget about the girl for now, let's show this shitfucker how the Bloody Wolves deal with uninvited guests!")
+   (text "B.F.: Forget about the girl for now, let's show this        shitfucker how the Bloody Wolves deal with uninvited guests!")
    (wait)
    (text-reset 1)
    (text "B.F.: Heh heh heh... You're fuckin' dead!")
@@ -201,7 +201,7 @@
          (branch-random
           (</>
            (/ (text "You're a hundred years too early to be pickin' a fight with Bloody Fox!"))
-           (/ (text "Tell your friends about how tough Bloody Fox is... Tell them...IN HELL!"))))
+           (/ (text "Tell your friends about how tough Bloody Fox is... Tell     them...IN HELL!"))))
          (wait)
          (text-reset 1)
          (exec-mem 17408 3)
@@ -284,7 +284,7 @@
                (wait)
                (text-reset 1)
                (text
-                "B.F.: So who was that dude packing heat? He was asking about Purple Sky...you figure he's a pig?")
+                "B.F.: So who was that dude packing heat? He was asking aboutPurple Sky...you figure he's a pig?")
                (wait)
                (text-reset 1)
                (text
@@ -295,7 +295,7 @@
                (wait)
                (text-reset 1)
                (text
-                "B.F.: But that fucker just wasted our last dose of Purple Sky. We gotta go restock.")
+                "B.F.: But that fucker just wasted our last dose of Purple   Sky. We gotta go restock.")
                (wait)
                (text-reset 1)
                (text "B.F.: Yeah, for sure.")
@@ -326,18 +326,18 @@
                (text "Cole: Ow ow ow ow..")
                (wait)
                (text-reset 1)
-               (text "Cole: Damn, I didn't expect to get clubbed like that... I guess that's what happens when you get cocky.")
+               (text "Cole: Damn, I didn't expect to get clubbed like that... I   guess that's what happens when you get cocky.")
                (wait)
                (text-reset 1)
                (text
-                "Cole: But they were talking about drugs, right? So the stuff they had wasn't the reanimation serum, it was just typical street junk, right...?")
+                "Cole: But they were talking about drugs, right? So the stuffthey had wasn't the reanimation serum, it was just typical      street junk, right...?")
                (wait)
                (text-reset 1)
                (text "Cole: I've never heard of a drug called Purple Sky.")
                (wait)
                (text-reset 1)
                (text
-                "Cole: Anyway, no point sitting around. I should head home... Sheila's probably worried sick.")
+                "Cole: Anyway, no point sitting around. I should head home...Sheila's probably worried sick.")
                (wait)
                (text-reset 1)
                (text "Cole: Huh?")
@@ -345,7 +345,7 @@
                (text-reset 1)
                (exec-mem 912 "PUT 0 54 38,W 0,O 0")
                (text
-                "Cole: A matchbook... one of them must have dropped it. Might come in handy later.")
+                "Cole: A matchbook... one of them must have dropped it. Mightcome in handy later.")
                (wait)
                (text-reset 1)
                (text "Cole: Ow ow ow... Sheila's gonna chew me out for this one.")
@@ -449,7 +449,7 @@
  (seg (? (= P 6))
    (branch-random
     (</>
-     (/ (text "Cole: They're attacking that woman, but it's too dark to make out who she is...") (wait) (text-reset 1))
+     (/ (text "Cole: They're attacking that woman, but it's too dark to    make out who she is...") (wait) (text-reset 1))
      (/ (text "Cole: They must have kidnapped her from another town...") (wait) (text-reset 1))
      (/
       (text "Woman: Please, help me!")

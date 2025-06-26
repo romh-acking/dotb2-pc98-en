@@ -43,7 +43,7 @@
   (text "Cole: Jesus christ!!!")
   (wait)
   (text-reset 1)
-  (text "Jill: I WILL NOT DIE! Not as long as I possess the reanimation serum! I AM ETERNAL!")
+  (text "Jill: I WILL NOT DIE! Not as long as I possess the          reanimation serum! I AM ETERNAL!")
   (wait)
   (text-reset 1)
   (text "Cole: You zombie asshole!")

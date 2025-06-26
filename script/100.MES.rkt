@@ -28,7 +28,7 @@
   (exec-mem 912 "GET 1 54 38 23 172")
   (exec-mem 912 "A 0,S 0")
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
-  (text "Cole: Why is this happening? I shot him in the head and destroyed his brain, didn't I?")
+  (text "Cole: Why is this happening? I shot him in the head and     destroyed his brain, didn't I?")
   (wait)
   (text-reset 1)
   (text "Cole: Ah, shit!")
@@ -38,7 +38,7 @@
   (text "Zombie: GAAAAAAA...!!!")
   (wait)
   (text-reset 1)
-  (text "Cole: Shit! At this rate I'm gonna do a lover's leap with this thing... How do I escape!?")
+  (text "Cole: Shit! At this rate I'm gonna do a lover's leap with   this thing... How do I escape!?")
   (wait)
   (text-reset 1)
   (exec-mem 912 "PUT 1 54 38,W 0,O 1")
@@ -56,11 +56,11 @@
    S
    (</>
     (/ (text "Cole: It's bleeding from the forehead. I definitely shot it in the brain."))
-    (/ (text "Cole: Both my hands are full. By the time I drop what I'm carrying, that thing will bite my head off."))
+    (/ (text "Cole: Both my hands are full. By the time I drop what I'm   carrying, that thing will bite my head off."))
     (/ (text "Cole: Even if I kick it, it won't flinch."))))
   (wait)
   (text-reset 1)
-  (text "Cole: Damn, it's super strong! If it keeps pushing me, I'm going off this cliff!")
+  (text "Cole: Damn, it's super strong! If it keeps pushing me, I'm  going off this cliff!")
   (wait)
   (text-reset 1)
   (menu1
@@ -76,7 +76,7 @@
    S
    (</>
     (/ (text "Cole: I don't have the space to grab my gun!"))
-    (/ (text "Cole: Blinding it's no good if I already shot it in the brain!"))
+    (/ (text "Cole: Blinding it's no good if I already shot it in the     brain!"))
     (/ (text "Cole: He's got a death grip on me, so I can't push him away!"))))
   (wait)
   (text-reset 1)
@@ -125,7 +125,7 @@
     (/ (text "Cole: This thing's about to kill me!") (set-reg 127 #t))
     (/ (text "Cole: All I can do is drag this bastard down with me!"))
     (/ (text "Cole: No, I'm not dying here, goddammit!"))
-    (/ (text "Cole: Steve's gonna save my ass at the last minute! It's fine!"))
+    (/ (text "Cole: Steve's gonna save my ass at the last minute! It's    fine!"))
     (/ (text "Cole: I'm tough enough to survive a fall off a cliff!"))))
   (wait)
   (text-reset 1)
@@ -183,7 +183,7 @@
          (wait)
          (text-reset 1)
          (exec-mem 19216 3 25 56 258 0 1 2 117)
-         (text "Cole: Shit, its head has been obliterated! What the hell happened?")
+         (text "Cole: Shit, its head has been obliterated! What the hell    happened?")
          (wait)
          (text-reset 1)
          (text "Cole: Wait, that flash I saw... I got the weirdest sense of deja vu...")

@@ -11,7 +11,7 @@
   (wait)
   (text-reset 1)
   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-  (text "Cole: Was that the guy from earlier...? In a fancy apartment like this, there's all kinds of different people, I guess.")
+  (text "Cole: Was that the guy from earlier...? In a fancy apartmentlike this, there's all kinds of different people, I guess.")
   (wait)
   (text-reset 1)
   (text "Cole: Sheila's door is open. She's already back, huh?")

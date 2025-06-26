@@ -28,7 +28,7 @@
    (seg-call)))
  (seg (? (= P 5) (= 146 #t))
    (text-reset 1)
-   (text "Cole: This was the room they're letting me use. Maybe it's time for a break.")
+   (text "Cole: This was the room they're letting me use. Maybe it's  time for a break.")
    (wait)
    (text-reset 1)
    (sound '|| 2)
@@ -115,7 +115,7 @@
  (seg (? (= P 9) (= 110 #f))
    (text-reset 1)
    (text
-    "Cole: I should meet up with Sheila before going to the lab. I've been trying to find her all day, I've got a lot of questions.")
+    "Cole: I should meet up with Sheila before going to the lab. I've been trying to find her all day, I've got a lot of     questions.")
    (wait)
    (text-reset 1))
  (seg (? (= P 9))
