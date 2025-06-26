@@ -1,5 +1,5 @@
 (mes
- (meta (engine 'ADV) (charset "pc98") (extraop #t))
+ (meta (engine 'ADV) (charset "English") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB042.CLM" 32768)
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
@@ -50,60 +50,60 @@
   (if (</>
        (//
         (? (= 130 #f))
-        (text "［コール］さすがに街を離れると、この辺は寂しいな・・・。")
+        (text "Cole: Sure enough, things get pretty desolate once you leave town...")
         (set-reg 130 #t))
-       (// (text "［コール］ピレイン研究所の前だ。"))))
+       (// (text "Cole: This is the front of the Perain Research Institute."))))
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
  (seg (? (= P 5) (= 131 #f))
-   (text "［コール］建物には、どこも破壊された形跡はない。さすがに、死　　　　　霊はここまでは来ていないようだな。")
+   (text "Cole: No signs of damage on the building. As expected, the undead didn't make it out here yet.")
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 132 #f))
-   (text "［コール］この辺りには街灯がないため、月明かりを頼るしかない　　　　　な。")
+   (text "Cole: There are no streetlights, so I've gotta make do by moonlight.")
    (set-reg 132 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 133 #f))
-   (text "［コール］建物の中から物音は聞こえて来ない。中には誰もいない　　　　　のかな？")
+   (text "Cole: I can't hear any sounds coming from the inside of the building. I wonder if anyone's inside.")
    (set-reg 133 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 5))
-   (text "［コール］建物はひっそりと静まり返っている。誰もいなかったら　　　　　一度街に戻ってみるしかないな。")
+   (text "Cole: The building is eerily silent. If there's nobody home, I'll have to head back to town.")
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 134 #f))
-   (text "［コール］確かここが入口だったな・・・。中は真っ暗で何も見え　　　　　ないな。")
+   (text "Cole: I guess this is the entrance...but I can't see anything inside, it's pitch black.")
    (set-reg 134 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 135 #f))
-   (text "［コール］よし、早速中に入ってみよう。")
+   (text "Cole: Okay, time to head inside.")
    (wait)
    (text-reset 1)
-   (text "［コール］あれ？")
+   (text "Cole: Wha?")
    (wait)
    (text-reset 1)
-   (text "［コール］くそっ！　入口の扉には鍵がかかってるようだな・・。　　　　　これでは中に入る事ができないな・・・。")
+   (text "Cole: Aw hell, the door's locked. Can't get in this way.")
    (set-reg 135 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 6))
-   (text "［コール］入口の扉には鍵がかかっているため、中に入る事はでき　　　　　ないようだ。")
+   (text "Cole: Since the door's locked, I'm not getting in that way.")
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 135 #t) (= 136 #t))
-   (text "［コール］仕方ない、入口が駄目なら非常階段を使うか・・・。")
+   (text "Cole: No choice, I gotta use the emergency stairs.")
    (wait)
    (text-reset 1)
    (exec-mem 912 "PUT 0 54 38,W 0,O 0")
-   (text "［コール］２階の廊下に入れる入口だろう。よし、開けて見よう。")
+   (text "Cole: This should lead to the second floor. Let's crack it open and see.")
    (wait)
    (text-reset 1)
-   (text "［コール］ん？　オートロックのようだな・・・。液晶モニターに　　　　　『")
+   (text "Cole: A copy-protection auto-lock! The code ")
    (branch-random
     (</>
      (/
@@ -329,11 +329,11 @@
      (/ (text "Ｔ−Ｄ７９") (nop@) (set-reg 147 #t))
      (/ (text "Ｉ−Ｕ６８") (nop@) (set-reg 148 #t))
      (/ (text "Ｎ−Ｚ０４") (nop@) (set-reg 149 #t))))
-   (text "』と記号が書いてあるぞ。")
+   (text "is on the screen. Um, I should check the readme.txt.")
    (wait)
    (text-reset 1)
    (text-frame 15 298 74 356)
-   (text "［コール］えーと、暗証は何だっけな・・・。")
+   (text "Cole: Okay, I've checked the readme, and let's enter... ")
    (menu1
     26
     317
@@ -537,7 +537,7 @@
    (if (</>
         (//
          (? (= 137 #t) (= 150 #t) (= 160 #t) (= 171 #t) (= 188 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -548,7 +548,7 @@
    (if (</>
         (//
          (? (= 138 #t) (= 151 #t) (= 164 #t) (= 179 #t) (= 188 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -559,7 +559,7 @@
    (if (</>
         (//
          (? (= 139 #t) (= 152 #t) (= 163 #t) (= 174 #t) (= 188 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -570,7 +570,7 @@
    (if (</>
         (//
          (? (= 140 #t) (= 153 #t) (= 162 #t) (= 179 #t) (= 183 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -581,7 +581,7 @@
    (if (</>
         (//
          (? (= 141 #t) (= 154 #t) (= 169 #t) (= 174 #t) (= 184 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -592,7 +592,7 @@
    (if (</>
         (//
          (? (= 142 #t) (= 155 #t) (= 163 #t) (= 172 #t) (= 186 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -603,7 +603,7 @@
    (if (</>
         (//
          (? (= 143 #t) (= 156 #t) (= 165 #t) (= 177 #t) (= 186 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -614,7 +614,7 @@
    (if (</>
         (//
          (? (= 144 #t) (= 157 #t) (= 161 #t) (= 172 #t) (= 182 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -625,7 +625,7 @@
    (if (</>
         (//
          (? (= 145 #t) (= 158 #t) (= 165 #t) (= 173 #t) (= 181 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -636,7 +636,7 @@
    (if (</>
         (//
          (? (= 146 #t) (= 159 #t) (= 168 #t) (= 170 #t) (= 184 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -647,7 +647,7 @@
    (if (</>
         (//
          (? (= 147 #t) (= 158 #t) (= 163 #t) (= 175 #t) (= 180 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -658,7 +658,7 @@
    (if (</>
         (//
          (? (= 148 #t) (= 156 #t) (= 165 #t) (= 176 #t) (= 187 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -669,7 +669,7 @@
    (if (</>
         (//
          (? (= 149 #t) (= 157 #t) (= 161 #t) (= 176 #t) (= 185 #t))
-         (text "［コール］よし、ドアが開いたぞ！")
+         (text "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -680,7 +680,7 @@
    (if (</>
         (//
          (? (= A 2))
-         (text "［コール］やっぱりだめだ・・・諦めた方がよさそうだな・・・。")
+         (text "Cole: No good. I guess I'll give up on my entire adventure. Oh well.")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -695,18 +695,18 @@
          (loop (wait)))
         (//
          (text-frame 15 298 74 356)
-         (text "［コール］違ったようだな・・・。もう一度やってみるか・・・。")
+         (text "Cole: I biffed it. Better try again.")
          (inc-var A 1)
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
          ((cmd 204) 150 189)))))
  (seg (? (= P 7) (= 136 #f))
-   (text "［コール］あれは非常階段だったな。確か２階に通じているんだ。")
+   (text "Cole: That's the fire escape. Leads up to the second floor.")
    (set-reg 136 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7)) (text "［コール］非常階段が研究所の脇に見えている。") (wait) (text-reset 1))
+ (seg (? (= P 7)) (text "Cole: There's a fire escape on the right side of the institute.") (wait) (text-reset 1))
  (seg (? (= P 2))
    (exec-mem 6064 2 2)
    (menu1
