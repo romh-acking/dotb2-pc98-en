@@ -84,7 +84,7 @@
         (wait)
         (text-reset 1)
         (text
-         "Steve: Research!? Refining the reanimation serum into PurpleSky and distributing it through Bloody Fox, causing so much    death and misery to the innocent... That's your 'research'?")
+         "Steve: Research!? Refining the reanimation serum into PurpleSky and distributing it through Bloody Fox, causing so much death and misery to the innocent... That's your 'research'?")
         (wait)
         (text-reset 1)
         (text

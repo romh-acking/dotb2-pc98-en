@@ -23,14 +23,14 @@
   (wait)
   (text-reset 1)
   (text
-   "Cole: But the more I look at him, I can't deny that he looksjust like Ghoul. Maybe it IS him, and this is a trap to kill    me...")
+   "Cole: But the more I look at him, I can't deny that he looksjust like Ghoul. Maybe it IS him, and this is a trap to killme...")
   (wait)
   (text-reset 1)
   (text "Cole: No, no. I remember watching him die right in front of me two years ago. Blown apart by that explosion. It's       impossible.")
   (wait)
   (text-reset 1)
   (text
-   "Steve: Stop eyeing me like that, I'm not gonna hurt you. I'mSteve, from Precinct 32. I'm a detective there. Call 'em yourself and ask if you want.")
+   "Steve: Stop eyeing me like that, I'm not gonna hurt you. I'mSteve, from Precinct 32. I'm a detective there. Call 'em    yourself and ask if you want.")
   (wait)
   (text-reset 1)
   (text "Cole: A cop, huh... Man, I'm probably in the shit since I   was waving my gun around back there, right?")
@@ -83,11 +83,11 @@
   (wait)
   (text-reset 1)
   (text
-   "Steve: At the time, I was tracking junkies here in the city.But then I got the orders to head over and figure out what was happening next town over.")
+   "Steve: At the time, I was tracking junkies here in the city.But then I got the orders to head over and figure out what  was happening next town over.")
   (wait)
   (text-reset 1)
   (text
-   "Steve: But when I got there, there were no survivors to tellthe tale. The whole city was riddled with bodies, like a war   had broken out.")
+   "Steve: But when I got there, there were no survivors to tellthe tale. The whole city was riddled with bodies, like a warhad broken out.")
   (wait)
   (text-reset 1)
   (text

@@ -94,7 +94,7 @@
    (text "Lisle: Is the serum injected into the brain?")
    (wait)
    (text-reset 1)
-   (text "Cole: Yeah. When you inject it into a corpse's brain, that'sthe organ that revives first, then the drug spreads out throughthe body.")
+   (text "Cole: Yeah. When you inject it into a corpse's brain, that'sthe organ that revives first, then the drug spreads out     through the body.")
    (wait)
    (text-reset 1)
    (text "Cole: Even if you crush a zombie's legs, as long as the     brain survives, it'll keep crawling at you...to eat yours.")

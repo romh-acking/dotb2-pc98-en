@@ -58,7 +58,7 @@
    (text-reset 1))
  (seg (? (= P 7) (= 137 #f))
    (text
-    "Cole: I wonder if Sheila can even sleep, the condition she'sin... Well, she's probably trying not to worry me, so I'm certainshe'll be back.")
+    "Cole: I wonder if Sheila can even sleep, the condition she'sin... Well, she's probably trying not to worry me, so I'm   certain she'll be back.")
    (wait)
    (text-reset 1)
    (text "Cole: She won't do anything so reckless ever again...       Probably.")

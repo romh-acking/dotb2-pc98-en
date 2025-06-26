@@ -44,7 +44,7 @@
    (text-reset 1))
  (seg (? (= P 5) (= 204 #f))
    (text
-    "Cole: Rumor has it that drug deals aplenty are going down inthis disco. This place looks dangerous as hell, so I'd better   watch my back.")
+    "Cole: Rumor has it that drug deals aplenty are going down inthis disco. This place looks dangerous as hell, so I'd      better watch my back.")
    (set-reg 204 #t)
    (wait)
    (text-reset 1))
@@ -106,7 +106,7 @@
    (text-reset 1))
  (seg (? (= P 9) (= 204 #f))
    (text
-    "Cole: Rumor has it that drug deals aplenty are going down inthis disco. This place looks dangerous as hell, so I'd better   watch my back.")
+    "Cole: Rumor has it that drug deals aplenty are going down inthis disco. This place looks dangerous as hell, so I'd      better watch my back.")
    (set-reg 204 #t)
    (wait)
    (text-reset 1))

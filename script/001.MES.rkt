@@ -336,7 +336,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 10) (= 115 #f))
-   (text "Cole: We're having a conversation, so I don't wanna ruin themood by turning on the radio. Sheila's sensitive about that kindof thing.")
+   (text "Cole: We're having a conversation, so I don't wanna ruin themood by turning on the radio. Sheila's sensitive about that kind of thing.")
    (wait)
    (text-reset 1)
    (text "Sheila: Who are you calling sensitive?")

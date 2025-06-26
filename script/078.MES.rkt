@@ -50,7 +50,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Lisle: I'm going to guess those purple spots are the resultsof the DNV developing in her blood overflowing, dissolving in her blood vessels, and releasing into her body.")
+   "Lisle: I'm going to guess those purple spots are the resultsof the DNV developing in her blood overflowing, dissolving  in her blood vessels, and releasing into her body.")
   (wait)
   (text-reset 1)
   (text
@@ -133,7 +133,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Steve: Yeah, it was us. When the incident occurred two yearsago, all the bodies in the neighboring town were buried at      Disbell. Of course, Cooger's body is there too...")
+   "Steve: Yeah, it was us. When the incident occurred two yearsago, all the bodies in the neighboring town were buried at  Disbell. Of course, Cooger's body is there too...")
   (wait)
   (text-reset 1)
   (text
@@ -356,7 +356,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Lisle: Like Cole said, maybe it would be better for the gooddoctor to die a natural death... We'll support your decision      either way.")
+   "Lisle: Like Cole said, maybe it would be better for the gooddoctor to die a natural death... We'll support your decisioneither way.")
   (wait)
   (text-reset 1)
   (text "Steve: Cole... It's time to choose.")

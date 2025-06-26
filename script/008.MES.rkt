@@ -330,7 +330,7 @@
                (wait)
                (text-reset 1)
                (text
-                "Cole: But they were talking about drugs, right? So the stuffthey had wasn't the reanimation serum, it was just typical      street junk, right...?")
+                "Cole: But they were talking about drugs, right? So the stuffthey had wasn't the reanimation serum, it was just typical  street junk, right...?")
                (wait)
                (text-reset 1)
                (text "Cole: I've never heard of a drug called Purple Sky.")

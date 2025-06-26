@@ -110,7 +110,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Catherine: Because nobody is better than you at fighting theundead, and if it weren't for you, I'd be sloshing around in some  zombie's stomach.")
+    "Catherine: Because nobody is better than you at fighting theundead, and if it weren't for you, I'd be sloshing around insome zombie's stomach.")
    (wait)
    (text-reset 1)
    (text "Cole: I'm not sure if I'm proud of that skillset of mine... I have mixed feelings.")

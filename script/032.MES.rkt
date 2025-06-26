@@ -51,7 +51,7 @@
    (text-reset 1))
  (seg (? (= P 6) (= 105 #f))
    (text
-    "Cole: I've got my piece, so I'm ready to go in. I can't waitto see Sheila's face... And I can't wait to beat the hell out of whoever took her.")
+    "Cole: I've got my piece, so I'm ready to go in. I can't waitto see Sheila's face... And I can't wait to beat the hell   out of whoever took her.")
    (set-reg 105 #t)
    (wait)
    (text-reset 1))
@@ -67,7 +67,7 @@
    (text-reset 1))
  (seg (? (= P 1))
    (exec-mem 6064 2 1)
-   (text "Cole: I don't care who it is, I can never forgive the personwho took my precious Sheila! I'm dragging his ass to the cops  myself!")
+   (text "Cole: I don't care who it is, I can never forgive the personwho took my precious Sheila! I'm dragging his ass to the    cops myself!")
    (wait)
    (text-reset 1)
    (text "Cole: Huh? Wait a minute... The light was on in the         warehouse, but now it's pitch black.")

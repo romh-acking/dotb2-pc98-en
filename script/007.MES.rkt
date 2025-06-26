@@ -67,7 +67,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 173 #f))
-   (text "Cole: Every piece of equipment here is shut down, so I don'tneed to read these warnings. It's not like this stuff is gonna  start up anytime soon.")
+   (text "Cole: Every piece of equipment here is shut down, so I don'tneed to read these warnings. It's not like this stuff is    gonna start up anytime soon.")
    (set-reg 173 #t)
    (wait)
    (text-reset 1))
@@ -78,7 +78,7 @@
    (text-reset 1))
  (seg (? (= P 6) (= 174 #f))
    (text
-    "Cole: There's a bunch of pipes sticking out of this machine.I have no idea what they're used for, aside from scrap metal for looters.")
+    "Cole: There's a bunch of pipes sticking out of this machine.I have no idea what they're used for, aside from scrap metalfor looters.")
    (set-reg 174 #t)
    (wait)
    (text-reset 1))

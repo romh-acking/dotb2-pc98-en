@@ -35,7 +35,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Catherine: You know, my mother loved him with all her heart.No matter how despicable he could be, she trusted him         completely.")
+   "Catherine: You know, my mother loved him with all her heart.No matter how despicable he could be, she trusted him       completely.")
   (wait)
   (text-reset 1)
   (text "Catherine: And since mom loved him so much, I started to    think that I should love Daniel too...")
@@ -66,7 +66,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Catherine: I intend to forgive Daniel for what he did to me.But if I were to forgive him for starting all of this, nobody  else would...")
+   "Catherine: I intend to forgive Daniel for what he did to me.But if I were to forgive him for starting all of this,      nobody else would...")
   (wait)
   (text-reset 1)
   (text "Catherine: So even I can't forgive Daniel for taking so manylives in this incident.")

@@ -103,7 +103,7 @@
         (wait)
         (text-reset 1)
         (text
-         "Jill: I made a test subject of an unkillable zombie based onthis notebook's specifications, but it wouldn't listen to my    orders, so I had Ghoul terminate it in the graveyard.")
+         "Jill: I made a test subject of an unkillable zombie based onthis notebook's specifications, but it wouldn't listen to myorders, so I had Ghoul terminate it in the graveyard.")
         (wait)
         (text-reset 1)
         (text "Jill: It was simply a coincidence that Cole happened to be  there.")
@@ -113,7 +113,7 @@
         (wait)
         (text-reset 1)
         (text
-         "Jill: You two knew the truth about the reanimation serum, soI couldn't truly focus on my research unless you died in     front of me. Sadly, I let Ghoul go to the graveyard alone.")
+         "Jill: You two knew the truth about the reanimation serum, soI couldn't truly focus on my research unless you died in    front of me. Sadly, I let Ghoul go to the graveyard alone.")
         (wait)
         (text-reset 1)
         (text "Jill: But I knew from the beginning that if Cole survived,  you two would make it here eventually.")

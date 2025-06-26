@@ -63,7 +63,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Catherine: I'm on break. I was about to clean the front, andI noticed someone outside looking confused, so I went over tosay hi.")
+    "Catherine: I'm on break. I was about to clean the front, andI noticed someone outside looking confused, so I went over  to say hi.")
    (set-reg 193 #t)
    (wait)
    (text-reset 1))

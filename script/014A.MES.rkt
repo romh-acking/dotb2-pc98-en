@@ -24,7 +24,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Steve: The first time you identified me as Ghoul and pointedyour gun at me, I realized you had something to do with my      brother. And the incident from two years ago...")
+   "Steve: The first time you identified me as Ghoul and pointedyour gun at me, I realized you had something to do with my  brother. And the incident from two years ago...")
   (wait)
   (text-reset 1)
   (text "Cole: So that's what's happening here...")
@@ -38,7 +38,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Steve: I got the news that he'd been incommunicado, and justas I was about to check with the 16th precinct, I got orders  to check on the neighboring town. If only I'd noticed       sooner...")
+   "Steve: I got the news that he'd been incommunicado, and justas I was about to check with the 16th precinct, I got ordersto check on the neighboring town. If only I'd noticed       sooner...")
   (wait)
   (text-reset 1)
   (text "Cole: ...I get it. Let's talk about everything.")
@@ -105,7 +105,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Cole: But that experiment was a failure. Jack came back, andattacked us. We ran back to my apartment and tried to figure out    what to do.")
+   "Cole: But that experiment was a failure. Jack came back, andattacked us. We ran back to my apartment and tried to figureout what to do.")
   (wait)
   (text-reset 1)
   (text "Cole: Doc decided he'd turn himself in.")
@@ -134,7 +134,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Cole: Yes. The reanimation serum can be passed on via mucousmembranes. If someone's bitten, they'll become a zombie in just a few minutes. But there's more to it in terms of the chemical    contents...")
+   "Cole: Yes. The reanimation serum can be passed on via mucousmembranes. If someone's bitten, they'll become a zombie in  just a few minutes. But there's more to it in terms of the  chemical contents...")
   (wait)
   (text-reset 1)
   (text "Cole: As I mentioned before, there's a substance similar to embalming fluid that keeps the bodies from decomposing.")
@@ -147,11 +147,11 @@
   (wait)
   (text-reset 1)
   (text
-   "Cole: With zombies running through the streets and attackingmy apartment, we headed to Precinct 16, but it was too late...It had already been overrun by zombies.")
+   "Cole: With zombies running through the streets and attackingmy apartment, we headed to Precinct 16, but it was too      late... It had already been overrun by zombies.")
   (wait)
   (text-reset 1)
   (text
-   "Cole: In the chief's office, we found a memo that pointed usin the direction of the Central Hotel. There we found five    survivors...and Ghoul.")
+   "Cole: In the chief's office, we found a memo that pointed usin the direction of the Central Hotel. There we found five  survivors...and Ghoul.")
   (wait)
   (text-reset 1)
   (text "Cole: I guess whoever wrote the memo assumed that everyone  left alive would head to the police station.")
@@ -165,7 +165,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Cole: No... I shot him first. He insisted that he would turninto a zombie and attack me, so I had to pull the trigger beforethat happened.")
+   "Cole: No... I shot him first. He insisted that he would turninto a zombie and attack me, so I had to pull the trigger   before that happened.")
   (wait)
   (text-reset 1)
   (text "Steve: ...")

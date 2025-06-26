@@ -91,7 +91,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Cole: Nothing, but... if you leave a corpse unattended for amonth, it decays so much that you can't ID it by looking at it,   right?")
+    "Cole: Nothing, but... if you leave a corpse unattended for amonth, it decays so much that you can't ID it by looking at it, right?")
    (wait)
    (text-reset 1)
    (text "Steve: That's true.")

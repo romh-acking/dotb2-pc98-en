@@ -55,7 +55,7 @@
    (text-reset 1))
  (seg (? (= P 5) (= 217 #f))
    (text
-    "Cole: I see vinyl baggies and syringes on the table... Thesedudes are the opposite of subtle. That's gotta be Purple Sky.")
+    "Cole: I see vinyl baggies and syringes on the table... Thesedudes are the opposite of subtle. That's gotta be Purple    Sky.")
    (set-reg 217 #t)
    (wait)
    (text-reset 1))

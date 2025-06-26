@@ -72,7 +72,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Steve: Yeah, and ever since I joined, it's been getting moreand more buried in desk work. I'd prefer to be on an actual    investigation...")
+    "Steve: Yeah, and ever since I joined, it's been getting moreand more buried in desk work. I'd prefer to be on an actual investigation...")
    (wait)
    (text-reset 1)
    (text "Cole: Speaking of which, you're the boss around here, aren'tyou?")
@@ -156,14 +156,14 @@
    (wait)
    (text-reset 1)
    (text
-    "Cole: She blacked out for a little while, I think. And sinceshe was about to get assaulted, she was traumatized to hell andback.")
+    "Cole: She blacked out for a little while, I think. And sinceshe was about to get assaulted, she was traumatized to hell and back.")
    (wait)
    (text-reset 1)
    (text "Cole: I took her home, but she still seemed out of it.")
    (wait)
    (text-reset 1)
    (text
-    "Steve: Well, Purple Sky isn't like weed in that it makes youtrip, but it does temporarily increase blood flow to the brain.")
+    "Steve: Well, Purple Sky isn't like weed in that it makes youtrip, but it does temporarily increase blood flow to the    brain.")
    (wait)
    (text-reset 1)
    (text "Steve: Sounds like Sheila had something like a mild         concussion from it.")
@@ -175,7 +175,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Steve: In the drug, the compound that revives cells--createdby your buddy Dr. Cooger--is about half of what it usually is.")
+    "Steve: In the drug, the compound that revives cells--createdby your buddy Dr. Cooger--is about half of what it usually  is.")
    (wait)
    (text-reset 1)
    (text "Cole: So only fifty percent of the drug is the reanimation  serum?")
@@ -214,7 +214,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Steve: That's the scariest part of Purple Sky. You came at agood time, though, because I'm about to go see our researcher,  Dr. Lisle.")
+    "Steve: That's the scariest part of Purple Sky. You came at agood time, though, because I'm about to go see our          researcher, Dr. Lisle.")
    (wait)
    (text-reset 1)
    (text "Steve: Would you like to come along?")

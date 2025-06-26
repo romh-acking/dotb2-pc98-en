@@ -93,7 +93,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 106 #f))
-   (text "Sheila: When I asked about Purple Sky, someone had mentionedthey saw a case stamped with the Razovan Pharmaceuticals logo.")
+   (text "Sheila: When I asked about Purple Sky, someone had mentionedthey saw a case stamped with the Razovan Pharmaceuticals    logo.")
    (wait)
    (text-reset 1)
    (text "Cole: Razovan?")

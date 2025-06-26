@@ -88,7 +88,7 @@
    (text "Lisle: He fell into a state of depression, but kept telling me how he had friends he could trust, to console himself.")
    (wait)
    (text-reset 1)
-   (text "Lisle: But of all things, he wound up creating a ReanimationSerum... I'll never be able to surpass that, no matter how hard I   try.")
+   (text "Lisle: But of all things, he wound up creating a ReanimationSerum... I'll never be able to surpass that, no matter how  hard I try.")
    (wait)
    (text-reset 1)
    (text "Cole: ...")
@@ -127,7 +127,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Lisle: Even if it's classified as high potency, what's      actually circulating is laced with heroin, which lessens theeffect of the reanimation serum. So the risk of...reanimation...islow.")
+    "Lisle: Even if it's classified as high potency, what's      actually circulating is laced with heroin, which lessens theeffect of the reanimation serum. So the risk                of...reanimation...is low.")
    (wait)
    (text-reset 1)
    (text

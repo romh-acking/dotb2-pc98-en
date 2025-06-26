@@ -236,7 +236,7 @@
    (text-reset 1))
  (seg (? (= P 6)) (text "Cole: There aren't any zombies by the urinals.") (wait) (text-reset 1))
  (seg (? (= P 7) (= 164 #t))
-   (text "Cole: This is weird... I can't see any signs of zombies... Ican't imagine one would hide in here, so where the hell is it?")
+   (text "Cole: This is weird... I can't see any signs of zombies... Ican't imagine one would hide in here, so where the hell is  it?")
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 155 #f))

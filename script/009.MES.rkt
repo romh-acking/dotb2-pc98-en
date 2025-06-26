@@ -122,7 +122,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Cole: Hard to say, but since Bloody Fox has the stuff, we'regonna need to solve the mystery of how they got it... for Doc's  sake.")
+    "Cole: Hard to say, but since Bloody Fox has the stuff, we'regonna need to solve the mystery of how they got it... for   Doc's sake.")
    (wait)
    (text-reset 1)
    (text "Sheila: There's a lot of Bloody Fox members..and only two ofus. We're gonna have to pick our targets.")

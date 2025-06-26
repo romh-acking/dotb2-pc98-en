@@ -26,7 +26,7 @@
         (text "Cole: Sheila, you still awake?")
         (wait)
         (text-reset 1)
-        (text "Sheila: I heard you went to the police station, and I was soworried I couldn't sleep... I had a bad feeling about things...")
+        (text "Sheila: I heard you went to the police station, and I was soworried I couldn't sleep... I had a bad feeling about       things...")
         (wait)
         (text-reset 1)
         (text "Cole: Well, you weren't wrong. That was one of the gnarliestsituations I've been in, but I made it through.")

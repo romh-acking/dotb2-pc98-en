@@ -98,7 +98,7 @@
    (text-reset 1))
  (seg (? (= P 8) (= 143 #f))
    (text
-    "Cole: That newsstand's run by the regular bearded old fella,hocking papers and magazines. Says he has two grandkids in the     boonies.")
+    "Cole: That newsstand's run by the regular bearded old fella,hocking papers and magazines. Says he has two grandkids in  the boonies.")
    (set-reg 143 #t)
    (wait)
    (text-reset 1))

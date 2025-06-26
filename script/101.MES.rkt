@@ -114,7 +114,7 @@
       (text-reset 1))
      (/
       (text
-       "Cole: No, that's impossible. Richard Gris...Ghoul...is dead.I saw him explode right in front of me. Steve even has a partof his head.")
+       "Cole: No, that's impossible. Richard Gris...Ghoul...is dead.I saw him explode right in front of me. Steve even has a    part of his head.")
       (wait)
       (text-reset 1)
       (text "Cole: Besides, there's no way an android killing machine    would come to my aid.")

@@ -256,7 +256,7 @@
    (text "Steve: It's known as a lawless zone... So dangerous that    cops like me are hesitant to go near it.")
    (wait)
    (text-reset 1)
-   (text "Cole: But we've come this far... There's no way to back downnow. I don't care who I have to go up against, I'm taking Jill  down.")
+   (text "Cole: But we've come this far... There's no way to back downnow. I don't care who I have to go up against, I'm taking   Jill down.")
    (wait)
    (text-reset 1)
    (text "Steve: Then so be it... We'll go together. I can't forgive  Jill for everything he put my brother through. I'm gonna    kill him with my own two hands.")

@@ -90,7 +90,7 @@
    (text "Cole: What are you trying to say?")
    (wait)
    (text-reset 1)
-   (text "Briar: You're taking on Bloody Fox, a gang that makes peoplepiss themselves in fear. You've got some sorta ulterior motive, don't you?")
+   (text "Briar: You're taking on Bloody Fox, a gang that makes peoplepiss themselves in fear. You've got some sorta ulterior     motive, don't you?")
    (wait)
    (text-reset 1)
    (text "Cole: ...")

@@ -74,7 +74,7 @@
    (text "Steve: Where exactly did Dr. Cooger drop the bag with the   DNV cure?")
    (wait)
    (text-reset 1)
-   (text "Cole: At the cemetery in the neighboring town, while we weregetting chased by a zombie cop named Jack. ...I guess you had to bethere.")
+   (text "Cole: At the cemetery in the neighboring town, while we weregetting chased by a zombie cop named Jack. ...I guess you   had to be there.")
    (wait)
    (text-reset 1)
    (text "Steve: In any case, finding that cure takes priority.")

@@ -35,7 +35,7 @@
         (text-reset 1))
        (//
         (text
-         "Cole: This is the ground floor of the 32nd Precinct. There'sbodies of cops and civilians everywhere. I gotta find Steve and   bounce.")
+         "Cole: This is the ground floor of the 32nd Precinct. There'sbodies of cops and civilians everywhere. I gotta find Steve and bounce.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
@@ -78,7 +78,7 @@
    (text-reset 1))
  (seg (? (= P 6) (= 114 #f))
    (text
-    "Cole: There's a big gash on the vending machine, like it washit by something. Makes you wonder what went down when the     zombies attacked.")
+    "Cole: There's a big gash on the vending machine, like it washit by something. Makes you wonder what went down when the  zombies attacked.")
    (set-reg 114 #t)
    (wait)
    (text-reset 1))

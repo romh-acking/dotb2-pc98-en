@@ -42,7 +42,7 @@
    (text-reset 1))
  (seg (? (= P 5) (= 197 #f))
    (text
-    "Cole: I'm sure the Purple Sky drug has been doing the roundshere. Got a hunch Ben might have something to do with it, too.")
+    "Cole: I'm sure the Purple Sky drug has been doing the roundshere. Got a hunch Ben might have something to do with it,   too.")
    (set-reg 197 #t)
    (wait)
    (text-reset 1))
@@ -82,7 +82,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 201 #f))
-   (text "B.F.: Watch out you don't slip on any leftover brains on theground, you're standin' where Ben got his head blasted open! Heh   heh heh...")
+   (text "B.F.: Watch out you don't slip on any leftover brains on theground, you're standin' where Ben got his head blasted open!Heh heh heh...")
    (wait)
    (text-reset 1)
    (text "Cole: Was Ben in Bloody Fox?")

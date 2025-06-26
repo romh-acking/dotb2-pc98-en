@@ -120,7 +120,7 @@
          (wait)
          (text-reset 1)
          (text
-          "Sheila: You're overthinking it! This is what you wanted whenyou started searching for clues, isn't it? If you'd just calledthe cops, you wouldn't have gotten caught up in this...")
+          "Sheila: You're overthinking it! This is what you wanted whenyou started searching for clues, isn't it? If you'd just    called the cops, you wouldn't have gotten caught up in      this...")
          (wait)
          (text-reset 1)
          (text "Cole: Maybe...")
@@ -379,7 +379,7 @@
    (text "Cole: There's no signs of a struggle or anything stolen.")
    (wait)
    (text-reset 1)
-   (text "Sheila: It isn't possible... If someone attacked Lynn, Terrywouldn't have stood for it. He would have called out for help.")
+   (text "Sheila: It isn't possible... If someone attacked Lynn, Terrywouldn't have stood for it. He would have called out for    help.")
    (wait)
    (text-reset 1)
    (text "Cole: That's true. The culprit was deadset on killing them.")
@@ -401,7 +401,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Cole: A zombie would explain it. If a reanimated corpse wereshambling around, the serum would be oozing out of it...right?")
+    "Cole: A zombie would explain it. If a reanimated corpse wereshambling around, the serum would be oozing out of          it...right?")
    (set-reg 135 #t)
    (wait)
    (text-reset 1))

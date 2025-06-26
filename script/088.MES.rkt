@@ -404,7 +404,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Catherine: I've worked in a ton of different jobs, so I knowa lot about how people communicate. It's hard to know for    yourself if you can trust someone.")
+    "Catherine: I've worked in a ton of different jobs, so I knowa lot about how people communicate. It's hard to know for   yourself if you can trust someone.")
    (wait)
    (text-reset 1)
    (text "Cole: That's the kind of thing that makes me not want to    trust people.")

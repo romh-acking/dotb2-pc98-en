@@ -119,7 +119,7 @@
   (wait)
   (text-reset 1)
   (text
-   "Cole: Earlier that night, two of our friends who had come tocelebrate our engagement got killed. And their bodies...their brains were...eaten.")
+   "Cole: Earlier that night, two of our friends who had come tocelebrate our engagement got killed. And their              bodies...their brains were...eaten.")
   (wait)
   (text-reset 1)
   (text "Steve: Do the zombies crave human brains!?")

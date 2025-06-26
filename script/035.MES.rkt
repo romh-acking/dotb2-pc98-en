@@ -149,7 +149,7 @@
                 (wait)
                 (text-reset 1)
                 (text
-                 "Cole: But this town's been so messed up by the zombie attackthat he wouldn't have stuck around. If it were me, I'd take     shelter somewhere far away...like the Perain Institute.")
+                 "Cole: But this town's been so messed up by the zombie attackthat he wouldn't have stuck around. If it were me, I'd take shelter somewhere far away...like the Perain Institute.")
                 (wait)
                 (text-reset 1)
                 (text
@@ -192,7 +192,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 115 #f))
-   (text "Cole: Where did all these zombies come from? There's so manyof them, they just rolled over the town like a tidal wave!    Made of blood!")
+   (text "Cole: Where did all these zombies come from? There's so manyof them, they just rolled over the town like a tidal wave!  Made of blood!")
    (wait)
    (text-reset 1)
    (text "Cole: Maybe I shouldn't think about this too much.")
@@ -205,7 +205,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 117 #f))
-   (text "Cole: I bet you cash money that the people using Doc's serumto make Purple Sky are the same people who made these zombies.")
+   (text "Cole: I bet you cash money that the people using Doc's serumto make Purple Sky are the same people who made these       zombies.")
    (set-reg 117 #t)
    (wait)
    (text-reset 1))

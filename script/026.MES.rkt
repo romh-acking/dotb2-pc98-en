@@ -227,7 +227,7 @@
    (text-reset 1))
  (seg (? (= P 8) (= 182 #f))
    (text
-    "Cole: It doesn't look like anything expensive was taken. Theculprit wasn't just an ordinary thief...they must have had a       particular target in mind.")
+    "Cole: It doesn't look like anything expensive was taken. Theculprit wasn't just an ordinary thief...they must have had aparticular target in mind.")
    (set-reg 182 #t)
    (wait)
    (text-reset 1))

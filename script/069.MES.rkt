@@ -126,7 +126,7 @@
          (text-reset 1)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
          (text
-          "Cole: That was close... I don't want to take wild shots fromsomewhere with unstable footing. If I blew it, I might have taken a  fall down the stairs, and...I'd be dinner.")
+          "Cole: That was close... I don't want to take wild shots fromsomewhere with unstable footing. If I blew it, I might have taken a fall down the stairs, and...I'd be dinner.")
          (wait)
          (text-reset 1)
          (sound '|| 2)

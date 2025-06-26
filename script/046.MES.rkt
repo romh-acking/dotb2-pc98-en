@@ -98,7 +98,7 @@
    (text-reset 1))
  (seg (? (= P 6))
    (text
-    "Cole: It's amazing you hid there without the zombies findingyou. I figured they could track down their victims even without sight...")
+    "Cole: It's amazing you hid there without the zombies findingyou. I figured they could track down their victims even     without sight...")
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 176 #f))

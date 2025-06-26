@@ -113,7 +113,7 @@
  (seg (? (= P 8)) (text "Cole: As usual, questionable graffiti on the wall.") (wait) (text-reset 1))
  (seg (? (= P 9) (= 114 #f))
    (text
-    "Cole: Bikes parked outside mean Bloody Fox thugs in the bar.If Sheila went in there, there's no way they'll let her out...")
+    "Cole: Bikes parked outside mean Bloody Fox thugs in the bar.If Sheila went in there, there's no way they'll let her     out...")
    (wait)
    (text-reset 1))
  (seg (? (= P 9) (= 115 #f))

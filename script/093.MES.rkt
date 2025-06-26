@@ -106,7 +106,7 @@
         (wait)
         (text-reset 1)
         (text
-         "Daniel: Oh, you haven't heard of Jill? That's a surprise. Ifonly you'd thought to ask Dr. Lisle... But it's a little late   for that now.")
+         "Daniel: Oh, you haven't heard of Jill? That's a surprise. Ifonly you'd thought to ask Dr. Lisle... But it's a little    late for that now.")
         (wait)
         (text-reset 1)
         (text "Cole: What's that supposed to mean?")
@@ -167,7 +167,7 @@
          "Daniel: Of course it was me. And I was the one who had      Bloody Fox inject her with the Purple Sky that I'd matured  for over ten days.")
         (wait)
         (text-reset 1)
-        (text "Daniel: But then she started seeing the changes to her body,and started prying for information on Purple Sky from any and  all sources...")
+        (text "Daniel: But then she started seeing the changes to her body,and started prying for information on Purple Sky from any   and all sources...")
         (wait)
         (text-reset 1)
         (text
@@ -311,7 +311,7 @@
               (wait)
               (text-reset 1)
               (text
-               "Daniel: Heh heh... Once I'm gone, there won't be anyone elseto make Purple Sky. But even when I'm gone, the reanimation   serum will survive.")
+               "Daniel: Heh heh... Once I'm gone, there won't be anyone elseto make Purple Sky. But even when I'm gone, the reanimation serum will survive.")
               (wait)
               (text-reset 1)
               (sound '|| 0)

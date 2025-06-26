@@ -264,7 +264,7 @@
    (exec-mem 912 "EXIT"))
  (seg (? (= P 6))
    (text
-    "Cole: So it turns out that Daniel was behind the director atthe Bayside Institute as well. Steve, all the pieces seem to bein place.")
+    "Cole: So it turns out that Daniel was behind the director atthe Bayside Institute as well. Steve, all the pieces seem tobe in place.")
    (wait)
    (text-reset 1)
    (text "Steve: I would never have guessed Razovan was the           masterminds behind the original incident, too.")

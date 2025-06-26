@@ -116,7 +116,7 @@
    (wait)
    (text-reset 1)
    (text
-    "Cole: This could be bad. Shuffle Food's on the opposite sideof the station, and the zombies are bound to attack that      area...")
+    "Cole: This could be bad. Shuffle Food's on the opposite sideof the station, and the zombies are bound to attack that    area...")
    (wait)
    (text-reset 1)
    (text "Sheila: So if they overrun Shuffle Food...")
