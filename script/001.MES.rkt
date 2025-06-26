@@ -19,15 +19,15 @@
    (exec-mem 912 "A 0,S 0")
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (load-mem "A:¥CLM¥DB004.CLM" 32768)
-   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-   (exec-mem 3744 1 1 80 0 0 0)
-   (exec-mem 3744 1 2 80 0 0 0)
-   (exec-mem 3744 1 5 15 5 24 13)
-   (exec-mem 3744 1 6 27 5 36 13)
-   (exec-mem 3744 1 7 23 2 40 3)
-   (exec-mem 3744 1 8 3 8 7 12)
-   (exec-mem 3744 1 9 37 7 47 14)
-   (exec-mem 3744 1 10 52 12 56 15)
+   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
+   (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
+   (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
+   (exec-mem 3744 1 5 15 5 24 13)												; 	Sheila
+   (exec-mem 3744 1 6 27 5 36 13)												; 	Wall
+   (exec-mem 3744 1 7 23 2 40 3)												; 	Aircon
+   (exec-mem 3744 1 8 3 8 7 12)													; 	Phone
+   (exec-mem 3744 1 9 37 7 47 14)												; 	Door
+   (exec-mem 3744 1 10 52 12 56 15)												; 	Stereo
    (sound '|| 0)
    (if (</>
         (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_07.USO"))
@@ -36,7 +36,7 @@
    (text-frame 15 298 74 356)
    (if (</>
         (//
-         (? (= 119 #f))
+         (? (= 119 #f))															; Lead-in from previous MES script
          (str "Cole: I'm so sorry for making you do all the cleanup.")
          (wait)
          (text-reset 1)
@@ -53,7 +53,7 @@
          (str "Cole: Yeah, and I'll be sleeping like a log because of it.")
          (set-reg 119 #t))
         (//
-         (str "Sheila: You look like you're about to fall over.")
+         (str "Sheila: You look like you're about to fall over.")				; Lead-in from loading game
          (wait)
          (text-reset 1)
          (str "Cole: I never thought Terry and Lynn would make me drink" 'br)
@@ -64,7 +64,7 @@
    (wait)
    (text-reset 1)
    (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 105 #t) (= 107 #t) (= 111 #t) (= 112 #t) (= 118 #f))
+ (seg (? (= P 5) (= 105 #t) (= 107 #t) (= 111 #t) (= 112 #t) (= 118 #f))		; Sheila (after inspecting everything) #1
    (str "Sheila: Cole, are you all packed up for the trip?")
    (wait)
    (text-reset 1)
@@ -89,7 +89,7 @@
    (set-reg 118 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 105 #t) (= 107 #t) (= 111 #t) (= 112 #t))
+ (seg (? (= P 5) (= 105 #t) (= 107 #t) (= 111 #t) (= 112 #t))					; Shiela (after inspecting everything) #2
    (str "Cole: Anyway, that's my bag all packed.")
    (wait)
    (text-reset 1)
@@ -144,14 +144,14 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥002.MES"))
- (seg (? (= P 5) (= 100 #f))
+ (seg (? (= P 5) (= 100 #f))													; Shiela #1
    (str "Cole: The engagement ring sparkles on Sheila's left ring" 'br)
    (str "finger. It's not the priciest, but I still remember the big" 'br)
    (str "smile on her face when I gave it to her.")
    (set-reg 100 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 101 #f))
+ (seg (? (= P 5) (= 101 #f))													; Shiela #2
    (str "Cole: Sheila's changed a bit over time. She used to seem" 'br)
    (str "more quiet and reserved.")
    (wait)
@@ -167,7 +167,7 @@
    (set-reg 101 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 102 #f))
+ (seg (? (= P 5) (= 102 #f))													; Shiela #3
    (str "Sheila: Lynn seemed jealous about what we've got going. She" 'br)
    (str "should bite the bullet and marry Terry already.")
    (wait)
@@ -188,7 +188,7 @@
    (set-reg 102 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 103 #f))
+ (seg (? (= P 5) (= 103 #f))													; Shiela #4
    (str "Sheila: But seriously, you drank like a fish. Are you gonna" 'br)
    (str "be able to wake up tomorrow?")
    (wait)
@@ -201,7 +201,7 @@
    (set-reg 103 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 104 #f))
+ (seg (? (= P 5) (= 104 #f))													; Shiela #5
    (str "Cole: Sheila got me a flight to Canada as a birthday" 'br)
    (str "present.")
    (wait)
@@ -235,7 +235,7 @@
    (exec-mem 912 "EXIT")
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 104 #t))
+ (seg (? (= P 5) (= 104 #t))													; Shiela #6 (repeat line)
    (str "Sheila: Tomorrow can't come soon enough. I won't be able to" 'br)
    (str "sleep, thinking about it.")
    (wait)
@@ -246,7 +246,7 @@
    (set-reg 105 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 106 #f))
+ (seg (? (= P 6) (= 106 #f))													; Wall #1
    (str "Cole: I moved into this apartment after the incident, which" 'br)
    (str "rendered my last place uninhabitable.")
    (wait)
@@ -257,7 +257,7 @@
    (set-reg 106 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 107 #f))
+ (seg (? (= P 6) (= 107 #f))													; Wall #2
    (str "Cole: This apartment has big rooms, but it's real old," 'br)
    (str "hence the cheap rent.")
    (wait)
@@ -267,19 +267,19 @@
    (set-reg 107 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))																; Wall #3 (repeat line)
    (str "Cole: I've got a bunch of magazine clippings on the wall." 'br)
    (str "Whenever I see a photo or article I like, I stick it on the" 'br)
    (str "wall.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 108 #f))
+ (seg (? (= P 7) (= 108 #f))													; Aircon #1
    (str "Cole: The air conditioner on the ceiling is super powerful." 'br)
    (str "It can go from balmy to chill in just three minutes.")
    (set-reg 108 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 109 #f))
+ (seg (? (= P 7) (= 109 #f))													; Aircon #2
    (str "Cole: When I asked the landlord, he told me this place used" 'br)
    (str "to be an office. The big air conditioner helped out with" 'br)
    (str "everyone coming and going.")
@@ -289,18 +289,18 @@
    (set-reg 109 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))																; Aircon #3 (repeat line)
    (str "Cole: It's getting cold soon, so I'll need to crank up the" 'br)
    (str "heating on it.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 110 #f))
+ (seg (? (= P 8) (= 110 #f))													; Phone #1
    (str "Cole: My phone. Nobody's calling me now, and I haven't got" 'br)
    (str "anyone to call at the moment.")
    (set-reg 110 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 111 #f))
+ (seg (? (= P 8) (= 111 #f))													; Phone #2
    (str "Cole: That's right...two years ago, Doc called me to say he" 'br)
    (str "created a reanimation serum. That's what started the" 'br)
    (str "incident...")
@@ -314,7 +314,7 @@
    (set-reg 111 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))																; Phone #3 (repeat line)
    (str "Sheila: Why do you keep looking at the phone? You expecting" 'br)
    (str "a call?")
    (wait)
@@ -322,7 +322,7 @@
    (str "Cole: Nah, just zoning out.")
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 112 #f))
+ (seg (? (= P 9) (= 112 #f))													; Door #1
    (str "Cole: Here's the door to my room. The lock's rusted, so one" 'br)
    (str "good hit would bust it open.")
    (wait)
@@ -353,7 +353,7 @@
    (set-reg 112 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 113 #f))
+ (seg (? (= P 9) (= 113 #f))													; Door #2
    (str "Sheila: I still say you should change your locks. If" 'br)
    (str "someone breaks down your door...")
    (wait)
@@ -362,18 +362,18 @@
    (set-reg 113 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9))
+ (seg (? (= P 9))																; Door #3 (repeat line)
    (str "Cole: It's unlocked right now. I'll lock it after Sheila" 'br)
    (str "goes home.")
    (wait)
    (text-reset 1))
- (seg (? (= P 10) (= 114 #f))
+ (seg (? (= P 10) (= 114 #f))													; Stereo #1
    (str "Cole: Only the radio works on this stereo. The cassette and" 'br)
    (str "CD components are busted. I really should get it fixed.")
    (set-reg 114 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 10) (= 115 #f))
+ (seg (? (= P 10) (= 115 #f))													; Stereo #2
    (str "Cole: We're having a conversation, so I don't wanna ruin" 'br)
    (str "the mood by turning on the radio. Sheila's sensitive about" 'br)
    (str "that kind of thing.")
@@ -383,7 +383,7 @@
    (set-reg 115 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 10) (= 116 #f))
+ (seg (? (= P 10) (= 116 #f))													; Stereo #3
    (str "Sheila: Cole, turn on the radio.")
    (wait)
    (text-reset 1)
@@ -398,7 +398,7 @@
    (set-reg 116 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 10) (= 117 #f))
+ (seg (? (= P 10) (= 117 #f))													; Stereo #4
    (str "Cole: Okay, it's on.")
    (wait)
    (text-reset 1)
@@ -425,12 +425,12 @@
    (set-reg 117 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 10))
+ (seg (? (= P 10))																; Stereo #5 (repeat line)
    (str "Cole: The radio's playing hard rock. It's late, so I can't" 'br)
    (str "really crank it up.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))																; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

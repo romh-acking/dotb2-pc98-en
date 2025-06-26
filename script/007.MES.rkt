@@ -2,9 +2,9 @@
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB014.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
   (exec-mem 3744 1 5 24 9 29 11)
   (exec-mem 3744 1 6 6 3 18 6)
   (exec-mem 3744 1 7 40 14 47 15)
@@ -143,7 +143,7 @@
    (str "serum. Was that Bloody Fox member bullshitting me?")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))																; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

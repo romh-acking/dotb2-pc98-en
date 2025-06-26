@@ -2,9 +2,9 @@
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB025.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
   (exec-mem 3744 1 5 18 11 45 13)
   (exec-mem 3744 1 6 29 3 34 6)
   (exec-mem 3744 1 7 39 2 45 5)
@@ -142,8 +142,8 @@
    (str "talk of the town. Don't play dumb with me.")
    (wait)
    (text-reset 1)
-   (str "Briar: If I don't know, I don't know. And if YOU know what's" 'br)
-   (str "good for you, piss off!")
+   (str "Briar: If I don't know, I don't know. And if YOU know" 'br)
+   (str "what's good for you, piss off!")
    (wait)
    (text-reset 1)
    (str "Cole: I'm not here to cause trouble. Tell me, does Ben" 'br)
@@ -264,7 +264,7 @@
          (str "Research Lab two years ago...!")
          (wait)
          (text-reset 1)
-         (str "Man: ...\"Ghoul?\" You must have me confused with someone" 'br)
+         (str "Man: ...“Ghoul?”You must have me confused with someone" 'br)
          (str "else...")
          (wait)
          (text-reset 1)
@@ -326,7 +326,7 @@
          (sound '|se | 10)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
          (text "　　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
-         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
+         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
          (text-reset 1)
          (branch-var
           S
@@ -384,7 +384,7 @@
    (str "or nothing.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))																; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

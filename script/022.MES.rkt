@@ -2,9 +2,9 @@
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB042.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
   (exec-mem 3744 1 5 22 2 37 9)
   (exec-mem 3744 1 6 5 9 17 14)
   (exec-mem 3744 1 7 52 6 56 12)
@@ -104,7 +104,7 @@
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (sound '|| 2)
    (mes-jump "A:¥MES¥023.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))																; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

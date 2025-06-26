@@ -11,7 +11,7 @@
   (wait)
   (text-reset 1)
   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-  (str "Cole: Was that the guy from earlier...? In a fancy" 'br)
+  (str "Cole: Did that come from the guy earlier...? In a fancy" 'br)
   (str "apartment like this, there's all kinds of different people," 'br)
   (str "I guess.")
   (wait)

@@ -2,9 +2,9 @@
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB004C.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
   (exec-mem 3744 1 6 27 5 36 13)
   (exec-mem 3744 1 7 23 2 40 3)
   (exec-mem 3744 1 8 3 8 7 12)
@@ -28,8 +28,8 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: I'm worried about Sheila. I should call her up and see" 'br)
-        (str "how she's faring.")
+        (str "Cole: I'm worried about Sheila. I should call her up and" 'br)
+        (str "see how she's faring.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
@@ -69,9 +69,9 @@
    (str "Cole: Hello, Sheila? I --")
    (wait)
    (text-reset 1)
-   (str "Answering Machine: \"Hi, this is Sheila. Thanks for calling," 'br)
+   (str "Answering Machine:“Hi, this is Sheila. Thanks for calling," 'br)
    (str "but I'm not at home right now. Please leave your message" 'br)
-   (str "after the beep.\"")
+   (str "after the beep.”")
    (wait)
    (text-reset 1)
    (str "Cole: Maybe Sheila's out early because she's feeling" 'br)
@@ -96,9 +96,9 @@
    (str "Cole: No dice.")
    (wait)
    (text-reset 1)
-   (str "Answering Machine: \"Hi, this is Sheila. Thanks for calling," 'br)
+   (str "Answering Machine:“Hi, this is Sheila. Thanks for calling," 'br)
    (str "but I'm not at home right now. Please leave your message" 'br)
-   (str "after the beep.\"")
+   (str "after the beep.”")
    (wait)
    (text-reset 1)
    (str "Cole: Damn, I guess she really isn't there.")
@@ -110,8 +110,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 9) (= 119 #t))
-   (str "Cole: I'm really worried about what the Purple Sky injection" 'br)
-   (str "might have done to her.")
+   (str "Cole: I'm really worried about what the Purple Sky" 'br)
+   (str "injection might have done to her.")
    (wait)
    (text-reset 1)
    (str "Cole: And she still isn't answering her phone...maybe I" 'br)
@@ -146,7 +146,7 @@
    (str "and see how she's doing.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))																; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

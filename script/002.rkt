@@ -2,13 +2,13 @@
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB006.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 49 8 56 13)
-  (exec-mem 3744 1 6 17 12 25 15)
-  (exec-mem 3744 1 7 12 9 17 11)
-  (exec-mem 3744 1 8 23 8 28 10)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
+  (exec-mem 3744 1 5 49 8 56 13)												; 	Terry
+  (exec-mem 3744 1 6 17 12 25 15)												; 	Lynn
+  (exec-mem 3744 1 7 12 9 17 11)												; 	Wall
+  (exec-mem 3744 1 8 23 8 28 10)												; 	Doorway
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB006.GPC")
   (image-mem 1 3)
@@ -31,13 +31,13 @@
   (text-frame 15 298 74 356)
   (if (</>
        (//
-        (? (= 132 #t))
+        (? (= 132 #t))															; Lead-in from loading game (after discovering reanimation serum)
         (str "Cole: Why would there be reanimation serum in a place like" 'br)
         (str "this!?")
         (wait)
         (text-reset 1))
        (//
-        (? (= 120 #f))
+        (? (= 120 #f))															; Lead-in from previous MES script
         (str "Cole: Lynn... Terry...!")
         (wait)
         (text-reset 1)
@@ -115,7 +115,7 @@
   (loop
    (if (</>
         (//
-         (? (= 133 #t) (= 134 #t) (= 135 #t))
+         (? (= 133 #t) (= 134 #t) (= 135 #t))									; Appended to last action after inspecting everything, post-discovery of reanimation serum
          (str "Cole: Was someone trying to lure me out...?")
          (wait)
          (text-reset 1)
@@ -214,7 +214,7 @@
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
          (mes-jump "A:¥MES¥003.MES"))
         (//
-         (? (= 123 #t) (= 126 #t) (= 129 #t) (= 131 #t) (= 132 #f))
+         (? (= 123 #t) (= 126 #t) (= 129 #t) (= 131 #t) (= 132 #f))				; Appended to last action after inspecting everything
          (str "Sheila: Cole, I've been wondering...what are those weird" 'br)
          (str "spatters on the ground?")
          (wait)
@@ -272,7 +272,7 @@
    (exec-mem 3744 3 "P" 32768)
    (text-color 15)
    (seg-call)))
- (seg (? (= P 5) (= 132 #t) (= 133 #f))
+ (seg (? (= P 5) (= 132 #t) (= 133 #f))											; Terry (post-discovery) #1
    (str "Sheila: What are we going to do?")
    (wait)
    (text-reset 1)
@@ -290,7 +290,7 @@
    (set-reg 133 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 132 #t))
+ (seg (? (= P 5) (= 132 #t))													; Terry (post-discovery) #2 (repeat line)
    (str "Cole: He took a real hit, so that explains the blood...")
    (wait)
    (text-reset 1)
@@ -300,7 +300,7 @@
    (str "Cole: Yeah...")
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 121 #f))
+ (seg (? (= P 5) (= 121 #f))													; Terry #1
    (str "Cole: That's Terry...his eyes still have an expression of" 'br)
    (str "terror. Just what was the last thing he saw...?")
    (wait)
@@ -309,7 +309,7 @@
    (set-reg 121 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 122 #f))
+ (seg (? (= P 5) (= 122 #f))													; Terry #2
    (str "Cole: He bled out. That amount of blood loss would kill" 'br)
    (str "anyone...")
    (wait)
@@ -322,7 +322,7 @@
    (set-reg 122 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 123 #f))
+ (seg (? (= P 5) (= 123 #f))													; Terry #3
    (str "Cole: And the blood still hasn't clotted.")
    (wait)
    (text-reset 1)
@@ -357,7 +357,7 @@
    (set-reg 123 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))																; Terry #4 (repeat line)
    (str "Cole: It looks like the good times we had are just memories" 'br)
    (str "now...")
    (wait)
@@ -365,7 +365,7 @@
    (str "Sheila: ...")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 132 #t) (= 134 #f))
+ (seg (? (= P 6) (= 132 #t) (= 134 #f))											; Lynn (post-discovery) #1
    (str "Cole: Just like I feared. Lynn's head is totally caved in.")
    (wait)
    (text-reset 1)
@@ -377,7 +377,7 @@
    (set-reg 134 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 132 #t))
+ (seg (? (= P 6) (= 132 #t))													; Lynn (post-discovery) #2 (repeat line)
    (str "Sheila: Could the culprit be...the undead?")
    (wait)
    (text-reset 1)
@@ -394,7 +394,7 @@
    (str "zombie alert.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 124 #f))
+ (seg (? (= P 6) (= 124 #f))													; Lynn #1
    (str "Cole: Lynn lying down over there...she's just a girl..." 'br)
    (str "They should have taken it easier on her, you know?")
    (wait)
@@ -404,7 +404,7 @@
    (set-reg 124 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 125 #f))
+ (seg (? (= P 6) (= 125 #f))													; Lynn #2
    (str "Sheila: Lynn... you and Terry were doing so well together...")
    (wait)
    (text-reset 1)
@@ -412,7 +412,7 @@
    (set-reg 125 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 126 #f))
+ (seg (? (= P 6) (= 126 #f))													; Lynn #3
    (str "Cole: There's no signs of a struggle or anything stolen.")
    (wait)
    (text-reset 1)
@@ -425,14 +425,14 @@
    (set-reg 126 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))																; Lynn #4 (repeat line)
    (str "Cole: But just who could have done such a thing...")
    (wait)
    (text-reset 1)
    (str "Sheila: It's too awful!")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 132 #t) (= 135 #f))
+ (seg (? (= P 7) (= 132 #t) (= 135 #f))											; Wall (post-discovery) #1
    (str "Cole: Sheila, take a look at this wall. There's traces of" 'br)
    (str "the reanimation serum all over it.")
    (wait)
@@ -447,27 +447,27 @@
    (set-reg 135 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 132 #t))
+ (seg (? (= P 7) (= 132 #t))													; Wall (post-discovery) #2 (repeat line)
    (str "Sheila: But why would a zombie be here?")
    (wait)
    (text-reset 1)
    (str "Cole: ...")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 127 #f))
+ (seg (? (= P 7) (= 127 #f))													; Wall #1
    (str "Cole: Anyone using this alley would live here. And who in" 'br)
    (str "their right mind would come into this alley in the middle" 'br)
    (str "of the night?")
    (set-reg 127 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 128 #f))
+ (seg (? (= P 7) (= 128 #f))													; Wall #2
    (str "Cole: There's a lot of notices posted on the walls, not" 'br)
    (str "that they'd really get anyone's attention.")
    (set-reg 128 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 129 #f))
+ (seg (? (= P 7) (= 129 #f))													; Wall #3
    (str "Cole: The building's shadow makes this place dark even" 'br)
    (str "during the daytime. You can't see anything that's going on" 'br)
    (str "from the street. Nobody would see what went on here.")
@@ -477,12 +477,12 @@
    (set-reg 129 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))																; Wall #4 (repeat line)
    (str "Cole: You can see the bloodstains from those two... It's" 'br)
    (str "gruesome.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 132 #t))
+ (seg (? (= P 8) (= 132 #t))													; Doorway (post-discovery) (repeat line)
    (str "Cole: If a zombie got spotted, everyone would lose their" 'br)
    (str "minds.")
    (wait)
@@ -491,13 +491,13 @@
    (str "Street looks the same as always.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 130 #f))
+ (seg (? (= P 8) (= 130 #f))													; Doorway #1
    (str "Cole: Over there's Main Street, but it's so dark here that" 'br)
    (str "nobody would be able to see.")
    (set-reg 130 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 131 #f))
+ (seg (? (= P 8) (= 131 #f))													; Doorway #2
    (str "Sheila: The culprit must have fled that way.")
    (wait)
    (text-reset 1)
@@ -509,14 +509,14 @@
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))																; Doorway #3 (repeat line)
    (str "Cole: Dammit, why did I move into an apartment like this?")
    (wait)
    (text-reset 1)
    (str "Sheila: Don't blame yourself...or the apartment, Cole.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))																; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

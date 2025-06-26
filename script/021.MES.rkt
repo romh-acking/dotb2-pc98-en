@@ -2,9 +2,9 @@
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB041.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
   (exec-mem 3744 1 5 3 2 10 11)
   (exec-mem 3744 1 6 4 12 20 15)
   (exec-mem 3744 1 7 31 5 38 9)
@@ -235,7 +235,7 @@
    (str "Steve: Well, of course, it varies from person to person...")
    (wait)
    (text-reset 1)
-   (str "Cole: What do you mean by \"damage?\"")
+   (str "Cole: What do you mean by“damage?”")
    (wait)
    (text-reset 1)
    (str "Steve: That's the scariest part of Purple Sky. You came at" 'br)
@@ -270,7 +270,7 @@
    (str "provided me with so much good info.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))																; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

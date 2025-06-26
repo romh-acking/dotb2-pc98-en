@@ -21,9 +21,9 @@
         (? (= 104 #t) (= 106 #t) (= 107 #t))
         (load-mem "A:¥CLM¥DB004B.CLM" 32768))
        (// (load-mem "A:¥CLM¥DB004D.CLM" 32768))))
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
   (if (</>
        (//
         (? (= 104 #t) (= 106 #t) (= 107 #t))
@@ -168,7 +168,7 @@
    (str "not to get distracted by the radio blaring whatever.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))																; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

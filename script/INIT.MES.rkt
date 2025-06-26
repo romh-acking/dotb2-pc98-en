@@ -1,7 +1,7 @@
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
-  ((cmd 206) 0 0)
+  ((cmd 206) 0 0)																; Game startup stuff
   ((cmd 206) 1 1)
   ((cmd 203) 5 1)
   ((cmd 203) 5 4)
@@ -100,7 +100,7 @@
   (define-proc 17 (<>))
   (define-proc 18 (<>))
   (define-proc 19 (<>))
-  (text 'br)
+  (text 'br)																	; Music board selection screen starts here
   (text 'br)
   (text 'br)
   (text 'br)
@@ -128,7 +128,7 @@
    (</>
     (/ (sound '|se | "A:¥USO_V¥BRAIN2_V.SE") (nop@) (set-reg 900 #f))
     (/ (sound '|se | "A:¥USO_D¥BRAIN2_D.SE") (set-reg 900 #t))))
-  (text-frame 0 0 79 399)
+  (text-frame 0 0 79 399)														; Disclaimers start here
   (text-reset 0)
   (text-color 2)
   ((cmd 209) 0)
@@ -218,7 +218,7 @@
   ((cmd 209) 1)
   (if (</>
        (//
-        (? (= 0 #f))
+        (? (= 0 #f))															; Name entry screen... this should be dummied out if not already
         (text #:col 15 'br)
         (text 'br)
         (text 'br)
@@ -235,13 +235,13 @@
         (text-reset 0))))
   ((cmd 210))
   (loop
-   (text-frame 16 20 60 200)
+   (text-frame 16 20 60 200)													; Main menu starts here
    (text-reset 0)
    (text #:col 15 'br)
    (text 'br)
    (text 'br)
-   (str " NIGHTMARE COLLECTION ｢DEAD OF THE BRAINⅡ｣")
-   (str "         RETURN OF THE LIVING DEAD...")
+   (str " NIGHTMARE COLLECTION“DEAD OF THE BRAINⅡ”")
+   (str "        RETURN OF THE LIVING DEAD...")
    (text-frame 17 284 76 340)
    (text-reset 0)
    (menu1
@@ -262,7 +262,7 @@
      (/ (nop@) (set-var Q 0) (seg-call))
      (/ (nop@) (set-var Q 1) (seg-call))
      (/ (nop@) (set-var Q 2) (seg-call))))))
- (seg (? (= Q 0))
+ (seg (? (= Q 0))																; NEW GAME option
    (sound '|| 0)
    (if (</>
         (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥B0NOPN.USO"))
@@ -273,7 +273,7 @@
    (text-frame 0 0 79 399)
    (text-reset 0)
    (mes-jump "A:¥MES¥OPENNING.MES"))
- (seg (? (= Q 1))
+ (seg (? (= Q 1))																; LOAD GAME option
    (str "Select Load Number.")
    (menu1
     18
@@ -407,7 +407,7 @@
      (/ (nop@))))
    (text-frame 15 298 74 356)
    (text-reset 0))
- (seg (? (= Q 2))
+ (seg (? (= Q 2))																; MUSIC MODE option (goes to MUSIC.MES)
    (text-reset 0)
    (mes-load? 0)
    (text-frame 0 0 1 20)
