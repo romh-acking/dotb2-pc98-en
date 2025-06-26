@@ -1,0 +1,822 @@
+(mes
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))
+ (seg*
+  (load-mem "A:¥CLM¥DB042.CLM" 32768)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
+  (exec-mem 3744 1 1 80 0 0 0)
+  (exec-mem 3744 1 2 80 0 0 0)
+  (exec-mem 3744 1 5 22 2 37 9)
+  (exec-mem 3744 1 6 5 9 17 14)
+  (exec-mem 3744 1 7 52 6 56 12)
+  (exec-mem 9920 0 6 6 113 64 0)
+  (image-file "B:¥GPC¥DB042.GPC")
+  (image-mem 1 3)
+  (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
+  (exec-mem 912 "C 0 40 0 40 400 1 40 0")
+  (exec-mem 912 "A 1")
+  (image-file "A:¥GPC¥DB_FRM2.GPC")
+  (image-mem 1 0)
+  (image-file "B:¥GPC¥DB069C.GPC")
+  (image-mem 1 3)
+  (exec-mem 912 "GET 0 54 38 23 134")
+  (exec-mem 912 "A 0")
+  (exec-mem 912 "GET 1 54 38 23 172")
+  (exec-mem 912 "A 0,S 0")
+  (exec-mem 256 0 4 2 3)
+  (exec-mem 256 1 0 0 0)
+  (exec-mem 256 2 6 4 5)
+  (exec-mem 256 3 0 11 0)
+  (exec-mem 256 4 0 7 0)
+  (exec-mem 256 5 2 0 1)
+  (exec-mem 256 6 5 1 3)
+  (exec-mem 256 7 4 0 0)
+  (exec-mem 256 8 7 1 5)
+  (exec-mem 256 9 8 4 5)
+  (exec-mem 256 10 9 0 0)
+  (exec-mem 256 11 5 0 0)
+  (exec-mem 256 12 3 0 0)
+  (exec-mem 256 13 8 0 5)
+  (exec-mem 256 14 4 0 3)
+  (exec-mem 256 15 12 8 9)
+  (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
+  (if (</>
+       (//
+        (? (= 129 #f))
+        (sound '|| 0)
+        (if (</>
+             (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_04.USO"))
+             (// (sound '|| "A:¥USO_D¥BR2_04.USO"))))
+        (sound '|| 1))))
+  (if (</>
+       (//
+        (? (= 130 #f))
+        (text "［コール］さすがに街を離れると、この辺は寂しいな・・・。")
+        (set-reg 130 #t))
+       (// (text "［コール］ピレイン研究所の前だ。"))))
+  (wait)
+  (text-reset 1)
+  (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
+ (seg (? (= P 5) (= 131 #f))
+   (text "［コール］建物には、どこも破壊された形跡はない。さすがに、死　　　　　霊はここまでは来ていないようだな。")
+   (set-reg 131 #t)
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 5) (= 132 #f))
+   (text "［コール］この辺りには街灯がないため、月明かりを頼るしかない　　　　　な。")
+   (set-reg 132 #t)
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 5) (= 133 #f))
+   (text "［コール］建物の中から物音は聞こえて来ない。中には誰もいない　　　　　のかな？")
+   (set-reg 133 #t)
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 5))
+   (text "［コール］建物はひっそりと静まり返っている。誰もいなかったら　　　　　一度街に戻ってみるしかないな。")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6) (= 134 #f))
+   (text "［コール］確かここが入口だったな・・・。中は真っ暗で何も見え　　　　　ないな。")
+   (set-reg 134 #t)
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6) (= 135 #f))
+   (text "［コール］よし、早速中に入ってみよう。")
+   (wait)
+   (text-reset 1)
+   (text "［コール］あれ？")
+   (wait)
+   (text-reset 1)
+   (text "［コール］くそっ！　入口の扉には鍵がかかってるようだな・・。　　　　　これでは中に入る事ができないな・・・。")
+   (set-reg 135 #t)
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6))
+   (text "［コール］入口の扉には鍵がかかっているため、中に入る事はでき　　　　　ないようだ。")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 7) (= 135 #t) (= 136 #t))
+   (text "［コール］仕方ない、入口が駄目なら非常階段を使うか・・・。")
+   (wait)
+   (text-reset 1)
+   (exec-mem 912 "PUT 0 54 38,W 0,O 0")
+   (text "［コール］２階の廊下に入れる入口だろう。よし、開けて見よう。")
+   (wait)
+   (text-reset 1)
+   (text "［コール］ん？　オートロックのようだな・・・。液晶モニターに　　　　　『")
+   (branch-random
+    (</>
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))
+     (/
+      (branch-random
+       (</>
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@))
+        (/ (nop@)))))))
+   (branch-random
+    (</>
+     (/ (text "Ｒ−Ｔ５０") (nop@) (set-reg 137 #t))
+     (/ (text "Ｖ−Ｌ２５") (nop@) (set-reg 138 #t))
+     (/ (text "Ｓ−Ｒ５２") (nop@) (set-reg 139 #t))
+     (/ (text "Ｂ−Ａ４１") (nop@) (set-reg 140 #t))
+     (/ (text "Ｐ−Ｂ３０") (nop@) (set-reg 141 #t))
+     (/ (text "Ｗ−Ｃ１３") (nop@) (set-reg 142 #t))
+     (/ (text "Ｘ−Ｍ００") (nop@) (set-reg 143 #t))
+     (/ (text "Ｇ−Ｅ９７") (nop@) (set-reg 144 #t))
+     (/ (text "Ｄ−Ｈ３３") (nop@) (set-reg 145 #t))
+     (/ (text "Ｋ−Ｙ８６") (nop@) (set-reg 146 #t))
+     (/ (text "Ｔ−Ｄ７９") (nop@) (set-reg 147 #t))
+     (/ (text "Ｉ−Ｕ６８") (nop@) (set-reg 148 #t))
+     (/ (text "Ｎ−Ｚ０４") (nop@) (set-reg 149 #t))))
+   (text "』と記号が書いてあるぞ。")
+   (wait)
+   (text-reset 1)
+   (text-frame 15 298 74 356)
+   (text "［コール］えーと、暗証は何だっけな・・・。")
+   (menu1
+    26
+    317
+    34
+    317
+    42
+    317
+    50
+    317
+    58
+    317
+    26
+    337
+    34
+    337
+    42
+    337
+    50
+    337
+    58
+    337
+    (</>
+     (/ (text "　１　"))
+     (/ (text "　２　"))
+     (/ (text "　３　"))
+     (/ (text "　４　"))
+     (/ (text "　５　"))
+     (/ (text "　６　"))
+     (/ (text "　７　"))
+     (/ (text "　８　"))
+     (/ (text "　９　"))
+     (/ (text "　０　"))))
+   (text-reset 1)
+   (text-pos 60 78)
+   (text-color 3)
+   (branch-var
+    S
+    (</>
+     (/ (text "１") (set-reg 150 #t))
+     (/ (text "２") (set-reg 151 #t))
+     (/ (text "３") (set-reg 152 #t))
+     (/ (text "４") (set-reg 153 #t))
+     (/ (text "５") (set-reg 154 #t))
+     (/ (text "６") (set-reg 155 #t))
+     (/ (text "７") (set-reg 156 #t))
+     (/ (text "８") (set-reg 157 #t))
+     (/ (text "９") (set-reg 158 #t))
+     (/ (text "０") (set-reg 159 #t))))
+   (text-frame 15 298 74 356)
+   (text #:col 15 "［コール］えーと、暗証は何だっけな・・・。")
+   (menu1
+    26
+    317
+    34
+    317
+    42
+    317
+    50
+    317
+    58
+    317
+    26
+    337
+    34
+    337
+    42
+    337
+    50
+    337
+    58
+    337
+    (</>
+     (/ (text "　１　"))
+     (/ (text "　２　"))
+     (/ (text "　３　"))
+     (/ (text "　４　"))
+     (/ (text "　５　"))
+     (/ (text "　６　"))
+     (/ (text "　７　"))
+     (/ (text "　８　"))
+     (/ (text "　９　"))
+     (/ (text "　０　"))))
+   (text-reset 1)
+   (text-pos 62 78)
+   (text-color 3)
+   (branch-var
+    S
+    (</>
+     (/ (text "１") (set-reg 160 #t))
+     (/ (text "２") (set-reg 161 #t))
+     (/ (text "３") (set-reg 162 #t))
+     (/ (text "４") (set-reg 163 #t))
+     (/ (text "５") (set-reg 164 #t))
+     (/ (text "６") (set-reg 165 #t))
+     (/ (text "７") (set-reg 166 #t))
+     (/ (text "８") (set-reg 167 #t))
+     (/ (text "９") (set-reg 168 #t))
+     (/ (text "０") (set-reg 169 #t))))
+   (text-frame 15 298 74 356)
+   (text #:col 15 "［コール］えーと、暗証は何だっけな・・・。")
+   (menu1
+    26
+    317
+    34
+    317
+    42
+    317
+    50
+    317
+    58
+    317
+    26
+    337
+    34
+    337
+    42
+    337
+    50
+    337
+    58
+    337
+    (</>
+     (/ (text "　１　"))
+     (/ (text "　２　"))
+     (/ (text "　３　"))
+     (/ (text "　４　"))
+     (/ (text "　５　"))
+     (/ (text "　６　"))
+     (/ (text "　７　"))
+     (/ (text "　８　"))
+     (/ (text "　９　"))
+     (/ (text "　０　"))))
+   (text-reset 1)
+   (text-pos 64 78)
+   (text-color 3)
+   (branch-var
+    S
+    (</>
+     (/ (text "１") (set-reg 170 #t))
+     (/ (text "２") (set-reg 171 #t))
+     (/ (text "３") (set-reg 172 #t))
+     (/ (text "４") (set-reg 173 #t))
+     (/ (text "５") (set-reg 174 #t))
+     (/ (text "６") (set-reg 175 #t))
+     (/ (text "７") (set-reg 176 #t))
+     (/ (text "８") (set-reg 177 #t))
+     (/ (text "９") (set-reg 178 #t))
+     (/ (text "０") (set-reg 179 #t))))
+   (text-frame 15 298 74 356)
+   (text #:col 15 "［コール］えーと、暗証は何だっけな・・・。")
+   (menu1
+    26
+    317
+    34
+    317
+    42
+    317
+    50
+    317
+    58
+    317
+    26
+    337
+    34
+    337
+    42
+    337
+    50
+    337
+    58
+    337
+    (</>
+     (/ (text "　１　"))
+     (/ (text "　２　"))
+     (/ (text "　３　"))
+     (/ (text "　４　"))
+     (/ (text "　５　"))
+     (/ (text "　６　"))
+     (/ (text "　７　"))
+     (/ (text "　８　"))
+     (/ (text "　９　"))
+     (/ (text "　０　"))))
+   (text-reset 1)
+   (text-pos 66 78)
+   (text-color 3)
+   (branch-var
+    S
+    (</>
+     (/ (text "１") (set-reg 180 #t))
+     (/ (text "２") (set-reg 181 #t))
+     (/ (text "３") (set-reg 182 #t))
+     (/ (text "４") (set-reg 183 #t))
+     (/ (text "５") (set-reg 184 #t))
+     (/ (text "６") (set-reg 185 #t))
+     (/ (text "７") (set-reg 186 #t))
+     (/ (text "８") (set-reg 187 #t))
+     (/ (text "９") (set-reg 188 #t))
+     (/ (text "０") (set-reg 189 #t))))
+   (text-frame 15 298 74 356)
+   (text-color 15)
+   (if (</>
+        (//
+         (? (= 137 #t) (= 150 #t) (= 160 #t) (= 171 #t) (= 188 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 138 #t) (= 151 #t) (= 164 #t) (= 179 #t) (= 188 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 139 #t) (= 152 #t) (= 163 #t) (= 174 #t) (= 188 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 140 #t) (= 153 #t) (= 162 #t) (= 179 #t) (= 183 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 141 #t) (= 154 #t) (= 169 #t) (= 174 #t) (= 184 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 142 #t) (= 155 #t) (= 163 #t) (= 172 #t) (= 186 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 143 #t) (= 156 #t) (= 165 #t) (= 177 #t) (= 186 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 144 #t) (= 157 #t) (= 161 #t) (= 172 #t) (= 182 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 145 #t) (= 158 #t) (= 165 #t) (= 173 #t) (= 181 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 146 #t) (= 159 #t) (= 168 #t) (= 170 #t) (= 184 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 147 #t) (= 158 #t) (= 163 #t) (= 175 #t) (= 180 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 148 #t) (= 156 #t) (= 165 #t) (= 176 #t) (= 187 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= 149 #t) (= 157 #t) (= 161 #t) (= 176 #t) (= 185 #t))
+         (text "［コール］よし、ドアが開いたぞ！")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         (sound '|| 2)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (mes-jump "A:¥MES¥037.MES"))))
+   (if (</>
+        (//
+         (? (= A 2))
+         (text "［コール］やっぱりだめだ・・・諦めた方がよさそうだな・・・。")
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         (exec-mem 912 "EXIT")
+         ((cmd 204) 150 189)
+         (sound '|| 0)
+         (sound '|se | 10)
+         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+         (text "　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)
+         (text "　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
+         (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
+         (loop (wait)))
+        (//
+         (text-frame 15 298 74 356)
+         (text "［コール］違ったようだな・・・。もう一度やってみるか・・・。")
+         (inc-var A 1)
+         (wait)
+         (text-reset 1)
+         (exec-mem 912 "PUT 1 54 38,W 0,O 0")
+         ((cmd 204) 150 189)))))
+ (seg (? (= P 7) (= 136 #f))
+   (text "［コール］あれは非常階段だったな。確か２階に通じているんだ。")
+   (set-reg 136 #t)
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 7)) (text "［コール］非常階段が研究所の脇に見えている。") (wait) (text-reset 1))
+ (seg (? (= P 2))
+   (exec-mem 6064 2 2)
+   (menu1
+    25
+    317
+    39
+    317
+    53
+    317
+    (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
+   (text-reset 1)
+   (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
+   (branch-var
+    S
+    (</>
+     (/
+      (str "Select Save Number.")
+      (menu1
+       18
+       317
+       32
+       317
+       46
+       317
+       60
+       317
+       18
+       337
+       32
+       337
+       46
+       337
+       60
+       337
+       66
+       298
+       (</>
+        (/ (str " SAVE No.1 "))
+        (/ (str " SAVE No.2 "))
+        (/ (str " SAVE No.3 "))
+        (/ (str " SAVE No.4 "))
+        (/ (str " SAVE No.5 "))
+        (/ (str " SAVE No.6 "))
+        (/ (str " SAVE No.7 "))
+        (/ (str " SAVE No.8 "))
+        (/ (str "[CANCEL]"))))
+      (text-reset 1)
+      (if (</> (// (? (= S 255)) (nop@) (set-var S 8))))
+      (text #:col 15 'br)
+      (text "　　　　　　　　　　　　　")
+      (str "WAIT....")
+      (branch-var
+       S
+       (</>
+        (/ (nop@) (set-reg 129 #f) (flag-save 1))
+        (/ (nop@) (set-reg 129 #f) (flag-save 2))
+        (/ (nop@) (set-reg 129 #f) (flag-save 3))
+        (/ (nop@) (set-reg 129 #f) (flag-save 4))
+        (/ (nop@) (set-reg 129 #f) (flag-save 5))
+        (/ (nop@) (set-reg 129 #f) (flag-save 6))
+        (/ (nop@) (set-reg 129 #f) (flag-save 7))
+        (/ (nop@) (set-reg 129 #f) (flag-save 8))
+        (/ (nop@)))))
+     (/
+      (str "Select Load Number.")
+      (menu1
+       18
+       317
+       32
+       317
+       46
+       317
+       60
+       317
+       18
+       337
+       32
+       337
+       46
+       337
+       60
+       337
+       66
+       298
+       (</>
+        (/ (str " LOAD No.1 "))
+        (/ (str " LOAD No.2 "))
+        (/ (str " LOAD No.3 "))
+        (/ (str " LOAD No.4 "))
+        (/ (str " LOAD No.5 "))
+        (/ (str " LOAD No.6 "))
+        (/ (str " LOAD No.7 "))
+        (/ (str " LOAD No.8 "))
+        (/ (str "[CANCEL]"))))
+      (text-reset 1)
+      (if (</> (// (? (= S 255)) (nop@) (set-var S 8))))
+      (exec-mem 6064 3)
+      (branch-var
+       S
+       (</>
+        (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 1))
+        (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 2))
+        (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 3))
+        (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 4))
+        (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 5))
+        (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 6))
+        (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 7))
+        (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 8))
+        (/ (nop@)))))
+     (/ (nop@))))
+   (text-reset 1)
+   (exec-mem 6064 3))
+ (seg*))
