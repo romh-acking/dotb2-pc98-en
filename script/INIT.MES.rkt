@@ -1,5 +1,5 @@
 (mes
- (meta (engine 'ADV) (charset "English") (extraop #t))
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   ((cmd 206) 0 0)
   ((cmd 206) 1 1)
@@ -110,14 +110,14 @@
   (text 'br)
   (text 'br)
   (text "　　　□")
-  (str "Additional music board")
+  (str "External music board")
   (text 'br)
   (str
    "                                                     VM･VX･RX･RA etc..")
   (text 'br)
   (text 'br)
   (text "　　　□")
-  (str "Default hardware music board")
+  (str "Internal music board")
   (text 'br)
   (str
    "                                                     DX･DS･DA･UX etc..")
@@ -139,11 +139,8 @@
   (text 'br)
   (text 'br)
   (text 'br)
-  (str
-   "All individuals, groups, and entities referenced are")
-  (text 'br)
-  (str "fictional. Any resemblance to real persons, living or dead," 'br)
-(stris coincidental.")
+  (str "      The individuals, groups and events that are depicted are fictitious." 'br)
+  (str "      Any similarity to actual persons, living or dead, is unintentional." 'br)
   (exec-mem 256 2 0 0 0)
   (delay 3)
   (exec-mem 256 2 2 0 0)
@@ -180,8 +177,8 @@
   (text 'br)
   (text 'br)
   (text 'br)
-  (text "This work is based on the story of the seventh (and final)" 'br)
-  (text "chapter of Dead of the Brain.")
+  (str "           This work is based on the story of the seventh (and final)" 'br)
+  (str "                          chapter of Dead of the Brain.")
   (exec-mem 256 2 0 0 0)
   (delay 3)
   (exec-mem 256 2 0 2 2)
