@@ -154,7 +154,7 @@
   (text-reset 1)
   (str "Cole: Yes. The serum can transfer via mucous membranes, so" 'br)
   (str "a bitten person can turn zombie in just a few minutes. But" 'br)
-  (str "there's more to it regards to the chemicals within...")
+  (str "there's more to the chemicals in it...")
   (wait)
   (text-reset 1)
   (str "Cole: As I mentioned before, there's a substance similar to" 'br)

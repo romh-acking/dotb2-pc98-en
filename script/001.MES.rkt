@@ -69,7 +69,7 @@
    (wait)
    (text-reset 1)
    (str "Cole: Should be fine. Bag's got my passport, change of" 'br)
-   (str "clothes, camera...Uno.")
+   (str "clothes, camera...and Uno.")
    (wait)
    (text-reset 1)
    (str "Sheila: Uno?")

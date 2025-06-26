@@ -303,7 +303,7 @@
    (wait)
    (text-reset 1)
    (str "Steve: When I found it, the back of the head was open. The" 'br)
-   (str "inside was empty, save some glowing purple liquid.")
+   (str "inside was empty, save for some glowing purple liquid.")
    (wait)
    (text-reset 1)
    (str "Steve: I'm gonna guess that was battery fluid -- like you'd" 'br)
