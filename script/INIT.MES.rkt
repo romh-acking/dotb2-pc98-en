@@ -142,7 +142,8 @@
   (str
    "All individuals, groups, and entities referenced are")
   (text 'br)
-  (str "fictional. Any resemblance to real persons, living or dead, is coincidental.")
+  (str "fictional. Any resemblance to real persons, living or dead," 'br)
+(stris coincidental.")
   (exec-mem 256 2 0 0 0)
   (delay 3)
   (exec-mem 256 2 2 0 0)
