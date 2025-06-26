@@ -142,7 +142,7 @@
    (str "talk of the town. Don't play dumb with me.")
    (wait)
    (text-reset 1)
-   (str "B.F.: If I don't know, I don't know. And if YOU know what's" 'br)
+   (str "Briar: If I don't know, I don't know. And if YOU know what's" 'br)
    (str "good for you, piss off!")
    (wait)
    (text-reset 1)
