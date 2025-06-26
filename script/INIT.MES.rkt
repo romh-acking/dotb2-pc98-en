@@ -1,5 +1,5 @@
 (mes
- (meta (engine 'ADV) (charset "pc98") (extraop #t))
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))								; INIT.MES: Initialization and main menu
  (seg*
   ((cmd 206) 0 0)																; Game startup stuff
   ((cmd 206) 1 1)

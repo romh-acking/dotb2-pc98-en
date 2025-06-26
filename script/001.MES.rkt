@@ -1,5 +1,5 @@
 (mes
- (meta (engine 'ADV) (charset "pc98") (extraop #t))
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))								; 001.MES: Sheila and Cole hang out after a late party celebrating their engagement.
  (seg (? (>= M A))
    (exec-mem 9920 0 6 6 113 64 0)
    (image-file "B:¥GPC¥DB003.GPC")

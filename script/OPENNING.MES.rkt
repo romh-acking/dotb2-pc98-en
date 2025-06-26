@@ -1,7 +1,7 @@
 (mes
- (meta (engine 'ADV) (charset "pc98") (extraop #t))
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))							; OPENNING.MES (sic): Opening credits and introduction
  (seg*
-  ((cmd 209) 0)																; Opening titles
+  ((cmd 209) 0)																; Opening credits begin here
   (text 'br)
   (text 'br)
   (text 'br)
@@ -11,11 +11,11 @@
   (text 'br)
   ((cmd 203) 1 0)
   (text #:col 2 "　　　　　　　　　　　　　　　　")
-  (text-raw 60323 60324 60325 60326 60327 60328)							; RUSH-TEAM logo
+  (text-raw 60323 60324 60325 60326 60327 60328)
   (text 'br)
   ((cmd 203) 1 1)
   (str "                                PRESENTS...")
-  (exec-mem 256 2 0 0 0)													; Text fade-out
+  (exec-mem 256 2 0 0 0)
   (delay 6)
   (exec-mem 256 2 0 2 0)
   (delay 6)
@@ -29,7 +29,7 @@
   (delay 6)
   (exec-mem 256 2 0 12 0)
   (delay 300)
-  (exec-mem 256 2 0 12 0)													; Text fade-in
+  (exec-mem 256 2 0 12 0)
   (delay 6)
   (exec-mem 256 2 0 10 0)
   (delay 6)

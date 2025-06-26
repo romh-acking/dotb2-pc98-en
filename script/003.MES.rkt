@@ -1,5 +1,5 @@
 (mes
- (meta (engine 'ADV) (charset "pc98") (extraop #t))
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))								; 003.MES: Cole heads out to Main Street to look for perpetrators.
  (seg*
   (load-mem "A:¥CLM¥DB010.CLM" 32768)
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...

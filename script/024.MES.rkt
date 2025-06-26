@@ -19,9 +19,8 @@
   (if (</>
        (//
         (? (= 169 #f))
-        (str "Cole: Sheila lives in an apartment that's about 15 minutes" 'br)
-        (str "from the station. I'm jealous her place is better than mine," 'br)
-        (str "but she's got the folks back home helping out with the rent.")
+        (str "Cole: Sheila's apartment is 15 minutes from the station." 'br)
+        (str "I'm jealous of her place, but her parents help out with the rent.")
         (wait)
         (text-reset 1)
         (str "Cole: And on top of that, her parents come over to stay" 'br)
@@ -38,7 +37,7 @@
  (seg (? (= P 5) (= 170 #f))
    (str "Cole: This apartment building is 12 stories tall and has a" 'br)
    (str "great view. You can't get onto the roof, but the view from" 'br)
-   (str "Sheila's on the 9th floor is more than enough.")
+   (str "Sheila's on the 9th floor's more than enough.")
    (set-reg 170 #t)
    (wait)
    (text-reset 1))

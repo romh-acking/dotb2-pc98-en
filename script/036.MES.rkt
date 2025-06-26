@@ -1,5 +1,5 @@
 (mes
- (meta (engine 'ADV) (charset "English") (extraop #t))
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB042.CLM" 32768)
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
@@ -50,67 +50,67 @@
   (if (</>
        (//
         (? (= 130 #f))
-        (text "Cole: Sure enough, things get pretty desolate once you leave" 'br)
-(text "town...")
+        (str "Cole: Sure enough, things get pretty desolate once you" 'br)
+        (str "leave town...")
         (set-reg 130 #t))
-       (// (text "Cole: This is the front of the Perain Research Institute."))))
+       (// (str "Cole: This is the front of the Perain Research Institute."))))
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
  (seg (? (= P 5) (= 131 #f))
-   (text "Cole: No signs of damage on the building. As expected, the" 'br)
-(text "undead didn't make it out here yet.")
+   (str "Cole: No signs of damage on the building. As expected, the" 'br)
+   (str "undead didn't make it out here yet.")
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 132 #f))
-   (text "Cole: There are no streetlights, so I've gotta make do by" 'br)
-(text "moonlight.")
+   (str "Cole: There are no streetlights, so I've gotta make do by" 'br)
+   (str "moonlight.")
    (set-reg 132 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 133 #f))
-   (text "Cole: I can't hear any sounds coming from the inside of the" 'br)
-(text "building. I wonder if anyone's inside.")
+   (str "Cole: I can't hear any sounds coming from the inside of the" 'br)
+   (str "building. I wonder if anyone's inside.")
    (set-reg 133 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 5))
-   (text "Cole: The building is eerily silent. If there's nobody home," 'br)
-(text "I'll have to head back to town.")
+   (str "Cole: The building is eerily silent. If there's nobody" 'br)
+   (str "home, I'll have to head back to town.")
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 134 #f))
-   (text "Cole: I guess this is the entrance...but I can't see" 'br)
-(text "anything inside, it's pitch black.")
+   (str "Cole: I guess this is the entrance...but I can't see" 'br)
+   (str "anything inside, it's pitch black.")
    (set-reg 134 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 135 #f))
-   (text "Cole: Okay, time to head inside.")
+   (str "Cole: Okay, time to head inside.")
    (wait)
    (text-reset 1)
-   (text "Cole: Wha?")
+   (str "Cole: Wha?")
    (wait)
    (text-reset 1)
-   (text "Cole: Aw hell, the door's locked. Can't get in this way.")
+   (str "Cole: Aw hell, the door's locked. Can't get in this way.")
    (set-reg 135 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 6))
-   (text "Cole: Since the door's locked, I'm not getting in that way.")
+   (str "Cole: Since the door's locked, I'm not getting in that way.")
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 135 #t) (= 136 #t))
-   (text "Cole: No choice, I gotta use the emergency stairs.")
+   (str "Cole: No choice, I gotta use the emergency stairs.")
    (wait)
    (text-reset 1)
    (exec-mem 912 "PUT 0 54 38,W 0,O 0")
-   (text "Cole: This should lead to the second floor. Let's crack it" 'br)
-(text "open and see.")
+   (str "Cole: This should lead to the second floor. Let's crack it" 'br)
+   (str "open and see.")
    (wait)
    (text-reset 1)
-   (text "Cole: A copy-protection auto-lock! The code ")
+   (str "Cole: An auto-lock! The code ")
    (branch-random
     (</>
      (/
@@ -323,24 +323,47 @@
         (/ (nop@)))))))
    (branch-random
     (</>
-     (/ (text "Ｒ−Ｔ５０") (nop@) (set-reg 137 #t))
-     (/ (text "Ｖ−Ｌ２５") (nop@) (set-reg 138 #t))
-     (/ (text "Ｓ−Ｒ５２") (nop@) (set-reg 139 #t))
-     (/ (text "Ｂ−Ａ４１") (nop@) (set-reg 140 #t))
-     (/ (text "Ｐ−Ｂ３０") (nop@) (set-reg 141 #t))
-     (/ (text "Ｗ−Ｃ１３") (nop@) (set-reg 142 #t))
-     (/ (text "Ｘ−Ｍ００") (nop@) (set-reg 143 #t))
-     (/ (text "Ｇ−Ｅ９７") (nop@) (set-reg 144 #t))
-     (/ (text "Ｄ−Ｈ３３") (nop@) (set-reg 145 #t))
-     (/ (text "Ｋ−Ｙ８６") (nop@) (set-reg 146 #t))
-     (/ (text "Ｔ−Ｄ７９") (nop@) (set-reg 147 #t))
-     (/ (text "Ｉ−Ｕ６８") (nop@) (set-reg 148 #t))
-     (/ (text "Ｎ−Ｚ０４") (nop@) (set-reg 149 #t))))
-   (text "is on the screen. Um, I should check the readme.txt.")
+     (/ (str "R-T50") (nop@) (set-reg 137 #t))
+     (/ (str "V-L25") (nop@) (set-reg 138 #t))
+     (/ (str "S-R52") (nop@) (set-reg 139 #t))
+     (/ (str "B-A41") (nop@) (set-reg 140 #t))
+     (/ (str "P-B30") (nop@) (set-reg 141 #t))
+     (/ (str "W-C13") (nop@) (set-reg 142 #t))
+     (/ (str "X-M00") (nop@) (set-reg 143 #t))
+     (/ (str "G-E97") (nop@) (set-reg 144 #t))
+     (/ (str "D-H33") (nop@) (set-reg 145 #t))
+     (/ (str "K-Y86") (nop@) (set-reg 146 #t))
+     (/ (str "T-D79") (nop@) (set-reg 147 #t))
+     (/ (str "I-U68") (nop@) (set-reg 148 #t))
+     (/ (str "N-Z04") (nop@) (set-reg 149 #t))))
+   (str " is on the screen.")
+   (if (</>
+     (//
+      (? (= 190 #f))
+      (str "..")
+      (set-reg 190 #t))
+     (//
+      (branch-random
+       (</>
+        (/
+         (str " Isn't" 'br)
+         (str "there a manual for this?"))
+        (/
+         (str " Man," 'br)
+         (str "this is like some kind of copy protection scheme..."))
+        (/
+         (str " Um, I" 'br)
+         (str "should check the readme.txt..."))
+        (/
+         (str ".."))
+        (/
+         (str ".."))
+        (/
+         (str "..")))))))
    (wait)
    (text-reset 1)
    (text-frame 15 298 74 356)
-   (text "Cole: Okay, I've checked the readme, and let's enter... ")
+   (str "Cole: Uh, so the password is...")
    (menu1
     26
     317
@@ -390,7 +413,7 @@
      (/ (text "９") (set-reg 158 #t))
      (/ (text "０") (set-reg 159 #t))))
    (text-frame 15 298 74 356)
-   (text #:col 15 "［コール］えーと、暗証は何だっけな・・・。")
+   (text #:col 15) (str "Cole: Uh, so the password is...")
    (menu1
     26
     317
@@ -440,7 +463,7 @@
      (/ (text "９") (set-reg 168 #t))
      (/ (text "０") (set-reg 169 #t))))
    (text-frame 15 298 74 356)
-   (text #:col 15 "［コール］えーと、暗証は何だっけな・・・。")
+   (text #:col 15) (str "Cole: Uh, so the password is...")
    (menu1
     26
     317
@@ -490,7 +513,7 @@
      (/ (text "９") (set-reg 178 #t))
      (/ (text "０") (set-reg 179 #t))))
    (text-frame 15 298 74 356)
-   (text #:col 15 "［コール］えーと、暗証は何だっけな・・・。")
+   (text #:col 15) (str "Cole: Uh, so the password is...")
    (menu1
     26
     317
@@ -544,7 +567,7 @@
    (if (</>
         (//
          (? (= 137 #t) (= 150 #t) (= 160 #t) (= 171 #t) (= 188 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -555,7 +578,7 @@
    (if (</>
         (//
          (? (= 138 #t) (= 151 #t) (= 164 #t) (= 179 #t) (= 188 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -566,7 +589,7 @@
    (if (</>
         (//
          (? (= 139 #t) (= 152 #t) (= 163 #t) (= 174 #t) (= 188 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -577,7 +600,7 @@
    (if (</>
         (//
          (? (= 140 #t) (= 153 #t) (= 162 #t) (= 179 #t) (= 183 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -588,7 +611,7 @@
    (if (</>
         (//
          (? (= 141 #t) (= 154 #t) (= 169 #t) (= 174 #t) (= 184 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -599,7 +622,7 @@
    (if (</>
         (//
          (? (= 142 #t) (= 155 #t) (= 163 #t) (= 172 #t) (= 186 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -610,7 +633,7 @@
    (if (</>
         (//
          (? (= 143 #t) (= 156 #t) (= 165 #t) (= 177 #t) (= 186 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -621,7 +644,7 @@
    (if (</>
         (//
          (? (= 144 #t) (= 157 #t) (= 161 #t) (= 172 #t) (= 182 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -632,7 +655,7 @@
    (if (</>
         (//
          (? (= 145 #t) (= 158 #t) (= 165 #t) (= 173 #t) (= 181 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -643,7 +666,7 @@
    (if (</>
         (//
          (? (= 146 #t) (= 159 #t) (= 168 #t) (= 170 #t) (= 184 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -654,7 +677,7 @@
    (if (</>
         (//
          (? (= 147 #t) (= 158 #t) (= 163 #t) (= 175 #t) (= 180 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -665,7 +688,7 @@
    (if (</>
         (//
          (? (= 148 #t) (= 156 #t) (= 165 #t) (= 176 #t) (= 187 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -676,7 +699,7 @@
    (if (</>
         (//
          (? (= 149 #t) (= 157 #t) (= 161 #t) (= 176 #t) (= 185 #t))
-         (text "Cole: OK door, open up!")
+         (str "Cole: OK door, open up!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -687,8 +710,8 @@
    (if (</>
         (//
          (? (= A 2))
-         (text "Cole: No good. I guess I'll give up on my entire adventure." 'br)
-(text "Oh well.")
+         (str "Cole: No good. I guess I'll give up on my entire adventure." 'br)
+         (str "Oh well.")
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
@@ -703,19 +726,22 @@
          (loop (wait)))
         (//
          (text-frame 15 298 74 356)
-         (text "Cole: I biffed it. Better try again.")
+         (str "Cole: I biffed it. Better try again.")
          (inc-var A 1)
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
          ((cmd 204) 150 189)))))
  (seg (? (= P 7) (= 136 #f))
-   (text "Cole: That's the fire escape. Leads up to the second floor.")
+   (str "Cole: That's the fire escape. Leads up to the second floor.")
    (set-reg 136 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7)) (text "Cole: There's a fire escape on the right side of the" 'br)
-(text "institute.") (wait) (text-reset 1))
+ (seg (? (= P 7))
+   (str "Cole: There's a fire escape on the right side of the" 'br)
+   (str "institute.")
+   (wait)
+   (text-reset 1))
  (seg (? (= P 2))
    (exec-mem 6064 2 2)
    (menu1
