@@ -121,7 +121,7 @@
   (text 'br)
   (str
    "                                                     DX･DS･DA･UX etc..")
-  (menu1 6 140 6 200 (</> (/ (text "□")) (/ (text "□"))))
+  (menu1 6 140 6 200 (</> (/ (str "□")) (/ (str "□"))))
   (text-reset 0)
   (branch-var
    S
