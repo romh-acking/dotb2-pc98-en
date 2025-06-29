@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 004.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole encounters a Bloody Fox member harassing a woman.
+; --Progression:--
+; Fully inspect harassment, then fully inspect biker
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB011.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 49 9 55 12)
-  (exec-mem 3744 1 6 15 9 23 14)
-  (exec-mem 3744 1 7 25 4 41 9)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 49 9 55 12)						; 	Onlookers
+  (exec-mem 3744 1 6 15 9 23 14)						; 	Biker
+  (exec-mem 3744 1 7 25 4 41 9)							; 	Harassment
   (exec-mem 9920 0 6 6 113 64 0)
   (if (</>
        (// (? (= 146 #t)) (image-file "B:¥GPC¥DB010.GPC") (image-mem 1 3))))
@@ -21,7 +28,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 146 #f))
+        (? (= 146 #f))								; Lead-in from loading game
         (str "B.F.: Yo, sweetcheeks! How about we go out on a hot date?")
         (wait)
         (text-reset 1)
@@ -41,26 +48,26 @@
         (wait)
         (text-reset 1))
        (//
-        (str "B.F.: C'mon, sister, we're just tryin' to have some fun.")
+        (str "B.F.: C'mon, sister, we're just tryin' to have some fun.")	; Lead-in from previous MES script
         (wait)
         (text-reset 1)
         (str "Woman: I said, let me go!")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 147 #f))
+ (seg (? (= P 5) (= 147 #f))							; Onlookers #1
    (str "Cole: Looks like the Bloody Fox gang is up to the typical" 'br)
    (str "bullshit...")
    (set-reg 147 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 148 #f))
+ (seg (? (= P 5) (= 148 #f))							; Onlookers #2
    (str "Cole: Everyone is just looking away. If you get involved" 'br)
    (str "with Bloody Fox, you're asking for a world of trouble.")
    (set-reg 148 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Onlookers #3 (repeat line)
    (str "Cole: Nobody's helping her because even if you manage to" 'br)
    (str "land a hit on those guys, they'll come back with their" 'br)
    (str "friends later for revenge.")
@@ -70,7 +77,7 @@
    (str "the cops won't intervene.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 150 #t) (= 154 #t) (= 155 #f))
+ (seg (? (= P 6) (= 150 #t) (= 154 #t) (= 155 #f))				; Biker (after fully inspecting harassment) #1
    (str "Cole: Wait a minute... Right there, is that paint on the" 'br)
    (str "bike tire? It looks like the droplets of the reanimation" 'br)
    (str "serum from the alley. Are these the guys?")
@@ -81,7 +88,7 @@
    (set-reg 155 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 150 #t) (= 154 #t))
+ (seg (? (= P 6) (= 150 #t) (= 154 #t))						; Biker (after fully inspecting harassment) #2
    (str "Cole: Maybe it's just paint. I'll ask...and maybe see if I" 'br)
    (str "can help the girl too.")
    (wait)
@@ -105,13 +112,13 @@
    (set-reg 156 #t)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥005.MES"))
- (seg (? (= P 6) (= 149 #f))
+ (seg (? (= P 6) (= 149 #f))							; Biker #1
    (str "Cole: That's gotta be one of his buddies on his bike. I" 'br)
    (str "guess that's the motorcycle I heard earlier.")
    (set-reg 149 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 150 #f))
+ (seg (? (= P 6) (= 150 #f))							; Biker #2
    (str "Cole: That biker's saying something...")
    (wait)
    (text-reset 1)
@@ -127,13 +134,13 @@
    (set-reg 150 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Biker #3 (repeat line)
    (str "Cole: If you're from around here, this kinda scene isn't" 'br)
    (str "uncommon. It was already Bloody Fox's territory when I" 'br)
    (str "moved in.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 151 #f))
+ (seg (? (= P 7) (= 151 #f))							; Harassment #1
    (str "Cole: If I don't jump in, they're gonna kidnap that girl.")
    (wait)
    (text-reset 1)
@@ -142,7 +149,7 @@
    (set-reg 151 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 152 #f))
+ (seg (? (= P 7) (= 152 #f))							; Harassment #2
    (str "B.F.: You got curves in all the right places, don't ya?")
    (wait)
    (text-reset 1)
@@ -159,7 +166,7 @@
    (set-reg 152 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 153 #f))
+ (seg (? (= P 7) (= 153 #f))							; Harassment #3
    (str "Cole: I feel bad for her, but I've got things to do right" 'br)
    (str "now.")
    (wait)
@@ -175,7 +182,7 @@
    (set-reg 153 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 154 #f))
+ (seg (? (= P 7) (= 154 #f))							; Harassment #4
    (str "B.F.: I'm into aggressive women like you!")
    (wait)
    (text-reset 1)
@@ -187,12 +194,12 @@
    (set-reg 154 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Harassment #5 (repeat line)
    (str "Cole: Even if he's in Bloody Fox, he must be a real loser" 'br)
    (str "trying to pick someone up in a place like this.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

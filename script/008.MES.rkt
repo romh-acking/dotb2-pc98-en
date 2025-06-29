@@ -1,12 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 008.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; It's sexual harassment again. I think it's time to start a counter: 2
+; --Progression:--
+; Inspect the Bloody Fox member fully.
+; ----Battle:-----
+; 1. Block Fist.
+; 2. Punch Face.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB017.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 29 3 36 6)
-  (exec-mem 3744 1 6 28 7 34 10)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 29 3 36 6)							; 	Bloody Fox
+  (exec-mem 3744 1 6 28 7 34 10)						; 	Woman
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB016.GPC")
   (image-mem 0 3)
@@ -38,7 +48,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 180 #f))
+        (? (= 180 #f))								; Lead-in from previous MES script
         (str "B.F.: Hold still, bitch!")
         (wait)
         (text-reset 1)
@@ -50,20 +60,20 @@
         (wait)
         (text-reset 1))
        (//
-        (str "B.F.: Shut the fuck up!")
+        (str "B.F.: Shut the fuck up!")						; Lead-in from loading game
         (wait)
         (text-reset 1)
         (str "Woman: No!!!")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 181 #f))
+ (seg (? (= P 5) (= 181 #f))							; Bloody Fox #1
    (str "Cole: The Bloody Fox members are assaulting that woman..." 'br)
    (str "And I've gotta get answers out of them.")
    (set-reg 181 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 182 #f))
+ (seg (? (= P 5) (= 182 #f))							; Bloody Fox #2
    (str "Cole: Wait, is that guy holding a syringe? What's going on" 'br)
    (str "here?")
    (wait)
@@ -73,7 +83,7 @@
    (set-reg 182 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Bloody Fox #3 (repeat line)
    (str "Cole: Hey! What's in that syringe!?")
    (wait)
    (text-reset 1)
@@ -114,7 +124,7 @@
    (str "B.F.: Heh heh heh... You're fuckin' dead!")
    (wait)
    (text-reset 1)
-   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)				; Battle starts here...
    (image-file "B:¥GPC¥DB016.GPC")
    (image-mem 0 3)
    (image-file "B:¥GPC¥DB018.GPC")
@@ -123,14 +133,14 @@
    (image-mem 0 0)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (load-mem "A:¥CLM¥DB018.CLM" 32768)
-   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)
-   (exec-mem 3744 1 5 5 8 14 13)
-   (exec-mem 3744 1 6 29 2 36 7)
-   (exec-mem 3744 1 7 10 3 15 5)
-   (exec-mem 3744 1 8 28 12 36 15)
-   (exec-mem 3744 1 9 46 4 51 6)
-   (exec-mem 3744 1 10 28 8 36 11)
-   (exec-mem 3744 1 11 39 12 46 14)
+   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)			; First move's hotspots defined here
+   (exec-mem 3744 1 5 5 8 14 13)						; 	Punching fist
+   (exec-mem 3744 1 6 29 2 36 7)						; 	Face
+   (exec-mem 3744 1 7 10 3 15 5)						; 	Left Bloody Fox
+   (exec-mem 3744 1 8 28 12 36 15)						; 	Stomach
+   (exec-mem 3744 1 9 46 4 51 6)						; 	Right Bloody Fox
+   (exec-mem 3744 1 10 28 8 36 11)						; 	Chest
+   (exec-mem 3744 1 11 39 12 46 14)						; 	Other fist
    (exec-mem 15728 0 0 0 5 0 1)
    (exec-mem 15728 1 0 0 0 0 "Z")
    (exec-mem 15728 2 1)
@@ -144,7 +154,7 @@
    (image-mem 0 0)
    (if (</>
         (//
-         (? (= P 5))
+         (? (= P 5))								; Punching fist (winning move)
          (exec-mem 912 "PUT 0 2 23,W 0,O 0")
          (str "Cole: Too fast for ya!")
          (wait)
@@ -154,44 +164,44 @@
          (wait)
          (text-reset 1))
         (//
-         (? (= P 6))
+         (? (= P 6))								; Face
          (str "B.F.: Watch it!")
          (wait)
          (text-reset 1)
          (exec-mem 14544 2 2))
         (//
-         (? (= P 7))
+         (? (= P 7))								; Left Bloody Fox
          (str "B.F.: Accept your ass-kickin'!")
          (wait)
          (text-reset 1)
          (exec-mem 14544 2 2))
         (//
-         (? (= P 8))
+         (? (= P 8))								; Stomach
          (str "B.F.: You're fucked now!")
          (wait)
          (text-reset 1)
          (exec-mem 14544 2 2))
         (//
-         (? (= P 9))
+         (? (= P 9))								; Right Bloody Fox
          (str "B.F.: Look at me when I'm kicking your ass!")
          (wait)
          (text-reset 1)
          (exec-mem 14544 2 2))
         (//
-         (? (= P 10))
+         (? (= P 10))								; Chest
          (str "B.F.: Who taught you how to fight?")
          (wait)
          (text-reset 1)
          (exec-mem 14544 2 2))
         (//
-         (? (= P 11))
+         (? (= P 11))								; Other fist
          (str "B.F.: Shithead!")
          (wait)
          (text-reset 1)
          (exec-mem 14544 2 2))))
    (if (</>
         (//
-         (? (= 183 #f))
+         (? (= 183 #f))								; Losing sequence for first move
          (str "Cole: ")
          (branch-random
           (</>
@@ -199,7 +209,7 @@
            (/ (str "Pfwaaa!"))
            (/ (str "Uughh!"))
            (/ (str "Oooof!"))
-           (/ (str "Fuckin' shit!"))))
+           (/ (str "Sh-shit!"))))
          (wait)
          (text-reset 1)
          (str "B.F.: ")
@@ -227,12 +237,12 @@
           S
           (</>
            (/
-            (exec-mem 9920 0 6 6 113 64 0)
+            (exec-mem 9920 0 6 6 113 64 0)					; CONTINUE (reload script)
             (nop@)
             (set-reg 183 #f)
             (mes-jump "A:¥MES¥008.MES"))
            (/
-            (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)
+            (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)				; END GAME (softlock)
             (text "　　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
             (text "　　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
             (loop (wait))))))
@@ -241,7 +251,7 @@
          (str "B.F.: Asshole!")
          (wait)
          (text-reset 1)
-         (image-file "A:¥GPC¥COUNTER.GPC")
+         (image-file "A:¥GPC¥COUNTER.GPC")					; Second move sequence starts here
          (image-mem 0 0)
          (exec-mem 15728 0 0 0 3 0 1)
          (exec-mem 15728 1 0 0 0 0 "Z")
@@ -256,13 +266,13 @@
          (if (</> (// (? (= Z 1)) (nop@) (set-var P 9))))
          (if (</>
               (//
-               (? (= P 5))
+               (? (= P 5))							; Punching fist
                (str "B.F.: Stick and move!")
                (wait)
                (text-reset 1)
                (exec-mem 14544 2 2))
               (//
-               (? (= P 6))
+               (? (= P 6))							; Face (winning move)
                (exec-mem 17408 3)
                (exec-mem 256 3 0 11 0)
                (exec-mem 256 4 0 7 0)
@@ -369,36 +379,36 @@
                (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
                (mes-jump "A:¥MES¥009.MES"))
               (//
-               (? (= P 7))
+               (? (= P 7))							; Left Bloody Fox
                (str "B.F.: Die!")
                (wait)
                (text-reset 1)
                (exec-mem 14544 2 2))
               (//
-               (? (= P 8))
+               (? (= P 8))							; Stomach
                (str "B.F.: You're fucked now!")
                (wait)
                (text-reset 1)
                (exec-mem 14544 2 2))
               (//
-               (? (= P 9))
+               (? (= P 9))							; Right Bloody Fox
                (str "B.F.: Look at me when I'm kicking your ass!")
                (wait)
                (text-reset 1)
                (exec-mem 14544 2 2))
               (//
-               (? (= P 10))
+               (? (= P 10))							; Chest
                (str "B.F.: Who taught you how to fight?")
                (wait)
                (text-reset 1)
                (exec-mem 14544 2 2))
               (//
-               (? (= P 11))
+               (? (= P 11))							; Other fist
                (str "B.F.: Shithead!")
                (wait)
                (text-reset 1)
                (exec-mem 14544 2 2))))
-         (exec-mem 17408 3)
+         (exec-mem 17408 3)							; Losing sequence for second move
          (exec-mem 256 3 0 11 0)
          (exec-mem 256 4 0 7 0)
          (exec-mem 912 "EXIT")
@@ -412,12 +422,12 @@
           S
           (</>
            (/
-            (exec-mem 9920 0 6 6 113 64 0)
+            (exec-mem 9920 0 6 6 113 64 0)					; CONTINUE (reload script)
             (nop@)
             (set-reg 183 #f)
             (mes-jump "A:¥MES¥008.MES"))
            (/
-            (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)
+            (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)				; END GAME (softlock)
             (text "　　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
             (text "　　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
             (loop (wait)))
@@ -458,15 +468,18 @@
                (text "　　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
                (text "　　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
                (loop (wait))))))))))))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Woman
    (branch-random
     (</>
      (/
-        (str "Cole: They're attacking that woman, but it's too dark to" 'br)
-        (str "make out who she is...")
-        (wait)
-        (text-reset 1))
-     (/ (str "Cole: They must have kidnapped her from another town...") (wait) (text-reset 1))
+      (str "Cole: They're attacking that woman, but it's too dark to" 'br)
+      (str "make out who she is...")
+      (wait)
+      (text-reset 1))
+     (/
+      (str "Cole: They must have kidnapped her from another town...")
+      (wait)
+      (text-reset 1))
      (/
       (str "Woman: Please, help me!")
       (wait)
@@ -474,7 +487,7 @@
       (str "Cole: Poor girl's pleading for help. I better intervene...")
       (wait)
       (text-reset 1)))))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

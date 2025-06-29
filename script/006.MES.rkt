@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 006.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Bayside Research Lab entrance.
+; --Progression:--
+; MOVE
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB013.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 4 4 16 9)
-  (exec-mem 3744 1 6 41 10 48 13)
-  (exec-mem 3744 1 7 25 5 37 10)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 4 4 16 9)							; 	Tree
+  (exec-mem 3744 1 6 41 10 48 13)						; 	Barrels
+  (exec-mem 3744 1 7 25 5 37 10)						; 	Door
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB013.GPC")
   (image-mem 1 3)
@@ -19,7 +26,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 163 #f))
+        (? (= 163 #f))								; Lead-in from previous MES script
         (str "Cole: The entrance to the Bayside Research Lab. I had a" 'br)
         (str "run-in with a guy named Ghoul here two years ago...he used" 'br)
         (str "this place as his hideout.")
@@ -54,24 +61,27 @@
         (set-reg 163 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: This is the entrance to the Bayside Research Lab.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: This is the entrance to the Bayside Research Lab.")		; Lead-in from loading game
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 164 #f))
+ (seg (? (= P 5) (= 164 #f))							; Tree #1
    (str "Cole: That's a big tree. Nobody's tending to it, so its" 'br)
    (str "branches are growing uncontrolled every which way.")
    (set-reg 164 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 165 #f))
+ (seg (? (= P 5) (= 165 #f))							; Tree #2
    (str "Cole: Trees are creepy at night, aren't they? This one adds" 'br)
    (str "to the spooky atmosphere by at least ten percent.")
    (set-reg 165 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Tree #3 (repeat line)
    (str "Cole: I really have better things to do than look at trees" 'br)
    (str "all night long.") (wait) (text-reset 1))
- (seg (? (= P 6) (= 166 #f))
+ (seg (? (= P 6) (= 166 #f))							; Barrel #1
    (str "Cole: There's a metal barrel next to the entrance. Let's" 'br)
    (str "check it out.")
    (wait)
@@ -81,35 +91,35 @@
    (set-reg 166 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Barrel #2 (repeat line)
    (str "Cole: It's empty, I don't need to poke around in it anymore.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 167 #f))
+ (seg (? (= P 7) (= 167 #f))							; Door #1
    (str "Cole: Judging by all the broken glass, the maintenance" 'br)
    (str "staff got laid off a long time ago.")
    (set-reg 167 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 168 #f))
+ (seg (? (= P 7) (= 168 #f))							; Door #2
    (str "Cole: Inside this entrance is a factory floor. A perfect" 'br)
    (str "hangout for Bloody Fox lowlifes.")
    (set-reg 168 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 169 #f))
+ (seg (? (= P 7) (= 169 #f))							; Door #3
    (str "Cole: It's too dark to see what's inside, and I don't know" 'br)
    (str "where the Bloody Fox members are lurking. I'll need to be" 'br)
    (str "extra careful in there.")
    (set-reg 169 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Door #4 (repeat line)
    (str "Cole: The power was probably cut off a long time ago. It's" 'br)
    (str "moonlight or nothing else.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: I can't tell where the Bloody Fox members are" 'br)
    (str "lurking, so I'm gonna have to be real careful.")
@@ -120,7 +130,7 @@
    (exec-mem 6064 3)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥007.MES"))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

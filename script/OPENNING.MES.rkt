@@ -1,7 +1,12 @@
+; Dead of the Brain 2 (PC-98) - OPENNING.MES (sic)
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Opening credits and introduction.
 (mes
- (meta (engine 'ADV) (charset "pc98") (extraop #t))							; OPENNING.MES (sic): Opening credits and introduction
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
-  ((cmd 209) 0)																; Opening credits begin here
+  ((cmd 209) 0)									; Opening credits begin here
   (text 'br)
   (text 'br)
   (text 'br)
@@ -11,7 +16,7 @@
   (text 'br)
   ((cmd 203) 1 0)
   (text #:col 2 "　　　　　　　　　　　　　　　　")
-  (text-raw 60323 60324 60325 60326 60327 60328)
+  (text-raw 60323 60324 60325 60326 60327 60328)				; This is the RUSH-TEAM logo
   (text 'br)
   ((cmd 203) 1 1)
   (str "                                PRESENTS...")
@@ -522,7 +527,7 @@
   (delay 6)
   (exec-mem 256 4 0 0 0)
   (delay 6)
-  (text-reset 0)
+  (text-reset 0)								; Prologue text (screen width is 80 half-width characters)
   (text 'br)
   (text 'br)
   (text 'br)
@@ -793,7 +798,7 @@
   (delay 4)
   (sound '|| 0)
   (text-reset 0)
-  (image-file "A:¥GPC¥DB_FRM.GPC")											; Intro starts here
+  (image-file "A:¥GPC¥DB_FRM.GPC")						; Intro starts here
   (image-mem 0)
   (image-file "B:¥GPC¥DB001.GPC")
   (image-mem 0)
@@ -827,7 +832,7 @@
   (str "destroy your brain.")
   (wait)
   (text-reset 1)
-  (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")										; Reanimation serum graphic loaded in here (but not shown)
+  (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
   (exec-mem 912 "C 0 40 0 40 400 1 40 0")
   (exec-mem 912 "A 1")
   (image-file "A:¥GPC¥DB_FRM2.GPC")
@@ -839,7 +844,7 @@
   (exec-mem 912 "GET 1 54 38 23 172")
   (exec-mem 912 "A 0,S 0")
   (str "Heh heh heh... It looks like your medicine is running low." 'br)
-  (exec-mem 912 "PUT 0 54 38,W 0,O 0")										; Reanimation serum graphic shown here
+  (exec-mem 912 "PUT 0 54 38,W 0,O 0")
   (str "You can't live without your next dose of this, can you?")
   (wait)
   (text-reset 1)
@@ -850,7 +855,7 @@
   (str "The reanimation serum...")
   (wait)
   (text-reset 1)
-  (exec-mem 256 8 0 3 0)													; Screen fade-out
+  (exec-mem 256 8 0 3 0)
   (delay 3 0)
   (exec-mem 256 8 0 4 0)
   (delay 3 0)

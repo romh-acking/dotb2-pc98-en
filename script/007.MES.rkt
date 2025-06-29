@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 007.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Inside the Bayside Research Lab.
+; --Progression:--
+; Inspect everything in the scene.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB014.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 24 9 29 11)
-  (exec-mem 3744 1 6 6 3 18 6)
-  (exec-mem 3744 1 7 40 14 47 15)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 24 9 29 11)						; 	Sign
+  (exec-mem 3744 1 6 6 3 18 6)							; 	Pipes
+  (exec-mem 3744 1 7 40 14 47 15)						; 	Floor debris
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB014.GPC")
   (image-mem 1 3)
@@ -33,17 +40,20 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (? (= 171 #f))
+        (? (= 171 #f))								; Lead-in from previous MES script
         (str "Cole: It's quiet as the grave in here...")
         (set-reg 171 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: I'm inside the Bayside Research Lab. This place has" 'br)
-       (str "been turned into a factory.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: I'm inside the Bayside Research Lab. This place has" 'br)	; Lead-in from loading game
+        (str "been turned into a factory.")
+        (wait)
+        (text-reset 1))))
   (loop
    (if (</>
         (//
-         (? (= 173 #t) (= 175 #t) (= 179 #t))
+         (? (= 173 #t) (= 175 #t) (= 179 #t))					; Appended to last action after inspecting everything
          (str "Woman's Voice: Nooooo!")
          (wait)
          (text-reset 1)
@@ -62,66 +72,66 @@
    (exec-mem 3744 3 "P" 32768)
    (text-color 15)
    (seg-call)))
- (seg (? (= P 5) (= 172 #f))
+ (seg (? (= P 5) (= 172 #f))							; Sign #1
    (str "Cole: There's warning text about equipment handling written" 'br)
    (str "on the wall. It's all rusted over, so this isn't up to OSHA" 'br)
    (str "code, I guess.")
    (set-reg 172 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 173 #f))
+ (seg (? (= P 5) (= 173 #f))							; Sign #2
    (str "Cole: I don't need to read these warnings, every piece of" 'br)
    (str "equipment here is shut down. It's not like this stuff is" 'br)
    (str "gonna start up anytime soon.")
    (set-reg 173 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Sign #3 (repeat line)
    (str "Cole: This place has been abandoned for two years. You" 'br)
    (str "could probably knock this metal plate off with a little" 'br)
    (str "force.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 174 #f))
+ (seg (? (= P 6) (= 174 #f))							; Pipes #1
    (str "Cole: There's a bunch of pipes sticking out of this" 'br)
    (str "machine. I have no idea what they're used for, aside from" 'br)
    (str "scrap metal for looters.")
    (set-reg 174 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 175 #f))
+ (seg (? (= P 6) (= 175 #f))							; Pipes #2
    (str "Cole: Looking at the ceiling vents, I bet these machines" 'br)
    (str "were cranking at full power back in the day. Must have been" 'br)
    (str "an oven in here.")
    (set-reg 175 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Pipes #3 (repeat line)
    (str "Cole: None of these machines show any trace of the" 'br)
    (str "reanimation serum.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 176 #f))
+ (seg (? (= P 7) (= 176 #f))							; Floor debris #1
    (str "Cole: There's debris all over the floor. I'd better watch" 'br)
    (str "my step, or I'd slip and fall and it'd be tetanus time.")
    (set-reg 176 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 177 #f))
+ (seg (? (= P 7) (= 177 #f))							; Floor debris #2
    (str "Cole: Two years ago, Ghoul got blown to hell by plastic" 'br)
    (str "explosives. There's not even a scrap of him left. Good" 'br)
    (str "riddance.")
    (set-reg 177 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 178 #f))
+ (seg (? (= P 7) (= 178 #f))							; Floor debris #3
    (str "Cole: I'm sure the police cleanup crew took care of the" 'br)
    (str "wreckage, but I bet they never figured an android was" 'br)
    (str "behind all this mayhem.")
    (set-reg 178 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 179 #f))
+ (seg (? (= P 7) (= 179 #f))							; Floor debris #4
    (str "Cole: Huh? What's this...?")
    (wait)
    (text-reset 1)
@@ -138,12 +148,12 @@
    (set-reg 179 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Floor debris #5 (repeat line)
    (str "Cole: And I can't see any remnants of the rereanimation" 'br)
    (str "serum. Was that Bloody Fox member bullshitting me?")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

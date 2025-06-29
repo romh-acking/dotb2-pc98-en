@@ -1,7 +1,12 @@
+; Dead of the Brain 2 (PC-98) - INIT.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Initialization and main menu.
 (mes
- (meta (engine 'ADV) (charset "pc98") (extraop #t))								; INIT.MES: Initialization and main menu
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
-  ((cmd 206) 0 0)																; Game startup stuff
+  ((cmd 206) 0 0)								; Game startup stuff
   ((cmd 206) 1 1)
   ((cmd 203) 5 1)
   ((cmd 203) 5 4)
@@ -100,7 +105,7 @@
   (define-proc 17 (<>))
   (define-proc 18 (<>))
   (define-proc 19 (<>))
-  (text 'br)																	; Music board selection screen starts here
+  (text 'br)									; Music board selection screen starts here
   (text 'br)
   (text 'br)
   (text 'br)
@@ -121,14 +126,14 @@
   (text 'br)
   (str
    "                                                     DX･DS･DA･UX etc..")
-  (menu1 6 140 6 200 (</> (/ (str "□")) (/ (str "□"))))
+  (menu1 6 140 6 200 (</> (/ (text "□")) (/ (text "□"))))
   (text-reset 0)
   (branch-var
    S
    (</>
     (/ (sound '|se | "A:¥USO_V¥BRAIN2_V.SE") (nop@) (set-reg 900 #f))
     (/ (sound '|se | "A:¥USO_D¥BRAIN2_D.SE") (set-reg 900 #t))))
-  (text-frame 0 0 79 399)														; Disclaimers start here
+  (text-frame 0 0 79 399)							; Disclaimers start here (screen width is 80 half-width characters)
   (text-reset 0)
   (text-color 2)
   ((cmd 209) 0)
@@ -218,7 +223,7 @@
   ((cmd 209) 1)
   (if (</>
        (//
-        (? (= 0 #f))															; Name entry screen... this should be dummied out if not already
+        (? (= 0 #f))								; Name entry code... I believe this is dummied out
         (text #:col 15 'br)
         (text 'br)
         (text 'br)
@@ -235,7 +240,7 @@
         (text-reset 0))))
   ((cmd 210))
   (loop
-   (text-frame 16 20 60 200)													; Main menu starts here
+   (text-frame 16 20 60 200)							; Main menu starts here
    (text-reset 0)
    (text #:col 15 'br)
    (text 'br)
@@ -262,7 +267,7 @@
      (/ (nop@) (set-var Q 0) (seg-call))
      (/ (nop@) (set-var Q 1) (seg-call))
      (/ (nop@) (set-var Q 2) (seg-call))))))
- (seg (? (= Q 0))																; NEW GAME option
+ (seg (? (= Q 0))								; NEW GAME option
    (sound '|| 0)
    (if (</>
         (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥B0NOPN.USO"))
@@ -273,7 +278,7 @@
    (text-frame 0 0 79 399)
    (text-reset 0)
    (mes-jump "A:¥MES¥OPENNING.MES"))
- (seg (? (= Q 1))																; LOAD GAME option
+ (seg (? (= Q 1))								; LOAD GAME option
    (str "Select Load Number.")
    (menu1
     18
@@ -407,7 +412,7 @@
      (/ (nop@))))
    (text-frame 15 298 74 356)
    (text-reset 0))
- (seg (? (= Q 2))																; MUSIC MODE option (goes to MUSIC.MES)
+ (seg (? (= Q 2))								; MUSIC MODE option (goes to MUSIC.MES)
    (text-reset 0)
    (mes-load? 0)
    (text-frame 0 0 1 20)

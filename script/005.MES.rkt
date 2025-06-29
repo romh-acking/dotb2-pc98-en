@@ -1,12 +1,19 @@
+; Dead of the Brain 2 (PC-98) - 005.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; A Bloody Fox member confronts Cole after he intervenes with his business.
+; --Progression:--
+; Talk to the big, scary guy.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB012.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 49 9 55 12)
-  (exec-mem 3744 1 6 27 4 37 8)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 49 9 55 12)						; 	Onlookers
+  (exec-mem 3744 1 6 27 4 37 8)							; 	Bloody Fox
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB010.GPC")
   (image-mem 1 3)
@@ -23,7 +30,7 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (? (= 157 #f))
+        (? (= 157 #f))								; Lead-in (only from previous MES script)
         (str "B.F.: It's all your fault you let that girl get away," 'br)
         (str "stickin' your nose where it don't belong! I hope you're" 'br)
         (str "ready for the king of all ass-kickings!")
@@ -31,19 +38,19 @@
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 158 #f))
+ (seg (? (= P 5) (= 158 #f))							; Onlookers #1
    (str "Cole: Nobody around here will make eye contact with me. I" 'br)
         (str "guess they all know they don't wanna get mixed up with" 'br)
         (str "these guys.")
    (set-reg 158 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Onlookers #2 (repeat line)
    (str "Cole: Everyone's taking a wide berth from us. There aren't" 'br)
    (str "even any gawkers.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 159 #f))
+ (seg (? (= P 6) (= 159 #f))							; Bloody Fox #1
    (str "B.F.: You dumbshit, you know we're with Bloody Fox, and" 'br)
    (str "you're still tryin' to pick a fight with us?")
    (wait)
@@ -95,7 +102,7 @@
    (set-reg 159 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 160 #f))
+ (seg (? (= P 6) (= 160 #f))							; Bloody Fox #2
    (str "B.F.: What is it you wanna know?")
    (wait)
    (text-reset 1)
@@ -115,7 +122,7 @@
    (set-reg 160 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 161 #f))
+ (seg (? (= P 6) (= 161 #f))							; Bloody Fox #3
    (str "Cole: Where could it have happened?")
    (wait)
    (text-reset 1)
@@ -135,7 +142,7 @@
    (set-reg 161 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 162 #f))
+ (seg (? (= P 6) (= 162 #f))							; Bloody Fox #4
    (str "Cole: But why Bayside... Maybe Ghoul still had an extra" 'br)
    (str "stash of reanimation serum?")
    (wait)
@@ -155,7 +162,7 @@
    (set-reg 162 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Bloody Fox #5
    (str "Cole: We had a good chat. We should do this again sometime.")
    (wait)
    (text-reset 1)
@@ -171,7 +178,7 @@
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥006.MES"))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

@@ -1,5 +1,9 @@
+; Dead of the Brain 2 (PC-98) - MUSIC.MES
+; Edited by trentsignia
+; --Description:--
+; Music Mode. The only change made here is to replace square brackets with quotation marks.
 (mes
- (meta (engine 'ADV) (charset "pc98") (extraop #t)) ; MUSIC.MES: Music Mode; the only change made here is to replace square brackets with quotation marks
+ (meta (engine 'ADV) (charset "pc98") (extraop #t)) ; MUSIC.MES: 
  (seg*
   (loop
    (text-frame 2 284 78 340)
