@@ -1,13 +1,21 @@
+; Dead of the Brain 2 (PC-98) - 018.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Sexual harassment counter: 3
+; ----Battle:-----
+; 1. Punch the Right Bloody Fox's head.
+; 2. Kick the Left Bloody Fox's head.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB036.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 34 3 41 6)
-  (exec-mem 3744 1 6 21 3 26 6)
-  (exec-mem 3744 1 7 80 0 0 0)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button (unused)
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button (unused)
+  (exec-mem 3744 1 5 34 3 41 6)							; 	Right Bloody Fox
+  (exec-mem 3744 1 6 21 3 26 6)							; 	Left Bloody Fox
+  (exec-mem 3744 1 7 80 0 0 0)							; 	???
   (str "Woman's Voice: Eeeek!")
   (wait)
   (text-reset 1)
@@ -61,7 +69,7 @@
   (str "B.F.: That's my line, dipshit!")
   (wait)
   (text-reset 1)
-  (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+  (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)					; Battle starts here...
   (image-file "B:¥GPC¥DB036.GPC")
   (image-mem 0 3)
   (exec-mem 15456 0)
@@ -82,7 +90,7 @@
   (image-mem 0 0)
   (if (</>
        (//
-        (? (= P 5))
+        (? (= P 5))								; Right Bloody Fox (winning move)
         (sound '|se | 1)
         (str "Cole: Hyaaaaaaa!" 'br)
         (exec-mem 912 "PUT 0 2 23,W 0,O 0")
@@ -91,7 +99,7 @@
         (text-reset 1)
         (exec-mem 3744 1 5 80 0 0 0))
        (//
-        (str "B.F.: Die, fuckface!")
+        (str "B.F.: Die, fuckface!")						; Game Over sequence
         (wait)
         (text-reset 1)
         (exec-mem 14544 2 2)
@@ -133,7 +141,7 @@
            (text "　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
            (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
            (loop (wait))))))))
-  (str "B.F.: I'm gonna cave yer skull in!")
+  (str "B.F.: I'm gonna cave yer skull in!")					; Second move starts here
   (wait)
   (text-reset 1)
   (image-file "A:¥GPC¥COUNTER.GPC")
@@ -153,7 +161,7 @@
   (if (</> (// (? (= Z 1)) (nop@) (set-var P 0))))
   (if (</>
        (//
-        (? (= P 6))
+        (? (= P 6))								; Left Bloody Fox (winning move)
         (exec-mem 912 "PUT 1 2 23,W 0,O 0")
         (delay 4 0)
         (exec-mem 912 "PUT 2 2 23,W 0,O 0")
@@ -225,7 +233,7 @@
         (sound '|| 0)
         (mes-jump "A:¥MES¥019.MES"))
        (//
-        (str "B.F.: Die, fuckface!")
+        (str "B.F.: Die, fuckface!")						; Game Over sequence
         (wait)
         (text-reset 1)
         (exec-mem 14544 2 2)

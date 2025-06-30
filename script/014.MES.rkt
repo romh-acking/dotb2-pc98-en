@@ -1,3 +1,10 @@
+; Dead of the Brain 2 (PC-98) - 014.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole and Steve talk about recent happenings at the latter's place.
+; --Progression:--
+; Inspect everything, then look at the woman, then talk to Briar.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

@@ -1,3 +1,10 @@
+; Dead of the Brain 2 (PC-98) - 014A.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Notes:-----
+; This chunk of text was originally part of two CAL files that was loaded in by 014.MES and called when needed.
+; I had problems getting the translated scripts to work in this arrangement, so I merged the CAL files and the code after it into a single MES script.
+; This only works because there is no opportunity to save between the jump happening and the next script; saving in a different file to the Save dialog will cause problems when loading.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

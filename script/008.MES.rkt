@@ -433,7 +433,7 @@
             (loop (wait)))
            (/
             (exec-mem 14544 2 2)						; ???
-            (str "Cole: Hyaaaaaaa!")
+            (str "Cole: Urghhh!")
             (wait)
             (text-reset 1)
             (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)

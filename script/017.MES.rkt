@@ -1,15 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 017.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Outside Bar Rease again.
+; --Progression:--
+; MOVE
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB022.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 18 4 23 6)
-  (exec-mem 3744 1 6 26 5 33 15)
-  (exec-mem 3744 1 7 40 10 49 15)
-  (exec-mem 3744 1 8 47 3 56 6)
-  (exec-mem 3744 1 9 4 10 14 13)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 18 4 23 6)							; 	Sign
+  (exec-mem 3744 1 6 26 5 33 15)						; 	Doorway
+  (exec-mem 3744 1 7 40 10 49 15)						; 	Bloody Fox
+  (exec-mem 3744 1 8 47 3 56 6)							; 	Graffiti
+  (exec-mem 3744 1 9 4 10 14 13)						; 	Bikes
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB022.GPC")
   (image-mem 1 3)
@@ -21,36 +28,39 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 109 #f))
+        (? (= 109 #f))								; Lead-in from previous MES script
         (str "Cole: I made it to Bar Rease. Sheila's got to be in here.")
         (set-reg 109 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: I need to go rescue Sheila!") (wait) (text-reset 1))))
+       (//
+        (str "Cole: I need to go rescue Sheila!")				; Lead-in from loading game
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 110 #f))
+ (seg (? (= P 5) (= 110 #f))							; Sign #1
    (str "Cole: Sheila knew I was going to Bar Rease...she must have" 'br)
    (str "come here to look for me.")
    (set-reg 110 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 111 #f))
+ (seg (? (= P 5) (= 111 #f))							; Sign #2
    (str "Cole: The sign's lit, so they're still open for business.")
    (set-reg 111 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Sign #3 (repeat line)
    (str "Cole: I don't have time to sit here and contemplate a" 'br)
    (str "goddamn sign. I need to hurry and help Sheila!")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 112 #f))
+ (seg (? (= P 6) (= 112 #f))							; Doorway #1
    (str "Cole: With the music blasting, I can't hear any individual" 'br)
    (str "voices inside.")
    (set-reg 112 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Doorway #2 (repeat line)
    (str "Cole: Those guys from last night might still be creeping" 'br)
    (str "around, so I need to watch my back.")
    (wait)
@@ -58,7 +68,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥018.MES"))
- (seg (? (= P 7) (= 113 #f))
+ (seg (? (= P 7) (= 113 #f))							; Bloody Fox #1
    (str "B.F.: Yo!")
    (wait)
    (text-reset 1)
@@ -96,7 +106,7 @@
    (set-reg 113 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 113 #f))
+ (seg (? (= P 7) (= 113 #f))							; Bloody Fox #2
    (str "Cole: Hey, I need to ask you...")
    (wait)
    (text-reset 1)
@@ -116,31 +126,34 @@
    (set-reg 113 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Bloody Fox #3 (repeat line)
    (str "B.F.: I drank too much and now I'm payin' the price. Let's" 'br)
    (str "keep the interactions to a minimum.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8)) (str "Cole: As usual, questionable graffiti on the wall.") (wait) (text-reset 1))
- (seg (? (= P 9) (= 114 #f))
+ (seg (? (= P 8))								; Graffiti #1
+   (str "Cole: As usual, questionable graffiti on the wall.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 9) (= 114 #f))							; Graffiti #2 (repeat line)
    (str "Cole: Bikes parked outside mean Bloody Fox thugs in the" 'br)
    (str "bar. If Sheila went in there, there's no way they'll let" 'br)
    (str "her out...")
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 115 #f))
+ (seg (? (= P 9) (= 115 #f))							; Bikes #1
    (str "Cole: If any of those bastards lays a hand on Sheila, they" 'br)
    (str "aren't getting away with it! I don't know what I'm capable" 'br)
    (str "of once I snap.")
    (set-reg 115 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9))
+ (seg (? (= P 9))								; Bikes #2 (repeat line)
    (str "Cole: A few bikes parked outside. The mark of Bloody Fox on" 'br)
    (str "the premises.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: Those guys from last night might still be creeping" 'br)
    (str "around, so I need to watch my back.")
@@ -150,7 +163,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥018.MES"))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

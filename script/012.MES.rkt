@@ -1,4 +1,4 @@
-; Dead of the Brain 2 (PC-98) - 011.MES
+; Dead of the Brain 2 (PC-98) - 012.MES
 ; Translated by Geometrizer
 ; Edited by trentsignia
 ; -----Scene:-----
@@ -6,7 +6,7 @@
 ; --Progression:--
 ; Inspect everything, then look at the woman, then talk to Briar.
 ; ----Battle:-----
-; 
+; 1. Shoot Left Bloody Fox.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

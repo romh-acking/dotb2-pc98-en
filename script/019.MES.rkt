@@ -1,15 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 019.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole returns home after his second trip to Bar Rease.
+; --Progression:--
+; Call Sheila, and then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB004C.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 6 27 5 36 13)
-  (exec-mem 3744 1 7 23 2 40 3)
-  (exec-mem 3744 1 8 3 8 7 12)
-  (exec-mem 3744 1 9 37 7 47 14)
-  (exec-mem 3744 1 10 52 12 56 15)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 6 27 5 36 13)						; 	Wall
+  (exec-mem 3744 1 7 23 2 40 3)							; 	Aircon
+  (exec-mem 3744 1 8 3 8 7 12)							; 	Phone
+  (exec-mem 3744 1 9 37 7 47 14)						; 	Door
+  (exec-mem 3744 1 10 52 12 56 15)						; 	Stereo
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB003.GPC")
   (image-mem 1 3)
@@ -21,38 +28,41 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 116 #f))
+        (? (= 116 #f))								; Lead-in from previous MES script
         (str "Cole: It's already morning... I had a helluva time falling" 'br)
         (str "asleep, worrying about the serum.")
         (set-reg 116 #t)
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: I'm worried about Sheila. I should call her up and" 'br)
+        (str "Cole: I'm worried about Sheila. I should call her up and" 'br)	; Lead-in from loading game
         (str "see how she's faring.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Wall
    (branch-random
     (</>
      (/ (str "Cole: Clippings I pasted up on the wall."))
      (/ (str "Cole: Newspaper and magazine cutouts are on the wall."))))
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 117 #f))
+ (seg (? (= P 7) (= 117 #f))							; Aircon #1
    (str "Cole: It's a little warm today... No need to turn on the AC.")
    (set-reg 117 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7)) (str "Cole: It's not like I can afford to run up my electric bill.") (wait) (text-reset 1))
- (seg (? (= P 8) (= 118 #f))
+ (seg (? (= P 7))								; Aircon #2 (repeat line)
+   (str "Cole: It's not like I can afford to run up my electric bill.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 8) (= 118 #f))							; Phone #1
    (str "Cole: No messages. Nobody tried to contact me while I was" 'br)
    (str "sleeping.")
    (set-reg 118 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 119 #f))
+ (seg (? (= P 8) (= 119 #f))							; Phone #2
    (str "Cole: I wonder how Sheila is. I should try calling her.")
    (wait)
    (text-reset 1)
@@ -83,7 +93,7 @@
    (set-reg 119 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 120 #f))
+ (seg (? (= P 8) (= 120 #f))							; Phone #3
    (str "Cole: Maybe she's still asleep. I'll try calling again.")
    (wait)
    (text-reset 1)
@@ -105,11 +115,11 @@
    (set-reg 120 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Phone #4 (repeat line)
    (str "Cole: Where'd she get to? I'll try calling later.")
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 119 #t))
+ (seg (? (= P 9) (= 119 #t))							; Door #1
    (str "Cole: I'm really worried about what the Purple Sky" 'br)
    (str "injection might have done to her.")
    (wait)
@@ -119,19 +129,22 @@
    (set-reg 121 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9))
+ (seg (? (= P 9))								; Door #2 (repeat line)
    (str "Cole: I'm worried sick about Sheila. I'll try to contact" 'br)
    (str "her before I head out.")
    (wait)
    (text-reset 1))
- (seg (? (= P 10) (= 122 #f))
+ (seg (? (= P 10) (= 122 #f))							; Stereo #1
    (str "Cole: I don't have time to sit here and listen to the" 'br)
    (str "radio. There's an investigation I've gotta do on Purple Sky.")
    (set-reg 122 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 10)) (str "Cole: The stereo's off.") (wait) (text-reset 1))
- (seg (? (= P 1) (= 121 #t))
+ (seg (? (= P 10))								; Stereo #2 (repeat line)
+  (str "Cole: The stereo's off.")
+  (wait)
+  (text-reset 1))
+ (seg (? (= P 1) (= 121 #t))							; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: Steve said he'd be at Precinct 32. I should go check" 'br)
    (str "it out.")
@@ -146,7 +159,7 @@
    (str "and see how she's doing.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

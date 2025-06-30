@@ -1,3 +1,8 @@
+; Dead of the Brain 2 (PC-98) - 013.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Steve drives a suspicious Cole out of Bar Rease.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
