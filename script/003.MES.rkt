@@ -1,6 +1,6 @@
 ; Dead of the Brain 2 (PC-98) - 003.MES
 ; Translated by Geometrizer
-; Edited by trentsignia
+; Edited by trentsignia and JackDBS
 ; -----Scene:-----
 ; Cole heads out to Main Street to look for perpetrators.
 ; --Progression:--
@@ -86,7 +86,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6))								; Bars #3 (repeat line)
-   (str "Cole: Nobody looking like a culprit in these shops. They" 'br)
+   (str "Cole: Nobody looking like a culprit is in these shops. They" 'br)
    (str "may have already made themselves scarce.")
    (wait)
    (text-reset 1))

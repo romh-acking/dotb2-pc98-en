@@ -1,6 +1,6 @@
 ; Dead of the Brain 2 (PC-98) - OPENNING.MES (sic)
 ; Translated by Geometrizer
-; Edited by trentsignia
+; Edited by trentsignia and JackDBS
 ; --Description:--
 ; Opening credits and introduction.
 (mes
@@ -820,7 +820,7 @@
   (wait)
   (text-reset 1)
   (str "I've implanted a detonator in your head so you won't" 'br)
-  (str "disobey me like you did before.")
+  (str "disobey me like before.")
   (wait)
   (text-reset 1)
   (str "The detonator is small in size, but can easily destroy your" 'br)

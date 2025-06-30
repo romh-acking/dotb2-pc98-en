@@ -1,15 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 010.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Outside Bar Rease.
+; --Progression:--
+; Talk to the Bloody Fox, inspect the bikes, and then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB022.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 18 4 23 6)
-  (exec-mem 3744 1 6 26 5 33 15)
-  (exec-mem 3744 1 7 40 10 49 15)
-  (exec-mem 3744 1 8 47 3 56 6)
-  (exec-mem 3744 1 9 4 10 14 13)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 18 4 23 6)							; 	Sign
+  (exec-mem 3744 1 6 26 5 33 15)						; 	Doorway
+  (exec-mem 3744 1 7 40 10 49 15)						; 	Bloody Fox
+  (exec-mem 3744 1 8 47 3 56 6)							; 	Graffiti
+  (exec-mem 3744 1 9 4 10 14 13)						; 	Bikes
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB022.GPC")
   (image-mem 1 3)
@@ -21,15 +28,18 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 195 #f))
+        (? (= 195 #f))								; Lead-in from previous MES script
         (str "Cole: Bar Rease. It's a hangout for Bloody Fox, so I gotta" 'br)
         (str "be careful.")
         (set-reg 195 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: The front of Bar Rease.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: The front of Bar Rease.")					; Lead-in from loading game
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 196 #f))
+ (seg (? (= P 5) (= 196 #f))							; Sign #1
    (str "Cole: This is the same Bar Rease that was mentioned in the" 'br)
    (str "newspaper article, where the gang member killed seven of" 'br)
    (str "his friends.")
@@ -44,36 +54,36 @@
    (set-reg 196 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 197 #f))
+ (seg (? (= P 5) (= 197 #f))							; Sign #2
    (str "Cole: I'm sure the Purple Sky drug has been doing the" 'br)
    (str "rounds here. Got a hunch Ben might have something to do" 'br)
    (str "with it, too.")
    (set-reg 197 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Sign #3 (repeat line)
    (str "Cole: Anyway, I should go in and ask around about Purple" 'br)
    (str "Sky.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 198 #f))
+ (seg (? (= P 6) (= 198 #f))							; Doorway #1
    (str "Cole: The entrance to Bar Rease. The door's at the bottom" 'br)
    (str "of the stairs.")
    (set-reg 198 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 199 #f))
+ (seg (? (= P 6) (= 199 #f))							; Doorway #2
    (str "Cole: A Bloody Fox by the entrance. Looks drunk as a skunk.")
    (set-reg 199 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Doorway #3 (repeat line)
    (str "Cole: This is the kind of suspicious hole-in-the-wall bar" 'br)
    (str "you don't take your mom to. Unless you want your mom to get" 'br)
    (str "kidnapped by Bloody Fox, I guess.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 200 #f))
+ (seg (? (= P 7) (= 200 #f))							; Bloody Fox #1
    (str "B.F.: Heh heh heh heh...")
    (wait)
    (text-reset 1)
@@ -92,7 +102,7 @@
    (set-reg 200 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 201 #f))
+ (seg (? (= P 7) (= 201 #f))							; Bloody Fox #2
    (str "B.F.: Watch out you don't slip on any leftover brains on" 'br)
    (str "the ground, you're standin' where Ben got his head blasted" 'br)
    (str "open! Heh heh heh...")
@@ -112,7 +122,7 @@
    (set-reg 201 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 202 #f))
+ (seg (? (= P 7) (= 202 #f))							; Bloody Fox #3
    (str "B.F.: You headin' down into the bar?")
    (wait)
    (text-reset 1)
@@ -132,32 +142,35 @@
    (set-reg 202 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Bloody Fox #4 (repeat line)
    (str "Cole: Talking to this guy any more is like bashing my head" 'br)
    (str "against a wall.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 203 #f))
+ (seg (? (= P 8) (= 203 #f))							; Graffiti #1
    (str "Cole: That's a lot of graffiti... Looks like a New York" 'br)
    (str "subway. I guess the bar owner figures the F-bombs add to" 'br)
    (str "the ambience.")
    (set-reg 203 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8)) (str "Cole: A bare concrete wall. Urban brutalism at its finest.") (wait) (text-reset 1))
- (seg (? (= P 9) (= 204 #f))
+ (seg (? (= P 8))								; Graffiti #2 (repeat line)
+   (str "Cole: A bare concrete wall. Urban brutalism at its finest.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 9) (= 204 #f))							; Bikes #1
    (str "Cole: A bunch of Bloody Fox bikes parked outside. The" 'br)
    (str "owners are probably inside, sticking to Shirley Temples.")
    (set-reg 204 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9))
+ (seg (? (= P 9))								; Bikes #2
    (str "Cole: They aren't taking good care of these bikes at all," 'br)
    (str "they're filthy! The resale value on these things is gonna" 'br)
    (str "be nil.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 202 #t) (= 204 #t))
+ (seg (? (= P 1) (= 202 #t) (= 204 #t))						; MOVE (after talking to B.F. and looking at bikes)
    (exec-mem 6064 2 1)
    (str "Cole: Into the depths, I guess.")
    (set-reg 205 #t)
@@ -166,7 +179,7 @@
    (exec-mem 6064 3)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥011.MES"))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

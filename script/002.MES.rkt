@@ -1,6 +1,6 @@
 ; Dead of the Brain 2 (PC-98) - 002.MES
 ; Translated by Geometrizer
-; Edited by trentsignia
+; Edited by trentsignia and JackDBS
 ; -----Scene:-----
 ; Sheila and Cole finds Terry and Lynn dead outside their apartment.
 ; --Progression:--
@@ -321,7 +321,7 @@
    (str "anyone...")
    (wait)
    (text-reset 1)
-   (str "Sheila: What are the wounds?")
+   (str "Sheila: What are these wounds?")
    (wait)
    (text-reset 1)
    (str "Cole: It looks like his head. He might have been slammed" 'br)

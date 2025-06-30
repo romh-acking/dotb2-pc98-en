@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 011.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Inside Bar Rease.
+; --Progression:--
+; Try to talk to patron after inspecting everything.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB023.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 45 6 52 9)
-  (exec-mem 3744 1 6 30 3 37 7)
-  (exec-mem 3744 1 7 4 11 15 15)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 45 6 52 9)							; 	Bartender
+  (exec-mem 3744 1 6 30 3 37 7)							; 	Patron
+  (exec-mem 3744 1 7 4 11 15 15)						; 	Bloody Fox
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB023.GPC")
   (image-mem 1 3)
@@ -31,9 +38,12 @@
         (set-reg 206 #t)
         (wait)
         (text-reset 1))
-       (// (str "Bartender: ...") (wait) (text-reset 1))))
+       (//
+        (str "Bartender: ...")
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 207 #f))
+ (seg (? (= P 5) (= 207 #f))							; Bartender #1
    (str "Bartender: You drinkin' somethin'?")
    (wait)
    (text-reset 1)
@@ -47,7 +57,7 @@
    (set-reg 207 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 208 #f))
+ (seg (? (= P 5) (= 208 #f))							; Bartender #2
    (str "Cole: I wanna ask you about yesterday's murders.")
    (wait)
    (text-reset 1)
@@ -68,11 +78,11 @@
    (str "Bartender: ...")
    (wait)
    (text-reset 1)
-   (str "Cole: Not much for rapport, are you.")
+   (str "Cole: Not much for rapport, are you?")
    (set-reg 208 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Bartender #3 (repeat line)
    (str "Cole: Look, what do you know about Ben?")
    (wait)
    (text-reset 1)
@@ -82,7 +92,7 @@
    (str "Cole: I might as well be talking to a fire hydrant.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 213 #t) (= 214 #t))
+ (seg (? (= P 6) (= 213 #t) (= 214 #t))						; Patron (after inspecting everything)
    (str "Bartender: You're spookin' the other customers. Can you cut" 'br)
    (str "it out?")
    (wait)
@@ -93,7 +103,7 @@
    (text-reset 1)
    (str "Bartender: No dice, pal. I'm just filling in for a buddy" 'br)
    (str "tonight, I don't know anything about any incidents. Maybe" 'br)
-   (str "if you talk to some of the regulars.")
+   (str "try talking to some of the regulars.")
    (wait)
    (text-reset 1)
    (str "Cole: Anyone in particular?")
@@ -124,7 +134,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥012.MES"))
- (seg (? (= P 6) (= 208 #t) (= 211 #t))
+ (seg (? (= P 6) (= 208 #t) (= 211 #t))						; Patron (after talking to Bartender)
    (str "Cole: Hey, about what happened here last night...")
    (wait)
    (text-reset 1)
@@ -142,14 +152,14 @@
    (set-reg 214 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 209 #f))
+ (seg (? (= P 6) (= 209 #f))							; Patron #1
    (str "Cole: There's a patron sitting at the counter. If they're a" 'br)
    (str "regular, they might have heard about yesterday's murder" 'br)
    (str "spree.")
    (set-reg 209 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 210 #f))
+ (seg (? (= P 6) (= 210 #f))							; Patron #2
    (str "Cole: Hey, can I ask you something?")
    (wait)
    (text-reset 1)
@@ -166,7 +176,7 @@
    (set-reg 210 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Patron #3 (repeat line)
    (str "Cole: Come on, answer my questions.")
    (wait)
    (text-reset 1)
@@ -177,25 +187,25 @@
    (set-reg 211 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 212 #f))
+ (seg (? (= P 7) (= 212 #f))							; Bloody Fox #1
    (str "Cole: There's a bunch of Bloody Fox members drinking in the" 'br)
    (str "back. The bikes out front probably belong to them.")
    (set-reg 212 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 213 #f))
+ (seg (? (= P 7) (= 213 #f))							; Bloody Fox #2
    (str "Cole: Besides them, the bar seems pretty empty. Wonder if" 'br)
-   (str "it's an off day...or the multiple murders had something to" 'br)
-   (str "do with it.")
+   (str "it's an off day...or if the multiple murders had something" 'br)
+   (str "to do with it.")
    (set-reg 213 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Bloody Fox #3 (repeat line)
    (str "Cole: I need to get some information and get out. I'm tired" 'br)
    (str "of messing with these guys.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

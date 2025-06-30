@@ -1,15 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 009.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole returns home to Sheila after his encounters with Bloody Fox.
+; --Progression:--
+; Talk to Sheila, inspect the door, and then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB004A.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 15 5 24 13)
-  (exec-mem 3744 1 6 27 5 36 13)
-  (exec-mem 3744 1 7 23 2 40 3)
-  (exec-mem 3744 1 8 3 8 7 12)
-  (exec-mem 3744 1 9 37 7 47 14)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 15 5 24 13)						; 	Sheila
+  (exec-mem 3744 1 6 27 5 36 13)						; 	Wall
+  (exec-mem 3744 1 7 23 2 40 3)							; 	Aircon
+  (exec-mem 3744 1 8 3 8 7 12)							; 	Phone
+  (exec-mem 3744 1 9 37 7 47 14)						; 	Door
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB003.GPC")
   (image-mem 1 3)
@@ -37,7 +44,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 184 #f))
+        (? (= 184 #f))								; Lead-in from previous MES script
         (str "Sheila: Cole! I've been worried sick about you! Where did" 'br)
         (str "you go?")
         (wait)
@@ -52,10 +59,13 @@
         (set-reg 184 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: I hope I'm not worrying Sheila too much. The bruises" 'br)
-        (str "aren't helping.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: I hope I'm not worrying Sheila too much. The bruises" 'br)	; Lead-in from loading game
+        (str "aren't helping.")
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 185 #f))
+ (seg (? (= P 5) (= 185 #f))							; Sheila #1
    (str "Cole: I see the bodies were moved, at least.")
    (wait)
    (text-reset 1)
@@ -65,7 +75,7 @@
    (set-reg 185 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 186 #f))
+ (seg (? (= P 5) (= 186 #f))							; Sheila #2
    (str "Sheila: Did you find anything?")
    (wait)
    (text-reset 1)
@@ -90,7 +100,7 @@
    (set-reg 186 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 187 #f))
+ (seg (? (= P 5) (= 187 #f))							; Sheila #3
    (str "Sheila: Does that mean Bloody Fox is a gang of immortals!?")
    (wait)
    (text-reset 1)
@@ -122,7 +132,7 @@
    (set-reg 187 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 188 #f))
+ (seg (? (= P 5) (= 188 #f))							; Sheila #4
    (str "Cole: Doc used to say that the color of the reanimation" 'br)
    (str "serum was super unique and hard to replicate.")
    (wait)
@@ -148,7 +158,7 @@
    (set-reg 188 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 189 #f))
+ (seg (? (= P 5) (= 189 #f))							; Sheila #5
    (str "Sheila: Do we have anything to go on?")
    (wait)
    (text-reset 1)
@@ -210,7 +220,7 @@
    (set-reg 189 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Sheila #6 (repeat line)
    (str "Cole: I think we're gonna need to pay Rease a visit.")
    (wait)
    (text-reset 1)
@@ -221,29 +231,29 @@
    (set-reg 194 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 190 #f))
+ (seg (? (= P 6) (= 190 #f))							; Wall #1
    (str "Cole: The wall's plastered with the photos and clippings" 'br)
    (str "I've pasted up.")
    (set-reg 190 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Wall #2 (repeat line)
    (str "Cole: It's more fun to put stuff on the wall instead of" 'br)
    (str "filing them away somewhere.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 191 #f))
+ (seg (? (= P 7) (= 191 #f))							; Aircon #1
    (str "Cole: There's a big ol' air conditioner mounted on the" 'br)
    (str "ceiling.")
    (set-reg 191 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Aircon #2 (repeat line)
    (str "Cole: It's starting to get chilly, so I'll need to put the" 'br)
    (str "AC to work again.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 192 #f))
+ (seg (? (= P 8) (= 192 #f))							; Phone #1
    (str "Cole: Any calls while I was out?")
    (wait)
    (text-reset 1)
@@ -251,12 +261,12 @@
    (set-reg 192 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Phone #2 (repeat line)
    (str "Cole: There's a phone on the wall, but I don't have anyone" 'br)
    (str "to call at the moment.")
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 193 #f))
+ (seg (? (= P 9) (= 193 #f))							; Door #1
    (str "Cole: Did anyone stop by while I was out?")
    (wait)
    (text-reset 1)
@@ -267,14 +277,14 @@
    (set-reg 193 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9))
+ (seg (? (= P 9))								; Door #2 (repeat line)
    (str "Sheila: So are you headed out?")
    (wait)
    (text-reset 1)
    (str "Cole: Not yet. I need to think a little longer.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 193 #t) (= 194 #t))
+ (seg (? (= P 1) (= 193 #t) (= 194 #t))						; MOVE (after talking to Sheila and looking at the door)
    (exec-mem 6064 2 1)
    (str "Cole: Okay, I'm off to Bar Rease.")
    (wait)
@@ -289,7 +299,7 @@
    (exec-mem 6064 3)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥010.MES"))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

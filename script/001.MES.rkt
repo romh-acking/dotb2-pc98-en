@@ -1,6 +1,6 @@
 ; Dead of the Brain 2 (PC-98) - 001.MES
 ; Translated by Geometrizer
-; Edited by trentsignia
+; Edited by trentsignia and JackDBS
 ; -----Scene:-----
 ; Sheila and Cole hang out after celebrating their engagement with friends Terry and Lynn.
 ; --Progression:--
@@ -57,7 +57,8 @@
          (str "Sheila: We sure made you put back the drinks.")
          (wait)
          (text-reset 1)
-         (str "Cole: Yeah, and I'll be sleeping like a log because of it.")
+         (str "Cole: Yeah, and I'll be sleeping like a log after all that" 'br)
+         (str "booze.")
          (set-reg 119 #t))
         (//
          (str "Sheila: You look like you're about to fall over.")		; Lead-in from loading game
@@ -67,7 +68,7 @@
          (str "THAT much.")
          (wait)
          (text-reset 1)
-         (str "Sheila: Those two don't know the meaning of moderation."))))
+         (str "Sheila: They sure don't know the meaning of moderation."))))
    (wait)
    (text-reset 1)
    (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
@@ -75,7 +76,7 @@
    (str "Sheila: Cole, are you all packed up for the trip?")
    (wait)
    (text-reset 1)
-   (str "Cole: Should be fine. Bag's got my passport, change of" 'br)
+   (str "Cole: Should be fine. The bag's got my passport, change of" 'br)
    (str "clothes, camera...and Uno.")
    (wait)
    (text-reset 1)
@@ -96,7 +97,7 @@
    (set-reg 118 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 105 #t) (= 107 #t) (= 111 #t) (= 112 #t))			; Shiela (after inspecting everything) #2
+ (seg (? (= P 5) (= 105 #t) (= 107 #t) (= 111 #t) (= 112 #t))			; Sheila (after inspecting everything) #2
    (str "Cole: Anyway, that's my bag all packed.")
    (wait)
    (text-reset 1)
@@ -115,7 +116,7 @@
    (wait)
    (text-reset 1)
    (str "Sheila: Cole, you're the king of oversleepers. I'll go grab" 'br)
-   (str "some right now. The supermarket's open until 2am, right?")
+   (str "some right now. The supermarket's open until 2AM, right?")
    (wait)
    (text-reset 1)
    (str "Cole: Yeah, I think so...")
@@ -127,7 +128,7 @@
    (str "Cole: Wait, you need cash?")
    (wait)
    (text-reset 1)
-   (str "Sheila: I'm good, back soon!")
+   (str "Sheila: No, I'm good. Be back soon!")
    (wait)
    (text-reset 1)
    (str "Cole: Take care, all right?")
@@ -151,14 +152,14 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥002.MES"))
- (seg (? (= P 5) (= 100 #f))							; Shiela #1
+ (seg (? (= P 5) (= 100 #f))							; Sheila #1
    (str "Cole: The engagement ring sparkles on Sheila's left ring" 'br)
    (str "finger. It's not the priciest, but I still remember the big" 'br)
    (str "smile on her face when I gave it to her.")
    (set-reg 100 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 101 #f))							; Shiela #2
+ (seg (? (= P 5) (= 101 #f))							; Sheila #2
    (str "Cole: Sheila's changed a bit over time. She used to seem" 'br)
    (str "more quiet and reserved.")
    (wait)
@@ -174,7 +175,7 @@
    (set-reg 101 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 102 #f))							; Shiela #3
+ (seg (? (= P 5) (= 102 #f))							; Sheila #3
    (str "Sheila: Lynn seemed jealous about what we've got going. She" 'br)
    (str "should bite the bullet and marry Terry already.")
    (wait)
@@ -195,7 +196,7 @@
    (set-reg 102 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 103 #f))							; Shiela #4
+ (seg (? (= P 5) (= 103 #f))							; Sheila #4
    (str "Sheila: But seriously, you drank like a fish. Are you gonna" 'br)
    (str "be able to wake up tomorrow?")
    (wait)
@@ -208,7 +209,7 @@
    (set-reg 103 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 104 #f))							; Shiela #5
+ (seg (? (= P 5) (= 104 #f))							; Sheila #5
    (str "Cole: Sheila got me a flight to Canada as a birthday" 'br)
    (str "present.")
    (wait)
@@ -242,7 +243,7 @@
    (exec-mem 912 "EXIT")
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 104 #t))							; Shiela #6 (repeat line)
+ (seg (? (= P 5) (= 104 #t))							; Sheila #6 (repeat line)
    (str "Sheila: Tomorrow can't come soon enough. I won't be able to" 'br)
    (str "sleep, thinking about it.")
    (wait)
@@ -260,12 +261,12 @@
    (text-reset 1)
    (str "Cole: I hear they're looking for new tenants, but biker" 'br)
    (str "gangs have been raising hell nearby, since this isn't the" 'br)
-   (str "safest area.")
+   (str "safest part of town.")
    (set-reg 106 #t)
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 107 #f))							; Wall #2
-   (str "Cole: This apartment has big rooms, but it's real old," 'br)
+   (str "Cole: This apartment has big rooms, but it's really old," 'br)
    (str "hence the cheap rent.")
    (wait)
    (text-reset 1)
@@ -282,7 +283,7 @@
    (text-reset 1))
  (seg (? (= P 7) (= 108 #f))							; Aircon #1
    (str "Cole: The air conditioner on the ceiling is super powerful." 'br)
-   (str "It can go from balmy to chill in just three minutes.")
+   (str "It can go from m to chill in just three minutes.")
    (set-reg 108 #t)
    (wait)
    (text-reset 1))
@@ -433,8 +434,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 10))								; Stereo #5 (repeat line)
-   (str "Cole: The radio's playing hard rock. It's late, so I can't" 'br)
-   (str "really crank it up.")
+   (str "Cole: The radio's playing hard rock. It's late, so I really" 'br)
+   (str "shouldn't crank it up.")
    (wait)
    (text-reset 1))
  (seg (? (= P 2))								; SYSTEM

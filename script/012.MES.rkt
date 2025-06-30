@@ -1,14 +1,23 @@
+; Dead of the Brain 2 (PC-98) - 011.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole approaches the Bloody Fox table at Bar Rease.
+; --Progression:--
+; Inspect everything, then look at the woman, then talk to Briar.
+; ----Battle:-----
+; 
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB025.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 18 11 45 13)
-  (exec-mem 3744 1 6 29 3 34 6)
-  (exec-mem 3744 1 7 39 2 45 5)
-  (exec-mem 3744 1 8 4 4 9 6)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 18 11 45 13)						;	Table
+  (exec-mem 3744 1 6 29 3 34 6)							; 	Woman
+  (exec-mem 3744 1 7 39 2 45 5)							; 	Briar
+  (exec-mem 3744 1 8 4 4 9 6)							; 	Bloody Fox
   (exec-mem 9920 0 6 6 113 64 0)
   (text-frame 3 24 56 258)
   (text-reset 1)
@@ -38,7 +47,7 @@
   (text-frame 15 298 74 356)
   (if (</>
        (//
-        (? (= 215 #f))
+        (? (= 215 #f))								; Lead-in from previous MES script
         (str "Cole: I don't think these guys are gonna roll over and give" 'br)
         (str "me the information I need...")
         (wait)
@@ -48,27 +57,30 @@
         (set-reg 215 #t)
         (wait)
         (text-reset 1))
-       (// (str "B.F.: You gotta problem with us? Looking to start some shit?") (wait) (text-reset 1))))
+       (//
+        (str "B.F.: You gotta problem with us? Looking to start some shit?")	; Lead-in from loading game
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 216 #f))
+ (seg (? (= P 5) (= 216 #f))							; Table #1
    (str "Cole: That's a filthy table. Cigarette ashes have escaped" 'br)
    (str "the ashtrays and are covering just about every surface" 'br)
    (str "available.")
    (set-reg 216 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 217 #f))
+ (seg (? (= P 5) (= 217 #f))							; Table #2
    (str "Cole: I see vinyl baggies and syringes on the table..." 'br)
    (str "These dudes are the opposite of subtle. That's gotta be" 'br)
    (str "Purple Sky.")
    (set-reg 217 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Table #3 (repeat line)
    (str "B.F.: Why don't you take a picture? It'll last longer.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 222 #t) (= 223 #t) (= 219 #t) (= 217 #t) (= 224 #f))
+ (seg (? (= P 6) (= 222 #t) (= 223 #t) (= 219 #t) (= 217 #t) (= 224 #f))	; Woman (after inspecting everything) #1
    (str "Woman: What's wrong, babe? You want something from me?")
    (wait)
    (text-reset 1)
@@ -87,7 +99,7 @@
    (set-reg 224 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 222 #t) (= 223 #t) (= 219 #t) (= 217 #t) (= 225 #f))
+ (seg (? (= P 6) (= 222 #t) (= 223 #t) (= 219 #t) (= 217 #t) (= 225 #f))	; Woman (after inspecting everything) #2
    (str "Woman: This boy's persistent.")
    (wait)
    (text-reset 1)
@@ -103,29 +115,29 @@
    (set-reg 225 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 222 #t) (= 223 #t) (= 219 #t) (= 217 #t))
+ (seg (? (= P 6) (= 222 #t) (= 223 #t) (= 219 #t) (= 217 #t))			; Woman (after inspecting everything) #3 (repeat line)
    (str "Cole: That's gotta be Purple Sky. It's up to me to make the" 'br)
    (str "connection between it and Doc's serum.")
    (set-reg 226 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 218 #f))
-   (str "Cole: Heh... So Bloody Fox has its share of women members.")
+ (seg (? (= P 6) (= 218 #f))							; Woman #1
+   (str "Cole: Heh... So Bloody Fox has its share of female members.")
    (set-reg 218 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 219 #f))
+ (seg (? (= P 6) (= 219 #f))							; Woman #2
    (str "Cole: She looks like she's in deep with the guy sitting" 'br)
    (str "next to her. Could that other guy be the leader?")
    (set-reg 219 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Woman #3 (repeat line)
    (str "Cole: She looks like she's all over the place, mentally." 'br)
    (str "Probably a junkie.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 226 #t))
+ (seg (? (= P 7) (= 226 #t))							; Briar (after noticing Purple Sky)
    (str "Cole: Hey, did you just slip her some Purple Sky?")
    (wait)
    (text-reset 1)
@@ -172,7 +184,7 @@
    (str "Cole: I'm only gonna ask one more time!")
    (wait)
    (text-reset 1)
-   (sound '|| 0)
+   (sound '|| 0)								; Battle starts here...
    (if (</>
         (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_06.USO"))
         (// (sound '|| "A:¥USO_D¥BR2_06.USO"))))
@@ -181,10 +193,10 @@
    (wait)
    (text-reset 1)
    (load-mem "A:¥CLM¥DB026.CLM" 32768)
-   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2)
-   (exec-mem 3744 1 5 15 4 19 5)
-   (exec-mem 3744 1 6 37 4 41 5)
-   (exec-mem 3744 1 7 80 0 0 0)
+   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2)			; Battle's hotspots defined here
+   (exec-mem 3744 1 5 15 4 19 5)						; 	Left Bloody Fox
+   (exec-mem 3744 1 6 37 4 41 5)						; 	Right Bloody Fox
+   (exec-mem 3744 1 7 80 0 0 0)							; 	???
    (exec-mem 15728 0 0 0 3 0 1)
    (exec-mem 15728 1 0 0 0 0 "Z")
    (image-mem 0 0)
@@ -199,7 +211,7 @@
    (image-mem 0 0)
    (if (</>
         (//
-         (? (= P 5) (= Z 2))
+         (? (= P 5) (= Z 2))							; Left Bloody Fox (winning move)
          (sound '|se | 13)
          ((cmd 196) 0 0)
          (delay 2 0)
@@ -312,7 +324,7 @@
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
          (mes-jump "A:¥MES¥013.MES"))
         (//
-         (str "B.F.: Die, fucker!")
+         (str "B.F.: Die, fucker!")						; Game Over sequence
          (wait)
          (text-reset 1)
          (exec-mem 14544 2 2)
@@ -337,13 +349,13 @@
             (text "　　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
             (text "　　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
             (loop (wait)))))))))
- (seg (? (= P 7) (= 220 #f))
+ (seg (? (= P 7) (= 220 #f))							; Briar #1
    (str "Cole: That guy acting all high and mighty's gotta be the" 'br)
    (str "boss around here. Betcha he's involved with the Purple Sky.")
    (set-reg 220 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 221 #f))
+ (seg (? (= P 7) (= 221 #f))							; Briar #2
    (str "Cole: Listen up, I've got questions for you.")
    (wait)
    (text-reset 1)
@@ -355,7 +367,7 @@
    (set-reg 221 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 222 #f))
+ (seg (? (= P 7) (= 222 #f))							; Briar #3
    (str "B.F.: If you wanna ask a question, then bow down to me" 'br)
    (str "first!")
    (wait)
@@ -370,21 +382,24 @@
    (set-reg 222 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7)) (str "B.F.: If you wanna ask a question, then bow down to me" 'br)
-   (str "first!") (wait) (text-reset 1))
- (seg (? (= P 8) (= 223 #f))
+ (seg (? (= P 7))								; Briar #4 (repeat line)
+   (str "B.F.: If you wanna ask a question, then bow down to me" 'br)
+   (str "first!")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 8) (= 223 #f))							; Bloody Fox #1
    (str "Cole: These assholes are just low-level thugs. They seem to" 'br)
    (str "be paying attention to the guy sitting to the right of the" 'br)
    (str "girl. Chain of command is king with these guys.")
    (set-reg 223 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Bloody Fox #2 (repeat line)
    (str "Cole: I'm not talking with these punks. It's their leader" 'br)
    (str "or nothing.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

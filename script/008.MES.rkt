@@ -133,7 +133,7 @@
    (image-mem 0 0)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (load-mem "A:¥CLM¥DB018.CLM" 32768)
-   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)			; First move's hotspots defined here
+   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)			; Battle's hotspots defined here
    (exec-mem 3744 1 5 5 8 14 13)						; 	Punching fist
    (exec-mem 3744 1 6 29 2 36 7)						; 	Face
    (exec-mem 3744 1 7 10 3 15 5)						; 	Left Bloody Fox
@@ -201,7 +201,7 @@
          (exec-mem 14544 2 2))))
    (if (</>
         (//
-         (? (= 183 #f))								; Losing sequence for first move
+         (? (= 183 #f))								; Game Over sequence for first move
          (str "Cole: ")
          (branch-random
           (</>
@@ -242,7 +242,7 @@
             (set-reg 183 #f)
             (mes-jump "A:¥MES¥008.MES"))
            (/
-            (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)				; END GAME (softlock)
+            (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)	; END GAME (softlock)
             (text "　　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
             (text "　　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
             (loop (wait))))))
@@ -408,7 +408,7 @@
                (wait)
                (text-reset 1)
                (exec-mem 14544 2 2))))
-         (exec-mem 17408 3)							; Losing sequence for second move
+         (exec-mem 17408 3)							; Game Over sequence for second move
          (exec-mem 256 3 0 11 0)
          (exec-mem 256 4 0 7 0)
          (exec-mem 912 "EXIT")
@@ -427,12 +427,12 @@
             (set-reg 183 #f)
             (mes-jump "A:¥MES¥008.MES"))
            (/
-            (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)				; END GAME (softlock)
+            (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)	; END GAME (softlock)
             (text "　　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
             (text "　　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
             (loop (wait)))
            (/
-            (exec-mem 14544 2 2)
+            (exec-mem 14544 2 2)						; ???
             (str "Cole: Hyaaaaaaa!")
             (wait)
             (text-reset 1)
@@ -459,12 +459,12 @@
              S
              (</>
               (/
-               (exec-mem 9920 0 6 6 113 64 0)
+               (exec-mem 9920 0 6 6 113 64 0)					; CONTINUE (reload script)
                (nop@)
                (set-reg 183 #f)
                (mes-jump "A:¥MES¥008.MES"))
               (/
-               (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)
+               (text "　　　　　　ＮＩＧＨＴＭＡＲＥ　ＣＯＬＬＥＣＴＩＯＮ" 'br)	; END GAME (softlock)
                (text "　　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
                (text "　　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
                (loop (wait))))))))))))
