@@ -1,13 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 036.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole makes his way back to the Perain Research Institute in search of Steve.
+; --Progression:--
+; Try the entrance, then go for the stairs.
+; ----Puzzle:-----
+; Refer to the manual for the matching code.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB042.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 22 2 37 9)
-  (exec-mem 3744 1 6 5 9 17 14)
-  (exec-mem 3744 1 7 52 6 56 12)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 22 2 37 9)							; 	Building
+  (exec-mem 3744 1 6 5 9 17 14)							; 	Entrance
+  (exec-mem 3744 1 7 52 6 56 12)						; 	Stairs
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB042.GPC")
   (image-mem 1 3)
@@ -49,44 +58,45 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (? (= 130 #f))
+        (? (= 130 #f))								; Lead-in from previous MES script
         (str "Cole: Sure enough, things get pretty desolate once you" 'br)
         (str "leave town...")
         (set-reg 130 #t))
-       (// (str "Cole: This is the front of the Perain Research Institute."))))
+       (//
+        (str "Cole: This is the front of the Perain Research Institute."))))	; Lead-in from loading game
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 131 #f))
+ (seg (? (= P 5) (= 131 #f))							; Building #1
    (str "Cole: No signs of damage on the building. As expected, the" 'br)
    (str "undead didn't make it out here yet.")
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 132 #f))
+ (seg (? (= P 5) (= 132 #f))							; Building #2
    (str "Cole: There are no streetlights, so I've gotta make do by" 'br)
    (str "moonlight.")
    (set-reg 132 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 133 #f))
+ (seg (? (= P 5) (= 133 #f))							; Building #3
    (str "Cole: I can't hear any sounds coming from the inside of the" 'br)
    (str "building. I wonder if anyone's inside.")
    (set-reg 133 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Building #4 (repeat line)
    (str "Cole: The building is eerily silent. If there's nobody" 'br)
    (str "home, I'll have to head back to town.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 134 #f))
+ (seg (? (= P 6) (= 134 #f))							; Entrance #1
    (str "Cole: I guess this is the entrance...but I can't see" 'br)
    (str "anything inside, it's pitch black.")
    (set-reg 134 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 135 #f))
+ (seg (? (= P 6) (= 135 #f))							; Entrance #2
    (str "Cole: Okay, time to head inside.")
    (wait)
    (text-reset 1)
@@ -97,11 +107,11 @@
    (set-reg 135 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Entrance #3 (repeat line)
    (str "Cole: Since the door's locked, I'm not getting in that way.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 135 #t) (= 136 #t))
+ (seg (? (= P 7) (= 135 #t) (= 136 #t))						; Stairs (after trying entrance)
    (str "Cole: No choice, I gotta use the emergency stairs.")
    (wait)
    (text-reset 1)
@@ -110,7 +120,7 @@
    (str "open and see.")
    (wait)
    (text-reset 1)
-   (str "Cole: An auto-lock! The code ")
+   (str "Cole: An auto-lock! The code ")					; Auto-lock puzzle starts here. In the middle of this line, one of 13 random codes is printed...
    (branch-random
     (</>
      (/
@@ -336,17 +346,17 @@
      (/ (str "T-D79") (nop@) (set-reg 147 #t))
      (/ (str "I-U68") (nop@) (set-reg 148 #t))
      (/ (str "N-Z04") (nop@) (set-reg 149 #t))))
-   (str " is on the screen.")
+   (str " is on the screen.")							; The rest of the original line is printed here.
    (if (</>
      (//
       (? (= 190 #f))
-      (str "..")
+      (str "..")								; 	This following chunk of text nudging players to find the matching codes was added by me for this translation.
       (set-reg 190 #t))
      (//
       (branch-random
        (</>
         (/
-         (str " Isn't" 'br)
+         (str " Isn't" 'br)							; 	After the first time this puzzle is attempted, one of three (less than subtle) hints has a chance of appearing...
          (str "there a manual for this?"))
         (/
          (str " Man," 'br)
@@ -359,11 +369,11 @@
         (/
          (str ".."))
         (/
-         (str "..")))))))
+         (str "..")))))))							; 	The idea is that players that are stuck on this puzzle will eventually get a hint after repeating this enough times.
    (wait)
    (text-reset 1)
    (text-frame 15 298 74 356)
-   (str "Cole: Uh, so the password is...")
+   (str "Cole: Uh, so the password is...")					; Code entry dialog follows...
    (menu1
     26
     317
@@ -413,7 +423,7 @@
      (/ (text "９") (set-reg 158 #t))
      (/ (text "０") (set-reg 159 #t))))
    (text-frame 15 298 74 356)
-   (text #:col 15) (str "Cole: Uh, so the password is...")
+   (text #:col 15) (str "Cole: Uh, so the password is...")			; Every time a number is entered, the dialog box is reprinted...
    (menu1
     26
     317
@@ -563,7 +573,7 @@
      (/ (text "９") (set-reg 188 #t))
      (/ (text "０") (set-reg 189 #t))))
    (text-frame 15 298 74 356)
-   (text-color 15)
+   (text-color 15)								; Success dialogs follow...
    (if (</>
         (//
          (? (= 137 #t) (= 150 #t) (= 160 #t) (= 171 #t) (= 188 #t))
@@ -709,7 +719,7 @@
          (mes-jump "A:¥MES¥037.MES"))))
    (if (</>
         (//
-         (? (= A 2))
+         (? (= A 2))								; Game End dialog?! ...I'm not sure what context this appears in
          (str "Cole: No good. I guess I'll give up on my entire adventure." 'br)
          (str "Oh well.")
          (wait)
@@ -725,24 +735,24 @@
          (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
          (loop (wait)))
         (//
-         (text-frame 15 298 74 356)
+         (text-frame 15 298 74 356)						; This is the failure dialog
          (str "Cole: I biffed it. Better try again.")
          (inc-var A 1)
          (wait)
          (text-reset 1)
          (exec-mem 912 "PUT 1 54 38,W 0,O 0")
          ((cmd 204) 150 189)))))
- (seg (? (= P 7) (= 136 #f))
+ (seg (? (= P 7) (= 136 #f))							; Stairs (before checking entrance) #1
    (str "Cole: That's the fire escape. Leads up to the second floor.")
    (set-reg 136 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Stairs (before checking entrance) #2 (repeat line)
    (str "Cole: There's a fire escape on the right side of the" 'br)
    (str "institute.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

@@ -1,21 +1,28 @@
+; Dead of the Brain 2 (PC-98) - 026.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole enters Sheila's apartment to find it empty and roughed up.
+; --Progression:--
+; Inspect everything, use the phone, then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB049.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 29 14 43 15)
-  (exec-mem 3744 1 6 18 9 29 12)
-  (exec-mem 3744 1 7 46 3 56 12)
-  (exec-mem 3744 1 8 10 10 19 12)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 29 14 43 15)						; 	Phone
+  (exec-mem 3744 1 6 18 9 29 12)						; 	Bed
+  (exec-mem 3744 1 7 46 3 56 12)						; 	Closet
+  (exec-mem 3744 1 8 10 10 19 12)						; 	Desk Drawer
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB049.GPC")
   (image-mem 0 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (if (</>
        (//
-        (? (= 174 #f))															; Lead-in from previous script
+        (? (= 174 #f))								; Lead-in from previous MES script
         (sound '|| 0)
         (sound '|se | 4)
         (str "Cole: !?")
@@ -39,19 +46,19 @@
              (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_02.USO"))
              (// (sound '|| "A:¥USO_D¥BR2_02.USO"))))
         (sound '|| 1)
-        (str "Cole: This is Sheila's room, but there's no sign of her" 'br)
+        (str "Cole: This is Sheila's room, but there's no sign of her" 'br)	; Lead-in from loading game
         (str "anywhere.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 183 #t))
+ (seg (? (= P 5) (= 183 #t))							; Floor (after calling Steve)
    (branch-random
     (</>
-     (/ (str "Cole: Let's check on Catherine."))
-     (/ (str "Cole: Let's head over to Shuffle Food."))))
+     (/ (str "Cole: I should check on Catherine."))
+     (/ (str "Cole: I should head over to Shuffle Food."))))
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 176 #t) (= 178 #t) (= 180 #t) (= 182 #t) (= 183 #f))
+ (seg (? (= P 5) (= 176 #t) (= 178 #t) (= 180 #t) (= 182 #t) (= 183 #f))	; Floor (after inspecting everything)
    (str "Cole: I can't waste any more time here, I've got to tell" 'br)
    (str "Steve ASAP!")
    (wait)
@@ -148,7 +155,15 @@
    (str "Cole: Okay.")
    (wait)
    (text-reset 1)
-   (repeat 3 (<> (str "Cole: ....................") (wait) (text-reset 1)))
+   (str "Cole: .......")							; 	This was originally (repeat 3 (<> (str "Cole: ....................") (wait) (text-reset 1))), but...
+   (wait)									; 	I didn't like how there is no visible feedback between each repeat, hence the tweak.
+   (text-reset 1)
+   (str "Cole: .............")
+   (wait)
+   (text-reset 1)
+   (str "Cole: ....................")
+   (wait)
+   (text-reset 1)
    (str "Steve: Got the location. It's right behind the station.")
    (wait)
    (text-reset 1)
@@ -166,13 +181,13 @@
    (set-reg 183 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 175 #f))
+ (seg (? (= P 5) (= 175 #f))							; Floor #1
    (str "Cole: The floor is a mess. It looks like the room's been" 'br)
    (str "utterly ransacked.")
    (set-reg 175 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 176 #f))
+ (seg (? (= P 5) (= 176 #f))							; Floor #2
    (str "Cole: There's no sign of Sheila anywhere...could she have" 'br)
    (str "been kidnapped?")
    (wait)
@@ -181,19 +196,22 @@
    (set-reg 176 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5)) (str "Cole: Who would do something like this?") (wait) (text-reset 1))
- (seg (? (= P 6) (= 183 #t))
+ (seg (? (= P 5))								; Floor #3 (repeat line)
+  (str "Cole: Who would do something like this?")
+  (wait)
+  (text-reset 1))
+ (seg (? (= P 6) (= 183 #t))							; Bed (after calling Steve)
    (str "Cole: There's no reason to stay around. I need to find" 'br)
    (str "Sheila immediately.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 177 #f))
+ (seg (? (= P 6) (= 177 #f))							; Bed #1
    (str "Cole: The bed is cold. It's been a while since Sheila was" 'br)
    (str "here.")
    (set-reg 177 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 178 #f))
+ (seg (? (= P 6) (= 178 #f))							; Bed #2
    (str "Cole: Yesterday I put Sheila to bed here and left. And I'd" 'br)
    (str "locked the door with the spare key she gave me.")
    (wait)
@@ -203,23 +221,23 @@
    (set-reg 178 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Bed #3 (repeat line)
    (str "Cole: So where did Sheila go? I've got a feeling about" 'br)
    (str "this, and it isn't good.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 183 #t))
+ (seg (? (= P 7) (= 183 #t))							; Closet (after calling Steve)
    (str "Cole: Sheila's not here. I need to find Catherine at" 'br)
    (str "Shuffle Food.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 179 #f))
+ (seg (? (= P 7) (= 179 #f))							; Closet #1
    (str "Cole: Even the closet's been ransacked. Why would anyone do" 'br)
    (str "this?")
    (set-reg 179 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 180 #f))
+ (seg (? (= P 7) (= 180 #f))							; Closet #2
    (str "Cole: Was the culprit searching for something in Sheila's" 'br)
    (str "room? No way... She couldn't have gotten pulled into" 'br)
    (str "anything shady.")
@@ -230,32 +248,32 @@
    (set-reg 180 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Closet #3
    (str "Cole: Anyway, I can't just leave the room like this.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 183 #t))
+ (seg (? (= P 8) (= 183 #t))							; Desk Drawer (after calling Steve)
    (str "Cole: Steve will be here soon... I'd better hurry over to" 'br)
    (str "Shuffle Food to look for Sheila.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 181 #f))
+ (seg (? (= P 8) (= 181 #f))							; Desk Drawer #1
    (str "Cole: The desk drawer is open.")
    (set-reg 181 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 182 #f))
+ (seg (? (= P 8) (= 182 #f))							; Desk Drawer #2
    (str "Cole: It doesn't look like anything expensive was taken." 'br)
    (str "The culprit wasn't just an ordinary thief...they must have" 'br)
    (str "had a particular target in mind.")
    (set-reg 182 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Desk Drawer #3 (repeat line)
    (str "Cole: What was the culprit looking for in here?")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 183 #t))
+ (seg (? (= P 1) (= 183 #t))							; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: I just hope that Sheila's at Shuffle Food when I get" 'br)
    (str "there...")
@@ -265,7 +283,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥027.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

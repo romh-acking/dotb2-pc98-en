@@ -1,3 +1,8 @@
+; Dead of the Brain 2 (PC-98) - 025.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole makes his way to the 9th storey of the apartment building.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

@@ -1,3 +1,8 @@
+; Dead of the Brain 2 (PC-98) - 033.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Inside Warehouse 3, the Bloody Fox gang that was hanging out in Bar Rease ambush Cole.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

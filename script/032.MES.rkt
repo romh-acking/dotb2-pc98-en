@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 032.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole rushes to the docks to save Sheila.
+; --Progression:--
+; MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB057.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 40 5 56 10)
-  (exec-mem 3744 1 6 34 5 39 10)
-  (exec-mem 3744 1 7 4 9 13 11)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 40 5 56 10)						; 	Warehouses
+  (exec-mem 3744 1 6 34 5 39 10)						; 	Warehouse 3
+  (exec-mem 3744 1 7 4 9 13 11)							; 	Ocean
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB057.GPC")
   (image-mem 0 3)
@@ -18,63 +25,69 @@
        (// (sound '|| "A:¥USO_D¥BR2_02.USO"))))
   (sound '|| 1)
   (if (</>
-       (// (? (= 100 #f)) (str "Cole: * Huff * Huff * Okay, made it... These are the docks.") (set-reg 100 #t))
        (//
-        (str "Cole: Sheila's in the third warehouse. I've gotta rescue" 'br)
+        (? (= 100 #f))								; Lead-in from previous MES script
+        (str "Cole: Huff, huff... I made it, these are the docks.")
+        (set-reg 100 #t))
+       (//
+        (str "Cole: Sheila's in the third warehouse. I've gotta rescue" 'br)	; Lead-in from loading game
         (str "her, no matter what."))))
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 101 #f))
+ (seg (? (= P 5) (= 101 #f))							; Warehouses #1
    (str "Cole: A row of identical warehouses, numbered one to" 'br)
    (str "thirteen. Sheila should be in the third one.")
    (set-reg 101 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 102 #f))
+ (seg (? (= P 5) (= 102 #f))							; Warehouses #2
    (str "Cole: All the warehouses are eerily silent. Hardly anyone's" 'br)
    (str "working at this hour of night.")
    (set-reg 102 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Warehouses #3 (repeat line)
    (str "Cole: Sheila's supposedly being held in Warehouse 3. I" 'br)
    (str "can't waste any time saving her.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 103 #f))
+ (seg (? (= P 6) (= 103 #f))							; Warehouse 3 #1
    (str "Cole: So that's Warehouse 3... Sheila's gotta be inside.")
    (set-reg 103 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 104 #f))
+ (seg (? (= P 6) (= 104 #f))							; Warehouse 3 #2
    (str "Cole: The entrance to Warehouse 3 is slightly open, and" 'br)
    (str "there's a light on inside. Whoever took Sheila's in there." 'br)
    (str "Time to nut up and kick the door down.")
    (set-reg 104 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 105 #f))
+ (seg (? (= P 6) (= 105 #f))							; Warehouse 3 #3
    (str "Cole: I've got my piece, so I'm ready to go in. I can't" 'br)
    (str "wait to see Sheila's face... And I can't wait to beat the" 'br)
    (str "hell out of whoever took her.")
    (set-reg 105 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6)) (str "Cole: I'm trying to listen, but I can't hear any sound from" 'br)
-   (str "inside.") (wait) (text-reset 1))
- (seg (? (= P 7) (= 106 #f))
+ (seg (? (= P 6))								; Warehouse 3 #4 (repeat line)
+   (str "Cole: I'm trying to listen, but I can't hear any sound from" 'br)
+   (str "inside.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 7) (= 106 #f))							; Ocean #1
    (str "Cole: To my left is the sea and the sound of the crashing" 'br)
    (str "waves.")
    (set-reg 106 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Ocean #2 (repeat line)
    (str "Cole: It's pitch dark so I can't see the ocean, but I hear" 'br)
    (str "the sound of the waves.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: I don't care who it is, I can never forgive the" 'br)
    (str "person who took my precious Sheila! I'm dragging his ass to" 'br)
@@ -92,7 +105,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥033.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

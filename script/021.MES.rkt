@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 021.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Inside Steve's office at the Precinct 32 police station.
+; --Progression:--
+; Inspect everything in the room, then talk to Steve.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB041.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 3 2 10 11)
-  (exec-mem 3744 1 6 4 12 20 15)
-  (exec-mem 3744 1 7 31 5 38 9)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 3 2 10 11)							; 	Wall
+  (exec-mem 3744 1 6 4 12 20 15)						; 	Desk
+  (exec-mem 3744 1 7 31 5 38 9)							; 	Steve
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB041.GPC")
   (image-mem 1 3)
@@ -22,7 +29,7 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (? (= 135 #f))
+        (? (= 135 #f))								; Lead-in from previous MES script
         (str "Cole: Steve.")
         (wait)
         (text-reset 1)
@@ -33,9 +40,12 @@
         (set-reg 135 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: I'm in the Investigation Division at Precinct 32.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: I'm in the Investigation Division at Precinct 32.")		; Lead-in from loading game
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 136 #f))
+ (seg (? (= P 5) (= 136 #f))							; Wall #1
    (str "Cole: Looks like that wall's been patched over.")
    (wait)
    (text-reset 1)
@@ -56,7 +66,7 @@
    (set-reg 136 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 137 #f))
+ (seg (? (= P 5) (= 137 #f))							; Wall #2
    (str "Cole: There are vinyl sheets pasted over the wall.")
    (wait)
    (text-reset 1)
@@ -69,12 +79,12 @@
    (set-reg 137 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Wall #3 (repeat line)
    (str "Steve: They need to finish the repairs sooner or later," 'br)
    (str "their tools are blocking the way.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 138 #f))
+ (seg (? (= P 6) (= 138 #f))							; Desk #1
    (str "Cole: So this is your desk, Steve?")
    (wait)
    (text-reset 1)
@@ -97,7 +107,7 @@
    (set-reg 138 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 139 #f))
+ (seg (? (= P 6) (= 139 #f))							; Desk #2
    (str "Cole: A boss looks better if he's always at the station.")
    (wait)
    (text-reset 1)
@@ -105,7 +115,7 @@
    (set-reg 139 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 140 #f))
+ (seg (? (= P 6) (= 140 #f))							; Desk #3
    (str "Cole: Steve's desk is covered in various thick documents.")
    (wait)
    (text-reset 1)
@@ -124,12 +134,12 @@
    (set-reg 140 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Desk #4 (repeat line)
    (str "Steve: It's only a matter of time before we can pinpoint" 'br)
    (str "the source for this stuff.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 137 #t) (= 140 #t) (= 141 #t) (= 142 #f))
+ (seg (? (= P 7) (= 137 #t) (= 140 #t) (= 141 #t) (= 142 #f))			; Steve (after inspecting everything) #1
    (str "Steve: I wanted to get you to help with that too, but I" 'br)
    (str "still had some more investigating to do first.")
    (wait)
@@ -163,7 +173,7 @@
    (set-reg 142 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 137 #t) (= 140 #t) (= 141 #t) (= 143 #f))
+ (seg (? (= P 7) (= 137 #t) (= 140 #t) (= 141 #t) (= 143 #f))			; Steve (after inspecting everything) #2
    (str "Cole: The main reason I'm here is because I'm worried about" 'br)
    (str "her getting injected with that junk. I wanted to ask you" 'br)
    (str "about what to expect.")
@@ -190,7 +200,7 @@
    (set-reg 143 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 137 #t) (= 140 #t) (= 141 #t) (= 144 #f))
+ (seg (? (= P 7) (= 137 #t) (= 140 #t) (= 141 #t) (= 144 #f))			; Steve (after inspecting everything) #3
    (str "Cole: Steve, is Purple Sky capable of inflicting permanent" 'br)
    (str "damage?")
    (wait)
@@ -214,7 +224,7 @@
    (set-reg 144 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 137 #t) (= 140 #t) (= 141 #t))
+ (seg (? (= P 7) (= 137 #t) (= 140 #t) (= 141 #t))				; Steve (after inspecting everything) #4
    (str "Steve: Unless you're a regular heroin user, the effects on" 'br)
    (str "the body aren't too severe, but in the case of Purple Sky," 'br)
    (str "it sticks around in your bloodstream for a longer time.")
@@ -256,7 +266,7 @@
    (set-reg 145 #t)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥022.MES"))
- (seg (? (= P 7) (= 141 #f))
+ (seg (? (= P 7) (= 141 #f))							; Steve #1
    (str "Cole: Steve, I want to thank you again for yesterday. ")
    (wait)
    (text-reset 1)
@@ -265,12 +275,12 @@
    (set-reg 141 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Steve #2 (repeat line)
    (str "Steve: It's nothing, I should be the one thanking you. You" 'br)
    (str "provided me with so much good info.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

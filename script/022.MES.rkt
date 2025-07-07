@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 022.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole and Steve head to the Perain Research Institute on the outskirts of town.
+; --Progression:--
+; MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB042.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 22 2 37 9)
-  (exec-mem 3744 1 6 5 9 17 14)
-  (exec-mem 3744 1 7 52 6 56 12)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 22 2 37 9)							; 	Building
+  (exec-mem 3744 1 6 5 9 17 14)							; 	Entrance
+  (exec-mem 3744 1 7 52 6 56 12)						; 	Stairs
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB042.GPC")
   (image-mem 1 3)
@@ -22,7 +29,7 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (? (= 146 #f))
+        (? (= 146 #f))								; Lead-in from previous MES script
         (str "Steve: We're here. This is the Perain Research Institute.")
         (wait)
         (text-reset 1)
@@ -37,31 +44,31 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: So someone at Perain is researching Purple Sky...")
+        (str "Cole: So someone at Perain is researching Purple Sky...")		; Lead-in from loading game
         (wait)
         (text-reset 1)
         (str "Steve: Come on, let's head in.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 147 #f))
+ (seg (? (= P 5) (= 147 #f))							; Building #1
    (str "Cole: It's a three-story lab. Just looking at the garden," 'br)
    (str "it seems pretty spacious.")
    (set-reg 147 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 148 #f))
+ (seg (? (= P 5) (= 148 #f))							; Building #2
    (str "Cole: This lab's far out from town. It's quiet and has a" 'br)
    (str "welcoming environment.")
    (set-reg 148 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Building #3 (repeat line)
    (str "Cole: It sounds like Steve is pretty close with the doctor" 'br)
    (str "in charge here.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 150 #f))
+ (seg (? (= P 6) (= 150 #f))							; Entrance #1
    (str "Cole: The entrance is marked 'Perain Lab.' That's a name" 'br)
    (str "you don't hear every day.")
    (wait)
@@ -71,28 +78,28 @@
    (set-reg 150 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Entrance #2 (repeat line)
    (str "Cole: Since we're here to investigate Purple Sky, we should" 'br)
    (str "have lots of questions ready for the doctor.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 151 #f))
+ (seg (? (= P 7) (= 151 #f))							; Stairs #1
    (str "Cole: There's an emergency staircase to the right of the" 'br)
    (str "building.")
    (set-reg 151 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 152 #f))
+ (seg (? (= P 7) (= 152 #f))							; Stairs #2
    (str "Cole: The emergency staircase leads up to the second floor.")
    (set-reg 152 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Stairs #3 (repeat line)
    (str "Steve: Cole, the main entrance is right ahead. Why are you" 'br)
    (str "looking like you're gonna run up the emergency stairs?")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Steve: Come on, let's go.")
    (wait)
@@ -104,7 +111,7 @@
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (sound '|| 2)
    (mes-jump "A:¥MES¥023.MES"))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

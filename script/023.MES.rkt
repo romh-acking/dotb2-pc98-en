@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 023.MES
+; Translated by Geometrizer
+; Edited by trentsignia and JackDBS
+; -----Scene:-----
+; Cole meets Dr. Lisle inside the Perain Research Institute.
+; --Progression:--
+; Inspect everything, talk to Lisle, then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB043.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)					; Hotspots and buttons defined here...
-  (exec-mem 3744 1 1 80 0 0 0)													; 	MOVE button
-  (exec-mem 3744 1 2 80 0 0 0)													; 	SYSTEM button
-  (exec-mem 3744 1 5 16 3 21 7)
-  (exec-mem 3744 1 6 38 2 44 6)
-  (exec-mem 3744 1 7 25 2 34 7)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 16 3 21 7)							; 	Lisle
+  (exec-mem 3744 1 6 38 2 44 6)							; 	Steve
+  (exec-mem 3744 1 7 25 2 34 7)							; 	Lab
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB043.GPC")
   (image-mem 0 3)
@@ -23,7 +30,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 153 #f))
+        (? (= 153 #f))								; Lead-in from previous MES script
         (str "Steve: Let me introduce you both. This is Dr. Lisle from" 'br)
         (str "the Perain Institute's Pharmaceutical Development" 'br)
         (str "Department.")
@@ -37,12 +44,12 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: This is the Perain Pharmaceutical Development" 'br)
+        (str "Cole: This is the Perain Pharmaceutical Development" 'br)		; Lead-in from loading game
         (str "Department, and we're in Dr. Lisle's lab.")
-		(wait)
-		(text-reset 1))))
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 161 #f))
+ (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 161 #f))			; Lisle (after inspecting everything) #1
    (str "Cole: I hate to ask so abruptly, but I have to know. What" 'br)
    (str "happens to someone when they're injected with Purple Sky?")
    (wait)
@@ -72,7 +79,7 @@
    (set-reg 161 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 162 #f))
+ (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 162 #f))			; Lisle (after inspecting everything) #2
    (str "Lisle: What was Cooger's first name?")
    (wait)
    (text-reset 1)
@@ -86,7 +93,7 @@
    (set-reg 162 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 163 #f))
+ (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 163 #f))			; Lisle (after inspecting everything) #3
    (str "Lisle: I worked in the same lab as him for two years. His" 'br)
    (str "research was staggering. I was always amazed by his results.")
    (wait)
@@ -112,7 +119,7 @@
    (set-reg 163 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 164 #f))
+ (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 164 #f))			; Lisle (after inspecting everything) #4
    (str "Steve: Lisle, there's something else. Yesterday, Cole's" 'br)
    (str "fiancee was injected with Purple Sky.")
    (wait)
@@ -120,7 +127,7 @@
    (str "Lisle: I see. At what time?")
    (wait)
    (text-reset 1)
-   (str "Cole: Around 3:30am.")
+   (str "Cole: Around 3:30AM.")
    (wait)
    (text-reset 1)
    (str "Lisle: What was her name...Stella...Shelly...?")
@@ -138,7 +145,7 @@
    (set-reg 164 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 165 #f))
+ (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 165 #f))			; Lisle (after inspecting everything) #5
    (str "Lisle: I hope the potency of the Purple Sky was..." 'br)
    (str "suboptimal, for her sake.")
    (wait)
@@ -160,7 +167,7 @@
    (set-reg 165 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 166 #f))
+ (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 166 #f))			; Lisle (after inspecting everything) #6
    (str "Lisle: It comes down to the length of time between the" 'br)
    (str "refinement of the Purple Sky and the time of injection;" 'br)
    (str "that's when the DNV multiplies.")
@@ -186,7 +193,7 @@
    (set-reg 166 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 167 #f))
+ (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 167 #f))			; Lisle (after inspecting everything) #7
    (str "Lisle: It varies by person, but if DNV gets to the brain," 'br)
    (str "fainting is just the start. The body numbs and weakens.")
    (wait)
@@ -206,7 +213,7 @@
    (set-reg 167 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t))
+ (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t))				; Lisle (after inspecting everything) #8 (repeat line)
    (str "Steve: We should do this sooner than later. Can we get her" 'br)
    (str "blood soon?")
    (wait)
@@ -215,7 +222,7 @@
    (set-reg 168 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 154 #f))
+ (seg (? (= P 5) (= 154 #f))							; Lisle #1
    (str "Lisle: I must let you know Steve filled me in on your" 'br)
    (str "situation. It really is...unfortunate.")
    (wait)
@@ -227,7 +234,7 @@
    (set-reg 154 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 155 #f))
+ (seg (? (= P 5) (= 155 #f))							; Lisle #2
    (str "Lisle: If there's anything I can do, let me know.")
    (wait)
    (text-reset 1)
@@ -236,13 +243,16 @@
    (set-reg 155 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5)) (str "Cole: This Lisle guy...I think I can trust him.") (wait) (text-reset 1))
- (seg (? (= P 6) (= 168 #t))
+ (seg (? (= P 5))								; Lisle #3 (repeat line)
+   (str "Cole: This Lisle guy...I think I can trust him.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6) (= 168 #t))							; Steve (after talking to Lisle)
    (str "Steve: It's wild that Lisle wound up being the assistant to" 'br)
    (str "your doctor buddy who came up with the reanimation serum.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 156 #f))
+ (seg (? (= P 6) (= 156 #f))							; Steve #1
    (str "Steve: When it comes to Purple Sky, Dr. Lisle knows" 'br)
    (str "everything...except where it came from.")
    (wait)
@@ -252,7 +262,7 @@
    (set-reg 156 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 157 #f))
+ (seg (? (= P 6) (= 157 #f))							; Steve #2
    (str "Steve: I already filled in Dr. Lisle about your situation" 'br)
    (str "over the phone yesterday. We're safe in trusting him with" 'br)
    (str "that information.")
@@ -265,7 +275,7 @@
    (set-reg 157 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Steve #3 (repeat line)
    (str "Steve: If you want to know about Purple Sky, Lisle is far" 'br)
    (str "more well informed than me.")
    (wait)
@@ -274,7 +284,7 @@
    (set-reg 158 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 159 #f))
+ (seg (? (= P 7) (= 159 #f))							; Lab #1
    (str "Cole: Hell of a lab you have here.")
    (wait)
    (text-reset 1)
@@ -282,8 +292,8 @@
    (str "Lisle, he can tell you what it's made from.")
    (wait)
    (text-reset 1)
-   (str "Lisle: That's thanks to all the equipment I have here. I can also" 'br)
-   (str "create potent drugs that leave no trace.")
+   (str "Lisle: That's thanks to all the equipment I have here. In" 'br)
+   (str "theory, I could create potent drugs that leave no trace.")
    (wait)
    (text-reset 1)
    (str "Steve: Hey now, don't go talking about the weird stuff.")
@@ -297,7 +307,7 @@
    (set-reg 159 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 160 #f))
+ (seg (? (= P 7) (= 160 #f))							; Lab #2
    (str "Cole: I see a door on the left...")
    (wait)
    (text-reset 1)
@@ -313,12 +323,12 @@
    (set-reg 160 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Lab #3 (repeat line)
    (str "Cole: There's lots of gadgets set up along the walls." 'br)
    (str "Definitely a laboratory vibe.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 168 #t))
+ (seg (? (= P 1) (= 168 #t))							; MOVE (after )
    (exec-mem 6064 2 1)
    (str "Cole: All right, I'll head over to Sheila's apartment and" 'br)
    (str "bring her back. I'll see you soon.")
@@ -334,7 +344,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥024.MES"))
- (seg (? (= P 2))																; SYSTEM
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

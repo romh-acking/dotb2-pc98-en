@@ -155,8 +155,8 @@
    (mes-jump "A:¥MES¥020.MES"))
  (seg (? (= P 1))
    (str "Cole: But before that, there's no ignoring Sheila got" 'br)
-   (str "injected with Purple Sky yesterday. I should give her a call" 'br)
-   (str "and see how she's doing.")
+   (str "injected with Purple Sky yesterday. I should give her a" 'br)
+   (str "call and see how she's doing.")
    (wait)
    (text-reset 1))
  (seg (? (= P 2))								; SYSTEM

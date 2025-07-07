@@ -1,14 +1,21 @@
+; Dead of the Brain 2 (PC-98) - 028.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole runs into Catherine before he has a chance to head into Shuffle Food.
+; --Progression:--
+; Talk to Catherine.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB051.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 39 5 46 8)
-  (exec-mem 3744 1 6 40 8 47 11)
-  (exec-mem 3744 1 7 48 3 56 5)
-  (exec-mem 3744 1 8 27 3 35 7)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 39 5 46 8)							;  	Restaurant
+  (exec-mem 3744 1 6 40 8 47 11)						; 	Entrance
+  (exec-mem 3744 1 7 48 3 56 5)							; 	Sign
+  (exec-mem 3744 1 8 27 3 35 7)							; 	Catherine
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB050.GPC")
   (image-mem 0 3)
@@ -25,7 +32,7 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (? (= 191 #f))
+        (? (= 191 #f))								; Lead-in from previous MES script
         (str "Girl: Hey...are you coming in or what?")
         (wait)
         (text-reset 1)
@@ -52,16 +59,19 @@
         (set-reg 191 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: Sheila's friend Catherine.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: It's Sheila's friend, Catherine.")				; Lead-in from loading game
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 192 #f))
+ (seg (? (= P 5) (= 192 #f))							; Restaurant #1
    (str "Catherine: This is Shuffle Food, where I'm putting in the" 'br)
    (str "hours... We never really get a break and we're" 'br)
    (str "understaffed, so I'm here almost every day.")
    (set-reg 192 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 193 #f))
+ (seg (? (= P 5) (= 193 #f))							; Restaurant #2
    (str "Cole: Is it okay for you to leave your post like this?")
    (wait)
    (text-reset 1)
@@ -71,7 +81,7 @@
    (set-reg 193 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Restaurant #3 (repeat line)
    (str "Cole: Is Shuffle Food always this crowded?")
    (wait)
    (text-reset 1)
@@ -79,7 +89,7 @@
    (str "usually this slammed.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 194 #f))
+ (seg (? (= P 6) (= 194 #f))							; Entrance #1
    (str "Catherine: Do you wanna eat anything?")
    (wait)
    (text-reset 1)
@@ -87,33 +97,36 @@
    (set-reg 194 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6)) (str "Catherine: Cole, you had a reason to come here, yeah?") (wait) (text-reset 1))
- (seg (? (= P 7) (= 195 #f))
+ (seg (? (= P 6))								; Entrance #2 (repeat line)
+  (str "Catherine: Cole, you had a reason to come here, yeah?")
+  (wait)
+  (text-reset 1))
+ (seg (? (= P 7) (= 195 #f))							; Sign #1
    (str "Catherine: The sign really stands out. I guess you can see" 'br)
    (str "it from the road.")
    (set-reg 195 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 196 #f))
+ (seg (? (= P 7) (= 196 #f))							; Sign #2
    (str "Catherine: And at night it lights up yellow.")
    (wait)
    (text-reset 1)
    (str "Cole: When are you guys open until?")
    (wait)
    (text-reset 1)
-   (str "Catherine: State regs say that we have to close by 2am.")
+   (str "Catherine: State regs say that we have to close by 2AM.")
    (wait)
    (text-reset 1)
    (str "Cole: Running a restaurant is tough, isn't it...")
    (set-reg 196 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Sign #3 (repeat line)
    (str "Cole: That's the big sign that reads“Shuffle Food,”" 'br)
    (str "whatever that means.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 197 #f))
+ (seg (? (= P 8) (= 197 #f))							; Catherine #1
    (str "Cole: I'd heard about you from Sheila, but Catherine," 'br)
    (str "you're cuter than described.")
    (wait)
@@ -126,7 +139,7 @@
    (set-reg 197 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 198 #f))
+ (seg (? (= P 8) (= 198 #f))							; Catherine #2
    (str "Catherine: So why did you come to see me today?")
    (wait)
    (text-reset 1)
@@ -147,7 +160,7 @@
    (set-reg 198 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 199 #f))
+ (seg (? (= P 8) (= 199 #f))							; Catherine #3
    (str "Cole: When I went to her apartment, the room was ransacked.")
    (wait)
    (text-reset 1)
@@ -165,7 +178,7 @@
    (set-reg 199 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 200 #f))
+ (seg (? (= P 8) (= 200 #f))							; Catherine #4
    (str "Cole: Do you know where she might have headed?")
    (wait)
    (text-reset 1)
@@ -176,7 +189,7 @@
    (set-reg 200 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Catherine #5
    (str "Catherine: Places she might go... Lemme think here.")
    (wait)
    (text-reset 1)
@@ -241,7 +254,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥029.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

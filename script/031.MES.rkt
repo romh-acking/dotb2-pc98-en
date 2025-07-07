@@ -1,15 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 031.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole is back at his apartment after hitting Disco Zeena.
+; --Progression:--
+; Check the door and phone, then check the door again.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB004C.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 6 27 5 36 13)
-  (exec-mem 3744 1 7 23 2 40 3)
-  (exec-mem 3744 1 8 3 8 7 12)
-  (exec-mem 3744 1 9 37 7 47 14)
-  (exec-mem 3744 1 10 52 12 56 15)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 6 27 5 36 13)						; 	Wall
+  (exec-mem 3744 1 7 23 2 40 3)							; 	Aircon
+  (exec-mem 3744 1 8 3 8 7 12)							; 	Phone
+  (exec-mem 3744 1 9 37 7 47 14)						; 	Door
+  (exec-mem 3744 1 10 52 12 56 15)						; 	Stereo
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB003.GPC")
   (image-mem 1 3)
@@ -33,12 +40,12 @@
        (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_07.USO"))
        (// (sound '|| "A:¥USO_D¥BR2_07.USO"))))
   (sound '|| 1)
-  (str "Cole: Finally back at my apartment. It's quite a hump from" 'br)
+  (str "Cole: Finally back at my apartment. It's quite a hump from" 'br)	; Lead-in
   (str "the disco.")
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Wall
    (branch-random
     (</>
      (/ (str "Cole: Those are my lucky wall clippings."))
@@ -47,24 +54,24 @@
       (str "stuff on the wall."))))
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 230 #f))
+ (seg (? (= P 7) (= 230 #f))							; Aircon #1
    (str "Cole: The air conditioner's been off since I left.")
    (set-reg 230 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Aircon #2 (repeat line)
    (str "Cole: The weather's been just fine, so I don't need the air" 'br)
    (str "conditioner.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 231 #f))
+ (seg (? (= P 8) (= 231 #f))							; Phone #1
    (str "Cole: I wonder if I got any messages on my machine. Why" 'br)
    (str "would Sheila go to Light Dance Street? There's nothing on" 'br)
    (str "that old country road...")
    (set-reg 231 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 232 #f))
+ (seg (? (= P 8) (= 232 #f))							; Phone #2
    (str "Cole: No messages, and Sheila's room was ransacked. The" 'br)
    (str "hell's going on? Does she even know her place was all torn" 'br)
    (str "up?")
@@ -76,7 +83,7 @@
    (set-reg 232 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 233 #f))
+ (seg (? (= P 8) (= 233 #f))							; Phone #3
    (str "Cole: There's no word from Steve, either. Maybe I'll give" 'br)
    (str "him a ring.")
    (wait)
@@ -115,12 +122,12 @@
    (set-reg 233 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Phone #4 (repeat line)
    (str "Cole: Sheila's not here, and neither is Steve... Maybe I" 'br)
    (str "should just wait for a call.")
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 233 #t) (= 235 #t))
+ (seg (? (= P 9) (= 233 #t) (= 235 #t))						; Door (after checking phone)
    (str "Cole: Hey, there's something by the door...")
    (wait)
    (text-reset 1)
@@ -167,14 +174,14 @@
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    ((cmd 204) 100 899)
    (mes-jump "A:¥MES¥032.MES"))
- (seg (? (= P 9) (= 234 #f))
+ (seg (? (= P 9) (= 234 #f))							; Door #1
    (str "Cole: This is the door I entered from. I didn't lock it" 'br)
    (str "since I figured Sheila might come here. It's been unlocked" 'br)
    (str "since I left.")
    (set-reg 234 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 235 #f))
+ (seg (? (= P 9) (= 235 #f))							; Door #2
    (str "Cole: I always carry my cash with me, so even if someone" 'br)
    (str "breaks in, there's nothing worth taking.")
    (wait)
@@ -184,22 +191,22 @@
    (set-reg 235 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9))
+ (seg (? (= P 9))								; Door #3 (repeat line)
    (str "Cole: The door's closed. I guess nobody's coming in.")
    (wait)
    (text-reset 1))
- (seg (? (= P 10) (= 236 #f))
+ (seg (? (= P 10) (= 236 #f))							; Stereo #1
    (str "Cole: I'm too worried about Sheila to put on any music" 'br)
    (str "right now.")
    (set-reg 236 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 10))
+ (seg (? (= P 10))								; Stereo #2 (repeat line)
    (str "Cole: Too many things to think about. I'll leave the stereo" 'br)
    (str "off.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

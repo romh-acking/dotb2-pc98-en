@@ -1,12 +1,19 @@
+; Dead of the Brain 2 (PC-98) - 034.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Briar cools off after Cole is wrested away from holding one of his lackies hostage.
+; --Progression:--
+; Talk to Briar.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB062.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 20 2 27 7)
-  (exec-mem 3744 1 6 41 5 48 8)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 20 2 27 7)							; 	Briar
+  (exec-mem 3744 1 6 41 5 48 8)							; 	Bloody Fox
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB061.GPC")
   (image-mem 0 3)
@@ -37,7 +44,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 107 #f))
+        (? (= 107 #f))								; Lead-in from previous MES script
         (str "Briar: He's a tough sonofabitch...")
         (wait)
         (text-reset 1)
@@ -50,12 +57,12 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: Shit...I've been beaten so badly I don't have the" 'br)
+        (str "Cole: Shit...I've been beaten so badly I don't have the" 'br)	; Lead-in from loading game
         (str "strength to do anything.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 108 #f))
+ (seg (? (= P 5) (= 108 #f))							; Briar #1
    (str "Cole: Sheila... Let me see Sheila.")
    (wait)
    (text-reset 1)
@@ -70,7 +77,7 @@
    (set-reg 108 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 109 #f))
+ (seg (? (= P 5) (= 109 #f))							; Briar #2
    (str "Cole: Steve rescued Sheila...?")
    (wait)
    (text-reset 1)
@@ -81,7 +88,7 @@
    (set-reg 109 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 110 #f))
+ (seg (? (= P 5) (= 110 #f))							; Briar #3
    (str "Briar: You've got some nerve, though.")
    (wait)
    (text-reset 1)
@@ -107,7 +114,7 @@
    (set-reg 110 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Briar #4
    (str "Briar: Pity, I thought you were gonna be more of an open" 'br)
    (str "book.")
    (wait)
@@ -197,7 +204,7 @@
    (wait)
    (text-reset 1)
    (str "B.F.: No bullshit! They killed most of my buddies! Mary," 'br)
-   (str "Jonathan, Sting,... They got fuckin' EATEN! Come on, you" 'br)
+   (str "Jonathan, Sting... They got fuckin' EATEN! Come on, you" 'br)
    (str "gotta help!")
    (wait)
    (text-reset 1)
@@ -230,7 +237,7 @@
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (sound '|| 0)
    (mes-jump "A:¥MES¥035.MES"))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Bloody Fox
    (branch-random
     (</>
      (/
@@ -242,8 +249,10 @@
       (wait)
       (text-reset 1))
      (/
-      (str "B.F.: Havin' a good conversation with Briar? The fuck you" 'br)
-      (str "starin' at? I'll flatten you!")
+      (str "B.F.: Havin' a good conversation with Briar?")
+      (wait)
+      (text-reset 1)
+      (str "B.F.: ...The fuck you starin' at? I'll flatten you!")		; 	This was originally part of the first line but I decided to split it off
       (wait)
       (text-reset 1)
       (str "Cole: Just try me. You're gonna die!")
@@ -266,10 +275,10 @@
       (str "Cole: Come on, gimme a cig too.")
       (wait)
       (text-reset 1)
-      (str "B.F.: Lookin' for some more pain? Are ya?")
+      (str "B.F.: Lookin' for some more pain, are ya?")
       (wait)
       (text-reset 1)))))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

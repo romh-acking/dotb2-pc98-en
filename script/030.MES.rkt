@@ -1,15 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 030.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Inside Disco Zeena.
+; --Progression:--
+; Talk to everyone, then the Black Dragon, then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB053.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 4 9 20 13)
-  (exec-mem 3744 1 6 34 12 44 15)
-  (exec-mem 3744 1 7 52 7 56 10)
-  (exec-mem 3744 1 8 42 8 45 11)
-  (exec-mem 3744 1 9 23 8 27 11)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 4 9 20 13)							; 	Girls
+  (exec-mem 3744 1 6 34 12 44 15)						; 	Couple
+  (exec-mem 3744 1 7 52 7 56 10)						; 	Black Dragon
+  (exec-mem 3744 1 8 42 8 45 11)						; 	Right Dancer
+  (exec-mem 3744 1 9 23 8 27 11)						; 	Left Dancer
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB053.GPC")
   (image-mem 0 3)
@@ -21,26 +28,29 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 212 #f))
+        (? (= 212 #f))								; Lead-in from previous MES script
         (str "Cole: The night is young, but this place is packed.")
         (set-reg 212 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: This is the interior of Disco Zeena. Damn.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: This is the interior of Disco Zeena. Damn.")		; Lead-in from loading game
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 213 #f))
+ (seg (? (= P 5) (= 213 #f))							; Girls #1
    (str "Cole: There are two girls sitting at the front table. The" 'br)
    (str "chick on the left's been stealing glances at me.")
    (set-reg 213 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 214 #f))
+ (seg (? (= P 5) (= 214 #f))							; Girls #2
    (str "Cole: If they're regulars here, maybe they know about" 'br)
    (str "Sheila. Better ask them.")
    (set-reg 214 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 215 #f))
+ (seg (? (= P 5) (= 215 #f))							; Girls #3
    (str "Woman (Right): Uh...yeah? Can I help you?")
    (wait)
    (text-reset 1)
@@ -63,7 +73,7 @@
    (set-reg 215 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 216 #f))
+ (seg (? (= P 5) (= 216 #f))							; Girls #4
    (str "Cole: I'm trying to find someone, you see?")
    (wait)
    (text-reset 1)
@@ -87,7 +97,7 @@
    (set-reg 216 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 217 #f))
+ (seg (? (= P 5) (= 217 #f))							; Girls #5
    (str "Woman (Left): Hey, why don't you take us somewhere? I've" 'br)
    (str "got tomorrow off and we're bored as hell. We're probably" 'br)
    (str "more fun than that Sheila girl.")
@@ -110,7 +120,7 @@
    (set-reg 217 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Girls #6 (repeat line)
    (str "Woman (Right): Forget her, man. Why don't we go party our" 'br)
    (str "asses off?")
    (wait)
@@ -122,13 +132,13 @@
    (str "square?")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 218 #f))
+ (seg (? (= P 6) (= 218 #f))							; Couple #1
    (str "Cole: There's a couple sitting at the table in the back. I" 'br)
    (str "wonder if they know anything about Sheila.")
    (set-reg 218 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 219 #f))
+ (seg (? (= P 6) (= 219 #f))							; Couple #2
    (str "Cole: Sorry to interrupt you guys while you're having fun...")
    (wait)
    (text-reset 1)
@@ -159,7 +169,7 @@
    (set-reg 219 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 220 #f))
+ (seg (? (= P 6) (= 220 #f))							; Couple #3
    (str "Man: God, you don't take the hint, do you?")
    (wait)
    (text-reset 1)
@@ -174,7 +184,7 @@
    (set-reg 220 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Couple #4 (repeat line)
    (str "Man: There's only so many ways I can tell you I don't know" 'br)
    (str "shit about your friend.")
    (wait)
@@ -182,7 +192,7 @@
    (str "Cole: Yeah... I guess you're right.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t) (= 226 #f))
+ (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t) (= 226 #f))			; Black Dragon (after talking to everyone else) #1
    (str "Cole: It's no use. No matter how much I ask, they won't" 'br)
    (str "open their mouth.")
    (wait)
@@ -223,7 +233,7 @@
    (set-reg 226 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t) (= 227 #f))
+ (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t) (= 227 #f))			; Black Dragon (after talking to everyone else) #2
    (str "Man: Come on, what do you wanna know?")
    (wait)
    (text-reset 1)
@@ -284,7 +294,7 @@
    (set-reg 227 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t) (= 228 #f))
+ (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t) (= 228 #f))			; Black Dragon (after talking to everyone else) #3
    (str "Cole: Where'd she go?")
    (wait)
    (text-reset 1)
@@ -316,7 +326,7 @@
    (set-reg 228 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t) (= 229 #f))
+ (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t) (= 229 #f))			; Black Dragon (after talking to everyone else) #4
    (str "Man: Something happen with Miss Sheila I should know about?")
    (wait)
    (text-reset 1)
@@ -333,7 +343,7 @@
    (set-reg 229 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t))
+ (seg (? (= P 7) (= 216 #t) (= 220 #t) (= 223 #t))				; Black Dragon (after talking to everyone else) #5 (repeat line)
    (str "Man: If Miss Sheila gets in touch, please give her my" 'br)
    (str "regards.")
    (wait)
@@ -341,13 +351,13 @@
    (str "Cole: Don't you worry.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 221 #f))
+ (seg (? (= P 7) (= 221 #f))							; Black Dragon #1
    (str "Cole: There's a guy standing next to the pillar who looks" 'br)
    (str "like a regular.")
    (set-reg 221 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 222 #f))
+ (seg (? (= P 7) (= 222 #f))							; Black Dragon #2
    (str "Cole: Erm... Could I have a moment?")
    (wait)
    (text-reset 1)
@@ -364,7 +374,7 @@
    (set-reg 222 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 223 #f))
+ (seg (? (= P 7) (= 223 #f))							; Black Dragon #3
    (str "Cole: Yo, listen for a second.")
    (wait)
    (text-reset 1)
@@ -381,12 +391,12 @@
    (set-reg 223 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
-   (str "Cole: It's no use. No matter how much I ask, they won't open" 'br)
-   (str "their mouth.")
+ (seg (? (= P 7))								; Black Dragon #4 (repeat line)
+   (str "Cole: I can't get anything out of this guy, he's been quiet" 'br)
+   (str "from the start." 'br)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 224 #f))
+ (seg (? (= P 8) (= 224 #f))							; Right Dancer #1
    (str "Cole: Hey man, can I ask you something?")
    (wait)
    (text-reset 1)
@@ -403,16 +413,20 @@
    (set-reg 224 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Right Dancer #2 (repeat line)
    (str "Man: ")
    (branch-random
-    (</> (/ (str "YEAH! YEAH!")) (/ (str "UNF UNF UNF!")) (/ (str "WOOOOOOOOOO!"))))
+    (</>
+     (/ (str "YEAH! YEAH!"))
+     (/ (str "UNF UNF UNF!"))
+     (/ (str "WOOOOOOOOOO!"))))
    (wait)
    (text-reset 1)
    (str "Cole: ")
    (branch-random
     (</>
-     (/ (str "This is a waste of time, guy's totally out of it."))
+     (/
+      (str "This is a waste of time, guy's totally out of it."))
      (/
       (str "That's the booze talking... I should really ask" 'br)
       (str "someone else."))
@@ -421,7 +435,7 @@
       (str "I'm saying."))))
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 225 #f))
+ (seg (? (= P 9) (= 225 #f))							; Left Dancer #1
    (str "Cole: Hey, can I ask you something?")
    (wait)
    (text-reset 1)
@@ -439,12 +453,14 @@
    (set-reg 225 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9))
+ (seg (? (= P 9))								; Left Dancer #2 (repeat line)
    (str "Cole: ")
    (branch-random
     (</>
-     (/ (str "Hey, let me ask you something..."))
-     (/ (str "I wanna ask you a question."))
+     (/
+      (str "Hey, let me ask you something..."))
+     (/
+      (str "I wanna ask you a question."))
      (/
       (str "If you're a regular around here, you know a lady" 'br)
       (str "named Sheila, right?"))))
@@ -453,7 +469,8 @@
    (str "Man: ")
    (branch-random
     (</>
-     (/ (str "Yo! Hey, sugarlips! You're so hot it's criminal!"))
+     (/
+      (str "Yo! Hey, sugarlips! You're so hot it's criminal!"))
      (/
       (str "Hey, bodycon lady! Bodycon is totally out these days!" 'br)
       (str "Let's go shopping and I'll pick you out something that's" 'br)
@@ -463,7 +480,7 @@
       (str "dude!"))))
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 229 #t))
+ (seg (? (= P 1) (= 229 #t))							; MOVE (after talking to Black Dragon)
    (exec-mem 6064 2 1)
    (str "Cole: I need to get in touch with Steve, better get back to" 'br)
    (str "the apartment.")
@@ -473,7 +490,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥031.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

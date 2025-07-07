@@ -1,14 +1,21 @@
+; Dead of the Brain 2 (PC-98) - 027.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Cole is outside Shuffle Food to look for Catherine.
+; --Progression:--
+; 
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB050.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 39 5 46 8)
-  (exec-mem 3744 1 6 40 8 47 11)
-  (exec-mem 3744 1 7 48 3 56 5)
-  (exec-mem 3744 1 15 80 0 0 0)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 39 5 46 8)							;  	Restaurant
+  (exec-mem 3744 1 6 40 8 47 11)						; 	Entrance
+  (exec-mem 3744 1 7 48 3 56 5)							; 	Sign
+  (exec-mem 3744 1 15 80 0 0 0)							; 	(This appears to be Catherine's hotspot, but dummied out)
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB050.GPC")
   (image-mem 0 3)
@@ -20,7 +27,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 184 #f))
+        (? (= 184 #f))								; Lead-in from previous MES script
         (str "Cole: It's been a while since I headed to the other side of" 'br)
         (str "the station...")
         (wait)
@@ -30,51 +37,60 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: This is the Shuffle Food restaurant, where Sheila's" 'br)
+        (str "Cole: This is the Shuffle Food restaurant, where Sheila's" 'br)	; Lead-in from loading game
         (str "friend Catherine works.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 185 #f))
+ (seg (? (= P 5) (= 185 #f))							; Restaurant #1
    (str "Cole: I had no idea they opened a restaurant here. And that" 'br)
    (str "sure is an interesting name.")
    (set-reg 185 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 186 #f))
+ (seg (? (= P 5) (= 186 #f))							; Restaurant #2
    (str "Cole: Catherine works here. Maybe she knows where Sheila is.")
    (set-reg 186 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Restaurant #3 (repeat line)
    (str "Cole: The restaurant looks pretty clean. Judging by the" 'br)
    (str "number of customers inside, it's probably got a good" 'br)
    (str "reputation.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 187 #f))
+ (seg (? (= P 6) (= 187 #f))							; Entrance #1
    (str "Cole: That's the entrance over there. I should ask one of" 'br)
    (str "the employees about Catherine.")
    (set-reg 187 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6)) (str "Cole: Looks like that's the only entrance to the restaurant.") (wait) (text-reset 1))
- (seg (? (= P 7) (= 188 #f))
+ (seg (? (= P 6))								; Entrance #2 (repeat line)
+  (str "Cole: Looks like that's the only entrance to the restaurant.")
+  (wait)
+  (text-reset 1))
+ (seg (? (= P 7) (= 188 #f))							; Sign #1
    (str "Cole: There's a big sign that says“Shuffle Food.”")
    (set-reg 188 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 189 #t))
+ (seg (? (= P 7) (= 189 #t))							; Sign #2
    (str "Cole: Yeah, this is the place, Catherine works here.")
    (set-reg 189 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
-   (str "Cole: It's a big sign that says“Shuffle Food.”(I wonder" 'br)
-   (str "what's getting shuffled, though...")
+ (seg (? (= P 7))								; Sign #3 (repeat line)
+   (str "Cole: It's a big sign that says“Shuffle Food.”")
+   (branch-random
+    (</>
+     (/
+      (str "(I wonder" 'br)							; 	This was a joke Geo silently slipped into the script.
+      (str "what's getting shuffled...?)"))					; 	I've decided to keep it, albeit with only a random chance of appearing.
+     (/ (str " "))
+     (/ (str " "))))
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 186 #t) (= 187 #t))
+ (seg (? (= P 1) (= 186 #t) (= 187 #t))						; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: All right, let's go meet Catherine.")
    (wait)
@@ -84,7 +100,7 @@
    (nop@)
    (set-reg 190 #t)
    (mes-jump "A:¥MES¥028.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25
