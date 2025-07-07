@@ -1,15 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 041.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; A vacant room.
+; --Progression:--
+; MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (nop@)
   (set-reg 123 #t)
   (load-mem "A:¥CLM¥DB108.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 7 10 36 14)
-  (exec-mem 3744 1 6 17 2 42 9)
-  (exec-mem 3744 1 7 51 4 54 7)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 7 10 36 14)						; 	Bed
+  (exec-mem 3744 1 6 17 2 42 9)							; 	Windows
+  (exec-mem 3744 1 7 51 4 54 7)							; 	Calendar
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB108.GPC")
   (image-mem 0 3)
@@ -21,70 +28,79 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 124 #f))
+        (? (= 124 #f))								; Lead-in for first visit
         (str "Cole: There's nobody in here, so this room is vacant.")
         (set-reg 124 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: This room was vacant...") (wait) (text-reset 1))))
+       (//
+        (str "Cole: This room was vacant...")					; Lead-in from second visit onwards
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 125 #f))
+ (seg (? (= P 5) (= 125 #f))							; Bed #1
    (str "Cole: There's just one bed in here. The sheets aren't" 'br)
-(str "wrinkled, so they must have been changed recently.")
+   (str "wrinkled, so they must have been changed recently.")
    (set-reg 125 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 126 #f))
+ (seg (? (= P 5) (= 126 #f))							; Bed #2
    (str "Cole: By god, this is one immaculate bed.")
    (set-reg 126 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Bed #3 (repeat line)
    (str "Cole: The lab staff probably used this bed for quick naps.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 127 #f))
+ (seg (? (= P 6) (= 127 #f))							; Windows #1
    (str "Cole: It's pitch black outside. The streets are probably" 'br)
-(str "crawling with those brain-sucking zombie freaks by now.")
+   (str "crawling with those brain-sucking zombie freaks by now.")
    (set-reg 127 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 128 #f))
+ (seg (? (= P 6) (= 128 #f))							; Windows #2
    (str "Cole: We're on the second floor, and zombies can't climb up" 'br)
-(str "here. Probably.")
+   (str "here. Probably.")
    (set-reg 128 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6)) (str "Cole: I really don't need to mess with these curtains.") (wait) (text-reset 1))
- (seg (? (= P 7) (= 129 #f))
+ (seg (? (= P 6))								; Windows #3 (repeat line)
+   (str "Cole: I really don't need to mess with these curtains.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 7) (= 129 #f))							; Calendar #1
    (str "Cole: There's a calendar on the wall. It's still on July.")
    (set-reg 129 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 130 #f))
+ (seg (? (= P 7) (= 130 #f))							; Calendar #2
    (str "Cole: If the calendar's still on July, that means someone" 'br)
-(str "was using this room four months ago.")
+   (str "was using this room four months ago.")
    (set-reg 130 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 131 #f))
-   (text
-    "Cole: There's marks on the calendar dates. Circles, crosses and 'G13,'  whatever that means.")
+ (seg (? (= P 7) (= 131 #f))							; Calendar #3
+   (str "Cole: There's marks on the calendar dates. Circles, crosses" 'br)
+   (str "and“G13\", whatever that means.")
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7)) (str "Cole: Not much more I can say about this ordinary calendar.") (wait) (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 7))								; Calendar #4 (repeat line)
+   (str "Cole: Not much more I can say about this ordinary calendar.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
-   (str "Cole: Nothing of interest in this room, let's go back to the" 'br)
-(str "hallway.")
+   (str "Cole: Nothing of interest in this room, let's go back to" 'br)
+   (str "the hallway.")
    (wait)
    (text-reset 1)
    (exec-mem 6064 3)
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥039.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

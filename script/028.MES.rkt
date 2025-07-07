@@ -60,7 +60,7 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: It's Sheila's friend, Catherine.")				; Lead-in from loading game
+        (str "Cole: It's Sheila's friend Catherine.")				; Lead-in from loading game
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))

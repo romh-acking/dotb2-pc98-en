@@ -1,3 +1,8 @@
+; Dead of the Brain 2 (PC-98) - 037.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; Steve meets Cole inside the Perain Research Institute.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -33,7 +38,7 @@
   (str "Steve: She's here, in the room on the far left.")
   (wait)
   (text-reset 1)
-  (str "Cole: i'm gonna go see her.")
+  (str "Cole: I'm gonna go see her.")
   (wait)
   (text-reset 1)
   (str "Steve: When you're done talking, come to the main lab up" 'br)
@@ -46,5 +51,5 @@
   (sound '|| 2)
   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
   ((cmd 204) 100 899)
-  (mes-jump "A:¥MES¥039.MES"))
+  (mes-jump "A:¥MES¥039.MES"))							; Note that this script jumps to 039, not 038
  (seg*))

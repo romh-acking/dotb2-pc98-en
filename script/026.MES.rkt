@@ -55,7 +55,7 @@
    (branch-random
     (</>
      (/ (str "Cole: I should check on Catherine."))
-     (/ (str "Cole: I should head over to Shuffle Food."))))
+     (/ (str "Cole: I'll head over to Shuffle Food."))))
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 176 #t) (= 178 #t) (= 180 #t) (= 182 #t) (= 183 #f))	; Floor (after inspecting everything)

@@ -77,11 +77,11 @@
            56
            337
            (</>
-            (/ (str "Shuffle Food"))
+            (/ (str "Shuffle Food"))						; These can only be 19 characters max
             (/ (str "32nd Precinct"))
             (/ (str "Cole's Apartment"))
             (/ (str "Sheila's Apartment"))
-            (/ (str "Warehouse 3 at Port"))
+            (/ (str "Port Warehouse 3"))
             (/ (str "Light Dance Street"))					; (Correct answer)
             (/ (str "Perain Institute"))
             (/ (str "Bar Rease"))))

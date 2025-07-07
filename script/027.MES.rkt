@@ -4,7 +4,7 @@
 ; -----Scene:-----
 ; Cole is outside Shuffle Food to look for Catherine.
 ; --Progression:--
-; 
+; MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

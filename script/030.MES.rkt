@@ -34,7 +34,7 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: This is the interior of Disco Zeena. Damn.")		; Lead-in from loading game
+        (str "Cole: This is the interior of Disco Zeena. Uh, wow.")		; Lead-in from loading game
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))

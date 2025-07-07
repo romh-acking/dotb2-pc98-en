@@ -140,8 +140,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 137 #t) (= 140 #t) (= 141 #t) (= 142 #f))			; Steve (after inspecting everything) #1
-   (str "Steve: I wanted to get you to help with that too, but I" 'br)
-   (str "still had some more investigating to do first.")
+   (str "Steve: I wanted your help, but I still had some more" 'br)
+   (str "investigating to do first.")
    (wait)
    (text-reset 1)
    (str "Cole: Actually, more importantly...")
