@@ -75,8 +75,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 130 #f))							; Calendar #2
-   (str "Cole: If the calendar's still on July, that means someone" 'br)
-   (str "was using this room four months ago.")
+   (str "Cole: If the calendar's still on July, that means this room" 'br)
+   (str "was last used four months ago.")
    (set-reg 130 #t)
    (wait)
    (text-reset 1))

@@ -1,10 +1,10 @@
 ; Dead of the Brain 2 (PC-98) - 017.MES
 ; Translated by Geometrizer
-; Edited by trentsignia
+; Edited by trentsignia and JackDBS
 ; --Description:--
 ; Outside Bar Rease again.
 ; --Progression:--
-; MOVE
+; MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -131,24 +131,24 @@
    (str "keep the interactions to a minimum.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8))								; Graffiti #1
+ (seg (? (= P 8))								; Graffiti (repeat line)
    (str "Cole: As usual, questionable graffiti on the wall.")
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 114 #f))							; Graffiti #2 (repeat line)
-   (str "Cole: Bikes parked outside mean Bloody Fox thugs in the" 'br)
+ (seg (? (= P 9) (= 114 #f))							; Bikes #1
+   (str "Cole: Bikes parked outside mean Bloody Fox thugs are in the" 'br)
    (str "bar. If Sheila went in there, there's no way they'll let" 'br)
    (str "her out...")
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 115 #f))							; Bikes #1
+ (seg (? (= P 9) (= 115 #f))							; Bikes #2
    (str "Cole: If any of those bastards lays a hand on Sheila, they" 'br)
    (str "aren't getting away with it! I don't know what I'm capable" 'br)
    (str "of once I snap.")
    (set-reg 115 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9))								; Bikes #2 (repeat line)
+ (seg (? (= P 9))								; Bikes #3 (repeat line)
    (str "Cole: A few bikes parked outside. The mark of Bloody Fox on" 'br)
    (str "the premises.")
    (wait)

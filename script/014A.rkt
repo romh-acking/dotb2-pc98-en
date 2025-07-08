@@ -1,6 +1,6 @@
 ; Dead of the Brain 2 (PC-98) - 014A.MES
 ; Translated by Geometrizer
-; Edited by trentsignia
+; Edited by trentsignia and JackDBS
 ; -----Notes:-----
 ; This chunk of text was originally part of two CAL files that was loaded in by 014.MES and called when needed.
 ; I had problems getting the translated scripts to work in this arrangement, so I merged the CAL files and the code after it into a single MES script.
@@ -71,13 +71,12 @@
   (str "research.")
   (wait)
   (text-reset 1)
-  (str "Cole: He'd come up with artificial organs and call me over" 'br)
-  (str "to his place to show me, all the time with this big goofy" 'br)
-  (str "grin.")
+  (str "Cole: He'd invent artificial organs and call me over to his" 'br)
+  (str "place to show me, all the while with this big goofy grin.")
   (wait)
   (text-reset 1)
   (str "Cole: And one time he called me over to his house, and in" 'br)
-  (str "his lab, she showed me a drug that was a match for Purple" 'br)
+  (str "his lab, he showed me a drug that was a match for Purple" 'br)
   (str "Sky.")
   (wait)
   (text-reset 1)
@@ -224,7 +223,7 @@
   (str "Steve: So it was all Cooger's doing?")
   (wait)
   (text-reset 1)
-  (str "Cole: The first human who Doc Cooger injected was Jack.")
+  (str "Cole: Jack was the first human Doc injected.")
   (wait)
   (text-reset 1)
   (str "Steve: Are you positive?")
@@ -345,7 +344,7 @@
   (str "for...")
   (wait)
   (text-reset 1)
-  (str "Cole: But then Cassie saved the day by blowing him up with" 'br)
+  (str "Cole: But then Cathy saved the day by blowing him up with" 'br)
   (str "plastic explosives.")
   (wait)
   (text-reset 1)

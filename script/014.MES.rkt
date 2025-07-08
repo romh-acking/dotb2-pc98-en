@@ -1,6 +1,6 @@
 ; Dead of the Brain 2 (PC-98) - 014.MES
 ; Translated by Geometrizer
-; Edited by trentsignia
+; Edited by trentsignia and JackDBS
 ; -----Scene:-----
 ; Cole and Steve talk about recent happenings at the latter's place.
 ; --Progression:--
@@ -38,7 +38,7 @@
        (// (str "Cole: I'm at Steve's place.") (wait) (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
  (seg (? (= P 5) (= 228 #f))
-   (str "Cole: There's documents aplenty all over the desk.")
+   (str "Cole: There's documents strewn all over the desk.")
    (wait)
    (text-reset 1)
    (str "Steve: It's practically no different from my workplace." 'br)
@@ -116,7 +116,7 @@
    (wait)
    (text-reset 1)
    (str "Steve: Normally, yeah. But all the other corpses had one" 'br)
-   (str "peculiar trait: we could ID each one by looking at them.")
+   (str "peculiar trait... We could ID each one by looking at them.")
    (wait)
    (text-reset 1)
    (str "Cole: You mean decay had never set in?")
@@ -141,8 +141,8 @@
    (str "Steve: Mm-hmm.")
    (wait)
    (text-reset 1)
-   (str "Cole: (It's gotta be the reanimation serum, keeping the" 'br)
-   (str "bodies from rotting.)")
+   (str "Cole: (It's gotta be the reanimation serum that kept the" 'br)
+   (str "bodies from rotting away.)")
    (wait)
    (text-reset 1)
    (str "Cole: (Still, how much does Steve REALLY know about the" 'br)

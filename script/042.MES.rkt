@@ -4,10 +4,7 @@
 ; -----Scene:-----
 ; After visiting Sheila, Cole goes to see Lisle and Steve in the lab.
 ; --Progression:--
-; (First visit) Talk to Lisle and Steve, then MOVE.
-; 
-; -----Notes:-----
-; Steve disappears to XXX after XXX.
+; Talk to Lisle and Steve, then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -197,7 +194,7 @@
    (str "arrive.")
    (wait)
    (text-reset 1)
-   (str "Cole: Three days! Aw, man.")
+   (str "Cole: Three days?! Aw, man.")
    (set-reg 139 #t)
    (wait)
    (text-reset 1))
@@ -298,8 +295,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 145 #f))							; Lab #3 (can only been seen with Steve)
-   (str "Cole: Lisle, you said you were Doc Cooger's assistant back" 'br)
-   (str "in the day. Was he working here?")
+   (str "Cole: Lisle, you said you were Doc's assistant back in the" 'br)
+   (str "day. Was he working here?")
    (wait)
    (text-reset 1)
    (str "Lisle: No, back then I was in the lab at Central Hospital." 'br)
