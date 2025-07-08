@@ -37,8 +37,8 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Sheila: What's the matter, Cole? You seem...unsettled today." 'br)
-		(str "You usually hold it together better than I do.")
+        (str "Sheila: What's the matter, Cole? You seem... unsettled" 'br)
+		(str "today. You usually hold it together better than I do.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
@@ -57,8 +57,8 @@
    (str "Cole: Definitely.")
    (wait)
    (text-reset 1)
-   (str "Sheila: And amongst Bloody Fox, the person most connected to" 'br)
-(str "Purple Sky is...")
+   (str "Sheila: And amongst Bloody Fox, the person most connected" 'br)
+(str "to Purple Sky is...")
    (wait)
    (text-reset 1)
    (menu1
@@ -252,7 +252,8 @@
         (//
          (? (= 188 #t) (= 189 #t) (= 190 #t) (= 191 #t) (= 192 #t) (= 193 #t))
          (str "Cole: Once we piece all these together, it’s almost certain" 'br)
-(str "that Razovan Pharmaceuticals and Bloody Fox are connected.")
+(str "certain that Razovan Pharmaceuticals and Bloody Fox are connected." 'br)
+(str "are connected."
          (set-reg 187 #t)
          (wait)
          (text-reset 1))
@@ -323,8 +324,8 @@
       (wait)
       (text-reset 1))
      (/
-      (str "Cole: There's a door to the shower room. It doesn't seem too" 'br)
-(str "big inside.")
+      (str "Cole: There's a door to the shower room. It doesn't seem" 'br)
+(str "too big inside.")
       (wait)
       (text-reset 1)))))
  (seg (? (= P 7) (= 113 #f))
