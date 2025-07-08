@@ -128,8 +128,8 @@
    (text-reset 1)
    (text
     "Cole: This could be bad. Shuffle Food's on the opposite side" 'br)
-"of the station, and the zombies are bound to attack that" 'br)
-"area...")
+"of the station, and the zombies are bound to attack" 'br)
+"that area...")
    (wait)
    (text-reset 1)
    (str "Sheila: So if they overrun Shuffle Food...")
