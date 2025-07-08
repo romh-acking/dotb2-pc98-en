@@ -44,7 +44,7 @@
         (str "Lisle: It's so rare to have guests these days.")
         (wait)
         (text-reset 1)
-        (str "Cole: Oh, this is Dr. Listle.")
+        (str "Cole: Oh, this is Dr. Lisle.")
         (wait)
         (text-reset 1)
         (str "Lisle: Nice to meet you, uh...")

@@ -169,7 +169,7 @@
 "your father was trying to get them to...")
   (wait)
   (text-reset 1)
-  (str "Cole: Catherine, what's your father's  name?")
+  (str "Cole: Catherine, what's your father's name?")
   (wait)
   (text-reset 1)
   (str "Catherine: Daniel. Daniel White.")

@@ -116,8 +116,8 @@
     (</>
      (/ (str "Bar Rease"))
      (/ (str "Disco Zeena"))
-     (/ (str "Razovan Pharmaceuticals"))
-     (/ (str "Perain Research Institute"))
+     (/ (str "Razovan Pharma"))
+     (/ (str "Perain Institute"))
      (/ (str "The 32nd Precinct"))
      (/ (str "Shuffle Food"))))
    (text-reset 1)
@@ -136,8 +136,7 @@
     337
     (</>
      (/ (str "They discovered a case with the Razovan logo at Zeena."))
-     (/ (str "They found out Razovan's director was Catherine's" 'br)
-(str "stepfather."))
+     (/ (str "Razovan's director was Catherine's stepfather.")
      (/ (str "I went to Razovan and confirmed it myself."))))
    (text-reset 1)
    (if (</> (// (? (= S 0)) (nop@) (set-reg 190 #t))))
