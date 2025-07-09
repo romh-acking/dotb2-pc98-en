@@ -168,13 +168,13 @@
         (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_06.USO"))
         (// (sound '|| "A:¥USO_D¥BR2_06.USO"))))
    (sound '|| 1)
-   (str "Zombie: ")(text "ＧＵＵＵＵＵＲＹＡＡＡＡＡ！！！")				; 	These zombie cries were originally in full-width romanised characters.
+   (str "Zombies: ")(text "ＧＵＵＵＵＵＲＹＡＡＡＡＡ！！！")				; 	These zombie cries were originally in full-width romanised characters.
    (wait)
    (text-reset 1)
    (str "Cole: Fuck me! They've reanimated!")
    (wait)
    (text-reset 1)
-   (str "Zombie: ")(text "ＧＡＡＡＡＡＵＵＵＵＵ！！！")					; 	I (trentsignia) have decided to retain the full-width, because I think it adds texture to the script
+   (str "Zombies: ")(text "ＧＡＡＡＡＡＵＵＵＵＵ！！！")					; 	I (trentsignia) have decided to retain the full-width, because I think it adds texture to the script
    (wait)
    (text-reset 1)
    (image-file "A:¥GPC¥COUNTER.GPC")						; Battle begins here...
@@ -277,7 +277,7 @@
          (wait)
          (text-reset 1))
         (//
-         (str "Zombie: ")(text "ＧＷＡＡＡＡＡ！！！")						; Failure
+         (str "Zombies: ")(text "ＧＷＡＡＡＡＡ！！！")				; Failure
          (wait)
          (text-reset 1)
          (str "Cole: Shit! Shit! SHIIIIIIIT!")
@@ -332,10 +332,10 @@
          (str "Cole: Over here!")						; Failure
          (wait)
          (text-reset 1)
-         (str "Zombie: ")(text "ＧＵＵＵＵＵＲＹＡＡＡＡＡ！！！")
+         (str "Zombies: ")(text "ＧＵＵＵＵＵＲＹＡＡＡＡＡ！！！")
          (wait)
          (text-reset 1)
-         (str "Cole: Shit! Oh, fucking shit!")
+         (str "Cole: Shiiiiiiit!")
          (wait)
          (text-reset 1)
          (exec-mem 912 "EXIT")

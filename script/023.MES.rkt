@@ -178,7 +178,7 @@
    (str "body, it dies off within several hours.")
    (wait)
    (text-reset 1)
-   (str "Lisle: However, if the DNV has had the time to grow" 'br)
+   (str "Lisle: However, if the DNV had the time to grow" 'br)
    (str "significantly before injection, it can develop a resistance" 'br)
    (str "and survive.")
    (wait)

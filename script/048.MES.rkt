@@ -98,7 +98,7 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Lisle: Cole, what do you need this time?")			; Lead-in from second visit onwards
+        (str "Lisle: What do you need this time, Cole?")			; Lead-in from second visit onwards
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
@@ -165,8 +165,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 183 #f))							; Lab #1
-   (str "Lisle: And we have a bit more time until we'll get the" 'br)
-   (str "results of Sheila's blood test.")
+   (str "Lisle: We have a bit more time until we'll get the results" 'br)
+   (str "of Sheila's blood test.")
    (wait)
    (text-reset 1)
    (str "Cole: Fingers crossed.")

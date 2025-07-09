@@ -45,8 +45,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6))								; Body #2 (repeat line)
-   (str "Cole: Each corpse has had its head gnawed open. At this" 'br)
-   (str "point, I don't think they could be reanimated.")
+   (str "Cole: Each corpse had its head gnawed open. At this point," 'br)
+   (str "I don't think they could be reanimated.")
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 102 #f))							; Building #1

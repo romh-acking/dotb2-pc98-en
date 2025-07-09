@@ -8,11 +8,11 @@
 ; -----Quiz:-----
 ; 1. Briar
 ; 2. Disco Zeena
-; 3. [...] case with the Razovan logo at Zeena.
+; 3. They discovered a case with the Razovan logo at Zeena.
 ; 4. Heroin
 ; 5. Daniel
 ; 6. Your father sent us!
-; 7. 
+; 7. Catherine's stepfather is connected to Bloody Fox.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -77,24 +77,15 @@
    (wait)
    (text-reset 1)
    (menu1
-    16
-    298
-    36
-    298
-    56
-    298
-    16
-    317
-    36
-    317
-    56
-    317
-    16
-    337
-    36
-    337
-    56
-    337
+    16 298
+    36 298
+    56 298
+    16 317
+    36 317
+    56 317
+    16 337
+    36 337
+    56 337
     (</>
      (/ (str "Steve"))
      (/ (str "Catherine"))
@@ -109,24 +100,15 @@
    (wait)
    (text-reset 1)
    (menu1
-    16
-    298
-    36
-    298
-    56
-    298
-    16
-    317
-    36
-    317
-    56
-    317
-    16
-    337
-    36
-    337
-    56
-    337
+    16 298
+    36 298
+    56 298
+    16 317
+    36 317
+    56 317
+    16 337
+    36 337
+    56 337
     (</>
      (/ (str "Bar Rease"))
      (/ (str "Disco Zeena"))
@@ -142,12 +124,9 @@
    (wait)
    (text-reset 1)
    (menu1
-    16
-    298
-    16
-    317
-    16
-    337
+    16 298
+    16 317
+    16 337
     (</>
      (/ (str "They discovered a case with the Razovan logo at Zeena."))
      (/ (str "Razovan's director was Catherine's stepfather."))
@@ -164,24 +143,15 @@
    (wait)
    (text-reset 1)
    (menu1
-    16
-    298
-    36
-    298
-    56
-    298
-    16
-    317
-    36
-    317
-    56
-    317
-    16
-    337
-    36
-    337
-    56
-    337
+    16 298
+    36 298
+    56 298
+    16 317
+    36 317
+    56 317
+    16 337
+    36 337
+    56 337
     (</>
      (/ (str "Marijuana"))
      (/ (str "Heroin"))
@@ -199,24 +169,15 @@
    (wait)
    (text-reset 1)
    (menu1
-    16
-    298
-    36
-    298
-    56
-    298
-    16
-    317
-    36
-    317
-    56
-    317
-    16
-    337
-    36
-    337
-    56
-    337
+    16 298
+    36 298
+    56 298
+    16 317
+    36 317
+    56 317
+    16 337
+    36 337
+    56 337
     (</>
      (/ (str "Steve"))
      (/ (str "Catherine"))
@@ -235,12 +196,9 @@
    (wait)
    (text-reset 1)
    (menu1
-    16
-    298
-    16
-    317
-    16
-    337
+    16 298
+    16 317
+    16 337
     (</>
      (/ (str "Hey babe, go out on a date with us!"))
      (/ (str "Our leader wants to see you!"))
@@ -251,12 +209,9 @@
    (wait)
    (text-reset 1)
    (menu1
-    16
-    298
-    16
-    317
-    16
-    337
+    16 298
+    16 317
+    16 337
     (</>
      (/ (str "Catherine is connected to Bloody Fox."))
      (/ (str "Catherine has been abducted by Bloody Fox before."))

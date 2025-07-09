@@ -448,12 +448,7 @@
             (sound '|se | 10)
             (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
             (text "　　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
-            (menu1
-             32
-             337
-             48
-             337
-             (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
+            (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
             (text-reset 1)
             (branch-var
              S

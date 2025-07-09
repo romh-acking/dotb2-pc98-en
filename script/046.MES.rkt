@@ -129,7 +129,7 @@
    (str "ordering them soon...")
    (wait)
    (text-reset 1)
-   (str "Cole: Ahh, never mind.")
+   (str "Cole: Uh, never mind.")
    (set-reg 177 #t)
    (wait)
    (text-reset 1))
