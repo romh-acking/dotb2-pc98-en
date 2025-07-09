@@ -3,46 +3,29 @@
 ; --Description:--
 ; Music Mode. The only change made here is to replace square brackets with quotation marks.
 (mes
- (meta (engine 'ADV) (charset "pc98") (extraop #t)) ; MUSIC.MES: 
+ (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (loop
    (text-frame 2 284 78 340)
    (text-reset 0)
    (menu1
-    2
-    300
-    11
-    300
-    20
-    300
-    29
-    300
-    38
-    300
-    47
-    300
-    56
-    300
-    65
-    300
-    2
-    320
-    11
-    320
-    20
-    320
-    29
-    320
-    38
-    320
-    47
-    320
-    56
-    320
-    65
-    320
-    0
-    0
+    2 300
+    11 300
+    20 300
+    29 300
+    38 300
+    47 300
+    56 300
+    65 300
+    2 320
+    11 320
+    20 320
+    29 320
+    38 320
+    47 320
+    56 320
+    65 320
+    0 0
     (</>
      (/ (str " BR2_01 "))
      (/ (str " BR2_02 "))
@@ -63,8 +46,7 @@
      (/ (str " "))))
    (sound '|| 0)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 15))))
-   (branch-var
-    S
+   (branch-var S
     (</>
      (/
       (if (</>
@@ -145,22 +127,14 @@
     (text-frame 2 284 78 340)
     (text-reset 0)
     (menu1
-     2
-     320
-     11
-     320
-     20
-     320
-     29
-     320
-     38
-     320
-     47
-     320
-     56
-     320
-     65
-     320
+     2 320
+     11 320
+     20 320
+     29 320
+     38 320
+     47 320
+     56 320
+     65 320
      (</>
       (/ (str " BR1_01 "))
       (/ (str " BR1_02 "))
@@ -171,8 +145,7 @@
       (/ (str " BR1_07 "))
       (/ (str " CANCEL "))))
     (if (</> (// (? (= S 255)) (nop@) (set-var S 7))))
-    (branch-var
-     S
+    (branch-var S
      (</>
       (/ (sound '|| "A:¥USO_V¥B0N_02.USO"))
       (/ (sound '|| "A:¥USO_V¥B0N_03.USO"))

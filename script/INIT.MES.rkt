@@ -6,7 +6,10 @@
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
-  ((cmd 206) 0 0)								; Game startup stuff
+;
+; 	Game startup stuff
+;
+  ((cmd 206) 0 0)
   ((cmd 206) 1 1)
   ((cmd 203) 5 1)
   ((cmd 203) 5 4)
@@ -32,51 +35,8 @@
   (load-mem "A:¥TCM¥DB2COUNT.TCM" 15728)
   (exec-mem 15728 0 0 0 0 0 1 "A:¥CLM¥db2num.dat")
   (load-mem "A:¥TCM¥VPALH.TCM" 17408)
-  (exec-mem
-   17408
-   0
-   0
-   12448
-   16496
-   12432
-   16496
-   12416
-   16480
-   12400
-   16464
-   12384
-   16448
-   12368
-   16432
-   12352
-   16416
-   12336
-   16400
-   12320
-   16384
-   12320
-   16384
-   12336
-   16400
-   12352
-   16416
-   12368
-   16432
-   12384
-   16448
-   12400
-   16464
-   12416
-   16480
-   12432
-   16496
-   12448
-   16496)
-  (exec-mem
-   17408
-   1
-   0
-   "P0 P1 T1 P2 P3 T1 P4 P5 T1 P6 P7 T1 P8 P9 T1 P10 P11 T1 P12 P13 T1 P14 P15 T1 P16 P17 T1 P18 P19 T1 P20 P21 T1 P22 P23 T1 P24 P25 T1 P26 P27 T1 P28 P29 T1 P30 P31 T1 P32 P33 T1 P34 P35 T1")
+  (exec-mem 17408 0 0 12448 16496 12432 16496 12416 16480 12400 16464 12384 16448 12368 16432 12352 16416 12336 16400 12320 16384 12320 16384 12336 16400 12352 16416 12368 16432 12384 16448 12400 16464 12416 16480 12432 16496 12448 16496)
+  (exec-mem 17408 1 0 "P0 P1 T1 P2 P3 T1 P4 P5 T1 P6 P7 T1 P8 P9 T1 P10 P11 T1 P12 P13 T1 P14 P15 T1 P16 P17 T1 P18 P19 T1 P20 P21 T1 P22 P23 T1 P24 P25 T1 P26 P27 T1 P28 P29 T1 P30 P31 T1 P32 P33 T1 P34 P35 T1")
   (load-mem "A:¥TCM¥SCRH.TCM" 19216)
   (load-mem "A:¥TCM¥INPUTNAM.TCM" 21920)
   (load-mem "A:¥TCM¥APPEARH.TCM" 23216)
@@ -105,27 +65,20 @@
   (define-proc 17 (<>))
   (define-proc 18 (<>))
   (define-proc 19 (<>))
-  (text 'br)									; Music board selection screen starts here
+;
+; 	Music board selection screen starts here
+;
   (text 'br)
   (text 'br)
   (text 'br)
-  (text "　　　　　　")
-  (str "Please select the type of music board.")
+  (text 'br) (text "　　　　　　") (str "Please select the type of music board.")
   (text 'br)
   (text 'br)
+  (text 'br) (text "　　　□") (str "External music board")
+  (text 'br) (str "                                                     VM･VX･RX･RA etc..")
   (text 'br)
-  (text "　　　□")
-  (str "External music board")
-  (text 'br)
-  (str
-   "                                                     VM･VX･RX･RA etc..")
-  (text 'br)
-  (text 'br)
-  (text "　　　□")
-  (str "Internal music board")
-  (text 'br)
-  (str
-   "                                                     DX･DS･DA･UX etc..")
+  (text 'br) (text "　　　□") (str "Internal music board")
+  (text 'br) (str "                                                     DX･DS･DA･UX etc..")
   (menu1 6 140 6 200 (</> (/ (text "□")) (/ (text "□"))))
   (text-reset 0)
   (branch-var
@@ -133,7 +86,10 @@
    (</>
     (/ (sound '|se | "A:¥USO_V¥BRAIN2_V.SE") (nop@) (set-reg 900 #f))
     (/ (sound '|se | "A:¥USO_D¥BRAIN2_D.SE") (set-reg 900 #t))))
-  (text-frame 0 0 79 399)							; Disclaimers start here (screen width is 80 half-width characters)
+;
+; 	Disclaimers start here (screen width is 80 half-width characters)
+;
+  (text-frame 0 0 79 399)
   (text-reset 0)
   (text-color 2)
   ((cmd 209) 0)
@@ -145,7 +101,7 @@
   (text 'br)
   (text 'br)
   (str "      The individuals, groups and events that are depicted are fictitious." 'br)
-  (str "      Any similarity to actual persons, living or dead, is unintentional." 'br)
+  (str "      Any similarity to actual persons, living or dead, is unintentional.")
   (exec-mem 256 2 0 0 0)
   (delay 3)
   (exec-mem 256 2 2 0 0)
@@ -221,9 +177,12 @@
   (text-frame 0 0 79 399)
   (text-reset 0)
   ((cmd 209) 1)
+;
+; 	Name entry code... I believe this is dummied out
+;
   (if (</>
        (//
-        (? (= 0 #f))								; Name entry code... I believe this is dummied out
+        (? (= 0 #f))
         (text #:col 15 'br)
         (text 'br)
         (text 'br)
@@ -239,8 +198,11 @@
         (flag-save 0)
         (text-reset 0))))
   ((cmd 210))
+;
+; 	Main menu starts here
+;
   (loop
-   (text-frame 16 20 60 200)							; Main menu starts here
+   (text-frame 16 20 60 200)
    (text-reset 0)
    (text #:col 15 'br)
    (text 'br)
@@ -250,12 +212,9 @@
    (text-frame 17 284 76 340)
    (text-reset 0)
    (menu1
-    19
-    300
-    33
-    300
-    47
-    300
+    19 300
+    33 300
+    47 300
     (</>
      (/ (str "  NEW GAME  "))
      (/ (str " LOAD GAME "))
@@ -281,24 +240,15 @@
  (seg (? (= Q 1))								; LOAD GAME option
    (str "Select Load Number.")
    (menu1
-    18
-    317
-    32
-    317
-    46
-    317
-    60
-    317
-    18
-    337
-    32
-    337
-    46
-    337
-    60
-    337
-    66
-    298
+    18 317
+    32 317
+    46 317
+    60 317
+    18 337
+    32 337
+    46 337
+    60 337
+    66 298
     (</>
      (/ (str " LOAD No.1 "))
      (/ (str " LOAD No.2 "))
