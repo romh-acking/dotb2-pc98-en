@@ -50,14 +50,14 @@
          (str "where do I even start looking?")
          (wait)
          (text-reset 1)
-         (str "Cole: Let me breathe for a second and think this through.")
+         (str "Cole: Let me breathe for a second and think this through.")	; Quiz follows...
          (wait)
          (text-reset 1)
          (loop
-          (str "Cole: After visiting Disco Zeena, where did Sheila go...?")
+          (str "Cole: After visiting Disco Zeena, where did Sheila go...?")	; Question 1
           (wait)
           (text-reset 1)
-          (menu1								; Question 1 options follow...
+          (menu1
            16
            298
            36
@@ -77,16 +77,16 @@
            56
            337
            (</>
-            (/ (str "Shuffle Food"))						; These can only be 19 characters max
+            (/ (str "Shuffle Food"))						; (These can only be 19 characters max)
             (/ (str "32nd Precinct"))
             (/ (str "Cole's Apartment"))
             (/ (str "Sheila's Apartment"))
             (/ (str "Port Warehouse 3"))
-            (/ (str "Light Dance Street"))					; (Correct answer)
+            (/ (str "Light Dance Street"))
             (/ (str "Perain Institute"))
             (/ (str "Bar Rease"))))
           (text-reset 1)
-          (str "Cole: That's right. After Disco Zeena, Sheila ")
+          (str "Cole: That's right. After Disco Zeena, Sheila ")		; Answer 1 selected
           (branch-var
            S
            (</>
@@ -117,11 +117,11 @@
              (str "Rease."))))
           (wait)
           (text-reset 1)
-          (str "Cole: And then, after getting captured by Bloody Fox, who" 'br)
+          (str "Cole: And then, after getting captured by Bloody Fox, who" 'br)	; Question 2
           (str "rescued her?")
           (wait)
           (text-reset 1)
-          (menu1								; Question 2 options follow...
+          (menu1
            16
            298
            36
@@ -141,13 +141,13 @@
            56
            337
            (</>
-            (/ (str "Steve"))							; (Correct answer)
+            (/ (str "Steve"))
             (/ (str "Catherine"))
             (/ (str "Briar"))
             (/ (str "Cole"))
             (/ (str "Nobody"))))
           (text-reset 1)
-          (str "Cole: That's right, ")
+          (str "Cole: That's right, ")						; Answer 2 selected
           (branch-var
            S
            (</>
@@ -161,7 +161,7 @@
           (str "Cole: ...That's how it is, right?")
           (wait)
           (text-reset 1)
-          (str "Cole: Right, so to find Sheila, I should try checking")		; Results follow...
+          (str "Cole: Right, so to find Sheila, I should try checking")
           (branch-var
            S
            (</>
@@ -184,7 +184,7 @@
           (text-reset 1)
           (if (</>
                (//
-                (? (= 127 #t) (= 128 #t))					; Correct answers path
+                (? (= 127 #t) (= 128 #t))					; Correct answers
                 (str "Cole: So thinking of places where Steve might have headed" 'br)
                 (str "...the 32nd Precinct, Rease, or the Perain Research" 'br)
                 (str "Institute.")
@@ -206,9 +206,9 @@
                 (set-reg 129 #t)
                 (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
                 (mes-jump "A:¥MES¥036.MES"))
-               (//								; Wrong answers path
+               (//								
                 (str "Cole: Wait...no, something's off... Lemme take a minute to" 'br)
-                (str "reconsider.")
+                (str "reconsider.")						; Wrong answer(s)
                 (set-reg 127 #f)
                 (set-reg 128 #f)
                 (wait)

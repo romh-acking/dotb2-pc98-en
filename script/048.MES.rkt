@@ -1,10 +1,10 @@
-; Dead of the Brain 2 (PC-98) - 04.MES
+; Dead of the Brain 2 (PC-98) - 048.MES
 ; Translated by Geometrizer
 ; Edited by JackDBS, commented by trentsignia
 ; -----Scene:-----
 ; Cole returns to Lisle's lab with Catherine in tow.
 ; --Progression:--
-; Talk to Lisle. MOVE, and return to the lab after talking to Sheila and Catherine.
+; Talk to Lisle and look at the lab. MOVE, and return to the lab after talking to Sheila and Catherine.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

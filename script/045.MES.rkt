@@ -13,10 +13,10 @@
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
   (exec-mem 3744 1 5 4 10 14 15)						; 	Counter
-  (exec-mem 3744 1 6 44 10 49 11)						; 	Left Bloody Fox
+  (exec-mem 3744 1 6 44 10 49 11)						; 	Right Bloody Fox
   (exec-mem 3744 1 7 15 9 26 15)						; 	Bodies
   (exec-mem 3744 1 8 22 5 39 8)							; 	Window
-  (exec-mem 3744 1 9 31 14 44 15)						; 	Right Bloody Fox
+  (exec-mem 3744 1 9 31 14 44 15)						; 	Left Bloody Fox
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB076.GPC")
   (image-mem 0 3)
@@ -83,19 +83,19 @@
    (str "Cole: Busted plates and glasses are all over the floor.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 163 #f))							; Left Bloody Fox #1
+ (seg (? (= P 6) (= 163 #f))							; Right Bloody Fox #1
    (str "Cole: Bodies of Bloody Fox members... Weird, you wouldn't" 'br)
-   (str "TEST TEST TEST")
+   (str "expect them to eat somewhere like this.")
    (set-reg 163 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 164 #f))							; Left Bloody Fox #2
+ (seg (? (= P 6) (= 164 #f))							; Right Bloody Fox #2
    (str "Cole: These dead Bloody Fox members aren't gonna cause any" 'br)
    (str "trouble, so I can't complain.")
    (set-reg 164 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))								; Left Bloody Fox #3 (repeat line)
+ (seg (? (= P 6))								; Right Bloody Fox #3 (repeat line)
    (str "Cole: Bloody Fox in a family restaurant, huh? Maybe they're" 'br)
    (str "making a killing dealing Purple Sky and were living it up" 'br)
    (str "with milkshakes and fried onions.")
@@ -141,19 +141,19 @@
    (str "have moved on to more live targets.")
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 163 #f))							; Right Bloody Fox #1 (shares flags with other Bloody Fox)
+ (seg (? (= P 9) (= 163 #f))							; Left Bloody Fox #1 (shares flags with other Bloody Fox)
    (str "Cole: Bodies of Bloody Fox members... Weird, you wouldn't" 'br)
    (str "expect them to eat somewhere like this.")
    (set-reg 163 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9) (= 164 #f))							; Right Bloody Fox #2
+ (seg (? (= P 9) (= 164 #f))							; Left Bloody Fox #2
    (str "Cole: These dead Bloody Fox members aren't gonna cause any" 'br)
    (str "trouble, so I can't complain.")
    (set-reg 164 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9))								; Right Bloody Fox #3 (repeat line)
+ (seg (? (= P 9))								; Left Bloody Fox #3 (repeat line)
    (str "Cole: Bloody Fox in a family restaurant, huh? Maybe they're" 'br)
    (str "making a killing dealing Purple Sky and were living it up" 'br)
    (str "with milkshakes and fried onions.")

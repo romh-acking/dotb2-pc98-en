@@ -1,14 +1,21 @@
+; Dead of the Brain 2 (PC-98) - 051.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; -----Scene:-----
+; Cole makes his way to the zombified 32nd Precinct.
+; --Progression:--
+; MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB082.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 17 2 35 8)
-  (exec-mem 3744 1 6 28 14 35 15)
-  (exec-mem 3744 1 7 34 10 40 13)
-  (exec-mem 3744 1 8 4 11 12 14)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 17 2 35 8)							; 	Station
+  (exec-mem 3744 1 6 28 14 35 15)						; 	Body
+  (exec-mem 3744 1 7 34 10 40 13)						; 	Doorway
+  (exec-mem 3744 1 8 4 11 12 14)						; 	Car
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB082.GPC")
   (image-mem 0 3)
@@ -20,36 +27,37 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 100 #f))
+        (? (= 100 #f))								; Lead-in from previous MES script
         (str "Cole: I've arrived at the 32nd Precinct. I didn't pass" 'br)
-(str "anyone on the way here... Does that mean Steve's still" 'br)
-(str "inside?")
+        (str "anyone on the way here... Does that mean Steve's still" 'br)
+        (str "inside?")
         (set-reg 100 #t))
-       (// (str "Cole: This is the 32nd Precinct. Looks like the zombies had" 'br)
-(str "a damn field day in here."))))
+       (//
+        (str "Cole: This is the 32nd Precinct. Looks like the zombies had" 'br)	; Lead-in from loading game
+        (str "a damn field day in here."))))
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 6) (= 101 #f))
+ (seg (? (= P 6) (= 101 #f))							; Body #1
    (str "Cole: Bodies near the entrance... Some are cops. Zombies" 'br)
-(str "made short work of them.")
+   (str "made short work of them.")
    (set-reg 101 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Body #2 (repeat line)
    (str "Cole: Each corpse has had its head gnawed open. At this" 'br)
-(str "point, I don't think they could be reanimated.")
+   (str "point, I don't think they could be reanimated.")
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 102 #f))
+ (seg (? (= P 5) (= 102 #f))							; Building #1
    (str "Cole: The station's windows have been shattered. I bet" 'br)
-(str "everyone on the second floor's been killed, too.")
+   (str "everyone on the second floor's been killed, too.")
    (set-reg 102 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 103 #f))
+ (seg (? (= P 5) (= 103 #f))							; Building #2
    (str "Cole: Steve's probably on the second floor. I should try" 'br)
-(str "calling for him.")
+   (str "calling for him.")
    (wait)
    (text-reset 1)
    (str "Cole: STEVE! Are you in there? It's Cole!")
@@ -68,36 +76,39 @@
    (set-reg 103 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Building #3 (repeat line)
    (str "Cole: If I'm gonna find Steve, I should probably go inside" 'br)
-(str "the station instead of just screaming a lot.")
+   (str "the station instead of just screaming a lot.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 104 #f))
+ (seg (? (= P 7) (= 104 #f))							; Doorway #1
    (str "Cole: I can see a ton of blood near the entrance. I don't" 'br)
-(str "think things turned out well for the people inside.")
+   (str "think things turned out well for the people inside.")
    (set-reg 104 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 105 #f))
+ (seg (? (= P 7) (= 105 #f))							; Doorway #2
    (str "Cole: Since the station's only got a front door, there'd be" 'br)
-(str "no escape route if the zombies got in.")
+   (str "no escape route if the zombies got in.")
    (set-reg 105 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Doorway #3 (repeat line)
    (str "Cole: Steve came here to get documents about Razovan. I" 'br)
-(str "hope he's still inside...")
+   (str "hope he's still inside...")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 106 #f))
+ (seg (? (= P 8) (= 106 #f))							; Car #1
    (str "Cole: This is the lab van I drove here in. Key's in the" 'br)
-(str "ignition if I need to jet out of here in a hurry.")
+   (str "ignition if I need to jet out of here in a hurry.")
    (set-reg 106 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8)) (str "Cole: The car's parked beside the building.") (wait) (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 8))								; Car #2 (repeat line)
+   (str "Cole: The car's parked beside the building.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: Okay, let's find Steve and get out of here.")
    (wait)
@@ -107,7 +118,7 @@
    (set-reg 107 #t)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥052.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
