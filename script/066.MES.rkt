@@ -102,9 +102,8 @@
    (str "Lisle: Well, I was in the lab the whole time, you know.")
    (wait)
    (text-reset 1)
-   (text
-    "Cole: Yesterday, Steve said he was pooped and and went into" 'br)
-"his room. I thought he was resting...")
+   (str "Cole: Yesterday, Steve said he was pooped and and went into" 'br)
+(str "his room. I thought he was resting...")
    (wait)
    (text-reset 1)
    (str "Lisle: Well, unlike me, he's got plenty on his plate. It's" 'br)

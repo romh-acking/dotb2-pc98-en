@@ -147,10 +147,9 @@
    (str "Cole: No, that's not it at all!")
    (wait)
    (text-reset 1)
-   (text
-    "Sheila: Yes it is! And when I turn, you're going to have to" 'br)
-"shoot me, right? No matter how much you love me, you have to" 'br)
-"put a bullet in me to stop the inevitable, don't you?")
+   (str "Sheila: Yes it is! And when I turn, you're going to have to" 'br)
+(str "shoot me, right? No matter how much you love me, you have" 'br)
+(str "to put a bullet in me to stop the inevitable, don't you?")
    (wait)
    (text-reset 1)
    (str "Cole: I fucking told you to SHUT UP!")
@@ -187,17 +186,16 @@
 (str "I couldn't face you, or Doc, with a clear conscience...")
    (wait)
    (text-reset 1)
-   (str "Cole: Even before,  I never would have thought of doing something as cruel as reviving Doc...")
+   (str "Cole: Even before, I never would have thought of doing something as cruel as reviving Doc...")
    (wait)
    (text-reset 1)
    (str "Cole: But if things keep going the way they are... Just like" 'br)
 (str "Sheila said, I might have to pull the trigger on her.")
    (wait)
    (text-reset 1)
-   (text
-    "Cole: I feel like Doc would forgive me if I revived him to" 'br)
-"save you, Sheila... But I'll regret it for the rest of my" 'br)
-"life.")
+   (str "Cole: I feel like Doc would forgive me if I revived him to" 'br)
+(str "save you, Sheila... But I'll regret it for the rest of my" 'br)
+(str "life.")
    (wait)
    (text-reset 1)
    (loop
@@ -207,7 +205,7 @@
      337
      44
      337
-     (</> (/ (str "Let Doc rest in peace / Revive Doc")) (/ (str "Let Doc rest in peace / Revive Doc"))))
+     (</> (/ (str "Let Doc rest in peace")) (/ (str "Revive Doc"))))
     (text-reset 1)
     (str "Cole: I'm going to...")
     (branch-var
@@ -215,11 +213,11 @@
      (</>
       (/ (str "let Doc rest in peace.") (set-reg 134 #t))
       (/ (str "revive Doc.") (set-reg 135 #t))))
-    (str "I've made my decision.")
+    (str " I've made my decision.")
     (wait)
     (text-reset 1)
     (str "Cole: Am I really sure this is the right path forward?")
-    (menu1 25 337 37 337 (</> (/ (str "Yes / No")) (/ (str "Yes / No"))))
+    (menu1 25 337 37 337 (</> (/ (str "Yes")) (/ (str "No"))))
     (text-reset 1)
     (if (</>
          (//
@@ -231,10 +229,9 @@
     (if (</>
          (//
           (? (= S 0) (= 134 #t))
-          (text
-           "Cole: I can't revive Doc. We're not certain whether or not" 'br)
-"Sheila will become a zombie. I've got a heart, and it won't" 'br)
-"let me bring my best friend back from the dead.")
+          (str "Cole: I can't revive Doc. We're not certain whether or not" 'br)
+(str "Sheila will become a zombie. I've got a heart, and it won't" 'br)
+(str "let me bring my best friend back from the dead.")
           (wait)
           (text-reset 1)
           (str "Cole: I'm going to go tell Lisle and the others.")
@@ -247,10 +244,9 @@
           (mes-jump "A:¥MES¥080.MES"))
          (//
           (? (= S 0) (= 135 #t))
-          (text
-           "Cole: I'm going to revive Doc's brain to help save Sheila." 'br)
-"Though I'll owe Doc more than I can ever repay, I need to" 'br)
-"save Sheila at any cost.")
+          (str "Cole: I'm going to revive Doc's brain to help save Sheila." 'br)
+(str "Though I'll owe Doc more than I can ever repay, I need to" 'br)
+(str "save Sheila at any cost.")
           (wait)
           (text-reset 1)
           (str "Cole: And even if things go horribly wrong, what matters is" 'br)

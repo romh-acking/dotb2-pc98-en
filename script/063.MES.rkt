@@ -24,9 +24,8 @@
 (str "for a while.")
         (wait)
         (text-reset 1)
-        (text
-         "Cole: Yesterday, Catherine told me where we could find" 'br)
-"Daniel. I have to tell Steve so we can go take him down.")
+        (str "Cole: Yesterday, Catherine told me where we could find" 'br)
+(str "Daniel. I have to tell Steve so we can go take him down.")
         (set-reg 100 #t)
         (wait)
         (text-reset 1))
