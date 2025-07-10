@@ -2,7 +2,7 @@
 ; Translated by Geometrizer
 ; Edited by trentsignia
 ; --Description:--
-; Annother day in the Perain Research Institute.
+; Another day in the Perain Research Institute.
 ; -----Notes:-----
 ; Another "hub" script, functionally identical to 056.MES.
 ; --Progression:--
