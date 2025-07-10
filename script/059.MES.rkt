@@ -2,7 +2,7 @@
 ; Translated by Geometrizer
 ; Edited by JackDBS, commented by trentsignia
 ; -----Scene:-----
-; Cole visits Catherine in her room after her rescue.
+; Cole visits Catherine in her room after his trip to the police station.
 ; --Progression:--
 ; Talk to Catherine, and look at the calendar.
 (mes
@@ -53,7 +53,7 @@
    (wait)
    (text-reset 1)
    (str "Catherine: About what happened at the police station" 'br)
-   (str "earlier. How were you able to hold it together?")
+   (str "earlier... How were you able to hold it together?")
    (wait)
    (text-reset 1)
    (str "Cole: Well, I'm not sure I'd call it that. When those" 'br)
@@ -156,7 +156,7 @@
    (wait)
    (text-reset 1)
    (str "Catherine: It's feeling warm and stuffy, so I'll leave them" 'br)
-   (str "as is.")
+   (str "as-is.")
    (set-reg 134 #t)
    (wait)
    (text-reset 1))
