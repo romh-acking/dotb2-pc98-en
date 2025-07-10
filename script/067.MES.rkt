@@ -1,3 +1,10 @@
+; Dead of the Brain 2 (PC-98) - 067.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; -----Scene:-----
+; Knock knock! Who's there? Zombie! Zombie who? "Zom" be hooting and hollering down there!
+; ----Battle:-----
+; Shoot head.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -10,8 +17,8 @@
        (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_02.USO"))
        (// (sound '|| "A:¥USO_D¥BR2_02.USO"))))
   (sound '|| 1)
-  (str "Cole: *Huff huff* I made it to the first floor, but I don't" 'br)
-(str "see Steve anywhere--")
+  (str "Cole: Huff, huff... I made it to the first floor, but I" 'br)
+  (str "don't see Steve anywhere--")
   (wait)
   (text-reset 1)
   (str "Steve: Cole! Over here!")
@@ -38,13 +45,13 @@
   (str "Steve: Cole, I'm empty! Kill that thing!")
   (wait)
   (text-reset 1)
-  (image-file "A:¥GPC¥COUNTER.GPC")
+  (image-file "A:¥GPC¥COUNTER.GPC")						; Battle begins here
   (image-mem 0 0)
-  (load-mem "A:¥CLM¥DB116.CLM" 32768)
-  (exec-mem 3744 1 5 37 6 40 7)
-  (exec-mem 3744 1 6 41 7 44 8)
-  (exec-mem 3744 1 7 40 5 43 6)
-  (exec-mem 3744 1 8 37 9 41 11)
+  (load-mem "A:¥CLM¥DB116.CLM" 32768)						; Battle hotspots defined here...
+  (exec-mem 3744 1 5 37 6 40 7)							; 	
+  (exec-mem 3744 1 6 41 7 44 8)							; 	
+  (exec-mem 3744 1 7 40 5 43 6)							; 	Head
+  (exec-mem 3744 1 8 37 9 41 11)						; 	
   (exec-mem 15728 0 0 0 5 0 1)
   (exec-mem 15728 1 0 0 0 0 "Z")
   (exec-mem 15728 2 1)
@@ -57,27 +64,24 @@
   (image-mem 0 0)
   (if (</>
        (//
-        (? (= Z 2) (= P 7))
+        (? (= Z 2) (= P 7))							; Success
         ((cmd 196) 0 0)
         (sound '|se | 13)
         ((cmd 196) 0 1)
         ((cmd 196) 0 2)
-        ((cmd 196) 0 3)
-        (delay 2 0)
-        ((cmd 196) 0 4)
-        (delay 2 0)
-        ((cmd 196) 0 5)
-        (delay 2 0)
+        ((cmd 196) 0 3) (delay 2 0)
+        ((cmd 196) 0 4) (delay 2 0)
+        ((cmd 196) 0 5) (delay 2 0)
         ((cmd 196) 0 6)
-        (str "Zombie: GYAAAAAAA!!!")
+        (str "Zombie: ") (text "ＧＹＡＡＡＡＡＡＡＡＡ！！！")
         (wait)
         (text-reset 1)
         (sound '|| 2))
        (//
-        (str "Steve: Oh shit, it's all over!!!")
+        (str "Steve: Oh shit, it's all over!!!")				; Failure
         (wait)
         (text-reset 1)
-        (str "Zombie: GUAAAAA!!!")
+        (str "Zombie: ") (text "ＧＵＡＡＡＡＡＡ！！！")
         (wait)
         (text-reset 1)
         (exec-mem 14544 2 2)
@@ -86,7 +90,7 @@
         (sound '|se | 10)
         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
         (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
-        (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
+        (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
         (text-reset 1)
         (branch-var
          S
@@ -115,26 +119,26 @@
   (wait)
   (text-reset 1)
   (str "Steve: I don't know... Just as I drove in, I saw a zombie" 'br)
-(str "going in through the front.")
+  (str "going in through the front.")
   (wait)
   (text-reset 1)
   (str "Cole: They got into the building? Are there any more?")
   (wait)
   (text-reset 1)
   (str "Steve: Well, I killed the ones in the front office, but" 'br)
-(str "there might be more.")
+  (str "there might be more.")
   (wait)
   (text-reset 1)
   (str "Steve: The staircase is shuttered and the elevator's out of" 'br)
-(str "service, so we don't have to worry about them getting into" 'br)
-(str "the rooms on the second floor.")
+  (str "service, so we don't have to worry about them getting into" 'br)
+  (str "the rooms on the second floor.")
   (wait)
   (text-reset 1)
   (str "Steve: Of course, the emergency stairs are auto-locked.")
   (wait)
   (text-reset 1)
   (str "Cole: But how did they breach the entrance? Wasn't it" 'br)
-(str "locked?")
+  (str "locked?")
   (wait)
   (text-reset 1)
   (str "Steve: It was locked, but...")

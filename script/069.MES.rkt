@@ -1,12 +1,21 @@
+; Dead of the Brain 2 (PC-98) - 069.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; Just a bunch of stairs.
+; --Progression:--
+; MOVE.
+; ----Battle:-----
+; Shoot the zombie.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB119.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 22 8 37 14)
-  (exec-mem 3744 1 6 24 3 38 8)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 22 8 37 14)						; 	Stairs
+  (exec-mem 3744 1 6 24 3 38 8)							; 	Shutter
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB119.GPC")
   (image-mem 0 3)
@@ -23,43 +32,43 @@
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 134 #f))
+ (seg (? (= P 5) (= 134 #f))							; Stairs #1
    (str "Cole: The stairs are unstable, so I can't let myself get" 'br)
-(str "cornered here. If I lost my footing, I'd be screwed.")
+   (str "cornered here. If I lost my footing, I'd be screwed.")
    (set-reg 134 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 135 #f))
+ (seg (? (= P 5) (= 135 #f))							; Stairs #2
    (str "Cole: I don't sense any zombies nearby... I hope.")
    (set-reg 135 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Stairs #3 (repeat line)
    (str "Cole: I can only hear the sound of my footsteps echoing on" 'br)
-(str "the stairs. There are no zombies around.")
+   (str "the stairs. There are no zombies around.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 136 #f))
+ (seg (? (= P 6) (= 136 #f))							; Shutter #1
    (str "Cole: The shutter's sealed. Steve said he had closed them" 'br)
-(str "all yesterday.")
+   (str "all yesterday.")
    (wait)
    (text-reset 1)
    (str "Cole: He must have shut this one too.")
    (set-reg 136 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 137 #f))
+ (seg (? (= P 6) (= 137 #f))							; Shutter #2
    (str "Cole: Since the shutter's locked in place, I guess we can" 'br)
-(str "assume no zombies made it past here.")
+   (str "assume no zombies made it past here.")
    (set-reg 137 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Shutter #3 (repeat line)
    (str "Cole: There's a red emergency light over the shutter. I" 'br)
-(str "can't go any further.")
+   (str "can't go any further.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 138 #f))
+ (seg (? (= P 1) (= 138 #f))							; MOVE (first time)
    (exec-mem 6064 2 1)
    (str "Cole: Guess it's time to turn back.")
    (wait)
@@ -90,7 +99,7 @@
    (text-reset 1)
    (exec-mem 912 "PUT 0 2 23,W 0,O 0")
    (exec-mem 912 "EXIT")
-   (str "Zombie: BRAAAINNNNN!!!")
+   (str "Zombie: ") (text "ＢＲＡＩＮＮＮＮＮ！！！")
    (wait)
    (text-reset 1)
    (sound '|| 0)
@@ -98,7 +107,7 @@
         (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_06.USO"))
         (// (sound '|| "A:¥USO_D¥BR2_06.USO"))))
    (sound '|| 1)
-   (load-mem "A:¥CLM¥DB120A.CLM" 32768)
+   (load-mem "A:¥CLM¥DB120A.CLM" 32768)						; Battle starts here...
    (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)
    (exec-mem 3744 1 1 80 0 0 0)
    (exec-mem 3744 1 5 30 4 33 5)
@@ -116,7 +125,7 @@
    (image-mem 0 0)
    (if (</>
         (//
-         (? (= Z 2) (= P 5))
+         (? (= Z 2) (= P 5))							; Success
          ((cmd 196) 0 0)
          ((cmd 196) 0 1)
          (delay 2 0)
@@ -130,9 +139,9 @@
          (wait)
          (text-reset 1)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-         (str "Cole: That was close... I don't want to take wild shots from" 'br)
-(str "from somewhere with unstable footing. If I blew it, I might" 'br)
-(str "have taken a fall down the stairs, and...I'd be dinner.")
+         (str "Cole: That was close... I don't want to take wild shots" 'br)
+         (str "from somewhere with unstable footing. If I blew it, I might" 'br)
+         (str "have taken a fall down the stairs, and...I'd be dinner.")
          (wait)
          (text-reset 1)
          (sound '|| 2)
@@ -143,10 +152,10 @@
          (set-reg 127 #f)
          (mes-jump "A:¥MES¥068.MES"))
         (//
-         (str "Cole: Shit! I'm losing my balance--")
+         (str "Cole: Shit! I'm losing my balance--")				; Failure
          (wait)
          (text-reset 1)
-         (str "Zombie: GUAAAAA!!!")
+         (str "Zombie: ") (text "ＧＵＡＡＡＡＡ！！！")
          (wait)
          (text-reset 1)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
@@ -156,10 +165,9 @@
          (sound '|| 0)
          (sound '|se | 10)
          (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
-         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
+         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
          (text-reset 1)
-         (branch-var
-          S
+         (branch-var S
           (</>
            (/
             (exec-mem 9920 0 6 6 113 64 0)
@@ -171,16 +179,16 @@
             (text "　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
             (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
             (loop (wait)))))))))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE (second time onwards)
    (str "Cole: I can't go back to the first floor without having to" 'br)
-(str "look at the zombie I blasted earlier... I hate this part.")
+   (str "look at the zombie I blasted earlier... I hate this part.")
    (wait)
    (text-reset 1)
    (nop@)
    (set-reg 127 #t)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥068.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

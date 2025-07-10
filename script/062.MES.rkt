@@ -2,9 +2,13 @@
 ; Translated by Geometrizer
 ; Edited by trentsignia
 ; --Description:--
-; Daytime in the Perain Research Institute.
+; Annother day in the Perain Research Institute.
 ; -----Notes:-----
-; Another "hub" script. Functionally identical to 056.MES.
+; Another "hub" script, functionally identical to 056.MES.
+; --Progression:--
+; 1. Talk to Sheila. She will ask for water.
+; 2. Visit the lab to get water from Lisle. Talk to him and look around while you're there.
+; 3. Return to Sheila to give her water.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

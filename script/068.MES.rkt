@@ -1,22 +1,30 @@
+; Dead of the Brain 2 (PC-98) - 068.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; On the first floor of the institute.
+; -----Notes:-----
+; Another "hub" script.
+; --Progression:--
+; [...]
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (if (</>
        (// (? (= 138 #t)) (load-mem "A:¥CLM¥DB114A.CLM" 32768))
        (// (load-mem "A:¥CLM¥DB114.CLM" 32768))))
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 4 8 9 11)
-  (exec-mem 3744 1 6 25 8 29 12)
-  (exec-mem 3744 1 7 44 7 47 12)
-  (exec-mem 3744 1 8 38 8 41 10)
-  (if (</> (// (? (= 138 #t)) (exec-mem 3744 1 9 11 10 16 11))))
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 4 8 9 11)							; 	Stairs
+  (exec-mem 3744 1 6 25 8 29 12)						; 	Front Office
+  (exec-mem 3744 1 7 44 7 47 12)						; 	Elevator
+  (exec-mem 3744 1 8 38 8 41 10)						; 	Restroom
+  (if (</> (// (? (= 138 #t)) (exec-mem 3744 1 9 11 10 16 11))))		; 	Zombie (only appears after visiting stairs)
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB114.GPC")
   (image-mem 0 3)
-  (if (</>
-       (// (? (= 138 #t)) (image-file "B:¥GPC¥DB122.GPC") (image-mem 1 3))))
+  (if (</> (// (? (= 138 #t)) (image-file "B:¥GPC¥DB122.GPC") (image-mem 1 3))))
   ((cmd 193) 0 "B:¥GPA¥DB114.GPA")
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (if (</>
@@ -29,47 +37,37 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (?
-         (= 163 #t)
-         (= 135 #t)
-         (= 137 #t)
-         (= 147 #t)
-         (= 152 #t)
-         (= 156 #t)
-         (= 164 #f))
-        ((cmd 196) 0 0)
-        ((cmd 196) 0 1)
-        (delay 6 0)
-        ((cmd 196) 0 2)
-        (delay 6 0)
-        ((cmd 196) 0 3)
-        (delay 6 0)
-        ((cmd 196) 0 4)
-        (delay 6 0)
-        ((cmd 196) 0 5)
-        (delay 6 0)
-        ((cmd 196) 0 6)
-        (delay 6 0)
+        (? (= 163 #t) (= 135 #t) (= 137 #t) (= 147 #t) (= 152 #t) (= 156 #t) (= 164 #f))
+        ((cmd 196) 0 0)								; Lead-in after inspecting everything #1
+        ((cmd 196) 0 1) (delay 6 0)
+        ((cmd 196) 0 2) (delay 6 0)
+        ((cmd 196) 0 3) (delay 6 0)
+        ((cmd 196) 0 4) (delay 6 0)
+        ((cmd 196) 0 5) (delay 6 0)
+        ((cmd 196) 0 6) (delay 6 0)
         ((cmd 196) 0 7)
         (str "Cole: Huh? I just saw something ducking into the restroom...")
         (set-reg 164 #t)
         (wait)
         (text-reset 1))
        (//
-        (? (= 163 #t) (= 135 #t) (= 137 #t) (= 147 #t) (= 152 #t) (= 156 #t))
+        (? (= 163 #t) (= 135 #t) (= 137 #t) (= 147 #t) (= 152 #t) (= 156 #t))	; Lead-in after inspecting everything #2
         (str "Cole: I definitely saw someone. I gotta check out the" 'br)
-(str "restroom.")
+        (str "restroom.")
         (wait)
         (text-reset 1))
        (//
-        (? (= 128 #f))
+        (? (= 128 #f))								; Lead-in from previous MES file
         (str "Cole: Okay, where am I checking first?")
         (set-reg 128 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: Where should I check next?") (wait) (text-reset 1))))
+       (//
+        (str "Cole: Where should I check next?")				; Lead-in from second visit onwards
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 129 #f))
+ (seg (? (= P 5) (= 129 #f))							; Stairs (first time)
    (str "Cole: Okay, lemme check the stairs.")
    (set-reg 129 #t)
    (wait)
@@ -78,7 +76,7 @@
    (nop@)
    (set-reg 133 #t)
    (mes-jump "A:¥MES¥069.MES"))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Stairs (second time onwards)
    (str "Cole: I'll check the stairs one more time.")
    (wait)
    (text-reset 1)
@@ -86,9 +84,9 @@
    (nop@)
    (set-reg 133 #t)
    (mes-jump "A:¥MES¥069.MES"))
- (seg (? (= P 6) (= 130 #f))
+ (seg (? (= P 6) (= 130 #f))							; Front Office (first time)
    (str "Cole: Steve said he blasted a zombie in the front office." 'br)
-(str "Should I make sure it's really dead?")
+   (str "Should I make sure it's really dead?")
    (set-reg 130 #t)
    (wait)
    (text-reset 1)
@@ -96,44 +94,36 @@
    (nop@)
    (set-reg 133 #t)
    (mes-jump "A:¥MES¥070.MES"))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Front Office (second time onwards)
    (str "Cole: This is the front office. Those are definitely some" 'br)
-(str "dead zombies courtesy of Steve... Nice shootin', Tex.")
+   (str "dead zombies courtesy of Steve... Nice shootin', Tex.")
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (nop@)
    (set-reg 133 #t)
    (mes-jump "A:¥MES¥070.MES"))
- (seg (? (= P 7) (= 131 #f))
+ (seg (? (= P 7) (= 131 #f))							; Elevator #1
    (str "Cole: No need to check the elevator, since the power's been" 'br)
-(str "cut.")
+   (str "cut.")
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Elevator #2 (repeat line)
    (str "Cole: The elevator hasn't got power, so there's no need to" 'br)
-(str "check it.")
+   (str "check it.")
    (wait)
    (text-reset 1))
- (seg (?
-       (= P 8)
-       (= 163 #t)
-       (= 135 #t)
-       (= 137 #t)
-       (= 147 #t)
-       (= 152 #t)
-       (= 156 #t)
-       (= 164 #f))
-   (str "Cole: My eyes weren't deceiving me... Someone definitely" 'br)
-(str "went into that restroom. Better keep my eyes peeled.")
+ (seg (? (= P 8) (= 163 #t) (= 135 #t) (= 137 #t) (= 147 #t) (= 152 #t) (= 156 #t) (= 164 #f))
+   (str "Cole: My eyes weren't deceiving me... Someone definitely" 'br)		; Restroom (after inspecting everything)
+   (str "went into that restroom. Better keep my eyes peeled.")
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (nop@)
    (set-reg 133 #t)
    (mes-jump "A:¥MES¥071.MES"))
- (seg (? (= P 8) (= 132 #f))
+ (seg (? (= P 8) (= 132 #f))							; Restroom (first time)
    (str "Cole: Better check that restroom.")
    (set-reg 132 #t)
    (wait)
@@ -142,7 +132,7 @@
    (nop@)
    (set-reg 133 #t)
    (mes-jump "A:¥MES¥071.MES"))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Restroom (second time onwards)
    (str "Cole: Better check the restroom again.")
    (wait)
    (text-reset 1)
@@ -150,7 +140,7 @@
    (nop@)
    (set-reg 133 #t)
    (mes-jump "A:¥MES¥071.MES"))
- (seg (? (= P 9))
+ (seg (? (= P 9))								; Zombie
    (str "Cole: That's the lady zombie I had to take care of...oof.")
    (wait)
    (text-reset 1)
@@ -158,7 +148,7 @@
    (nop@)
    (set-reg 133 #t)
    (mes-jump "A:¥MES¥072.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
