@@ -1,13 +1,27 @@
+; Dead of the Brain 2 (PC-98) - 057.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Cole's room.
+; --Progression:--
+; Enter the room after exploring the rest of the institute:
+; 1. Attempt to enter Steve's Room.
+; 2. Talk to Sheila.
+; 3. Look at the Shower in Sheila's room. (?!?!)
+; 4. Talk to Catherine.
+; 5. Look at the Calendar in Catherine's room.
+; 6. Attempt to get into the door in the lab.
+; 7. Use the sinks in the lab.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB101.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 37 5 54 10)
-  (exec-mem 3744 1 6 20 3 27 13)
-  (exec-mem 3744 1 7 4 12 17 15)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 37 5 54 10)						; 	Lockers
+  (exec-mem 3744 1 6 20 3 27 13)						; 	Door
+  (exec-mem 3744 1 7 4 12 17 15)						; 	Desk
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB101.GPC")
   (image-mem 0 3)
@@ -19,23 +33,16 @@
   (sound '|| 1)
   (if (</>
        (//
-        (?
-         (= 113 #t)
-         (= 124 #t)
-         (= 125 #t)
-         (= 132 #t)
-         (= 135 #t)
-         (= 142 #t)
-         (= 146 #t))
-        (str "Cole: I'm starting to tire out... It's about time I got some" 'br)
-(str "rest.")
+        (? (= 113 #t) (= 124 #t) (= 125 #t) (= 132 #t) (= 135 #t) (= 142 #t) (= 146 #t))
+        (str "Cole: I'm starting to tire out... It's about time I got" 'br)	; Lead-in (after doing everything else)
+        (str "some rest.")
         (wait)
         (text-reset 1)
         (str "Cole: At this rate, I'll be awake until nighttime...")
         (wait)
         (text-reset 1)
         (str "Cole: Day and night... have totally reversed on my body" 'br)
-(str "clock.")
+        (str "clock.")
         (wait)
         (text-reset 1)
         (str "Cole: Sleepy...")
@@ -60,13 +67,13 @@
         ((cmd 209) 1)
         (text-frame 15 298 74 356)
         (sound '|| 0)
-        (str "Are you okay? Cole, pull yourself together!")
+        (str "         : Are you okay? Cole, pull yourself together!")
         (wait)
         (text-reset 1)
         (str "Cole: Huh? Who's there?")
         (wait)
         (text-reset 1)
-        (str "Pull yourself together...")
+        (str "         : Pull yourself together...")
         (wait)
         (text-reset 1)
         ((cmd 209) 0 5)
@@ -88,7 +95,7 @@
         (wait)
         (text-reset 1)
         (str "Catherine: You were tossing and turning so much, and" 'br)
-(str "sweating like crazy. ")
+        (str "sweating like crazy. ")
         (wait)
         (text-reset 1)
         (str "Cole: I was having a helluva nightmare.")
@@ -98,8 +105,8 @@
         (wait)
         (text-reset 1)
         (str "Catherine: I couldn't get to sleep. When I stepped into the" 'br)
-(str "hallway to take some tranquilizers, I heard moaning from" 'br)
-(str "your room.")
+        (str "hallway to take some tranquilizers, I heard moaning from" 'br)
+        (str "your room.")
         (wait)
         (text-reset 1)
         (str "Cole: Geez, was I really that loud?")
@@ -109,14 +116,14 @@
         (wait)
         (text-reset 1)
         (str "Cole: Catherine, there was something you wanted to talk" 'br)
-(str "about, right?")
+        (str "about, right?")
         (wait)
         (text-reset 1)
         (str "Catherine: ...")
         (wait)
         (text-reset 1)
         (str "Cole: How about we head up to the roof? I'd been wanting to" 'br)
-(str "check it out.")
+        (str "check it out.")
         (wait)
         (text-reset 1)
         (str "Catherine: Sure, that's fine.")
@@ -125,57 +132,64 @@
         (sound '|| 2)
         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
         (mes-jump "A:¥MES¥061.MES"))
-       (// (str "Cole: Today's been a busy day, so I'm exhausted.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: Today's been a busy day, so I'm exhausted.")		; Normal lead-in
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 114 #f))
-   (str "Cole: There are rows of lockers with locks on them. Probably" 'br)
-(str "used by the people working here.")
+ (seg (? (= P 5) (= 114 #f))							; Lockers #1
+   (str "Cole: There are rows of lockers with locks on them." 'br)
+   (str "Probably used by the people working here.")
    (set-reg 114 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 115 #f))
-   (text
-    "Cole: It's human nature... When you see a locked door, you wanna see what's  inside. But lockers have personal stuff inside them.")
+ (seg (? (= P 5) (= 115 #f))							; Lockers #2
+   (str "Cole: It's human nature... When you see a locked door, you" 'br)
+   (str "wanna see what's inside. But lockers have personal stuff" 'br)
+   (str "inside them.")
    (wait)
    (text-reset 1)
    (str "Cole: But I'm not that nosy that I'd go snooping.")
    (set-reg 115 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5)) (str "Cole: These are the institute's lockers. I can leave them" 'br)
-(str "be.") (wait) (text-reset 1))
- (seg (? (= P 6) (= 116 #f))
+ (seg (? (= P 5))								; Lockers #3 (repeat line)
+   (str "Cole: These are the institute's lockers. I can leave them" 'br)
+   (str "be.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6) (= 116 #f))							; Door #1
    (str "Cole: That's the entrance to this room.")
    (set-reg 116 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 117 #f))
-   (str "Cole:  I wonder if anyone will come in...")
+ (seg (? (= P 6) (= 117 #f))							; Door #2
+   (str "Cole: I wonder if anyone will come in...")
    (set-reg 117 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Door #3 (repeat line)
    (str "Cole: That door isn't locked. Anyone's free to come in.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 118 #f))
+ (seg (? (= P 7) (= 118 #f))							; Desk #1
    (str "Cole: There's a desk in here. I used to study a lot, but" 'br)
-(str "nowadays I hardly ever use a desk.")
+   (str "nowadays I hardly ever use a desk.")
    (set-reg 118 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 119 #f))
+ (seg (? (= P 7) (= 119 #f))							; Desk #2
    (str "Cole: The drawer's empty. Nothing in here to grab my" 'br)
-(str "attention.")
+   (str "attention.")
    (set-reg 119 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Desk #3 (repeat line)
    (str "Cole: I need to make sure I don't bash my head on the edge" 'br)
-(str "of the desk when I roll over in bed.")
+   (str "of the desk when I roll over in bed.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: Maybe I'll head out into the hallway.")
    (wait)
@@ -184,7 +198,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥056.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

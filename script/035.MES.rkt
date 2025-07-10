@@ -68,14 +68,14 @@
            36 337
            56 337
            (</>
-            (/ (str "Shuffle Food"))						; (These can only be 19 characters max)
-            (/ (str "32nd Precinct"))
-            (/ (str "Cole's Apartment"))
+            (/ (str "Shuffle Food      "))					; (These can only be 19 characters max)
+            (/ (str "32nd Precinct     "))
+            (/ (str "Cole's Apartment  "))
             (/ (str "Sheila's Apartment"))
-            (/ (str "Port Warehouse 3"))
+            (/ (str "Port Warehouse 3  "))
             (/ (str "Light Dance Street"))
-            (/ (str "Perain Institute"))
-            (/ (str "Bar Rease"))))
+            (/ (str "Perain Institute  "))
+            (/ (str "Bar Rease         "))))
           (text-reset 1)
           (str "Cole: That's right. After Disco Zeena, Sheila ")		; Answer 1 selected
           (branch-var
@@ -123,11 +123,11 @@
            36 337
            56 337
            (</>
-            (/ (str "Steve"))
-            (/ (str "Catherine"))
-            (/ (str "Briar"))
-            (/ (str "Cole"))
-            (/ (str "Nobody"))))
+            (/ (str "Steve             "))
+            (/ (str "Catherine         "))
+            (/ (str "Briar             "))
+            (/ (str "Cole              "))
+            (/ (str "Nobody            "))))
           (text-reset 1)
           (str "Cole: That's right, ")						; Answer 2 selected
           (branch-var

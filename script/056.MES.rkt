@@ -1,15 +1,24 @@
+; Dead of the Brain 2 (PC-98) - 056.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Back in the safety of the Perain Research Institute.
+; -----Notes:-----
+; This is a "hub" script once again, but this time it is a lot more straightforward.
+; --Progression:--
+; See 057.MES. (In this hallway, you have to attempt to get into Steve's room.)
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB070.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 46 5 51 15)
-  (exec-mem 3744 1 6 20 7 23 13)
-  (exec-mem 3744 1 7 37 7 40 13)
-  (exec-mem 3744 1 8 9 5 14 15)
-  (exec-mem 3744 1 9 27 8 32 12)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 46 5 51 15)						; 	Cole's Room		(Far Right)
+  (exec-mem 3744 1 6 20 7 23 13)						; 	Sheila's Room		(Second from Left)
+  (exec-mem 3744 1 7 37 7 40 13)						; 	Catherine's Room	(Second from Right)
+  (exec-mem 3744 1 8 9 5 14 15)							; 	Steve's Room		(Far Left)	
+  (exec-mem 3744 1 9 27 8 32 12)						; 	Lab			(Middle)
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB070.GPC")
   (image-mem 1 3)
@@ -27,28 +36,28 @@
    (text-color 15)
    (text-reset 1)
    (seg-call)))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Cole's Room
    (str "Cole: This is my room at the Institute.")
    (wait)
    (text-reset 1)
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥057.MES"))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Sheila's Room
    (str "Cole: I wonder if Sheila is still awake...")
    (wait)
    (text-reset 1)
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥058.MES"))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Catherine's Room
    (str "Cole: This is Catherine's room.")
    (wait)
    (text-reset 1)
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥059.MES"))
- (seg (? (= P 8) (= 113 #f))
+ (seg (? (= P 8) (= 113 #f))							; Steve's Room #1
    (str "Cole: This is Steve's room.")
    (wait)
    (text-reset 1)
@@ -61,8 +70,8 @@
    (str "Cole: It's Cole...")
    (wait)
    (text-reset 1)
-   (str "Steve: Sorry, Cole, but can I rest up a bit? We've got a lot" 'br)
-(str "to do tomorrow.")
+   (str "Steve: Sorry, Cole, but can I rest up a bit? We've got a" 'br)
+   (str "lot to do tomorrow.")
    (wait)
    (text-reset 1)
    (str "Cole: Sure thing. Have a good night.")
@@ -72,19 +81,19 @@
    (set-reg 113 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Steve's Room #2
    (str "Cole: This is Steve's room, but he seems pretty worn out." 'br)
-(str "Best to let him sleep the night.")
+   (str "Best to let him sleep the night.")
    (wait)
    (text-reset 1))
- (seg (? (= P 9))
+ (seg (? (= P 9))								; Lab
    (str "Cole: Let's head to the lab.")
    (wait)
    (text-reset 1)
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥060.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

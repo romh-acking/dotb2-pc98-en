@@ -1,3 +1,12 @@
+; Dead of the Brain 2 (PC-98) - 054.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; -----Scene:-----
+; They're here! Cower in fear! ...Or battle tooth and nail, for those you hold dear!
+; -----Battle:----
+; 1. Stab Right Eye.
+; 2. Stab Left Eye.
+; 3. Grab Power Saw.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -7,13 +16,13 @@
        (// (sound '|| "A:¥USO_D¥BR2_05.USO"))))
   (sound '|| 1)
   (load-mem "A:¥CLM¥DB088.CLM" 32768)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 5 28 5 31 6)
-  (exec-mem 3744 1 6 33 6 36 7)
-  (exec-mem 3744 1 7 31 4 35 6)
-  (exec-mem 3744 1 8 27 9 32 10)
-  (exec-mem 3744 1 9 28 12 32 13)
-  (exec-mem 3744 1 10 25 4 28 5)
+  (exec-mem 3744 1 1 80 0 0 0)							; Zombie 1 hotspots and buttons defined here...
+  (exec-mem 3744 1 5 28 5 31 6)							; 	
+  (exec-mem 3744 1 6 33 6 36 7)							; 	Right Eye
+  (exec-mem 3744 1 7 31 4 35 6)							; 	
+  (exec-mem 3744 1 8 27 9 32 10)						; 	
+  (exec-mem 3744 1 9 28 12 32 13)						; 	
+  (exec-mem 3744 1 10 25 4 28 5)						; 	
   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
   (image-file "B:¥GPC¥DB086.GPC")
   (image-mem 0 3)
@@ -31,10 +40,10 @@
   (image-mem 1 3)
   (exec-mem 912 "GET 0 2 23 54 238")
   (exec-mem 912 "A 0,S 0")
-  (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
+  (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)					; Battle 1 starts here...
   (when (</>
          (//
-          (str "Zombie: B-BRAIN!!! MORE BRAIN!!!")
+          (str "Zombie: ") (text "Ｂ一ＢＲＡＩＮ！！！　ＭＯＲＥ　ＢＲＡＩＮ！！")
           (wait)
           (text-reset 1)
           (str "Cole: Motherfucker!")
@@ -54,14 +63,14 @@
           (image-mem 0 0)
           (if (</>
                (//
-                (? (= Z 2) (= P 6))
+                (? (= Z 2) (= P 6))						; Success 1
                 (str "Cole: Eat shit!")
                 (wait)
                 (text-reset 1)
                 (sound '|se | 2)
                 (exec-mem 912 "PUT 0 2 23,W 0,O 0")
                 (exec-mem 912 "EXIT")
-                (str "Zombie: GYAAAAAAA!!!!")
+                (str "Zombie: ") (text "ＧＹＡＡＡＡＡＡＡＡ！！！！")
                 (set-reg 153 #t)
                 (wait)
                 (text-reset 1)
@@ -70,10 +79,10 @@
                 (image-mem 0 3)
                 (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50))
                (//
-                (str "Cole: Tell your asshole friends I'm not on the menu!")
+                (str "Cole: Tell your asshole friends I'm not on the menu!")	; Failure 1
                 (wait)
                 (text-reset 1)
-                (str "Zombie: GUWAAAAAA!!!")
+                (str "Zombie: ") (text "ＧＵＷＡＡＡＡＡ！！！")
                 (wait)
                 (text-reset 1)
                 (str "Cole: Gyaaaaaaaagggh!")
@@ -89,7 +98,7 @@
                  337
                  48
                  337
-                 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
+                 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
                 (text-reset 1)
                 (branch-var
                  S
@@ -105,14 +114,14 @@
                    (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
                    (loop (wait)))))))))
          (//
-          (? (= 153 #t))
+          (? (= 153 #t))							; Battle 2 starts here...
           (load-mem "A:¥CLM¥DB090.CLM" 32768)
-          (exec-mem 3744 1 1 80 0 0 0)
-          (exec-mem 3744 1 5 24 5 28 6)
-          (exec-mem 3744 1 6 31 4 34 6)
-          (exec-mem 3744 1 7 28 3 32 4)
-          (exec-mem 3744 1 8 28 6 32 7)
-          (exec-mem 3744 1 9 27 9 35 12)
+          (exec-mem 3744 1 1 80 0 0 0)						; Zombie 2 hotspots and buttons defined here...
+          (exec-mem 3744 1 5 24 5 28 6)						; 	Left Eye
+          (exec-mem 3744 1 6 31 4 34 6)						; 	
+          (exec-mem 3744 1 7 28 3 32 4)						; 	
+          (exec-mem 3744 1 8 28 6 32 7)						; 	
+          (exec-mem 3744 1 9 27 9 35 12)					; 	
           (str "Cole: Well, that's sorted, but I'm outta weapons...")
           (wait)
           (text-reset 1)
@@ -120,13 +129,13 @@
           (image-file "B:¥GPC¥DB090.GPC")
           (image-mem 1 3)
           (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
-          (str "Zombie: BUWAAAAAA!!")
+          (str "Zombie: ") (text "ＢＵＷＡＡＡＡＡ！！！！")
           (wait)
           (text-reset 1)
           (str "Cole: No! I'm not dying here today!")
           (wait)
           (text-reset 1)
-          (str "Zombie: GHAAAAAAA!!")
+          (str "Zombie: ") (text "ＧＨＡＡＡＡＡＡＡ！！！！")
           (wait)
           (text-reset 1)
           (str "Cole: Erk!!!")
@@ -135,11 +144,11 @@
           (str "Cole: This bastard's got me by the neck...")
           (wait)
           (text-reset 1)
-          (str "Zombie: GUAAAAAA!!")
+          (str "Zombie: ") (text "ＧＵＡＡＡＡＡＡ！！！！")
           (wait)
           (text-reset 1)
-          (str "Cole: This fucker's strong...he's crushing my arteries... Am" 'br)
-(str "I really going out like this!?")
+          (str "Cole: This fucker's strong...he's crushing my arteries..." 'br)
+          (str "Am I really going out like this!?")
           (wait)
           (text-reset 1)
           (exec-mem 15728 0 0 0 5 0 1)
@@ -156,7 +165,7 @@
           (image-mem 0 0)
           (if (</>
                (//
-                (? (= Z 2) (= P 5))
+                (? (= Z 2) (= P 5))						; Success 2
                 (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
                 (image-file "B:¥GPC¥DB091.GPC")
                 (image-mem 0 3)
@@ -166,24 +175,20 @@
                 (wait)
                 (text-reset 1)
                 ((cmd 196) 0 0)
-                ((cmd 196) 0 1)
-                (delay 2 0)
-                ((cmd 196) 0 2)
-                (delay 2 0)
+                ((cmd 196) 0 1) (delay 2 0)
+                ((cmd 196) 0 2) (delay 2 0)
                 (sound '|se | 2)
-                ((cmd 196) 0 3)
-                (delay 2 0)
-                ((cmd 196) 0 4)
-                (delay 2 0)
+                ((cmd 196) 0 3) (delay 2 0)
+                ((cmd 196) 0 4) (delay 2 0)
                 ((cmd 196) 0 5)
-                (str "Zombie: GYAAAAAAAAAAAAAA!!")
+                (str "Zombie: ") (text "ＧＹＡＡＡＡＡＡＡＡＡＡ！！！")
                 (wait)
                 (text-reset 1)
                 (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
                 (image-file "B:¥GPC¥DB092.GPC")
                 (image-mem 0 3)
                 (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
-                (str "Zombie: GIIIIAAAAAAA!!")
+                (str "Zombie: ") (text "ＧＩＩＩＩＡＡＡＡＡＡＡ！！！")
                 (wait)
                 (text-reset 1)
                 (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
@@ -208,40 +213,31 @@
                 (exec-mem 912 "GET 1 2 23 54 238")
                 (exec-mem 912 "A 0,S 0")
                 ((cmd 196) 0 0)
-                (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
-                (delay 20 0)
-                ((cmd 196) 0 1)
-                (delay 2 0)
-                ((cmd 196) 0 2)
-                (delay 2 0)
-                ((cmd 196) 0 3)
-                (delay 2 0)
-                ((cmd 196) 0 4)
-                (delay 2 0)
-                ((cmd 196) 0 5)
-                (delay 2 0)
-                ((cmd 196) 0 6)
-                (delay 2 0)
-                ((cmd 196) 0 7)
-                (delay 2 0)
-                ((cmd 196) 0 8)
-                (delay 50 0)
+                (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50) (delay 20 0)
+                ((cmd 196) 0 1) (delay 2 0)
+                ((cmd 196) 0 2) (delay 2 0)
+                ((cmd 196) 0 3) (delay 2 0)
+                ((cmd 196) 0 4) (delay 2 0)
+                ((cmd 196) 0 5) (delay 2 0)
+                ((cmd 196) 0 6) (delay 2 0)
+                ((cmd 196) 0 7) (delay 2 0)
+                ((cmd 196) 0 8) (delay 50 0)
                 (exec-mem 912 "PUT 0 2 23,W 4,O 0")
                 (sound '|se | 1)
                 (exec-mem 912 "PUT 1 2 23,W 0,O 0")
                 (exec-mem 912 "EXIT")
-                (str "Zombie: ...")
+                (str "Zombie: . . .")
                 (set-reg 154 #t)
                 (wait)
                 (text-reset 1))
                (//
-                (str "Cole: Dammit... I can't hold him back any longer...")
+                (str "Cole: Dammit... I can't hold him back any longer...")	; Failure 2
                 (wait)
                 (text-reset 1)
                 (str "Cole: I'm starting to fade... Is this it!?")
                 (wait)
                 (text-reset 1)
-                (str "Zombie: GHAAAAAA!!")
+                (str "Zombie: ") (text "ＧＨＡＡＡＡＡＡＡＡ！！！")
                 (wait)
                 (text-reset 1)
                 (str "Cole: Sheila... I'm sorry, babe...")
@@ -256,7 +252,7 @@
                  337
                  48
                  337
-                 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
+                 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
                 (text-reset 1)
                 (branch-var
                  S
@@ -272,7 +268,7 @@
                    (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
                    (loop (wait)))))))))
          (//
-          (? (= 154 #t))
+          (? (= 154 #t))							; Battle 3 begins here...
           (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
           (image-file "B:¥GPC¥DB086.GPC")
           (image-mem 0 3)
@@ -287,20 +283,20 @@
           (exec-mem 912 "GET 0 2 23 54 238")
           (exec-mem 912 "A 0,S 0")
           (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
-          (str "Cole: (Gasp gasp) Somehow... I managed to take him out.")
+          (str "Cole: Gasp, gasp... Somehow I managed to take him out.")
           (wait)
           (text-reset 1)
           (str "Cole: If I'd known this was gonna go down, I would have" 'br)
-(str "waited for Steve back at the institute...")
+          (str "waited for Steve back at the institute...")
           (wait)
           (text-reset 1)
-          (str "Cole: Even though I killed those zombie bastards, forgetting" 'br)
-(str "to restock my ammo is...uh, lamentable.")
+          (str "Cole: Even though I killed those zombie bastards," 'br)
+          (str "forgetting to restock my ammo is...uh, lamentable.")
           (wait)
           (text-reset 1)
-          (str "Cole: Anyway, it's too dangerous to stay around here. I" 'br)
-(str "gotta get back to the Institute now that I've dealt with all" 'br)
-(str "the zombies.")
+          (str "Cole: Anyway, it's too dangerous to stay around here. I've" 'br)
+          (str "gotta get back to the Institute now that I've dealt with" 'br)
+          (str "all the zombies.")
           (wait)
           (text-reset 1)
           (exec-mem 912 "PUT 0 2 23,W 0,O 0")
@@ -308,7 +304,7 @@
           (str "Cole: Oh, for fuck's sake!")
           (wait)
           (text-reset 1)
-          (str "Zombie: EAT BRAIN!! MORE BRAIN!!")
+          (str "Zombie: ") (text "ＥＡＴ　ＢＲＡＩＮ！！　ＭＯＲＥ　ＢＲＡＩＮ！！！")
           (wait)
           (text-reset 1)
           (str "Cole: Aw, shit!")
@@ -321,13 +317,13 @@
           (str "Cole: How did I forget there was another one?")
           (wait)
           (text-reset 1)
-          (str "Zombie: GUGAAAAAA!!!")
+          (str "Zombie: ") (text "ＧＵＧＡＡＡＡＡＡＡＡ！！！")
           (wait)
           (text-reset 1)
           (str "Cole: No good, I haven't got any strength left...")
           (wait)
           (text-reset 1)
-          (str "Zombie: BRAIN!!! BRAIN!!!")
+          (str "Zombie: ") (text "ＢＲＡＩＮ！！！　ＢＲＡＩＮ！！！")
           (wait)
           (text-reset 1)
           (str "Cole: Shit!!! Is it my destiny to get devoured here!?")
@@ -335,12 +331,12 @@
           (text-reset 1)
           (load-mem "A:¥CLM¥DB095.CLM" 32768)
           (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)
-          (exec-mem 3744 1 1 80 0 0 0)
-          (exec-mem 3744 1 5 26 4 29 5)
-          (exec-mem 3744 1 6 30 5 33 6)
-          (exec-mem 3744 1 7 30 3 33 5)
-          (exec-mem 3744 1 8 22 6 26 8)
-          (exec-mem 3744 1 9 52 13 56 15)
+          (exec-mem 3744 1 1 80 0 0 0)						; Zombie 3 hotspots and buttons defined here...
+          (exec-mem 3744 1 5 26 4 29 5)						; 	
+          (exec-mem 3744 1 6 30 5 33 6)						; 	
+          (exec-mem 3744 1 7 30 3 33 5)						; 	
+          (exec-mem 3744 1 8 22 6 26 8)						; 	
+          (exec-mem 3744 1 9 52 13 56 15)					; 	Power Saw
           (image-file "A:¥GPC¥COUNTER.GPC")
           (image-mem 0 0)
           (exec-mem 15728 0 0 0 3 0 1)
@@ -355,14 +351,14 @@
           (image-mem 0 0)
           (if (</>
                (//
-                (? (= Z 2) (= P 9))
+                (? (= Z 2) (= P 9))						; Success 3
                 (str "Cole: Hold up, is that the power saw they were using to fix" 'br)
-(str "the wall?")
+                (str "the wall?")
                 (wait)
                 (text-reset 1)
                 (sound '|| 0)
                 (sound '|se | 6)
-                (str "Zombie: !?")
+                (str "Zombie: ") (text "!?")
                 (wait)
                 (text-reset 1)
                 (str "Cole: Okay, dickhead, show me you've got guts!")
@@ -374,20 +370,15 @@
                 ((cmd 193) 0 "B:¥GPA¥DB097.GPA")
                 (sound '|se | 7)
                 (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
-                (str "Zombie: GYAAAAAAAAAAAAAA!!!!")
+                (str "Zombie: ") (text "ＧＹＡＡＡＡＡＡＡＡＡＡＡＡＡＡＡＡ！！！！")
                 (wait)
                 (text-reset 1)
                 ((cmd 196) 0 0)
-                ((cmd 196) 0 1)
-                (delay 6)
-                ((cmd 196) 0 2)
-                (delay 6)
-                ((cmd 196) 0 3)
-                (delay 6)
-                ((cmd 196) 0 4)
-                (delay 6)
-                ((cmd 196) 0 5)
-                (delay 6)
+                ((cmd 196) 0 1) (delay 6)
+                ((cmd 196) 0 2) (delay 6)
+                ((cmd 196) 0 3) (delay 6)
+                ((cmd 196) 0 4) (delay 6)
+                ((cmd 196) 0 5) (delay 6)
                 ((cmd 196) 0 6)
                 (str "Cole: Oh man!")
                 (wait)
@@ -397,16 +388,12 @@
                 (image-mem 0 3)
                 ((cmd 193) 0 "B:¥GPA¥DB098A.GPA")
                 ((cmd 193) 1 "B:¥GPA¥DB098B.GPA")
-                ((cmd 194)
-                 0
-                 "Aaaahhhh...")
-                ((cmd 194)
-                 1
-                 "Aaaaaahhhghghghh......")
+                ((cmd 194) 0 "ｱ.............ｲ...............ｱ.............ｲ.....ｱ.........ｲ")
+                ((cmd 194) 1 "ｱ......ｲ......ｱ.............ｲ.ｱ.ｲ.ｱ.ｲ.ｱ.ｲ.ｱ.ｲ.ｱ.ｲ")
                 ((cmd 197) 0 15)
                 ((cmd 197) 1 15)
                 (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
-                (str "Cole: *Gasp gasp*")
+                (str "Cole: Gasp, gasp!")
                 (wait)
                 (text-reset 1)
                 (str "Cole: I told you... I'm not dying here today!")
@@ -421,7 +408,7 @@
                 ((cmd 197) 1 0)
                 (mes-jump "A:¥MES¥055.MES"))
                (//
-                (str "Zombie: GRYAAAAA!!!!")
+                (str "Zombie: ") (text "ＧＲＹＡＡＡＡＡＡ！！！！")		; Failure 3
                 (wait)
                 (text-reset 1)
                 (str "Cole: I'm sorry...everyone...")
@@ -436,7 +423,7 @@
                  337
                  48
                  337
-                 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
+                 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
                 (text-reset 1)
                 (branch-var
                  S

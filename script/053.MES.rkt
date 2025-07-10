@@ -10,7 +10,7 @@
 ; 4. Fully inspect Right Chair (08).
 ; 5. Get Hex Wrench from toolbox.
 ; 6. (Attempt to) disassemble chair with Spanner.
-; 7. Check toolbox one more time.
+; 7. Get Screwdriver from toolbox.
 ; -----Notes:-----
 ; After the lead-in, the text box loses some character space due to the overlapping timer; the character limit for this script therefore is 55 instead of 59.
 (mes
@@ -160,12 +160,12 @@
     60
     337
     (</>
-     (/ (str "Hammer"))
-     (/ (str "Hex Wrench"))
-     (/ (str "Pliers"))
-     (/ (str "Screwdriver"))
-     (/ (str "Handsaw"))
-     (/ (str "Spanner"))))
+     (/ (str "Hammer        "))
+     (/ (str "Hex Wrench    "))
+     (/ (str "Pliers        "))
+     (/ (str "Screwdriver   "))
+     (/ (str "Handsaw       "))
+     (/ (str "Spanner       "))))
    (text-reset 1)
    (if (</>
         (//
@@ -184,8 +184,8 @@
          (str "this shit's empty! And my spanner snapped!")
          (wait)
          (exec-mem 29792 1)
-         (str "Cole: This spanner is worthless now, better throw it out" 'br)
-         (str "it out!")
+         (str "Cole: This spanner is worthless now, better throw it" 'br)
+         (str "out!")
          (set-reg 131 #t)
          (wait)
          (exec-mem 29792 1))
@@ -195,8 +195,8 @@
          (exec-mem 29792 1)))))
  (seg (? (= P 2) (= 130 #t))							; Locker (after opening)
    (str "Cole: There was fuck all in the locker. I shouldn't" 'br)
-   (str "waste any more time with it. I gotta act fast before the" 'br)
-   (str "zombies show up!")
+   (str "waste any more time with it. I gotta act fast before" 'br)
+   (str "the zombies show up!")
    (wait)
    (exec-mem 29792 1))
  (seg (? (= P 2) (= 121 #f))							; Locker #1
@@ -348,12 +348,12 @@
     60
     337
     (</>
-     (/ (str "Hammer"))
-     (/ (str "Hex Wrench"))
-     (/ (str "Pliers"))
-     (/ (str "Screwdriver"))
-     (/ (str "Handsaw"))
-     (/ (str "Spanner"))))
+     (/ (str "Hammer        "))
+     (/ (str "Hex Wrench    "))
+     (/ (str "Pliers        "))
+     (/ (str "Screwdriver   "))
+     (/ (str "Handsaw       "))
+     (/ (str "Spanner       "))))
    (text-reset 1)
    (if (</>
         (//
@@ -385,7 +385,7 @@
    (exec-mem 29792 1))
  (seg (? (= P 8) (= 136 #f))							; Right Chair #3
    (str "Cole: If only I could remove the bottom part of this" 'br)
-   (str "chair, maybe I could wield it with one hand..")
+   (str "chair, maybe I could wield it with one hand...")
    (wait)
    (exec-mem 29792 1)
    (str "Cole: But to remove it I'd need some kinda tool.")
@@ -469,7 +469,7 @@
    (wait)
    (exec-mem 29792 1)
    (str "Cole: The hell, it's just stuffed with videos and" 'br)
-   (str "magazines. Nothing in here that could be used as a")
+   (str "magazines. Nothing in here that could be used as a" 'br)
    (str "weapon.")
    (set-reg 144 #t)
    (wait)
@@ -488,7 +488,8 @@
    (str "Cole: Come on, let's get lucky with this desk.")
    (wait)
    (exec-mem 29792 1)
-   (str "Cole: Oh, fuck this desk, there isn't even a drawer in it.")
+   (str "Cole: Oh, fuck this desk, there isn't even a drawer in" 'br)
+   (str "it.")
    (set-reg 146 #t)
    (wait)
    (exec-mem 29792 1))

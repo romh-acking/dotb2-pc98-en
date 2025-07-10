@@ -8,7 +8,7 @@
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
-  (str "Steve: Cole, I can tell you were involved with the incident" 'br)
+  (str "Steve: Cole, I can tell you were involved with the incident" 'br)	; 014A.CAL starts here
   (str "in some way. Why don't you tell me what you know?")
   (wait)
   (text-reset 1)
@@ -220,7 +220,7 @@
   (str "skyrocketed.")
   (wait)
   (text-reset 1)
-  (str "Steve: So it was all Cooger's doing?")
+  (str "Steve: So it was all Cooger's doing?")					; 014B.CAL starts here
   (wait)
   (text-reset 1)
   (str "Cole: Jack was the first human Doc injected.")
@@ -435,7 +435,7 @@
   (str "Cole: I'll see you later, then.")
   (wait)
   (text-reset 1)
-  (sound '|| 2)
+  (sound '|| 2)									; Jump back to 014.MES starts here
   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
   ((cmd 209) 0 5)
   (image-file "A:¥GPC¥title.gpc")

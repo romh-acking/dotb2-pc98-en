@@ -4,17 +4,21 @@
 ; -----Scene:-----
 ; Cole and Steve talk about recent happenings at the latter's place.
 ; --Progression:--
-; Inspect everything, then look at the woman, then talk to Briar.
+; Talk to Steve.
+; -----Notes:-----
+; Some changes were made on the technical end; see 014A.MES for details.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
+; (mes-load? "A:¥MES¥014A.CAL" 0)
+; (mes-load? "A:¥MES¥014B.CAL" 3952)
   (load-mem "A:¥CLM¥DB032.CLM" 32768)
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
-  (exec-mem 3744 1 5 48 9 56 14)
-  (exec-mem 3744 1 6 41 10 44 13)
-  (exec-mem 3744 1 7 12 3 18 7)
+  (exec-mem 3744 1 5 48 9 56 14)						; 	Table
+  (exec-mem 3744 1 6 41 10 44 13)						; 	Bottle
+  (exec-mem 3744 1 7 12 3 18 7)							; 	Steve
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB032.GPC")
   (image-mem 1 3)
@@ -26,7 +30,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 227 #f))
+        (? (= 227 #f))								; Lead-in from previous MES script
         (str "Cole: Wow, nice place.")
         (wait)
         (text-reset 1)
@@ -35,9 +39,12 @@
         (set-reg 227 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: I'm at Steve's place.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: I'm at Steve's place.")					; Lead-in from loading game
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 228 #f))
+ (seg (? (= P 5) (= 228 #f))							; Table #1
    (str "Cole: There's documents strewn all over the desk.")
    (wait)
    (text-reset 1)
@@ -46,7 +53,7 @@
    (set-reg 228 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Table #2 (repeat line)
    (str "Steve: Hey, hands off. I had to work my ass off to get all" 'br)
    (str "this stuff collected.")
    (wait)
@@ -55,13 +62,13 @@
    (str "You've got a lot going on in here.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 229 #f))
+ (seg (? (= P 6) (= 229 #f))							; Bottle #1
    (str "Cole: Bourbon, huh? There was an empty bottle near the" 'br)
    (str "entrance. That's your preferred liquor, huh?")
    (set-reg 229 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 230 #f))
+ (seg (? (= P 6) (= 230 #f))							; Bottle #2
    (str "Steve: You want some? It really does the trick.")
    (wait)
    (text-reset 1)
@@ -69,16 +76,18 @@
    (set-reg 230 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Bottle #3 (repeat line)
    (str "Cole: If I keep staring, he'll probably pour me a shot, so" 'br)
-   (str "let's not.") (wait) (text-reset 1))
- (seg (? (= P 7) (= 231 #f))
+   (str "let's not.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 7) (= 231 #f))							; Steve #1
    (str "Cole: Steve seems to have calmed down now that we're back" 'br)
    (str "in his house.")
    (set-reg 231 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 232 #f))
+ (seg (? (= P 7) (= 232 #f))							; Steve #2
    (str "Steve: Right, down to business. Now, where were we?")
    (wait)
    (text-reset 1)
@@ -100,7 +109,7 @@
    (set-reg 232 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 233 #f))
+ (seg (? (= P 7) (= 233 #f))							; Steve #3
    (str "Steve: What's the matter?")
    (wait)
    (text-reset 1)
@@ -129,7 +138,7 @@
    (set-reg 233 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 234 #f))
+ (seg (? (= P 7) (= 234 #f))							; Steve #4
    (str "Steve: After performing the autopsies, we discovered their" 'br)
    (str "blood had a chemical compound similar to a preservative." 'br)
    (str "Funny, ain't it?")
@@ -150,7 +159,7 @@
    (set-reg 234 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 235 #f))
+ (seg (? (= P 7) (= 235 #f))							; Steve #5
    (str "Steve: I launched an investigation to see if we could link" 'br)
    (str "the incident with the compound, but I got the news that" 'br)
    (str "there was an explosion at the Bayside Research Facility.")
@@ -169,7 +178,7 @@
    (set-reg 235 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 236 #f))
+ (seg (? (= P 7) (= 236 #f))							; Steve #6
    (str "Cole: ...")
    (wait)
    (text-reset 1)
@@ -185,7 +194,7 @@
    (set-reg 236 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 237 #f))
+ (seg (? (= P 7) (= 237 #f))							; Steve #7
    (str "Cole: How can you be so sure?")
    (wait)
    (text-reset 1)
@@ -209,7 +218,7 @@
    (set-reg 237 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 238 #f))
+ (seg (? (= P 7) (= 238 #f))							; Steve #8
    (str "Cole: Can I...look at it?")
    (wait)
    (text-reset 1)
@@ -234,7 +243,7 @@
    (set-reg 238 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Steve #9
    (str "Steve: I promise that what you say stays between you and" 'br)
    (str "me. And even if you're guilty of something, I won't arrest" 'br)
    (str "you.")
@@ -370,6 +379,26 @@
    (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (mes-jump "A:¥MES¥014A.MES"))
+;  (mes-load? 0)
+;  (mes-load? 3952)
+;  (sound '|| 2)
+;  (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
+;  ((cmd 209) 0 5)
+;  (image-file "A:¥GPC¥title.gpc")
+;  (image-mem 0 3)
+;  (exec-mem 912 "INIT")
+;  (exec-mem 912 "A 1")
+;  (text-frame 0 0 79 399)
+;  (text-reset 0)
+;  (exec-mem 912 "A 0")
+;  (exec-mem 912 "EXIT")
+;  (text-frame 0 0 79 399)
+;  (text-reset 0)
+;  (exec-mem 9920 0 6 6 113 64 8)
+;  ((cmd 204) 99 899)
+;  (sound '|| 0)
+;  ((cmd 209) 1)
+;  (mes-jump "A:¥MES¥015.MES"))
  (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1

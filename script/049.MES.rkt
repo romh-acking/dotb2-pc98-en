@@ -87,12 +87,12 @@
     36 337
     56 337
     (</>
-     (/ (str "Steve"))
-     (/ (str "Catherine"))
-     (/ (str "Briar"))
-     (/ (str "Lisle"))
-     (/ (str "Daniel"))
-     (/ (str "Sheila"))))
+     (/ (str "Steve             "))						; 18 characters per column
+     (/ (str "Catherine         "))
+     (/ (str "Briar             "))
+     (/ (str "Lisle             "))
+     (/ (str "Daniel            "))
+     (/ (str "Sheila            "))))
    (text-reset 1)
    (if (</> (// (? (= S 2)) (nop@) (set-reg 188 #t))))
    (str "Sheila: And what's the main distribution spot for Purple" 'br)		; Question 2
@@ -110,12 +110,12 @@
     36 337
     56 337
     (</>
-     (/ (str "Bar Rease"))
-     (/ (str "Disco Zeena"))
-     (/ (str "Razovan Pharma"))
-     (/ (str "Perain Institute"))
-     (/ (str "The 32nd Precinct"))
-     (/ (str "Shuffle Food"))))
+     (/ (str "Bar Rease         "))
+     (/ (str "Disco Zeena       "))
+     (/ (str "Razovan Pharma    "))
+     (/ (str "Perain Institute  "))
+     (/ (str "The 32nd Precinct "))
+     (/ (str "Shuffle Food      "))))
    (text-reset 1)
    (if (</> (// (? (= S 1)) (nop@) (set-reg 189 #t))))
    (str "Sheila: And from my investigation, it turns out that the" 'br)		; Question 3
@@ -128,9 +128,9 @@
     16 317
     16 337
     (</>
-     (/ (str "They discovered a case with the Razovan logo at Zeena."))
-     (/ (str "Razovan's director was Catherine's stepfather."))
-     (/ (str "I went to Razovan and confirmed it myself."))))
+     (/ (str "They discovered a case with the Razovan logo at Zeena."))		; Row is as long as the longest answer
+     (/ (str "Razovan's director was Catherine's stepfather.        "))
+     (/ (str "I went to Razovan and confirmed it myself.            "))))
    (text-reset 1)
    (if (</> (// (? (= S 0)) (nop@) (set-reg 190 #t))))
    (str "Sheila: And then I headed over to Razovan Pharmaceuticals," 'br)
@@ -153,10 +153,10 @@
     36 337
     56 337
     (</>
-     (/ (str "Marijuana"))
-     (/ (str "Heroin"))
-     (/ (str "Cannabis"))
-     (/ (str "Cocaine"))))
+     (/ (str "Marijuana         "))
+     (/ (str "Heroin            "))
+     (/ (str "Cannabis          "))
+     (/ (str "Cocaine           "))))
    (text-reset 1)
    (if (</> (// (? (= S 1)) (nop@) (set-reg 191 #t))))
    (str "Sheila: So by mixing that drug with the reanimation serum," 'br)
@@ -179,12 +179,12 @@
     36 337
     56 337
     (</>
-     (/ (str "Steve"))
-     (/ (str "Catherine"))
-     (/ (str "Briar"))
-     (/ (str "Lisle"))
-     (/ (str "Daniel"))
-     (/ (str "Sheila"))))
+     (/ (str "Steve            "))
+     (/ (str "Catherine        "))
+     (/ (str "Briar            "))
+     (/ (str "Lisle            "))
+     (/ (str "Daniel           "))
+     (/ (str "Sheila           "))))
    (text-reset 1)
    (if (</> (// (? (= S 4)) (nop@) (set-reg 191 #t))))
    (str "Sheila: The bodies of the Bloody Fox members at Shuffle" 'br)
@@ -200,9 +200,9 @@
     16 317
     16 337
     (</>
-     (/ (str "Hey babe, go out on a date with us!"))
-     (/ (str "Our leader wants to see you!"))
-     (/ (str "Your father sent us!"))))
+     (/ (str "“Hey babe, go out on a date with us!”"))
+     (/ (str "“Our leader wants to see you!”       "))
+     (/ (str "“Your father sent us!”               "))))
    (text-reset 1)
    (if (</> (// (? (= S 2)) (nop@) (set-reg 192 #t))))
    (str "Sheila: Which means...")						; Question 7
@@ -213,8 +213,8 @@
     16 317
     16 337
     (</>
-     (/ (str "Catherine is connected to Bloody Fox."))
-     (/ (str "Catherine has been abducted by Bloody Fox before."))
+     (/ (str "Catherine is connected to Bloody Fox.             "))
+     (/ (str "Catherine has been abducted by Bloody Fox before. "))
      (/ (str "Catherine's stepfather is connected to Bloody Fox."))))
    (text-reset 1)
    (if (</> (// (? (= S 2)) (nop@) (set-reg 193 #t))))
