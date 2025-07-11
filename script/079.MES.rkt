@@ -53,17 +53,17 @@
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 128 #f))
+ (seg (? (= P 5) (= 128 #f))						; Lockers #1
    (str "Sheila: Cole... Stop staring off into the distance like" 'br)
    (str "that.")
    (set-reg 128 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))							; Lockers #2
    (str "Sheila: Cole, stop staring at the lockers and look at me.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 129 #f))
+ (seg (? (= P 6) (= 129 #f))						; Door #1
    (str "Cole: Sheila, I didn't even realize you came in.")
    (wait)
    (text-reset 1)
@@ -71,11 +71,11 @@
    (set-reg 129 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))							; Door #2
    (str "Cole: Ah, yeah, the door doesn't have a lock, does it.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 130 #f))
+ (seg (? (= P 7) (= 130 #f))						; Desk #1
    (str "Sheila: Cole, why won't you look me in the eye?")
    (wait)
    (text-reset 1)
@@ -86,12 +86,12 @@
    (set-reg 130 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))							; Desk #2
    (str "Cole: I need to stop looking at the desk, or Sheila will" 'br)
    (str "call me out.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 131 #f))
+ (seg (? (= P 8) (= 131 #f))						; Sheila #1
    (str "Sheila: What exactly did Lisle tell you ?")
    (wait)
    (text-reset 1)
@@ -112,12 +112,12 @@
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 132 #f))
+ (seg (? (= P 8) (= 132 #f))						; Sheila #2
    (str "Sheila: Come on, Cole...")
    (wait)
    (text-reset 1)
-   (str "Cole: Could you leave me alone for a minute? I have a lot to" 'br)
-   (str "think about...")
+   (str "Cole: Could you leave me alone for a minute? I have a lot" 'br)
+   (str "to think about...")
    (wait)
    (text-reset 1)
    (str "Sheila: What's wrong? Did something happen?")
@@ -137,7 +137,7 @@
    (set-reg 132 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 133 #f))
+ (seg (? (= P 8) (= 133 #f))						; Sheila #3
    (str "Sheila: Cole... Do you hate me now because I got...sick..." 'br)
    (str "Because I'm going to turn?")
    (wait)
@@ -152,7 +152,7 @@
    (set-reg 133 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))							; Sheila #4
    (str "Cole: ...")
    (wait)
    (text-reset 1)
@@ -218,20 +218,20 @@
    (wait)
    (text-reset 1)
    (loop
-    (str "Cole: The hour's almost up. I have to make my decision.")
+    (str "Cole: The hour's almost up. I have to make my decision.")		; Choice loop starts here
     (menu1 20 337 44 337
-     (</> (/ (str "Let Doc rest in peace")) (/ (str "     Revive Doc      "))))
+     (</> (/ (str "Let Doc rest in peace.")) (/ (str "     Revive Doc...    "))))
     (text-reset 1)
     (str "Cole: ...I'm going to ")
     (branch-var S
      (</>
-      (/ (str "let Doc rest in peace.") (set-reg 134 #t))
-      (/ (str "revive Doc.") (set-reg 135 #t))))
-    (str " I've made my decision.")
+      (/ (str "let Doc rest in peace. I've made my" 'br) (set-reg 134 #t))
+      (/ (str "revive Doc. I've made my ") (set-reg 135 #t))))
+    (str "decision.")
     (wait)
     (text-reset 1)
-    (str "Cole: ...But is this really the right path forward?")
-    (menu1 25 337 37 337 (</> (/ (str " Yes ")) (/ (str " No "))))
+    (str "Cole: ...But is this really the right path forward?")			; Confirm choice; saying no kicks you back to the start
+    (menu1 25 337 37 337 (</> (/ (str "   Yes!   ")) (/ (str "   No...  "))))
     (text-reset 1)
     (if (</>
          (//
@@ -242,7 +242,7 @@
           (set-var S 2))))
     (if (</>
          (//
-          (? (= S 0) (= 134 #t))
+          (? (= S 0) (= 134 #t))						; Don't revive
           (str "Cole: I can't revive Doc. We're not certain whether or not" 'br)
           (str "Sheila will become a zombie. I've got a heart, and it won't" 'br)
           (str "let me bring my best friend back from the dead.")
@@ -257,7 +257,7 @@
           (set-reg 901 #f)
           (mes-jump "A:¥MES¥080.MES"))
          (//
-          (? (= S 0) (= 135 #t))
+          (? (= S 0) (= 135 #t))						; Revive
           (str "Cole: I'm going to revive Doc's brain to help save Sheila." 'br)
           (str "Though I'll owe Doc more than I can ever repay, I need to" 'br)
           (str "save Sheila at any cost.")
@@ -276,7 +276,7 @@
           (set-reg 901 #t)
           (mes-jump "A:¥MES¥080.MES"))
          (//
-          (? (= S 2))
+          (? (= S 2))								; Unsure
           (str "Cole: No, no. I can't do it... I don't know if I can make" 'br)
           (str "that choice.")
           (wait)

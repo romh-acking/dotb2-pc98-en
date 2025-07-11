@@ -3,6 +3,10 @@
 ; Edited by JackDBS, commented by trentsignia
 ; --Description:--
 ; The bathroom on the first floor of the institute.
+; --Progression:--
+; (After seeing someone enter) Look at yourself in the mirror.
+; ----Battle:-----
+; MOVE. (I know, right?)
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -10,9 +14,9 @@
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
-  (exec-mem 3744 1 5 35 4 39 6)							; 	
-  (exec-mem 3744 1 6 27 10 31 13)						; 	
-  (exec-mem 3744 1 7 43 5 56 13)						; 	
+  (exec-mem 3744 1 5 35 4 39 6)							; 	Cole
+  (exec-mem 3744 1 6 27 10 31 13)						; 	Urinals
+  (exec-mem 3744 1 7 43 5 56 13)						; 	Entrance
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB124.GPC")
   (image-mem 0 3)

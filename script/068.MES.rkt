@@ -6,7 +6,11 @@
 ; -----Notes:-----
 ; Another "hub" script.
 ; --Progression:--
-; [...]
+; 1. Check the stairs and shutter, and shoot down the female zombie.
+; 2. Inspect the dead zombie and notice the purple spots on her chest.
+; 3. Check the table in the Front Office.
+; 4. Look at Cole and the mirror in the restroom.
+; 5. Revisit the restroom.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

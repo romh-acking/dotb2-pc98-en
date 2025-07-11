@@ -4,7 +4,7 @@
 ; --Description:--
 ; Back in the hallways of the institute.
 ; --Progression:--
-; Check in with Sheila, then go back to the lab.
+; Check in with Sheila and Catherine, then go back to the lab.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*

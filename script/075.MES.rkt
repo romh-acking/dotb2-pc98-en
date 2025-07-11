@@ -24,8 +24,8 @@
   (sound '|| 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
  (seg (? (= P 5) (= 108 #f))							; Lockers #1
-   (str "Cole: There are rows of lockers with locks on them. Probably" 'br)
-   (str "used by the people working here.")
+   (str "Cole: There are rows of lockers with locks on them." 'br)
+   (str "Probably used by the people working here.")
    (set-reg 108 #t)
    (wait)
    (text-reset 1))
