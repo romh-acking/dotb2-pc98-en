@@ -86,14 +86,8 @@
    (str "Cole: Hnnngh!")
    (wait)
    (text-reset 1)
-   (str "Cole: .........")							; 	This is changed from the original, which repeated the same line three times
-   (wait)
-   (text-reset 1)
-   (str "Cole: ......")
-   (wait)
-   (text-reset 1)
-   (str "Cole: ...")
-   (wait)
+   (str "Cole: ")								; 	The original scripting repeated the same dialog three times, but I changed it to instead add three dots each time
+   (repeat 3 (<> (str "...") (wait)))
    (text-reset 1)
 ;  (repeat 3 (<> (str "Cole: ...") (wait) (text-reset 1)))				(This is the original script)
    (str "Cole: Dammit, you tricked me!")

@@ -1,13 +1,18 @@
+; Dead of the Brain 2 (PC-98) - 075.MES
+; Translated by Geometrizer
+; Edited by trentsignia
+; --Description:--
+; Cole's room once again.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB101.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 37 5 54 10)
-  (exec-mem 3744 1 6 20 3 27 13)
-  (exec-mem 3744 1 7 4 12 17 15)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 37 5 54 10)						; 	Lockers
+  (exec-mem 3744 1 6 20 3 27 13)						; 	Door
+  (exec-mem 3744 1 7 4 12 17 15)						; 	Desk
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB101.GPC")
   (image-mem 0 3)
@@ -18,24 +23,28 @@
        (// (sound '|| "A:¥USO_D¥BR2_08.USO"))))
   (sound '|| 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 108 #f))
+ (seg (? (= P 5) (= 108 #f))							; Lockers #1
    (str "Cole: There are rows of lockers with locks on them. Probably" 'br)
-(str "used by the people working here.")
+   (str "used by the people working here.")
    (set-reg 108 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 109 #f))
-   (text
-    "Cole: It's human nature... When you see a locked door, you wanna see what's  inside. But lockers have personal stuff inside them.")
+ (seg (? (= P 5) (= 109 #f))							; Lockers #2
+   (str "Cole: It's human nature... When you see a locked door, you" 'br)
+   (str "wanna see what's inside. But lockers have personal stuff" 'br)
+   (str "inside them.")
    (wait)
    (text-reset 1)
    (str "Cole: Well, I'm not nosy enough to go poking around.")
    (set-reg 109 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5)) (str "Cole: These are the Institute's lockers. I can leave them" 'br)
-(str "be.") (wait) (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 5))								; Lockers #3 (repeat line)
+   (str "Cole: These are the Institute's lockers. I can leave them" 'br)
+   (str "be.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6))								; Door
    (branch-random
     (</>
      (/ (str "Cole: This door is the only way in and out of this room."))
@@ -43,18 +52,18 @@
      (/ (str "Cole: That door isn't locked. Anyone's free to come in."))))
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 110 #f))
+ (seg (? (= P 7) (= 110 #f))							; Desk #1
    (str "Cole: There's a desk in here. I used to study a lot, but" 'br)
-(str "nowadays I hardly ever use a desk.")
+   (str "nowadays I hardly ever use a desk.")
    (set-reg 110 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Desk #2 (repeat line)
    (str "Cole: The drawer's empty. Nothing in here to grab my" 'br)
-(str "attention.")
+   (str "attention.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: Let's head back to the corridor.")
    (wait)
@@ -63,7 +72,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥074.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

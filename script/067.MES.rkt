@@ -73,7 +73,7 @@
         ((cmd 196) 0 4) (delay 2 0)
         ((cmd 196) 0 5) (delay 2 0)
         ((cmd 196) 0 6)
-        (str "Zombie: ") (text "ＧＹＡＡＡＡＡＡＡＡＡ！！！")
+        (str "Zombie: ")(text "ＧＹＡＡＡＡＡＡＡＡＡ！！！")
         (wait)
         (text-reset 1)
         (sound '|| 2))
@@ -81,7 +81,7 @@
         (str "Steve: Oh shit, it's all over!!!")				; Failure
         (wait)
         (text-reset 1)
-        (str "Zombie: ") (text "ＧＵＡＡＡＡＡＡ！！！")
+        (str "Zombie: ")(text "ＧＵＡＡＡＡＡＡ！！！")
         (wait)
         (text-reset 1)
         (exec-mem 14544 2 2)

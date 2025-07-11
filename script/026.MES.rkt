@@ -155,15 +155,10 @@
    (str "Cole: Okay.")
    (wait)
    (text-reset 1)
-   (str "Cole: .......")							; 	This was originally (repeat 3 (<> (str "Cole: ....................") (wait) (text-reset 1))), but...
-   (wait)									; 	I didn't like how there is no visible feedback between each repeat, hence the tweak.
+   (str "Cole: ")								; 	The implementation of this text is different from the original script.
+   (repeat 3 (<> (str ".......") (wait)))
    (text-reset 1)
-   (str "Cole: .............")
-   (wait)
-   (text-reset 1)
-   (str "Cole: ....................")
-   (wait)
-   (text-reset 1)
+;  (repeat 3 (<> (str "Cole: ....................") (wait) (text-reset 1)))		I didn't like how there is no visible feedback between each repeat, hence the tweak.
    (str "Steve: Got the location. It's right behind the station.")
    (wait)
    (text-reset 1)

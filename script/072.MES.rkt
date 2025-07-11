@@ -1,12 +1,17 @@
+; Dead of the Brain 2 (PC-98) - 072.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; Close-up with the zombie Cole shot down at the foot of the stairs, on the first floor of the institute.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB121.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 39 3 49 7)
-  (exec-mem 3744 1 6 28 5 36 8)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 39 3 49 7)							; 	Head
+  (exec-mem 3744 1 6 28 5 36 8)							; 	Chest
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB121.GPC")
   (image-mem 0 3)
@@ -23,68 +28,68 @@
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 157 #f))
+ (seg (? (= P 5) (= 157 #f))							; Head #1
    (str "Cole: I'm not getting any kicks looking at this dead lady," 'br)
-(str "seriously.")
+   (str "seriously.")
    (set-reg 157 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 158 #f))
-   (str "Cole: The bullet hole in her head is surrounded by blood and" 'br)
-(str "purple reanimation serum.")
+ (seg (? (= P 5) (= 158 #f))							; Head #2
+   (str "Cole: The bullet hole in her head is surrounded by blood" 'br)
+   (str "and purple reanimation serum.")
    (set-reg 158 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 159 #f))
+ (seg (? (= P 5) (= 159 #f))							; Head #3
    (str "Cole: Judging by the corpse, it doesn't seem like much" 'br)
-(str "time's passed since she turned into a zombie.")
+   (str "time's passed since she turned into a zombie.")
    (wait)
    (text-reset 1)
-   (str "Cole: Hmmm... besides the entry wound, I don't see any other" 'br)
-(str "injuries on her body.")
+   (str "Cole: Hmmm... besides the entry wound, I don't see any" 'br)
+   (str "other injuries on her body.")
    (wait)
    (text-reset 1)
    (str "Cole: No doubt about it, this is the reanimation serum's" 'br)
-(str "dirty work... Or rather, she was injected with Purple Sky" 'br)
-(str "loaded with DNV. To do that to a young woman...")
+   (str "dirty work... Or rather, she was injected with Purple Sky" 'br)
+   (str "loaded with DNV. To do that to a young woman...")
    (wait)
    (text-reset 1)
    (str "Cole: ... I can't forgive them...")
    (set-reg 159 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Head #4
    (str "Cole: This woman turned into a zombie after being injected" 'br)
-(str "with the drug... It's all Daniel's fault for making the" 'br)
-(str "Purple Sky.")
+   (str "with the drug... It's all Daniel's fault for making the" 'br)
+   (str "Purple Sky.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 159 #t) (= 162 #f))
+ (seg (? (= P 6) (= 159 #t) (= 162 #f))						; Chest (after looking at head) #1
    (str "Cole: Huh? There's a purple blotch on her chest... I heard" 'br)
-(str "that after death, blood can pool on the body's surface..." 'br)
-(str "But could it be that the drug leaked out from the inside?")
+   (str "that after death, blood can pool on the body's surface..." 'br)
+   (str "But could it be that the drug leaked out from the inside?")
    (set-reg 162 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 159 #t))
+ (seg (? (= P 6) (= 159 #t))							; Chest (after looking at head) #2
    (str "Cole: There's a weird purple stain on her chest.")
    (set-reg 163 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 160 #f))
+ (seg (? (= P 6) (= 160 #f))							; Chest #1
    (str "Cole: This zombie doesn't seem to be decaying at all... The" 'br)
-(str "preservative in the serum is probably keeping the rot from" 'br)
-(str "setting in.")
+   (str "preservative in the serum is probably keeping the rot from" 'br)
+   (str "setting in.")
    (set-reg 160 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Chest #2
    (str "Cole: The body won't decay until the effects of the drug" 'br)
-(str "wear off. Leaving it be for a while shouldn't be a problem.")
+   (str "wear off. Leaving it be for a while shouldn't be a problem.")
    (set-reg 161 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: I need to investigate somewhere else.")
    (wait)
@@ -94,7 +99,7 @@
    (set-reg 133 #t)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥068.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

@@ -99,7 +99,7 @@
    (text-reset 1)
    (exec-mem 912 "PUT 0 2 23,W 0,O 0")
    (exec-mem 912 "EXIT")
-   (str "Zombie: ") (text "ＢＲＡＩＮＮＮＮＮ！！！")
+   (str "Zombie: ")(text "ＢＲＡＩＮＮＮＮＮ！！！")
    (wait)
    (text-reset 1)
    (sound '|| 0)
@@ -155,7 +155,7 @@
          (str "Cole: Shit! I'm losing my balance--")				; Failure
          (wait)
          (text-reset 1)
-         (str "Zombie: ") (text "ＧＵＡＡＡＡＡ！！！")
+         (str "Zombie: ")(text "ＧＵＡＡＡＡＡ！！！")
          (wait)
          (text-reset 1)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)

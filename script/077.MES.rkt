@@ -1,14 +1,19 @@
+; Dead of the Brain 2 (PC-98) - 077.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; Catherine's room.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB108A.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 7 10 25 14)
-  (exec-mem 3744 1 6 17 2 24 9)
-  (exec-mem 3744 1 7 51 4 54 7)
-  (exec-mem 3744 1 8 27 3 36 7)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 7 10 25 14)						; 	Bed
+  (exec-mem 3744 1 6 17 2 24 9)							; 	Window
+  (exec-mem 3744 1 7 51 4 54 7)							; 	Calendar
+  (exec-mem 3744 1 8 27 3 36 7)							; 	Catherine
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB108.GPC")
   (image-mem 0 3)
@@ -22,7 +27,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 120 #f))
+        (? (= 120 #f))								; Lead-in for first visit
         (str "Catherine: Cole... What's the matter? You look so serious...")
         (wait)
         (text-reset 1)
@@ -31,14 +36,14 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Catherine: Cole, you seem...unsettled. What's wrong?")
+        (str "Catherine: Cole, you seem...unsettled. What's wrong?")		; Lead-in from second visit onwards
         (wait)
         (text-reset 1)
         (str "Cole: No, it's nothing.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 8) (= 121 #f))
+ (seg (? (= P 8) (= 121 #f))							; Catherine #1
    (str "Catherine: What's the matter? This isn't like you.")
    (wait)
    (text-reset 1)
@@ -52,9 +57,9 @@
    (set-reg 121 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 122 #f))
-   (str "Cole: I can't tell Catherine about Sheila. If she finds" 'br)
-(str "out, she might have a mental breakdown.")
+ (seg (? (= P 8) (= 122 #f))							; Catherine #2
+   (str "Cole: (I can't tell Catherine about Sheila. If she finds" 'br)
+   (str "out, she might have a mental breakdown.)")
    (wait)
    (text-reset 1)
    (str "Catherine: Huh?")
@@ -64,10 +69,10 @@
    (set-reg 122 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 123 #f))
+ (seg (? (= P 8) (= 123 #f))							; Catherine #3
    (str "Catherine: By the way, Lisle was looking for you a while" 'br)
-(str "back. He had a serious look on his face... Cole, what's" 'br)
-(str "happening, really?")
+   (str "back. He had a serious look on his face... Cole, what's" 'br)
+   (str "happening, really?")
    (wait)
    (text-reset 1)
    (str "Cole: Oh yeah, I just talked to Lisle.")
@@ -83,16 +88,16 @@
    (wait)
    (text-reset 1)
    (str "Cole: Not really... It's just that a member of Bloody Fox" 'br)
-(str "managed to infiltrate the institute.")
+   (str "managed to infiltrate the institute.")
    (set-reg 123 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 124 #f))
+ (seg (? (= P 8) (= 124 #f))							; Catherine #4
    (str "Catherine: Bloody Fox was here!?")
    (wait)
    (text-reset 1)
    (str "Cole: When I was about to question him, he bit his own" 'br)
-(str "tongue off to kill himself. What a terrifying guy...")
+   (str "tongue off to kill himself. What a terrifying guy...")
    (wait)
    (text-reset 1)
    (str "Catherine: My god...")
@@ -105,51 +110,55 @@
    (set-reg 124 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Catherine #5 (repeat line)
    (str "Catherine: Somehow, you're not the normal energetic Cole" 'br)
-(str "today. Are you feeling down?")
+   (str "today. Are you feeling down?")
    (wait)
    (text-reset 1)
    (str "Cole: It's nothing, I'm the same as always.")
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 125 #f))
+ (seg (? (= P 5) (= 125 #f))							; Bed #1
    (str "Cole: This bed looks really comfortable.")
    (wait)
    (text-reset 1)
    (str "Catherine: But nobody's used it for a while, so it smells a" 'br)
-(str "little musty.")
+   (str "little musty.")
    (set-reg 125 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5)) (str "Catherine: I'll wash the sheets tomorrow.") (wait) (text-reset 1))
- (seg (? (= P 6) (= 126 #f))
+ (seg (? (= P 5))								; Bed #2 (repeat line)
+   (str "Catherine: I'll wash the sheets tomorrow.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6) (= 126 #f))							; Window #1
    (str "Cole: Aren't you going to close the curtains?")
    (wait)
    (text-reset 1)
    (str "Catherine: It's feeling warm and stuffy, so I'll leave them" 'br)
-(str "as is.")
+   (str "as is.")
    (set-reg 126 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Window #2 (repeat line)
    (str "Cole: Clouds in the sky.")
    (wait)
    (text-reset 1)
    (str "Catherine: I wonder if it's going to rain... The weather's" 'br)
-(str "been unpleasant lately.")
+   (str "been unpleasant lately.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
-   (str "Cole: It's only gonna be a matter of days until Sheila" 'br)
-(str "turns into a zombie... There's no way I can let that happen.")
+ (seg (? (= P 7))								; Calendar
+   (str "Cole: (It's only gonna be a matter of days until Sheila" 'br)
+   (str "turns into a zombie... There's no way I can let that" 'br)
+   (str "happen.)")
    (wait)
    (text-reset 1)
    (str "Catherine: What's wrong? Why do you keep glaring at the" 'br)
-(str "calendar?")
+   (str "calendar?")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: Well then... If you'll excuse me.")
    (wait)
@@ -164,7 +173,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥074.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25
