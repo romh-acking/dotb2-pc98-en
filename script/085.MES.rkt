@@ -58,7 +58,7 @@
    (text-reset 1))
  (seg (? (= P 8))
    (str "Cole: It's locked. I can't hear anything inside. I wonder if" 'br)
-(str "anyone's in there in the first place.")
+   (str "anyone's in there in the first place.")
    (wait)
    (text-reset 1))
  (seg (? (= P 9))
