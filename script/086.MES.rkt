@@ -1,13 +1,18 @@
+; Dead of the Brain 2 (PC-98) - 086.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; Cole's room.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB101.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 37 5 54 10)
-  (exec-mem 3744 1 6 20 3 27 13)
-  (exec-mem 3744 1 7 4 12 17 15)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 37 5 54 10)						; 	Lockers
+  (exec-mem 3744 1 6 20 3 27 13)						; 	Door
+  (exec-mem 3744 1 7 4 12 17 15)						; 	Desk
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB101.GPC")
   (image-mem 0 3)
@@ -19,7 +24,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 126 #f) (= 901 #t))
+        (? (= 126 #f) (= 901 #t))						; Lead-in for first visit
         (str "Cole: I got pretty grimy since my trip to the graveyard.")
         (wait)
         (text-reset 1)
@@ -27,9 +32,12 @@
         (set-reg 126 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: It's always quiet in here...") (wait) (text-reset 1))))
+       (//
+        (str "Cole: It's always quiet in here...")				; Lead-in from second visit
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 127 #f))
+ (seg (? (= P 5) (= 127 #f))							; Lockers #1
    (str "Cole: I don't need a locker. Only valuable thing I carry is" 'br)
    (str "my wallet.")
    (wait)
@@ -38,7 +46,7 @@
    (set-reg 127 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 128 #f))
+ (seg (? (= P 5) (= 128 #f))							; Lockers #2
    (str "Cole: I don't know what's inside it, but I want to believe" 'br)
    (str "this locker's owner is still alive somewhere.")
    (wait)
@@ -47,25 +55,28 @@
    (set-reg 128 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5)) (str "Cole: A row of locked lockers.") (wait) (text-reset 1))
- (seg (? (= P 6) (= 129 #f))
+ (seg (? (= P 5))								; Lockers #3 (repeat line)
+   (str "Cole: A row of locked lockers.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6) (= 129 #f))							; Door #1
    (str "Cole: Speaking of which, Sheila really stormed out of here a" 'br)
    (str "while ago...")
    (set-reg 129 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 130 #f))
+ (seg (? (= P 6) (= 130 #f))							; Door #2
    (str "Cole: It doesn't look like anyone entered the room since I" 'br)
    (str "last left it.")
    (set-reg 130 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Door #3 (repeat line)
    (str "Cole: This room doesn't have a locked door, so anyone can" 'br)
    (str "come and go.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 131 #f))
+ (seg (? (= P 7) (= 131 #f))							; Desk #1
    (str "Cole: Huh? There's a single line on the surface of this" 'br)
    (str "dusty desk...")
    (wait)
@@ -82,18 +93,18 @@
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 132 #f))
+ (seg (? (= P 7) (= 132 #f))							; Desk #2
    (str "Cole: I start thinking about trivial things when I'm all" 'br)
    (str "alone. Maybe I should go be with everyone instead.")
    (set-reg 132 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Desk #3 (repeat line)
    (str "Cole: This stupid desk. Whenever I roll over in bed, I bonk" 'br)
    (str "my head against it.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: Let's go into the hallway.")
    (wait)
@@ -102,7 +113,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥085.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

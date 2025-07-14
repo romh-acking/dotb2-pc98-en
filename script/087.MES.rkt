@@ -1,13 +1,18 @@
+; Dead of the Brain 2 (PC-98) - 087.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; -----Scene:-----
+; Cole goes to Sheila's room to check in on her, but she is not there.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB073A.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 6 50 3 56 14)
-  (exec-mem 3744 1 7 4 10 23 15)
-  (exec-mem 3744 1 8 15 2 39 9)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 6 50 3 56 14)						; 	Shower
+  (exec-mem 3744 1 7 4 10 23 15)						; 	Bed
+  (exec-mem 3744 1 8 15 2 27 9)							; 	Curtains
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB072.GPC")
   (image-mem 0 3)
@@ -19,7 +24,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 133 #f))
+        (? (= 133 #f))								; Lead-in for first visit
         (str "Cole: Hey, Shei--huh?")
         (wait)
         (text-reset 1)
@@ -27,9 +32,12 @@
         (set-reg 133 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: I guess Sheila hasn't come back to her room yet...") (wait) (text-reset 1))))
+       (//
+        (str "Cole: I guess Sheila hasn't come back to her room yet...")	; Lead-in from second visit
+	(wait)
+	(text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 6) (= 134 #f))
+ (seg (? (= P 6) (= 134 #f))							; Shower #1
    (str "Cole: Is Sheila taking a shower?")
    (wait)
    (text-reset 1)
@@ -40,51 +48,51 @@
    (set-reg 134 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 135 #f))
+ (seg (? (= P 6) (= 135 #f))							; Shower #2
    (str "Cole: The shower's dry inside. She said she took a shower" 'br)
-(str "last night, but maybe she was lying so I wouldn't worry.")
+   (str "last night, but maybe she was lying so I wouldn't worry.")
    (set-reg 135 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Shower #3 (repeat line)
    (str "Cole: Sheila isn't in the shower. Where'd she go off to? I" 'br)
-(str "wonder if she's upset because I slapped her...")
+   (str "wonder if she's upset because I slapped her...")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 136 #f))
+ (seg (? (= P 7) (= 136 #f))							; Bed #1
    (str "Cole: This bed's neat and tidy, at least ten times nicer" 'br)
-(str "than the one in my room.")
+   (str "than the one in my room.")
    (set-reg 136 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 137 #f))
+ (seg (? (= P 7) (= 137 #f))							; Bed #2
    (str "Cole: I wonder if Sheila can even sleep, the condition" 'br)
-(str "she's in... Well, she's probably trying not to worry me, so" 'br)
-(str "I'm certain she'll be back.")
+   (str "she's in... Well, she's probably trying not to worry me, so" 'br)
+   (str "I'm certain she'll be back.")
    (wait)
    (text-reset 1)
    (str "Cole: She won't do anything so reckless ever again..." 'br)
-(str "Probably.")
+   (str "Probably.")
    (set-reg 137 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Bed #3 (repeat line)
    (str "Cole: But her body's showing a reaction. I'd really prefer" 'br)
-(str "she stay in bed...")
+   (str "she stay in bed...")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 138 #f))
+ (seg (? (= P 8) (= 138 #f))							; Curtains #1
    (str "Cole: These curtains lack pizazz, but we're in a lab, so I" 'br)
-(str "suppose it's to be expected.")
+   (str "suppose it's to be expected.")
    (set-reg 138 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Curtains #2 (repeat line)
    (str "Cole: The curtains are closed. If I open them it's pitch" 'br)
-(str "black outside, so best to leave them as is.")
+   (str "black outside, so best to leave them as-is.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: No choice, I guess I'll go out to the hallway.")
    (wait)
@@ -93,7 +101,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥085.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

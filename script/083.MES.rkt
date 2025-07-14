@@ -1,3 +1,8 @@
+; Dead of the Brain 2 (PC-98) - 083.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; -----Scene:-----
+; Sheila deals with the fallout of intimate partner violence.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -14,8 +19,8 @@
   (str "Sheila: Cole... I'm sorry I said what I did...")
   (wait)
   (text-reset 1)
-  (str "Sheila: I've seen so many people become zombies, and when it" 'br)
-  (str "was my turn, I got scared...")
+  (str "Sheila: I've seen so many people become zombies, and when" 'br)
+  (str "it was my turn, I got scared...")
   (wait)
   (text-reset 1)
   (str "Sheila: And I wound up saying that to Cole, even though I" 'br)
@@ -26,8 +31,8 @@
   (str "felt like I was alone in the world...")
   (wait)
   (text-reset 1)
-  (str "Sheila: Everyone was trying so hard to stay alive, and I was" 'br)
-  (str "the only one. Thinking about that, I felt lonely...")
+  (str "Sheila: Everyone was trying so hard to stay alive, and I" 'br)
+  (str "was the only one. Thinking about that, I felt lonely...")
   (wait)
   (text-reset 1)
   (str "Sheila: I'm sure Cole knows how I feel. But I did such a" 'br)

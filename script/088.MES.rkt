@@ -1,10 +1,18 @@
+; Dead of the Brain 2 (PC-98) - 0.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; Catherine's room.
+; -----Quiz:------
+; 1. Going after Daniel
+; 2. He seemed uneasy... / Suddenly became quiet.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB140.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
   (exec-mem 3744 1 5 7 10 18 14)
   (exec-mem 3744 1 6 17 2 23 9)
   (exec-mem 3744 1 7 51 4 54 7)
@@ -22,7 +30,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 121 #t) (= 149 #t) (= 137 #t))
+        (? (= 121 #t) (= 149 #t) (= 137 #t))					; Lead-in (after checking lab for Steve and Sheila's room)
         (str "Catherine: Cole...")
         (wait)
         (text-reset 1)
@@ -30,14 +38,14 @@
         (wait)
         (text-reset 1)
         (str "Catherine: Well, Steve usually gives me a smile when he" 'br)
-(str "passes by in the hallway, but this time he looked different.")
+        (str "passes by in the hallway, but this time he looked different.")
         (wait)
         (text-reset 1)
         (str "Cole: Howso?")
         (wait)
         (text-reset 1)
         (str "Catherine: He was looking pretty grim... Even when I said" 'br)
-(str "hello, he left without a word.")
+        (str "hello, he left without a word.")
         (wait)
         (text-reset 1)
         (str "Cole: Lisle said Steve might have gone into town...")
@@ -58,33 +66,28 @@
         (str "Catherine: No, nothing.")
         (wait)
         (text-reset 1)
-        (str "Cole: Actually, when you mention it, when the three of us got talking at  the lab, he got tongue-tied for a moment.")
+        (str "Cole: Actually, when you mention it, when the three of us" 'br)
+        (str "got talking at the lab, he got tongue-tied for a moment.")
         (wait)
         (text-reset 1)
         (loop
-         (str "Catherine: What topic could have spooked Steve?")
+         (str "Catherine: What topic could have spooked Steve?")		; Quiz begins here; this is Question 1
          (wait)
          (text-reset 1)
          (menu1
-          22
-          298
-          46
-          298
-          22
-          318
-          46
-          318
-          22
-          338
-          46
-          338
+          22 298
+          46 298
+          22 318
+          46 318
+          22 338
+          46 338
           (</>
-           (/ (str "Doc's brain revival"))
-           (/ (str "My shooting skills"))
-           (/ (str "Purple Sky"))
-           (/ (str "Daniel"))
-           (/ (str "The woman's corpse"))
-           (/ (str "Sheila's physical change"))))
+           (/ (str "Doc's brain revival   "))
+           (/ (str "My shooting skills    "))
+           (/ (str "Purple Sky            "))
+           (/ (str "Going after Daniel    "))
+           (/ (str "The woman's corpse    "))
+           (/ (str "Sheila's bodily change"))))
          (text-reset 1)
          (str "Cole: I think ")
          (branch-var
@@ -95,50 +98,44 @@
            (/ (str "Purple Sky"))
            (/ (str "going after Daniel") (set-reg 151 #t))
            (/ (str "The woman's corpse"))
-           (/ (str "Sheila's physical change"))))
+           (/ (str "Sheila's bodily change"))))
          (str " was the topic at hand.")
          (wait)
          (text-reset 1)
-         (str "Catherine: At that point, how did Steve react?")
+         (str "Catherine: At that point, how did Steve react?")			; Question 2
          (wait)
          (text-reset 1)
          (menu1
-          22
-          298
-          46
-          298
-          22
-          318
-          46
-          318
-          22
-          338
-          46
-          338
+          22 298
+          46 298
+          22 318
+          46 318
+          22 338
+          46 338
           (</>
-           (/ (str "He seemed uneasy."))
-           (/ (str "He suddenly became quiet."))
-           (/ (str "He was shocked and didn't say a word."))
-           (/ (str "He was shocked and left immediately."))
-           (/ (str "He didn't say a word."))
-           (/ (str "He left the room angrily."))))
+           (/ (str "He seemed uneasy...   "))
+           (/ (str "Suddenly became quiet."))
+           (/ (str "Shocked and speechless"))
+           (/ (str "Shocked; then he left."))
+           (/ (str "He didn't say a word. "))
+           (/ (str "He left the room upset"))))
          (text-reset 1)
-         (str "Cole: ")
+         (str "Cole: Well, he ")
          (branch-var
           S
           (</>
-           (/ (str "He seemed uneasy.") (set-reg 152 #t))
-           (/ (str "He suddenly became quiet.") (set-reg 152 #t))
-           (/ (str "He was shocked and didn't say a word."))
-           (/ (str "He was shocked and left immediately."))
-           (/ (str "He didn't say a word."))
-           (/ (str "He left the room angrily."))))
-         (str "That's what happened...")
+           (/ (str "seemed uneasy..") (set-reg 152 #t))
+           (/ (str "suddenly became quiet") (set-reg 152 #t))
+           (/ (str "was shocked, and didn't say a word"))
+           (/ (str "was shocked, and left immediately"))
+           (/ (str "didn't say a word"))
+           (/ (str "left the room angrily"))))
+         (str ".")
          (wait)
          (text-reset 1)
          (if (</>
               (//
-               (? (= 151 #t) (= 152 #t))
+               (? (= 151 #t) (= 152 #t))					; Success
                (str "Catherine: Do you think he was going to go after Daniel?")
                (wait)
                (text-reset 1)
@@ -146,19 +143,19 @@
                (wait)
                (text-reset 1)
                (str "Cole: I couldn't imagine him going to Razovan" 'br)
-(str "Pharmaceuticals all by himself... There's no way he'd leave" 'br)
-(str "me behind.")
+               (str "Pharmaceuticals all by himself... There's no way he'd leave" 'br)
+               (str "me behind.")
                (wait)
                (text-reset 1)
                (str "Catherine: But Steve's been saying all along that he needs" 'br)
-(str "to avenge his brother himself! It's like his catchphrase.")
+               (str "to avenge his brother himself! It's like his catchphrase.")
                (wait)
                (text-reset 1)
                (str "Cole: It's way too dangerous for him to go alone!")
                (wait)
                (text-reset 1)
-               (str "Catherine: Cole, you've gotta catch up with him! He can't do" 'br)
-(str "it alone!")
+               (str "Catherine: Cole, you've gotta catch up with him! He can't" 'br)
+               (str "do it alone!")
                (wait)
                (text-reset 1)
                (str "Cole: O-okay! I gotta go...")
@@ -189,7 +186,7 @@
                (wait)
                (text-reset 1)
                (str "Cole: Don't worry, I'll be back in one piece. And I'll stop" 'br)
-(str "the reanimation serum once and for all.")
+               (str "the reanimation serum once and for all.")
                (wait)
                (text-reset 1)
                (str "Catherine: Promise me.")
@@ -215,26 +212,26 @@
                (wait)
                (text-reset 1)
                (str "Cole: Okay, this is where it comes to an end. I'm taking" 'br)
-(str "down Daniel!")
+               (str "down Daniel!")
                (wait)
                (text-reset 1)
                (sound '|| 2)
                (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
                (mes-jump "A:¥MES¥089.MES"))
               (//
-               (str "Cole: Maybe... Maybe that's not quite right...")
+               (str "Cole: Maybe... Maybe that's not quite right...")		; Failure
                (wait)
                (text-reset 1)
                (str "Catherine: Cole, remember for me.")
                (wait)
                (text-reset 1)
-               (str "Cole: Will you listen to me again?")
+               (str "Cole: Can we go through this again?")
                (set-reg 151 #f)
                (set-reg 152 #f)
                (wait)
                (text-reset 1))))))
        (//
-        (? (= 139 #f))
+        (? (= 139 #f))								; Lead-in for first visit
         (str "Catherine: Cole, did you have a fight with Sheila?")
         (wait)
         (text-reset 1)
@@ -242,9 +239,12 @@
         (set-reg 139 #t)
         (wait)
         (text-reset 1))
-       (// (str "Catherine: Welcome, Cole.") (wait) (text-reset 1))))
+       (//
+        (str "Catherine: Hey, Cole.")						; Lead-in from second visit
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 140 #f))
+ (seg (? (= P 5) (= 140 #f))							; Bed #1
    (str "Catherine: Cole, are you tired?")
    (wait)
    (text-reset 1)
@@ -264,7 +264,7 @@
    (set-reg 140 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 141 #f))
+ (seg (? (= P 5) (= 141 #f))							; Bed #2
    (str "Catherine: You'll sleep real well in this bed.")
    (wait)
    (text-reset 1)
@@ -275,22 +275,22 @@
    (wait)
    (text-reset 1)
    (str "Cole: When I roll over, I bonk my head on the edge of the" 'br)
-(str "desk.")
+   (str "desk.")
    (wait)
    (text-reset 1)
    (str "Catherine: Cole, you really do toss and turn.")
    (set-reg 141 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Bed #3
    (str "Catherine: Cole, aren't you getting worn out from all this" 'br)
-(str "constant bed examination?")
+   (str "constant bed examination?")
    (wait)
    (text-reset 1)
    (str "Cole: No no, it's not like that...")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 142 #f))
+ (seg (? (= P 6) (= 142 #f))							; Window #1
    (str "Cole: Aren't you going to open the window?")
    (wait)
    (text-reset 1)
@@ -298,20 +298,20 @@
    (wait)
    (text-reset 1)
    (str "Cole: No, I just think it's good to get some fresh air once" 'br)
-(str "in a while.")
+   (str "in a while.")
    (wait)
    (text-reset 1)
    (str "Catherine: I already aired out the room when I woke up.")
    (set-reg 142 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 143 #f))
+ (seg (? (= P 6) (= 143 #f))							; Window #2
    (str "Catherine: It still smells like there are places burning" 'br)
-(str "downtown.")
+   (str "downtown.")
    (wait)
    (text-reset 1)
    (str "Cole: Flammable places like gas stations are hard to" 'br)
-(str "extinguish once they go up.")
+   (str "extinguish once they go up.")
    (wait)
    (text-reset 1)
    (str "Catherine: Should we call the fire department?")
@@ -321,12 +321,12 @@
    (set-reg 143 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Window #3
    (str "Cole: Downtown, I can see spots where white smoke is" 'br)
-(str "billowing.")
+   (str "billowing.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 144 #f))
+ (seg (? (= P 7) (= 144 #f))							; Calendar #1
    (str "Catherine: Where do you want to spend the new year?")
    (wait)
    (text-reset 1)
@@ -337,12 +337,12 @@
    (set-reg 144 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 145 #f))
+ (seg (? (= P 7) (= 145 #f))							; Calendar #2
    (str "Cole: The year's almost over, huh.")
    (wait)
    (text-reset 1)
    (str "Catherine: Hey, when you ring in the new year, you're gonna" 'br)
-(str "marry Sheila officially, right?")
+   (str "marry Sheila officially, right?")
    (wait)
    (text-reset 1)
    (str "Cole: Yeah, that's right.")
@@ -352,12 +352,12 @@
    (set-reg 145 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Calendar #3
    (str "Cole: I don't like this vibe, I'd better stop staring at the" 'br)
-(str "calendar.")
+   (str "calendar.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 146 #f))
+ (seg (? (= P 8) (= 146 #f))							; Catherine #1
    (str "Catherine: Why did you fight with Sheila?")
    (wait)
    (text-reset 1)
@@ -374,7 +374,7 @@
    (set-reg 146 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 147 #f))
+ (seg (? (= P 8) (= 147 #f))							; Catherine #2
    (str "Catherine: Tell me.")
    (wait)
    (text-reset 1)
@@ -382,7 +382,7 @@
    (wait)
    (text-reset 1)
    (str "Catherine: Fucking come on! I'm asking why you were fighting" 'br)
-(str "with Sheila!")
+   (str "with Sheila!")
    (wait)
    (text-reset 1)
    (str "Cole: Well... I guess it was a difference of opinion.")
@@ -395,39 +395,39 @@
    (wait)
    (text-reset 1)
    (str "Catherine: Do you know why people have differences of" 'br)
-(str "opinion?")
+   (str "opinion?")
    (wait)
    (text-reset 1)
    (str "Cole: Fine. Why don't you tell me?")
    (wait)
    (text-reset 1)
    (str "Catherine: It's because one of the two didn't communicate" 'br)
-(str "their feelings.")
+   (str "their feelings.")
    (wait)
    (text-reset 1)
    (str "Cole: Maybe they think they are, though--")
    (wait)
    (text-reset 1)
    (str "Catherine: You just assume the other person understands you" 'br)
-(str "without having to say it. You assume that, no matter how" 'br)
-(str "much you think you know them.")
+   (str "without having to say it. You assume that, no matter how" 'br)
+   (str "much you think you know them.")
    (wait)
    (text-reset 1)
    (str "Cole: Okay, okay. It's a valid point.")
    (set-reg 147 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 148 #f))
+ (seg (? (= P 8) (= 148 #f))							; Catherine #3
    (str "Cole: But I've never thought about it that seriously before.")
    (wait)
    (text-reset 1)
    (str "Catherine: I've worked in a ton of different jobs, so I" 'br)
-(str "know a lot about how people communicate. It's hard to know" 'br)
-(str "for yourself if you can trust someone.")
+   (str "know a lot about how people communicate. It's hard to know" 'br)
+   (str "for yourself if you can trust someone.")
    (wait)
    (text-reset 1)
    (str "Cole: That's the kind of thing that makes me not want to" 'br)
-(str "trust people.")
+   (str "trust people.")
    (wait)
    (text-reset 1)
    (str "Catherine: What about you, Cole?")
@@ -443,7 +443,7 @@
    (set-reg 148 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 149 #f))
+ (seg (? (= P 8) (= 149 #f))							; Catherine #4
    (str "Cole: Sorry, not to change the topic, but...")
    (wait)
    (text-reset 1)
@@ -451,14 +451,14 @@
    (wait)
    (text-reset 1)
    (str "Cole: You know that a zombie got into the lab yesterday," 'br)
-(str "right?")
+   (str "right?")
    (wait)
    (text-reset 1)
    (str "Catherine: Yeah.")
    (wait)
    (text-reset 1)
    (str "Cole: Since our enemies know that we're in here, I think we" 'br)
-(str "should relocate... Maybe as soon as tomorrow night.")
+   (str "should relocate... Maybe as soon as tomorrow night.")
    (wait)
    (text-reset 1)
    (str "Catherine: We'd be better off.")
@@ -474,17 +474,17 @@
    (wait)
    (text-reset 1)
    (str "Catherine: I'm okay with that, but you Steve and Sheila" 'br)
-(str "aren't here.")
+   (str "aren't here.")
    (wait)
    (text-reset 1)
    (if (</>
         (//
-         (? (= 150 #t))
+         (? (= 150 #t))								; Cole has checked the lab for Steve
          (str "Cole: Well, we can find Sheila, but Steve's out.")
          (wait)
          (text-reset 1))
         (//
-         (str "Cole: Huh? I thought Steve was in the lab.")
+         (str "Cole: Huh? I thought Steve was in the lab.")			; Cole hasn't checked
          (wait)
          (text-reset 1)
          (str "Catherine: I just passed by him in the hallway.")
@@ -494,21 +494,21 @@
          (wait)
          (text-reset 1))))
    (set-reg 149 #t))
- (seg (? (= P 8) (= 150 #t))
+ (seg (? (= P 8) (= 150 #t))							; Catherine #5 (after checking lab)
    (str "Cole: Without Steve we can't have a meeting...")
    (wait)
    (text-reset 1)
    (str "Catherine: Do you know where he went?")
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Catherine #5 (before checking lab)
    (str "Catherine: Hmm, was Steve in the lab?")
    (wait)
    (text-reset 1)
    (str "Cole: Oh, I haven't checked there yet.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: Okay, I've got to get going.")
    (wait)
@@ -519,7 +519,7 @@
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (exec-mem 6064 3)
    (mes-jump "A:¥MES¥085.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

@@ -83,7 +83,7 @@
    (str "Lisle: What was Cooger's first name?")
    (wait)
    (text-reset 1)
-   (str "Cole: Hamilton. Hamilton Cooger.")
+   (str "Cole: Hamilton. Cooger Hamilton.")
    (wait)
    (text-reset 1)
    (str "Lisle: So that's how it is... Yes, I remember him well.")
