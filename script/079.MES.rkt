@@ -287,7 +287,7 @@
           (str "that choice.")
           (wait)
           (text-reset 1)
-	  (str "Cole: But t")))))
+	  (str "Cole: But t"))))))
  (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
