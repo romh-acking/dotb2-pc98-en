@@ -2,7 +2,7 @@
 ; Translated by Geometrizer
 ; Edited by JackDBS, commented by trentsignia
 ; --Description:--
-; Cole goes back to his room to find Sheila waiting for him there.
+; Cole goes back to his room to find Sheila waiting for him there. (IPV counter: 1)
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -152,6 +152,11 @@
    (set-reg 133 #t)
    (wait)
    (text-reset 1))
+;
+; 	At this point, Cole is forced to make a decision that, spoiler alert, affects the rest of the game. 
+; 	You will probably want to save the game here if you want to fully explore both paths.
+; 	The game sets a special flag for this ocassion: look out for register 901 in the coming scripts.
+;
  (seg (? (= P 8))							; Sheila #4
    (str "Cole: ...")
    (wait)
@@ -217,8 +222,9 @@
    (str "life.")
    (wait)
    (text-reset 1)
+   (str "Cole: T")								; Trying something here; if Cole loops back to the start he should say "But the hour's [...]"
    (loop
-    (str "Cole: The hour's almost up. I have to make my decision.")		; Choice loop starts here
+    (str "he hour's almost up, I have to make my decision.")			; Choice loop starts here
     (menu1 20 337 44 337
      (</> (/ (str "Let Doc rest in peace.")) (/ (str "     Revive Doc...    "))))
     (text-reset 1)
@@ -230,7 +236,7 @@
     (str "decision.")
     (wait)
     (text-reset 1)
-    (str "Cole: ...But is this really the right path forward?")			; Confirm choice; saying no kicks you back to the start
+    (str "Cole: ...Is this really the right path forward?")			; Confirm choice; saying no kicks you back to the start
     (menu1 25 337 37 337 (</> (/ (str "   Yes!   ")) (/ (str "   No...  "))))
     (text-reset 1)
     (if (</>
@@ -280,7 +286,8 @@
           (str "Cole: No, no. I can't do it... I don't know if I can make" 'br)
           (str "that choice.")
           (wait)
-          (text-reset 1))))))
+          (text-reset 1)
+	  (str "Cole: But t")))))
  (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)

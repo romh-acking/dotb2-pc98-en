@@ -347,29 +347,36 @@
      (/ (str "I-U68") (nop@) (set-reg 148 #t))
      (/ (str "N-Z04") (nop@) (set-reg 149 #t))))
    (str " is on the screen.")							; The rest of the original line is printed here.
+;
+; 	This following chunk of scripting was added by me to nudge players towards find the matching codes outside of the game, while attempting to maintain some semblance of the original experience.
+; 	The idea is that players that are stuck on this puzzle will eventually get a hint after repeating this enough times.
+;
    (if (</>
      (//
-      (? (= 190 #f))
-      (str "..")								; 	This following chunk of text nudging players to find the matching codes was added by me for this translation.
+      (? (= 190 #f))								; I borrowed this trick from the main game to ensure that no hint is printed the first time this dialog is shown.
+      (str "..")								; These two dots are appended to extend the full stop into an ellipsis.
       (set-reg 190 #t))
      (//
       (branch-random
        (</>
         (/
-         (str " Isn't" 'br)							; 	After the first time this puzzle is attempted, one of three (less than subtle) hints has a chance of appearing...
+         (str " Isn't" 'br)							; After the first time this puzzle is attempted, one of these three (less than subtle) hints will randomly appear.
          (str "there a manual for this?"))
         (/
          (str " Man," 'br)
          (str "this is like some kind of copy protection scheme..."))
         (/
-         (str " Um, I" 'br)
+         (str " Um, I" 'br)							; 	Geo actually sparked the idea to do all this in the first place when he first added this specific hint to the script.
          (str "should check the readme.txt..."))
         (/
-         (str ".."))
+         (str ".."))								; These "empty" slots are here to make the hints appear less frequently.
         (/
          (str ".."))
         (/
-         (str "..")))))))							; 	The idea is that players that are stuck on this puzzle will eventually get a hint after repeating this enough times.
+         (str "..")))))))
+;
+; 	Regularly-scheduled programming follows...
+;
    (wait)
    (text-reset 1)
    (text-frame 15 298 74 356)

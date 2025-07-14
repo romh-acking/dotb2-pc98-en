@@ -28,7 +28,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 100 #f))
+        (? (= 100 #f))								; Lead-in from previous MES file
         (str "Steve: Oh, there's Cole. You're just in time. How are" 'br)
         (str "things looking? Could you clean out the first floor?")
         (wait)
@@ -38,7 +38,7 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Steve: Cole...")
+        (str "Steve: Cole...")							; Lead-in from loading game
 	(wait)
 	(text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
