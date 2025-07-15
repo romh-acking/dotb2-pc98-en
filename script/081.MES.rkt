@@ -14,9 +14,9 @@
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
-  (exec-mem 3744 1 5 24 3 37 5)							; 	
-  (exec-mem 3744 1 6 23 6 37 11)						; 	
-  (exec-mem 3744 1 7 4 12 27 15)						; 	
+  (exec-mem 3744 1 5 24 3 37 5)							; 	Sign
+  (exec-mem 3744 1 6 23 6 37 11)						; 	Gate
+  (exec-mem 3744 1 7 4 12 27 15)						; 	Headlights
   (exec-mem 3744 1 8 38 7 56 10)						; 	
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB133.GPC")
@@ -46,7 +46,7 @@
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
  (seg (? (= P 5) (= 101 #f))							; Sign #1
-   (str "Cole: ...'Disbell Cemetery' is written over the gate. Last" 'br)
+   (str "Cole:“Disbell Cemetery”is written over the gate. Last" 'br)
    (str "night, Steve and Lisle came here to exhume Doc's body...")
    (set-reg 101 #t)
    (wait)

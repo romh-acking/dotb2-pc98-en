@@ -92,7 +92,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 8) (= 131 #f))						; Sheila #1
-   (str "Sheila: What exactly did Lisle tell you ?")
+   (str "Sheila: What exactly did Lisle tell you?")
    (wait)
    (text-reset 1)
    (str "Cole: ...")

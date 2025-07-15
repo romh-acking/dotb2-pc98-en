@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 089.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; Outside Razovan.
+; --Progression:--
+; Look at the building and car, then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB142.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 20 5 36 10)
-  (exec-mem 3744 1 6 29 11 34 13)
-  (exec-mem 3744 1 7 38 10 49 13)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 20 5 36 10)						; 	Building
+  (exec-mem 3744 1 6 29 11 34 13)						; 	Car
+  (exec-mem 3744 1 7 38 10 49 13)						; 	Guardhouse
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB142.GPC")
   (image-mem 0 3)
@@ -19,35 +26,35 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 151 #f))
+        (? (= 151 #f))								; Lead-in from previous MES file
         (str "Cole: This is Razovan Pharmaceuticals.")
         (wait)
         (text-reset 1)
-        (str "Cole: Just like Steve said, it's about an hour east from the" 'br)
-        (str "lab.")
+        (str "Cole: Just like Steve said, it's about an hour east from" 'br)
+        (str "the lab.")
         (set-reg 151 #t)
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: So this is Razovan Pharmaceuticals. I hope Steve is" 'br)
+        (str "Cole: So this is Razovan Pharmaceuticals. I hope Steve is" 'br)	; Lead-in from loading game
         (str "okay.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 152 #f))
+ (seg (? (= P 5) (= 152 #f))							; Building #1
    (str "Cole: This building looks pretty old-fashioned. Steve must" 'br)
    (str "have gone in alone to look for Daniel...")
    (set-reg 152 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 153 #f))
+ (seg (? (= P 5) (= 153 #f))							; Building #2
    (str "Cole: I can't believe the director of Razovan" 'br)
    (str "Pharmaceuticals used the reanimation serum to raise the" 'br)
    (str "dead and level the city.")
    (set-reg 153 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 154 #f))
+ (seg (? (= P 5) (= 154 #f))							; Building #3
    (str "Cole: Steve was dead serious... He might have already taken" 'br)
    (str "down Daniel by now.")
    (wait)
@@ -56,36 +63,39 @@
    (set-reg 154 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Building #4
    (str "Cole: For now, all I can do is pray that Steve is still" 'br)
    (str "safe.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 155 #f))
+ (seg (? (= P 6) (= 155 #f))							; Car #1
    (str "Cole: Huh? There's a white car parked in front of the" 'br)
    (str "building. Even though the engine's running, nobody's inside.")
    (set-reg 155 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 156 #f))
+ (seg (? (= P 6) (= 156 #f))							; Car #2
    (str "Cole: I'm certain that's the station wagon from the" 'br)
    (str "lab...the one Steve left in. Only someone like Steve or me" 'br)
    (str "would leave the keys in the ignition.")
    (set-reg 156 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Car #3
    (str "Cole: If the car's still here, Steve's probably still" 'br)
    (str "inside the building.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 157 #f))
+ (seg (? (= P 7) (= 157 #f))							; Guardhouse #1
    (str "Cole: There's not a single guard in front of the building.")
    (set-reg 157 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7)) (str "Cole: The building looks empty...") (wait) (text-reset 1))
- (seg (? (= P 1) (= 154 #t) (= 156 #t))
+ (seg (? (= P 7))								; Guardhouse #2
+   (str "Cole: The building looks empty...")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 1) (= 154 #t) (= 156 #t))						; MOVE (after looking at building and car)
    (exec-mem 6064 2 1)
    (str "Cole: OK, let's do this.")
    (wait)
@@ -95,7 +105,7 @@
    (nop@)
    (set-reg 158 #t)
    (mes-jump "A:¥MES¥090.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

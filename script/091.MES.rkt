@@ -1,13 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 091.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; The second-floor hallway at Razovan.
+; --Progression:--
+; 1. Go into the lab, look at the bed and bars and then the scalpel.
+; 2. Look into the darkness of the storage room.
+; 3. Leave and return to the storage room.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB144.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 8 2 14 15)
-  (exec-mem 3744 1 6 20 5 23 12)
-  (exec-mem 3744 1 7 24 7 27 11)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 8 2 14 15)							; 	Lab	(Left)
+  (exec-mem 3744 1 6 20 5 23 12)						; 	Storage	(Middle)
+  (exec-mem 3744 1 7 24 7 27 11)						; 	Locked	(Right)
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB144.GPC")
   (image-mem 0 3)
@@ -22,7 +31,7 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (? (= 169 #f))
+        (? (= 169 #f))								; Lead-in from previous MES file
         (str "Cole: Okay, so I've climbed the stairs and I'm on the" 'br)
         (str "second floor hallway... But no sign of Steve.")
         (wait)
@@ -36,7 +45,7 @@
         (wait)
         (text-reset 1))
        (//
-        (? (= 170 #f))
+        (? (= 170 #f))								; Lead-in for second visit
         (sound '|| 2)
         ((cmd 209) 0 5)
         (image-file "B:¥GPC¥DB147.GPC")
@@ -64,8 +73,8 @@
         (wait)
         (text-reset 1)
         (str "Daniel: Since there are still survivors at your precious" 'br)
-        (str "institute, I figured any of you who showed up would be ready" 'br)
-        (str "to kill me.")
+        (str "institute, I figured any of you who showed up would be" 'br)
+        (str "ready to kill me.")
         (wait)
         (text-reset 1)
         (str "Daniel: It looks like I was one step ahead of you, after" 'br)
@@ -111,8 +120,8 @@
         (str "Steve: You're a fucking demon!")
         (wait)
         (text-reset 1)
-        (str "Daniel: A few sacrifices are always unavoidable. And you get" 'br)
-        (str "to serve as one yourself!")
+        (str "Daniel: A few sacrifices are always unavoidable. And you" 'br)
+        (str "get to serve as one yourself!")
         (wait)
         (text-reset 1)
         (str "Steve: W-What are you doing?")
@@ -131,8 +140,8 @@
         (str "Steve: Cole! Stay back!")
         (wait)
         (text-reset 1)
-        (str "Daniel: I'll deal with you later. For now, just sit back and" 'br)
-        (str "watch this fool die!")
+        (str "Daniel: I'll deal with you later. For now, just sit back" 'br)
+        (str "and watch this fool die!")
         (set-reg 170 #t)
         (wait)
         (text-reset 1)
@@ -154,7 +163,7 @@
    (text-color 15)
    (text-reset 1)
    (seg-call)))
- (seg (? (= P 5) (= 171 #f))
+ (seg (? (= P 5) (= 171 #f))							; Lab #1
    (str "Cole: I wonder if Steve is in this room...")
    (set-reg 171 #t)
    (wait)
@@ -163,7 +172,7 @@
    (nop@)
    (set-reg 158 #t)
    (mes-jump "A:¥MES¥092.MES"))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Lab #2
    (str "Cole: This was the lab, wasn't it?")
    (wait)
    (text-reset 1)
@@ -171,7 +180,7 @@
    (nop@)
    (set-reg 158 #t)
    (mes-jump "A:¥MES¥092.MES"))
- (seg (? (= P 6) (= 172 #f))
+ (seg (? (= P 6) (= 172 #f))							; Storage #1
    (str "Cole: What kind of room is this?")
    (set-reg 172 #t)
    (wait)
@@ -180,7 +189,7 @@
    (nop@)
    (set-reg 158 #t)
    (mes-jump "A:¥MES¥093.MES"))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Storage #2
    (str "Cole: This is a storage room, correct?")
    (wait)
    (text-reset 1)
@@ -188,7 +197,7 @@
    (nop@)
    (set-reg 158 #t)
    (mes-jump "A:¥MES¥093.MES"))
- (seg (? (= P 7) (= 173 #f))
+ (seg (? (= P 7) (= 173 #f))							; Locked #1
    (str "Cole: I guess I'll check this room...")
    (wait)
    (text-reset 1)
@@ -196,7 +205,7 @@
    (set-reg 173 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 174 #f))
+ (seg (? (= P 7) (= 174 #f))							; Locked #2
    (str "Cole: I can't get into this room. I wonder what's going on" 'br)
    (str "inside. Here, let me listen...")
    (wait)
@@ -208,13 +217,13 @@
    (set-reg 174 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Locked #3 (repeat line)
    (str "Cole: Since the room's locked, I can't investigate it." 'br)
    (str "There's no sounds or signs of people, so I don't need to" 'br)
    (str "bother.")
    (wait)
    (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

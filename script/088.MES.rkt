@@ -13,10 +13,10 @@
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
-  (exec-mem 3744 1 5 7 10 18 14)
-  (exec-mem 3744 1 6 17 2 23 9)
-  (exec-mem 3744 1 7 51 4 54 7)
-  (exec-mem 3744 1 8 25 4 37 10)
+  (exec-mem 3744 1 5 7 10 18 14)						; 	Bed
+  (exec-mem 3744 1 6 17 2 23 9)							; 	Window
+  (exec-mem 3744 1 7 51 4 54 7)							; 	Calendar
+  (exec-mem 3744 1 8 25 4 37 10)						; 	Catherine
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB108.GPC")
   (image-mem 0 3)
@@ -41,7 +41,7 @@
         (str "passes by in the hallway, but this time he looked different.")
         (wait)
         (text-reset 1)
-        (str "Cole: Howso?")
+        (str "Cole: How so?")
         (wait)
         (text-reset 1)
         (str "Catherine: He was looking pretty grim... Even when I said" 'br)
@@ -113,11 +113,11 @@
           22 338
           46 338
           (</>
-           (/ (str "He seemed uneasy...   "))
-           (/ (str "Suddenly became quiet."))
+           (/ (str "He seemed uneasy      "))
+           (/ (str "Suddenly became quiet "))
            (/ (str "Shocked and speechless"))
-           (/ (str "Shocked; then he left."))
-           (/ (str "He didn't say a word. "))
+           (/ (str "Shocked; then he left "))
+           (/ (str "He didn't say a word  "))
            (/ (str "He left the room upset"))))
          (text-reset 1)
          (str "Cole: Well, he ")
@@ -353,8 +353,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 7))								; Calendar #3
-   (str "Cole: I don't like this vibe, I'd better stop staring at the" 'br)
-   (str "calendar.")
+   (str "Cole: I don't like this vibe, I'd better stop staring at" 'br)
+   (str "the calendar.")
    (wait)
    (text-reset 1))
  (seg (? (= P 8) (= 146 #f))							; Catherine #1

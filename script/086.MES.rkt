@@ -60,8 +60,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 129 #f))							; Door #1
-   (str "Cole: Speaking of which, Sheila really stormed out of here a" 'br)
-   (str "while ago...")
+   (str "Cole: Oh yeah, Sheila really stormed out of here a while" 'br)
+   (str "ago...")
    (set-reg 129 #t)
    (wait)
    (text-reset 1))

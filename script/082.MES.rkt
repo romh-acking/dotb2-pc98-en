@@ -2,9 +2,11 @@
 ; Translated by Geometrizer
 ; Edited by JackDBS, commented by trentsignia
 ; --Description:--
-; 
+; In Disbell Cemetery.
 ; --Progression:--
-; 
+; Look at the flashlight and tombstones, then MOVE.
+; ----Battle:-----
+; The neck.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -12,9 +14,9 @@
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
-  (exec-mem 3744 1 5 4 3 20 7)							; 	
-  (exec-mem 3744 1 6 21 10 41 12)						; 	
-  (exec-mem 3744 1 7 34 5 40 7)							; 	
+  (exec-mem 3744 1 5 4 3 20 7)							; 	Trees
+  (exec-mem 3744 1 6 21 10 41 12)						; 	Flashlight
+  (exec-mem 3744 1 7 34 5 40 7)							; 	Tombstones
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB134.GPC")
   (image-mem 0 3)
@@ -36,13 +38,13 @@
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
- (seg (? (= P 5) (= 110 #f))							; 
+ (seg (? (= P 5) (= 110 #f))							; Trees #1
    (str "Cole: This cemetery is unmaintained and overgrown, with" 'br)
    (str "weeds everywhere.")
    (set-reg 110 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 111 #f))							; 
+ (seg (? (= P 5) (= 111 #f))							; Trees #2
    (str "Cole: I don't see any undead hiding in the thickets.")
    (wait)
    (text-reset 1)
@@ -51,12 +53,12 @@
    (set-reg 111 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))								; 
+ (seg (? (= P 5))								; Trees #3 (repeat line)
    (str "Steve: I think we can rest easy. When we came here" 'br)
    (str "yesterday, we didn't see a single zombie.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 112 #f))							; 
+ (seg (? (= P 6) (= 112 #f))							; Flashlight #1
    (str "Steve: Doctor Cooger's grave is about a 10-minute walk from" 'br)
    (str "here.")
    (wait)
@@ -88,7 +90,7 @@
    (set-reg 112 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 113 #f))							; 
+ (seg (? (= P 6) (= 113 #f))							; Flashlight #2
    (str "Cole: A graveyard at night is pretty creepy.")
    (wait)
    (text-reset 1)
@@ -97,14 +99,14 @@
    (set-reg 113 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))								; 
-   (str "Cole: *Huff, puff... We've walked quite a while...")
+ (seg (? (= P 6))								; Flashlight #3 (repeat line)
+   (str "Cole: Huff, puff... We've walked quite a while...")
    (wait)
    (text-reset 1)
    (str "Steve: We're almost at Dr. Cooger's grave.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 114 #f))							; 
+ (seg (? (= P 7) (= 114 #f))							; Tombstones #1
    (str "Cole: There are so many tombstones...")
    (wait)
    (text-reset 1)
@@ -120,7 +122,7 @@
    (set-reg 114 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 115 #f))							; 
+ (seg (? (= P 7) (= 115 #f))							; Tombstones #2
    (str "Cole: Even though there's no caretaker and the cemetery" 'br)
    (str "isn't maintained well, there are still some neat tombstones" 'br)
    (str "to see.")
@@ -131,7 +133,7 @@
    (set-reg 115 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 116 #f))							; 
+ (seg (? (= P 7) (= 116 #f))							; Tombstones #3
    (str "Steve: The thought of everyone buried here being reanimated" 'br)
    (str "gives me the chills.")
    (wait)
@@ -139,12 +141,12 @@
    (str "Cole: Don't say that, man.")
    (wait)
    (text-reset 1)
-   (str "Steve: Come on, Cole, you've fought enough zombies that that" 'br)
-   (str "sorta talk shouldn't bother you.")
+   (str "Steve: Come on, Cole, you've fought enough zombies that" 'br)
+   (str "that sorta talk shouldn't bother you.")
    (set-reg 116 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))								; 
+ (seg (? (= P 7))								; Tombstones #4 (repeat line)
    (str "Cole: You did a good job finding Doc's grave in this sea of" 'br)
    (str "markers.")
    (wait)
@@ -152,7 +154,7 @@
    (str "Steve: Yeah, it was hard to track him down.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 113 #t) (= 114 #t))						; 
+ (seg (? (= P 1) (= 113 #t) (= 114 #t))						; MOVE (after looking at flashlight and tombstones)
    (exec-mem 6064 2 1)
    (str "Steve: Cole, we're here... Doc's grave is right there.")
    (wait)
@@ -269,7 +271,7 @@
    (str "Steve: ...")
    (wait)
    (text-reset 1)
-   (str "Cole: Steve...")
+   (str "Cole: Steve...?")
    (wait)
    (text-reset 1)
    (str "Steve: Ack... Gack...")
@@ -336,7 +338,7 @@
    (str "Steve: Cole...now!")
    (wait)
    (text-reset 1)
-   (image-file "A:¥GPC¥COUNTER.GPC")
+   (image-file "A:¥GPC¥COUNTER.GPC")						; Short battle starts here
    (image-mem 0 0)
    (exec-mem 15728 0 0 1 5 0 1)
    (exec-mem 15728 1 0 0 0 0 "Z")
@@ -350,7 +352,7 @@
    (image-mem 0 0)
    (if (</>
         (//
-         (? (= P 5) (= Z 2))
+         (? (= P 5) (= Z 2))							; Success
          (str "Cole: Drop dead!")
          (wait)
          (text-reset 1)
@@ -360,7 +362,7 @@
          (sound '|se | 2)
          (exec-mem 912 "PUT 3 2 23,W 5,O 0")
          (exec-mem 912 "EXIT")
-         (str "Zombie: ")(text "ＧＹＡＡＡＡＡＡＡ・・・　・・・・　・・")
+         (str "Zombie: ")(text "ＧＹＡＡＡＡＡＡＡ．．．　．．．．　．．")
          (wait)
          (text-reset 1)
          (str "Steve: Gasp, gasp... Well played.")
@@ -377,7 +379,7 @@
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
          (mes-jump "A:¥MES¥083.MES"))
         (//
-         (str "Cole: Shit! No!")
+         (str "Cole: Shit! No!")						; Failure
          (wait)
          (text-reset 1)
          (str "Zombie: ")(text "ＧＵＲＡＡＡＡＡＡＡ！！！")
