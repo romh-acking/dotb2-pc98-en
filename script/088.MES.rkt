@@ -75,12 +75,9 @@
          (wait)
          (text-reset 1)
          (menu1
-          22 298
-          46 298
-          22 318
-          46 318
-          22 338
-          46 338
+          22 298  46 298
+          22 318  46 318
+          22 338  46 338
           (</>
            (/ (str "Doc's brain revival   "))
            (/ (str "My shooting skills    "))
@@ -106,12 +103,9 @@
          (wait)
          (text-reset 1)
          (menu1
-          22 298
-          46 298
-          22 318
-          46 318
-          22 338
-          46 338
+          22 298  46 298
+          22 318  46 318
+          22 338  46 338
           (</>
            (/ (str "He seemed uneasy      "))
            (/ (str "Suddenly became quiet "))
@@ -165,10 +159,8 @@
                (wait)
                (text-reset 1)
                (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-               (image-file "B:¥GPC¥DB108.GPC")
-               (image-mem 0 3)
-               (image-file "B:¥GPC¥DB141.GPC")
-               (image-mem 1 3)
+               (image-file "B:¥GPC¥DB108.GPC") (image-mem 0 3)
+               (image-file "B:¥GPC¥DB141.GPC") (image-mem 1 3)
                (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
                (str "Cole: What is it, Cath--")
                (wait)
@@ -202,8 +194,7 @@
                (wait)
                (text-reset 1)
                (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-               (image-file "B:¥GPC¥DB070.GPC")
-               (image-mem 1 3)
+               (image-file "B:¥GPC¥DB070.GPC") (image-mem 1 3)
                (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
                (str "Cole: Did Catherine know about Sheila's condition...?")
                (wait)

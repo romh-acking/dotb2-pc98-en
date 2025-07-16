@@ -147,18 +147,8 @@
  (seg (? (= P 2) (= 130 #t) (= 131 #f))						; Locker (while holding spanner)
    (str "Cole: Wait, what was I carrying again?")				; Short quiz follows...
    (menu1
-    20
-    317
-    40
-    317
-    60
-    317
-    20
-    337
-    40
-    337
-    60
-    337
+    20 317  40 317  60 317
+    20 337  40 337  60 337
     (</>
      (/ (str "Hammer        "))
      (/ (str "Hex Wrench    "))
@@ -335,18 +325,8 @@
  (seg (? (= P 8) (= 132 #t) (= 137 #f))						; Right Chair (while holding hex wrench)
    (str "Cole: Wait, what was I carrying again?")				; Short quiz follows...
    (menu1
-    20
-    317
-    40
-    317
-    60
-    317
-    20
-    337
-    40
-    337
-    60
-    337
+    20 317  40 317  60 317
+    20 337  40 337  60 337
     (</>
      (/ (str "Hammer        "))
      (/ (str "Hex Wrench    "))
