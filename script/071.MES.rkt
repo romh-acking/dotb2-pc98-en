@@ -121,7 +121,7 @@
               (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_08.USO"))
               (// (sound '|| "A:¥USO_D¥BR2_08.USO"))))
          (sound '|| 1)
-         (str "Cole: Another one of you Bloody Fox assholes?!")
+         (str "Cole: Another one of you Bloody Fox assholes!?")
          (wait)
          (text-reset 1)
          (str "B.F.: Pant, pant...")

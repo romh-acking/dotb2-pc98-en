@@ -72,7 +72,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6))							; Door #2
-   (str "Cole: Ah, yeah, the door doesn't have a lock, does it.")
+   (str "Cole: Ah, yeah, the door doesn't have a lock, does it...")
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 130 #f))						; Desk #1

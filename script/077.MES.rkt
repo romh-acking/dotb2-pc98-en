@@ -128,7 +128,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 5))								; Bed #2 (repeat line)
-   (str "Catherine: I'll wash the sheets tomorrow.")
+   (str "Catherine: I'll get around to washing the sheets later.")
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 126 #f))							; Window #1
@@ -141,7 +141,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6))								; Window #2 (repeat line)
-   (str "Cole: Clouds in the sky.")
+   (str "Cole: There's clouds in the sky.")
    (wait)
    (text-reset 1)
    (str "Catherine: I wonder if it's going to rain... The weather's" 'br)

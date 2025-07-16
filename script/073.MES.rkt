@@ -260,7 +260,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6))								; Steve #3 (repeat line)
-   (str "Steve: So what happened on the first floor?")
+   (str "Steve: So what else happened on the first floor?")
    (wait)
    (text-reset 1))
  (seg (? (= P 7))								; Lab
@@ -269,7 +269,7 @@
    (text-reset 1))
  (seg (? (= P 1) (= 107 #t))							; MOVE 
    (exec-mem 6064 2 1)
-   (str "Cole: Let's get out of here for now.")
+   (str "Cole: I'd better get out of here for now.")
    (exec-mem 6064 3)
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)

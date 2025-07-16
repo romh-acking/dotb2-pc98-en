@@ -16,7 +16,7 @@
        (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_10.USO"))
        (// (sound '|| "A:¥USO_D¥BR2_10.USO"))))
   (sound '|| 1)
-  (str "Sheila: Cole... I'm sorry I said what I did...")
+  (str "Sheila: Cole... I'm sorry I said what I said...")
   (wait)
   (text-reset 1)
   (str "Sheila: I've seen so many people become zombies, and when" 'br)
