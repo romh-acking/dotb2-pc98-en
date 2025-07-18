@@ -52,7 +52,7 @@
    317
    51
    317
-   (</> (/ (str "Examine Zombie")) (/ (str "Punch Zombie")) (/ (str "Kick Zombie"))))
+   (</> (/ (str "Examine")) (/ (str "Punch")) (/ (str "Kick"))))
   (text-reset 1)
   (branch-var
    S
@@ -65,7 +65,7 @@
   (wait)
   (text-reset 1)
   (str "Cole: Damn, it's super strong! If it keeps pushing me, I'm" 'br)
-(str "going off this cliff!")
+  (str "going off this cliff!")
   (wait)
   (text-reset 1)
   (menu1
@@ -75,7 +75,7 @@
    317
    51
    317
-   (</> (/ (str "Grab the gun / Gouge its eyes / Push it away")) (/ (str "Grab the gun / Gouge its eyes / Push it away")) (/ (str "Grab the gun / Gouge its eyes / Push it away")) (/)))
+   (</> (/ (str "Grab gun")) (/ (str "Gouge eyes")) (/ (str "Push away")) (/)))
   (text-reset 1)
   (branch-var
    S
