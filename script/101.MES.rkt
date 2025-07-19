@@ -123,10 +123,9 @@
       (wait)
       (text-reset 1))
      (/
-      (text
-       "Cole: No, that's impossible. Richard Gris...Ghoul...is dead." 'br)
-"I saw him explode right in front of me. Steve even has a" 'br)
-"part of his head.")
+      (str "Cole: No, that's impossible. Richard Gris...Ghoul...is dead." 'br)
+      (str "I saw him explode right in front of me. Steve even has a" 'br)
+      (str "part of his head.")
       (wait)
       (text-reset 1)
       (str "Cole: Besides, there's no way an android killing machine" 'br)
