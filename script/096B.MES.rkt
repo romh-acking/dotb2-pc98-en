@@ -1,3 +1,6 @@
+; Dead of the Brain 2 (PC-98) - 096B.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -59,8 +62,8 @@
   (text-reset 1)
   ((cmd 197) 0 15)
   ((cmd 197) 1 15)
-  (str "Cooger: The cure's potency doesn't fade with time, but if it" 'br)
-  (str "was broken, like the flask with the reanimation serum...")
+  (str "Cooger: The cure's potency doesn't fade with time, but if" 'br)
+  (str "it was broken, like the flask with the reanimation serum...")
   (wait)
   (text-reset 1)
   ((cmd 196) 0 0)
@@ -85,8 +88,8 @@
   (text-reset 1)
   ((cmd 197) 0 15)
   ((cmd 197) 1 15)
-  (str "Cooger: Cole, my mind can't hold on much longer. Before this" 'br)
-  (str "all fades away, I have one request.")
+  (str "Cooger: Cole, my mind can't hold on much longer. Before" 'br)
+  (str "this all fades away, I have one request.")
   (wait)
   (text-reset 1)
   ((cmd 196) 0 0)
@@ -178,8 +181,8 @@
   (text-reset 1)
   ((cmd 197) 0 15)
   ((cmd 197) 1 15)
-  (str "Cooger: Cole, I know the serum's burdened you with countless" 'br)
-  (str "troubles, and you've lost so much.")
+  (str "Cooger: Cole, I know the serum's burdened you with" 'br)
+  (str "countless troubles, and you've lost so much.")
   (wait)
   (text-reset 1)
   ((cmd 196) 0 0)
@@ -239,7 +242,7 @@
   ((cmd 196) 1 0)
   ((cmd 197) 0 0)
   ((cmd 197) 1 0)
-  (str "Cole: Doc... Thank you, doc...")
+  (str "Cole: Doc... Thank you, Doc...")
   (wait)
   (text-reset 1)
   ((cmd 197) 0 15)

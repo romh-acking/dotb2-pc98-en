@@ -1,15 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 094.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; Cole steps in the Perain hallways for the last time, now ravaged by the zombies beyond recognition.
+; --Progression:--
+; Go to Steve's Room.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB070.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 46 5 51 15)
-  (exec-mem 3744 1 6 20 7 23 13)
-  (exec-mem 3744 1 7 37 7 40 13)
-  (exec-mem 3744 1 8 9 5 14 15)
-  (exec-mem 3744 1 9 27 8 32 12)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 46 5 51 15)						; 	Cole's Room		(Far Right)
+  (exec-mem 3744 1 6 20 7 23 13)						; 	Sheila's Room		(Second from Left)
+  (exec-mem 3744 1 7 37 7 40 13)						; 	Catherine's Room	(Second from Right)
+  (exec-mem 3744 1 8 9 5 14 15)							; 	Steve's Room		(Far Left)	
+  (exec-mem 3744 1 9 27 8 32 12)						; 	Lab			(Middle)
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB070.GPC")
   (image-mem 0 3)
@@ -23,7 +30,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 192 #f))
+        (? (= 192 #f))								; Lead-in from previous MES file
         (str "Cole: Shit! There's blood everywhere!")
         (wait)
         (text-reset 1)
@@ -40,12 +47,12 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: While we were gone, someone sent zombies to overrun" 'br)
+        (str "Cole: While we were gone, someone sent zombies to overrun" 'br)	; Lead-in from loading game
         (str "the institute...")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
- (seg (? (= P 5) (= 193 #f))
+ (seg (? (= P 5) (= 193 #f))							; Cole's Room #1
    (str "Cole: Let me check my room.")
    (wait)
    (text-reset 1)
@@ -67,12 +74,12 @@
    (image-file "B:¥GPC¥DB155.GPC")
    (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Cole's Room #2 (repeat line)
    (str "Cole: It looks like zombies didn't get into my room. Let's" 'br)
    (str "try another.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 194 #f))
+ (seg (? (= P 6) (= 194 #f))							; Sheila's Room #1
    (str "Cole: Is Sheila okay?")
    (wait)
    (text-reset 1)
@@ -95,12 +102,12 @@
    (image-file "B:¥GPC¥DB155.GPC")
    (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Sheila's Room #2 (repeat line)
    (str "Cole: There wasn't anyone in Sheila's room. I just hope" 'br)
    (str "she's okay...")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 195 #f))
+ (seg (? (= P 7) (= 195 #f))							; Catherine's Room #1
    (str "Cole: Let's go to Catherine's room.")
    (wait)
    (text-reset 1)
@@ -122,12 +129,12 @@
    (image-file "B:¥GPC¥DB155.GPC")
    (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; Catherine's Room #2 (repeat line)
    (str "Cole: No signs of intrusion here. I should check another" 'br)
    (str "room.")
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Steve's Room
    (str "Cole: Huh? Steve's room has been locked all along... Let's" 'br)
    (str "check it out regardless.")
    (wait)
@@ -200,8 +207,8 @@
    (wait)
    (text-reset 1)
    (str "Cole: Doc never meant for the reanimation serum to do" 'br)
-   (str "this... He made it so just one person suffering from cancer," 'br)
-   (str "or facing a death sentence from AIDS, could be saved...")
+   (str "this... He made it to save that one person suffering from" 'br)
+   (str "cancer, or facing a death sentence from AIDS...")
    (wait)
    (text-reset 1)
    (str "Cole: !!")
@@ -231,14 +238,17 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥095.MES"))
- (seg (? (= P 9) (= 196 #f))
-   (str "Cole: Steve said he'd check the lab, so I'll check the other" 'br)
-   (str "rooms for now.")
+ (seg (? (= P 9) (= 196 #f))							; Lab #1
+   (str "Cole: Steve said he'd check the lab, so I'll check the" 'br)
+   (str "other rooms for now.")
    (set-reg 196 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 9)) (str "Cole: It's best to leave the lab to Steve.") (wait) (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 9))								; Lab #2 (repeat line)
+   (str "Cole: It's best to leave the lab to Steve.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

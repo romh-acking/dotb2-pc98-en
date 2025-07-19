@@ -1,3 +1,6 @@
+; Dead of the Brain 2 (PC-98) - 096A.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -158,8 +161,8 @@
   ((cmd 196) 1 0)
   ((cmd 197) 0 0)
   ((cmd 197) 1 0)
-  (str "Steve: I'm sorry. I never intended for you to suffer because" 'br)
-  (str "of my brother.")
+  (str "Steve: I'm sorry. I never intended for you to suffer" 'br)
+  (str "because of my brother.")
   (wait)
   (text-reset 1)
   (str "Cooger: No, I deserved everything that happened to me. You" 'br)

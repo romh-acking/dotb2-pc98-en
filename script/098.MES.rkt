@@ -1,16 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 098.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; Cole returns to the cemetery where it all started.
+; --Progression:--
+; Inspect everything, then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB165.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 4 6 23 10)
-  (exec-mem 3744 1 6 23 6 38 12)
-  (exec-mem 3744 1 7 46 5 56 7)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 4 6 23 10)							; 	Wall
+  (exec-mem 3744 1 6 23 6 38 12)						; 	Gate
+  (exec-mem 3744 1 7 46 5 56 7)							; 	Sky
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB165.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB165.GPC") (image-mem 0 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (sound '|| 0)
   (if (</>
@@ -19,57 +25,63 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 108 #f))
+        (? (= 108 #f))								; Lead-in from previous MES file	
         (str "Cole: This is the cemetery... Two years ago, Doc and I were" 'br)
         (str "running through here while getting chased by a cop named" 'br)
         (str "Jack...")
         (set-reg 108 #t)
         (wait)
         (text-reset 1))
-       (// (str "Cole: This cemetery is located right behind Doc's house.") (wait) (text-reset 1))))
+       (//
+        (str "Cole: This cemetery is located right behind Doc's house.")	; Lead-in from loading game
+        (wait)
+        (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
- (seg (? (= P 5) (= 109 #f))
+ (seg (? (= P 5) (= 109 #f))							; Wall #1
    (str "Cole: Tall brick walls enclose the cemetery. Even if you" 'br)
-   (str "managed to run away from an undead horde, scaling the wall's" 'br)
-   (str "impossible. The gate's the only way in and out.")
+   (str "managed to run away from an undead horde, scaling the" 'br)
+   (str "wall's impossible. The gate's the only way in and out.")
    (set-reg 109 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 110 #f))
+ (seg (? (= P 5) (= 110 #f))							; Wall #2
    (str "Cole: Being here reminds me of the incident from two years" 'br)
    (str "ago... If only I could go back and not make the same" 'br)
    (str "mistakes.")
    (set-reg 110 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Wall #3 (repeat line)
    (str "Cole: The brick walls are spraypainted with graffiti." 'br)
    (str "Nothing's changed from before.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 111 #f))
+ (seg (? (= P 6) (= 111 #f))							; Gate #1
    (str "Cole: The gate's unlocked. Anyone can just stroll in.")
    (set-reg 111 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 112 #f))
+ (seg (? (= P 6) (= 112 #f))							; Gate #2
    (str "Cole: Aside from the front gate, there's a back entrance as" 'br)
    (str "well.")
    (set-reg 112 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Gate #3 (repeat line)
    (str "Cole: The gate's rusty from neglect.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 113 #f))
+ (seg (? (= P 7) (= 113 #f))							; Sky #1
    (str "Cole: The clouds are gathering... I'd better find the cure" 'br)
    (str "and get back to the lab before it starts raining.")
    (set-reg 113 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7)) (str "Cole: It's suddenly getting cold...") (wait) (text-reset 1))
- (seg (? (= P 1) (= 112 #t) (= 113 #t))
+ (seg (? (= P 7))								; Sky #2 (repeat line)
+   (str "Cole: It's suddenly getting cold...")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 1) (= 112 #t) (= 113 #t))						; MOVE (after inspecting everything)
    (exec-mem 6064 2 1)
    (str "Cole: Let's find the serum and get back before the rain" 'br)
    (str "hits.")
@@ -80,7 +92,7 @@
    (nop@)
    (set-reg 114 #t)
    (mes-jump "A:¥MES¥099.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25
