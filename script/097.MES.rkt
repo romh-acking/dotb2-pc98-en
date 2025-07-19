@@ -69,9 +69,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6))								; Lisle #3 (repeat line)
-   (str "Cole: Doctor Lisle once used this computer for his" 'br)		; (Line to be fixed)
-   (str "research. It's been battered so badly I doubt any data" 'br)
-   (str "remains.")
+   (str "Cole: Once we solve this case, I'll dig graves for Dr." 'br)
+   (str "Lisle and Catherine.")
    (wait)
    (text-reset 1))
  (seg (? (= P 7) (= 104 #f))							; Computer #1

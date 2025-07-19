@@ -136,7 +136,7 @@
         (str "Daniel: Another rat has come to infest my temple...")
         (wait)
         (text-reset 1)
-        (str "Steve: Cole! Stay back!")
+        (str "Steve: Cole, no!")
         (wait)
         (text-reset 1)
         (str "Daniel: I'll deal with you later. For now, just sit back" 'br)
