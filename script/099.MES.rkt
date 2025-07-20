@@ -1,13 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 099.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; -----Scene:-----
+; Looking for Doc's satchel inside the cemetery.
+; --Progression:--
+; 
+; ----Battle:-----
+; Run out the timer. (I know, right?)
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB166.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 40 7 56 11)
-  (exec-mem 3744 1 6 18 11 38 15)
-  (exec-mem 3744 1 7 28 7 34 8)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 40 7 56 11)						; 	
+  (exec-mem 3744 1 6 18 11 38 15)						; 	
+  (exec-mem 3744 1 7 28 7 34 8)							; 	
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB166.GPC")
   (image-mem 0 3)
@@ -22,20 +31,21 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (? (= 115 #f))
+        (? (= 115 #f))								; Lead-in from previous MES file
         (str "Cole: Cemeteries at night always give me the heebie-jeebies.")
         (set-reg 115 #t))
-       (// (str "Cole: I need to find the cure quickly."))))
+       (//
+        (str "Cole: I need to find the cure quickly."))))			; Lead-in from loading game
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
- (seg (? (= P 5) (= 116 #f))
+ (seg (? (= P 5) (= 116 #f))							; 
    (str "Cole: There are so many tombstones lining the side of the" 'br)
    (str "path. It feels like they're watching me... Brrrr.")
    (set-reg 116 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 117 #f))
+ (seg (? (= P 5) (= 117 #f))							; 
    (str "Cole: It's been two years since the town fell to the" 'br)
    (str "undead. I can't imagine there are any zombies left.")
    (wait)
@@ -45,56 +55,56 @@
    (set-reg 117 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
-   (str "Cole: On this tombstone, the name ")
+ (seg (? (= P 5))								; 
+   (str "Cole: On this tombstone, the name")
    (branch-random
     (</>
-     (/ (str "'Stella Treshil'"))
-     (/ (str "'Seed Relics'"))
-     (/ (str "'Merini Nanets'"))
-     (/ (str "'Robert Gibson'"))
-     (/ (str "'Jonathan Long'"))))
-   (str " " 'br)
-   (str "is enscribed.")
+     (/ (str "“Stella Treshil”"))
+     (/ (str "“Seed Relics”"))
+     (/ (str "“Melini Nannette”"))
+     (/ (str "“Robert Gibson”"))
+     (/ (str "“Jonathan Long”"))))
+   (str "is" 'br)
+   (str "enscribed.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 118 #f))
+ (seg (? (= P 6) (= 118 #f))							; 
    (str "Cole: This path just goes on and on... I remember this from" 'br)
    (str "back when we were on the run from Jack.")
    (set-reg 118 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 119 #f))
+ (seg (? (= P 6) (= 119 #f))							; 
    (str "Cole: Even though it's cloudy, the moon's still out, so I" 'br)
    (str "can see the path.")
    (set-reg 119 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 120 #f))
+ (seg (? (= P 6) (= 120 #f))							; 
    (str "Cole: I just hope the cure Doc mentioned still exists after" 'br)
    (str "two years...")
    (set-reg 120 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 121 #f))
+ (seg (? (= P 6) (= 121 #f))							; 
    (str "Cole: I'm getting tired from walking so much. But back when" 'br)
    (str "Jack was after us, we were running for our lives.")
    (set-reg 121 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
-   (str "Cole: *Pant pant* Even if I manage to grab the serum," 'br)
+ (seg (? (= P 6))								; 
+   (str "Cole: Pant, pant... Even if I manage to grab the serum," 'br)
    (str "retracing my steps is going to be a challenge. I came by" 'br)
    (str "car, so I'll need to walk back to the gate.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 122 #f))
+ (seg (? (= P 7) (= 122 #f))							; 
    (str "Cole: The path stretches far into the horizon... Hard to" 'br)
    (str "see what's up ahead.")
    (set-reg 122 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 123 #f))
+ (seg (? (= P 7) (= 123 #f))							; 
    (str "Cole: Doc tripped and fell a bit further on... Now that I" 'br)
    (str "think about it, we escaped through the back exit and headed" 'br)
    (str "to my apartment.")
@@ -105,11 +115,11 @@
    (set-reg 123 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; 
    (str "Cole: The spot where Doc tripped was a bit further ahead...")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 117 #t) (= 121 #t) (= 123 #t) (= 126 #t))
+ (seg (? (= P 1) (= 117 #t) (= 121 #t) (= 123 #t) (= 126 #t))			; 
    (exec-mem 6064 2 1)
    (str "Cole: Wait, what's that ahead...")
    (wait)
@@ -140,9 +150,9 @@
    (str "Cole: Shit! Zombie!")
    (wait)
    (text-reset 1)
-   (str "Zombie: GUUUUUU…")
+   (str "Zombie: ")(text "ＧＵＵＵＵＵＵ")(str ". . .")
    (wait)
-   (text-reset 1)
+   (text-reset 1)								; Battle starts here...
    (image-file "A:¥GPC¥COUNTER.GPC")
    (image-mem 0 0)
    (load-mem "A:¥CLM¥DB167.CLM" 32768)
@@ -161,28 +171,23 @@
    (image-mem 0 0)
    (if (</>
         (//
-         (? (= Z 2) (= P 5))
+         (? (= Z 2) (= P 5))							; Shooting the head
          ((cmd 196) 0 0)
-         ((cmd 196) 0 1)
-         (delay 2 0)
+         ((cmd 196) 0 1) (delay 2 0)
          (sound '|se | 13)
-         ((cmd 196) 0 2)
-         (delay 2 0)
-         ((cmd 196) 0 3)
-         (delay 8 0)
-         ((cmd 196) 0 4)
-         (delay 4 0)
-         ((cmd 196) 0 5)
-         (delay 8 0)
+         ((cmd 196) 0 2) (delay 2 0)
+         ((cmd 196) 0 3) (delay 8 0)
+         ((cmd 196) 0 4) (delay 4 0)
+         ((cmd 196) 0 5) (delay 8 0)
          ((cmd 196) 0 6)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-         (str "Zombie: GAAAAAAA!!!")
+         (str "Zombie: ")(text "ＧＡＡＡＡＡＡＡ！！！")
          (wait)
          (text-reset 1)
          (str "Cole: What the hell... Is this guy immortal?")
          (wait)
          (text-reset 1)
-         (str "Zombie: GUAAAAAAA!!!")
+         (str "Zombie: ")(text "ＧＵＡＡＡＡＡＡ！！！")
          (wait)
          (text-reset 1)
          (str "Cole: Agh! AAAAAAAAAGH!")
@@ -191,7 +196,7 @@
          (sound '|| 0)
          (sound '|se | 10)
          (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
-         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
+         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
          (text-reset 1)
          (branch-var
           S
@@ -207,15 +212,15 @@
             (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
             (loop (wait))))))
         (//
-         (? (= Z 2))
+         (? (= Z 2))								; Clicking anything else
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-         (str "Zombie: GAAAAAAA!!!")
+         (str "Zombie: ")(text "ＧＡＡＡＡＡＡＡ！！！")
          (wait)
          (text-reset 1)
          (str "Cole: Shit, I missed!")
          (wait)
          (text-reset 1)
-         (str "Zombie: GUAAAAAAA!!!")
+         (str "Zombie: ")(text "ＧＵＡＡＡＡＡＡ！！！")
          (wait)
          (text-reset 1)
          (str "Cole: Agh! AAAAAAAAAGH!")
@@ -224,7 +229,7 @@
          (sound '|| 0)
          (sound '|se | 10)
          (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
-         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
+         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
          (text-reset 1)
          (branch-var
           S
@@ -240,31 +245,32 @@
             (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
             (loop (wait))))))
         (//
-         (str "Cole: Hold on a second. This isn't right...")
+         (str "Cole: Hold on a second. This isn't right...")			; Running out the timer
          (wait)
          (text-reset 1)
-         (str "Zombie: GUUUUUU…")
+         (str "Zombie: ")(text "ＧＵＵＵＵＵＵ")(str ". . .   . . .   . .")
          (wait)
          (text-reset 1)
          (str "Cole: Huh?")
          (wait)
          (text-reset 1)
          (sound '|| 2)
-         (str "Zombie: ...")
+         (str "Zombie: . . .")
          (wait)
          (text-reset 1)
          (str "Cole: What is it with this guy...")
          (wait)
          (text-reset 1)
          (sound '|| 0)
-         (str "Cole: It isn't aggressive. It isn't attacking me at all...  What's the deal?")
+         (str "Cole: It isn't aggressive. It isn't attacking me at all..." 'br)
+         (str "What's the deal?")
          (wait)
          (text-reset 1)
          (str "Cole: Has it noticed me? Even if it can't see, it should be" 'br)
          (str "able to sense where a human is...")
          (wait)
          (text-reset 1)
-         (str "Zombie: GUUUUUU…")
+         (str "Zombie: ")(text "ＧＵＵＵ")(str ". . .   . .")
          (wait)
          (text-reset 1)
          (str "Cole: ...To keep this thing from hurting anyone else, I'd" 'br)
@@ -272,17 +278,12 @@
          (wait)
          (text-reset 1)
          ((cmd 196) 0 0)
-         ((cmd 196) 0 1)
-         (delay 2 0)
+         ((cmd 196) 0 1) (delay 2 0)
          (sound '|se | 13)
-         ((cmd 196) 0 2)
-         (delay 2 0)
-         ((cmd 196) 0 3)
-         (delay 8 0)
-         ((cmd 196) 0 4)
-         (delay 4 0)
-         ((cmd 196) 0 5)
-         (delay 8 0)
+         ((cmd 196) 0 2) (delay 2 0)
+         ((cmd 196) 0 3) (delay 8 0)
+         ((cmd 196) 0 4) (delay 4 0)
+         ((cmd 196) 0 5) (delay 8 0)
          ((cmd 196) 0 6)
          (str "Cole: All right, I can't afford to sit around. I need to" 'br)
          (str "find the cure fast.")
@@ -290,35 +291,35 @@
          (text-reset 1)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
          (mes-jump "A:¥MES¥100.MES")))))
- (seg (? (= P 1) (= 124 #f))
+ (seg (? (= P 1) (= 124 #f))							; 
    (exec-mem 6064 2 1)
    (str "Cole: *Pant pant*")
    (set-reg 124 #t)
    (wait)
    (text-reset 1)
    (exec-mem 6064 3))
- (seg (? (= P 1) (= 125 #f))
+ (seg (? (= P 1) (= 125 #f))							; 
    (exec-mem 6064 2 1)
    (str "Cole: I've been walking forever, and I'm still not there...")
    (set-reg 125 #t)
    (wait)
    (text-reset 1)
    (exec-mem 6064 3))
- (seg (? (= P 1) (= 126 #f))
+ (seg (? (= P 1) (= 126 #f))							; 
    (exec-mem 6064 2 1)
    (if (</> (// (? (= X 4)) (nop@) (set-reg 126 #t))))
-   (str "Cole: *Pant pant*")
+   (str "Cole: Pant, pant...")
    (inc-var X 1)
    (wait)
    (text-reset 1)
    (exec-mem 6064 3))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; 
    (exec-mem 6064 2 1)
-   (str "Cole: *Pant pant*")
+   (str "Cole: Pant, pant...")
    (wait)
    (text-reset 1)
    (exec-mem 6064 3))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

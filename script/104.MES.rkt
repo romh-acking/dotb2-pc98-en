@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 104.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; -----Scene:-----
+; It's the endgame, as Steve and Cole make it to the Lasnew Building.
+; --Progression:--
+; MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB180.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 18 3 33 8)
-  (exec-mem 3744 1 6 21 10 30 11)
-  (exec-mem 3744 1 7 46 3 56 7)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 18 3 33 8)							; 	
+  (exec-mem 3744 1 6 21 10 30 11)						; 	
+  (exec-mem 3744 1 7 46 3 56 7)							; 	
   (exec-mem 17408 0 0 53798 57344 53800 61439 53798 57344)
   (exec-mem 17408 1 0 "P0 P1 T300 P2 P3 T4 P4 P5")
   (exec-mem 9920 0 6 6 113 64 0)
@@ -18,7 +25,7 @@
   (sound '|se | 9)
   (if (</>
        (//
-        (? (= 100 #f))
+        (? (= 100 #f))								; Lead-in from previous MES file
         (str "Steve: The rain sure is coming down.")
         (wait)
         (text-reset 1)
@@ -31,26 +38,20 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Cole: So Jill is in there.")
+        (str "Cole: So Jill is in there.")					; Lead-in from loading game
         (wait)
         (text-reset 1)
         (str "Steve: Yeah. Let's settle the score as quickly as we can.")
         (wait)
         (text-reset 1))))
-  (loop
-   (exec-mem 17408 2)
-   (exec-mem 3744 3 "P" 32768)
-   (text-color 15)
-   (text-reset 1)
-   (exec-mem 17408 3)
-   (seg-call)))
- (seg (? (= P 5) (= 101 #f))
+  (loop (exec-mem 17408 2) (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (exec-mem 17408 3) (seg-call)))
+ (seg (? (= P 5) (= 101 #f))							; 
    (str "Cole: This building's in rough shape. I can't believe this" 'br)
    (str "is Bloody Fox's HQ.")
    (set-reg 101 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 102 #f))
+ (seg (? (= P 5) (= 102 #f))							; 
    (str "Steve: I heard the building's owner is Japanese. He was" 'br)
    (str "taking his sweet time trying to sell it, then Bloody Fox" 'br)
    (str "just swept in and claimed it for themselves.")
@@ -60,7 +61,7 @@
    (str "Cole: Poor guy.")
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 103 #f))
+ (seg (? (= P 5) (= 103 #f))							; 
    (str "Cole: In any case, we're gonna have to get inside.")
    (wait)
    (text-reset 1)
@@ -71,31 +72,34 @@
    (set-reg 103 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5)) (str "Steve: We're ready, so we can bust in at any time.") (wait) (text-reset 1))
- (seg (? (= P 6) (= 104 #f))
-   (str "Cole: That's the entrance to the building, but it sure looks" 'br)
-   (str "like it's falling apart.")
+ (seg (? (= P 5))								; 
+   (str "Steve: We're ready, so we can bust in at any time.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6) (= 104 #f))							; 
+   (str "Cole: That's the entrance to the building, but it sure" 'br)
+   (str "looks like it's falling apart.")
    (set-reg 104 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 105 #f))
+ (seg (? (= P 6) (= 105 #f))							; 
    (str "Cole: Nobody's coming or going...")
    (set-reg 105 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; 
    (str "Cole: Is the front the only entrance?")
    (wait)
    (text-reset 1)
-   (str "Steve: Probably.. If there are Bloody Fox members inside, we" 'br)
-   (str "won't be able to get out unless we take them all down.")
+   (str "Steve: Probably.. If there are Bloody Fox members inside," 'br)
+   (str "we won't be able to get out unless we take them all down.")
    (wait)
    (text-reset 1)
    (str "Cole: Those guys have a strong sense of camaraderie, don't" 'br)
    (str "they.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 106 #f))
+ (seg (? (= P 7) (= 106 #f))							; 
    (str "Cole: Hell of a storm...")
    (wait)
    (text-reset 1)
@@ -103,12 +107,12 @@
    (set-reg 106 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 107 #f))
+ (seg (? (= P 7) (= 107 #f))							; 
    (str "Steve: I had to be careful driving in the rain.")
    (set-reg 107 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; 
    (str "Cole: I see lightning... We shouldn't stay outside much" 'br)
    (str "longer.")
    (wait)
@@ -116,7 +120,7 @@
    (str "Steve: Agreed. Let's get inside quick.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Steve: Let's run to the entrance.")
    (wait)
@@ -129,7 +133,7 @@
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (exec-mem 17408 3)
    (mes-jump "A:¥MES¥105.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

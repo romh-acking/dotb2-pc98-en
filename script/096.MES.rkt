@@ -39,7 +39,7 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Steve: Thank god Sheila's safe.")
+        (str "Steve: Thank god Sheila's safe.")					; Lead-in from loading game
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
@@ -204,7 +204,7 @@
    (str "Steve: Jilganiron...!?")
    (wait)
    (text-reset 1)
-   (str "Cole: Steve, do you think that the 'Jil' in 'Jilganiron' is" 'br)
+   (str "Cole: Steve, do you think that the“Jil”in“Jilganiron”is" 'br)
    (str "the same person Daniel mentioned...the one who made the" 'br)
    (str "serum component?")
    (wait)

@@ -1,14 +1,21 @@
+; Dead of the Brain 2 (PC-98) - 102.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; -----Scene:-----
+; Cole finds Doc's satchel containing his reanimation serum research and cure.
+; --Progression:--
+; 
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB173.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 38 12 47 13)
-  (exec-mem 3744 1 6 17 8 31 12)
-  (exec-mem 3744 1 7 30 4 40 7)
-  (exec-mem 3744 1 8 4 7 12 10)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 38 12 47 13)						; 	
+  (exec-mem 3744 1 6 17 8 31 12)						; 	
+  (exec-mem 3744 1 7 30 4 40 7)							; 	
+  (exec-mem 3744 1 8 4 7 12 10)							; 	
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB173.GPC")
   (image-mem 0 3)
@@ -33,41 +40,44 @@
              (// (sound '|| "A:¥USO_D¥BR2_13.USO"))))
         (sound '|| 1))))
   (if (</>
-       (// (? (= 139 #f)) (str "Cole: There it is! I finally found the bag!") (set-reg 139 #t))
-       (// (str "Cole: This is definitely Doc's bag."))))
+       (// (? (= 139 #f))							; Lead-in from previous MES file
+        (str "Cole: There it is! I finally found the bag!")
+        (set-reg 139 #t))
+       (//
+        (str "Cole: This is definitely Doc's bag."))))				; Lead-in from loading game
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
- (seg (? (= P 5) (= 140 #f))
+ (seg (? (= P 5) (= 140 #f))							; 
    (str "Cole: Doc had tripped over something and dropped the bag" 'br)
    (str "here, and the impact broke the reanimation serum's flask.")
    (set-reg 140 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 141 #f))
+ (seg (? (= P 5) (= 141 #f))							; 
    (str "Cole: If nobody cleaned up the shards, then no one's been" 'br)
    (str "here for the last two years...")
    (set-reg 141 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
-   (str "Cole: This is a glass shard from the vial that contained the" 'br)
-   (str "reanimation serum.")
+ (seg (? (= P 5))								; 
+   (str "Cole: This is a glass shard from the vial that contained" 'br)
+   (str "the reanimation serum.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 142 #f))
+ (seg (? (= P 6) (= 142 #f))							; 
    (str "Cole: No doubt about it, that's Doc's bag. Amazing it's" 'br)
    (str "still here.")
    (set-reg 142 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 143 #f))
+ (seg (? (= P 6) (= 143 #f))							; 
    (str "Cole: The cure's supposed to be in that bag. But I hope the" 'br)
    (str "container wasn't broken...")
    (set-reg 143 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; 
    (str "Cole: Okay, no time to lose, let's check it out.")
    (wait)
    (text-reset 1)
@@ -91,12 +101,9 @@
    (exec-mem 9920 0 6 6 113 64 0)
    ((cmd 209) 1 5)
    (sound '|| 0)
-   (image-file "B:¥GPC¥DB070.GPC")
-   (image-mem 0 3)
-   (image-file "B:¥GPC¥DB155.GPC")
-   (image-mem 1 3)
-   (image-file "B:¥GPC¥DB071.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB070.GPC") (image-mem 0 3)
+   (image-file "B:¥GPC¥DB155.GPC") (image-mem 1 3)
+   (image-file "B:¥GPC¥DB071.GPC") (image-mem 1 3)
    (if (</>
         (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_08.USO"))
         (// (sound '|| "A:¥USO_D¥BR2_08.USO"))))
@@ -125,25 +132,25 @@
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥103.MES"))
- (seg (? (= P 7) (= 144 #f))
+ (seg (? (= P 7) (= 144 #f))							; 
    (str "Cole: The upkeep here's dismal. The graves are in a filthy" 'br)
    (str "state.")
    (set-reg 144 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 145 #f))
+ (seg (? (= P 7) (= 145 #f))							; 
    (str "Cole: The rear of a tombstone. The name must be carved on" 'br)
    (str "the other side.")
    (set-reg 145 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; 
    (str "Cole: If I remember correctly, when Doc and I were running" 'br)
    (str "away, the flask with the serum hit this tombstone and" 'br)
    (str "shattered...")
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 146 #f))
+ (seg (? (= P 8) (= 146 #f))							; 
    (str "Cole: Huh?")
    (wait)
    (text-reset 1)
@@ -154,7 +161,7 @@
    (set-reg 146 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8) (= 147 #f))
+ (seg (? (= P 8) (= 147 #f))							; 
    (str "Cole: Something's still moving!")
    (wait)
    (text-reset 1)
@@ -168,8 +175,11 @@
    (set-reg 147 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8)) (str "Cole: The cat left, so the bushes are still again.") (wait) (text-reset 1))
- (seg (? (= P 2))
+ (seg (? (= P 8))								; 
+   (str "Cole: The cat left, so the bushes are still again.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

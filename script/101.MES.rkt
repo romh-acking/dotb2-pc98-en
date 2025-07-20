@@ -1,13 +1,22 @@
+; Dead of the Brain 2 (PC-98) - 101.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; -----Scene:-----
+; 
+; --Progression:--
+; 
+; -----Quiz:------
+; Ghoul.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB166.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 40 7 56 11)
-  (exec-mem 3744 1 6 18 11 38 15)
-  (exec-mem 3744 1 7 28 7 34 8)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 40 7 56 11)						; 	
+  (exec-mem 3744 1 6 18 11 38 15)						; 	
+  (exec-mem 3744 1 7 28 7 34 8)							; 	
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB166.GPC")
   (image-mem 0 3)
@@ -30,44 +39,45 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 128 #f))
-        (str "Cole: I doubled back onto the same path as before, but where" 'br)
-        (str "did I take a wrong turn...?")
+        (? (= 128 #f))								; Lead-in from previous MES file
+        (str "Cole: I doubled back onto the same path as before, but" 'br)
+        (str "where did I take a wrong turn...?")
         (set-reg 128 #t))
-       (// (str "Cole: I need to find the DMV cure quickly. Sheila might not" 'br)
-           (str "be able to hold out for much longer."))))
+       (//
+        (str "Cole: I need to find the DNV cure quickly. Sheila might not" 'br)	; Lead-in from loading game
+        (str "be able to hold out for much longer."))))
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
- (seg (? (= P 5) (= 129 #f))
+ (seg (? (= P 5) (= 129 #f))							; 
    (str "Cole: Maybe the cliff is past that grave...")
    (set-reg 129 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; 
    (str "Cole: And there could be more zombies lurking, so I need to" 'br)
    (str "stay alert.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 130 #f))
+ (seg (? (= P 6) (= 130 #f))							; 
    (str "Cole: This is the same path as before... Weird... Where'd I" 'br)
    (str "get off track?")
    (set-reg 130 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 131 #f))
+ (seg (? (= P 6) (= 131 #f))							; 
    (str "Cole: Wait, those footprints don't match mine... I didn't" 'br)
    (str "see them until just now.")
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 132 #f))
+ (seg (? (= P 6) (= 132 #f))							; 
    (str "Cole: Hold up... Those footprints... They don't look like a" 'br)
    (str "human made them.")
    (set-reg 132 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 133 #f))
+ (seg (? (= P 6) (= 133 #f))							; 
    (str "Cole: Let's keep following the footprints...")
    (wait)
    (text-reset 1)
@@ -86,7 +96,7 @@
    (set-reg 133 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 134 #f))
+ (seg (? (= P 6) (= 134 #f))							; 
    (str "Cole: No way. The person who made those footprints was... ")
    (wait)
    (text-reset 1)
@@ -97,11 +107,11 @@
     317
     51
     317
-    (</> (/ (str "Steve")) (/ (str "Jill")) (/ (str "Ghoul"))))
+    (</> (/ (str " Steve    ")) (/ (str " Jill     ")) (/ (str " Ghoul    "))))
    (text-reset 1)
    (str "Cole: ")
    (branch-var S (</> (/ (str "Steve")) (/ (str "Jill")) (/ (str "Ghoul"))))
-   (str "?! Right?")
+   (str "! Right?")
    (wait)
    (text-reset 1)
    (branch-var
@@ -123,9 +133,9 @@
       (wait)
       (text-reset 1))
      (/
-      (str "Cole: No, that's impossible. Richard Gris...Ghoul...is dead." 'br)
-      (str "I saw him explode right in front of me. Steve even has a" 'br)
-      (str "part of his head.")
+      (str "Cole: No, that's impossible. Richard Gris...Ghoul...is" 'br)
+      (str "dead. I saw him explode right in front of me. Steve even" 'br)
+      (str "has a part of his head.")
       (wait)
       (text-reset 1)
       (str "Cole: Besides, there's no way an android killing machine" 'br)
@@ -135,12 +145,12 @@
       (str "Cole: Then what the hell made these footprints...?")
       (wait)
       (text-reset 1)
-      (str "Cole: Could it be that there's other androids like Ghoul out" 'br)
-      (str "there?")
+      (str "Cole: Could it be that there's other androids like Ghoul" 'br)
+      (str "out there?")
       (set-reg 134 #t)
       (wait)
       (text-reset 1)))))
- (seg (? (= P 6) (= 135 #f))
+ (seg (? (= P 6) (= 135 #f))							; 
    (str "Cole: If those footprints are from an android like Ghoul..." 'br)
    (str "Could it mean this one is an ally?")
    (wait)
@@ -150,27 +160,27 @@
    (set-reg 135 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; 
    (str "Cole: I can see an android's footprints in the soil.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 136 #f))
+ (seg (? (= P 7) (= 136 #f))							; 
    (str "Cole: If the path ahead ends at a cliff... Maybe there's" 'br)
    (str "another route.")
    (set-reg 136 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 137 #f))
-   (str "Cole: I know it's not this way, but there doesn't seem to be" 'br)
-   (str "another path around here.")
+ (seg (? (= P 7) (= 137 #f))							; 
+   (str "Cole: I know it's not this way, but there doesn't seem to" 'br)
+   (str "be another path around here.")
    (set-reg 137 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))
+ (seg (? (= P 7))								; 
    (str "Cole: I remember running down this path two years ago...")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 137 #t) (= 135 #t))
+ (seg (? (= P 1) (= 137 #t) (= 135 #t))						; 
    (exec-mem 6064 2 1)
    (str "Cole: I need to find the cure and let Steve know what's" 'br)
    (str "happening.")
@@ -183,8 +193,8 @@
    (str "all...")
    (wait)
    (text-reset 1)
-   (str "Cole: I've got to double back and try again. I can't go back" 'br)
-   (str "to the lab empty-handed.")
+   (str "Cole: I've got to double back and try again. I can't go" 'br)
+   (str "back to the lab empty-handed.")
    (wait)
    (text-reset 1)
    (str "Cole: Oh!")
@@ -193,14 +203,14 @@
    (nop@)
    (set-reg 138 #t)
    (mes-jump "A:¥MES¥102.MES"))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; 
    (exec-mem 6064 2 1)
    (str "Cole: If I keep going this way I'll reach the same cliff" 'br)
    (str "again. I'd better look around before moving on.")
    (wait)
    (text-reset 1)
    (exec-mem 6064 3))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
     25

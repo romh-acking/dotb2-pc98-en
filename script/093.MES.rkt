@@ -500,7 +500,7 @@
                337
                48
                337
-               (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
+               (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
               (text-reset 1)
               (branch-var
                S
