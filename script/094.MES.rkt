@@ -18,10 +18,8 @@
   (exec-mem 3744 1 8 9 5 14 15)							; 	Steve's Room		(Far Left)	
   (exec-mem 3744 1 9 27 8 32 12)						; 	Lab			(Middle)
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB070.GPC")
-  (image-mem 0 3)
-  (image-file "B:¥GPC¥DB155.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB070.GPC") (image-mem 0 3)
+  (image-file "B:¥GPC¥DB155.GPC") (image-mem 1 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (sound '|| 0)
   (if (</>
@@ -57,8 +55,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB101.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB101.GPC") (image-mem 0 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (str "Cole: This room wasn't locked, but nobody was inside, so" 'br)
    (str "the zombies didn't go in.")
@@ -69,10 +66,8 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB070.GPC")
-   (image-mem 0 3)
-   (image-file "B:¥GPC¥DB155.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB070.GPC") (image-mem 0 3)
+   (image-file "B:¥GPC¥DB155.GPC") (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50))
  (seg (? (= P 5))								; Cole's Room #2 (repeat line)
    (str "Cole: It looks like zombies didn't get into my room. Let's" 'br)
@@ -84,8 +79,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB072.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB072.GPC") (image-mem 0 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (str "Cole: Nobody here. And the zombies didn't go into empty" 'br)
    (str "rooms, so if everything's in order, then Sheila wasn't" 'br)
@@ -97,10 +91,8 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB070.GPC")
-   (image-mem 0 3)
-   (image-file "B:¥GPC¥DB155.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB070.GPC") (image-mem 0 3)
+   (image-file "B:¥GPC¥DB155.GPC") (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50))
  (seg (? (= P 6))								; Sheila's Room #2 (repeat line)
    (str "Cole: There wasn't anyone in Sheila's room. I just hope" 'br)
@@ -112,8 +104,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB108.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB108.GPC") (image-mem 0 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (str "Cole: This is odd... It's completely empty.")
    (wait)
@@ -124,10 +115,8 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB070.GPC")
-   (image-mem 0 3)
-   (image-file "B:¥GPC¥DB155.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB070.GPC") (image-mem 0 3)
+   (image-file "B:¥GPC¥DB155.GPC") (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50))
  (seg (? (= P 7))								; Catherine's Room #2 (repeat line)
    (str "Cole: No signs of intrusion here. I should check another" 'br)
@@ -140,8 +129,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB156.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB156.GPC") (image-mem 0 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (sound '|se | 3)
    (str "Cole: Cathy...")
@@ -252,12 +240,7 @@
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -267,24 +250,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -315,24 +282,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

@@ -15,18 +15,14 @@
   (exec-mem 3744 1 7 4 10 23 15)						; 	Bed
   (exec-mem 3744 1 8 15 2 27 9)							; 	Curtains
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB072.GPC")
-  (image-mem 0 3)
-  (image-file "B:¥GPC¥DB073.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB072.GPC") (image-mem 0 3)
+  (image-file "B:¥GPC¥DB073.GPC") (image-mem 1 3)
   (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
   (exec-mem 912 "C 0 2 23 40 238 1 2 23")
   (exec-mem 912 "C 0 40 23 18 238 1 40 23")
   (exec-mem 912 "A 1")
-  (image-file "B:¥GPC¥DB072.GPC")
-  (image-mem 0 3)
-  (image-file "B:¥GPC¥DB128.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB072.GPC") (image-mem 0 3)
+  (image-file "B:¥GPC¥DB128.GPC") (image-mem 1 3)
   (exec-mem 912 "GET 0 2 23 54 238")
   (exec-mem 912 "A 0,S 0")
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
@@ -114,8 +110,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB121.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB121.GPC") (image-mem 0 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (str "Cole: There's no mistaking it... That's exactly the same" 'br)
    (str "skin blemishes that were on the chest of that woman zombie" 'br)
@@ -123,10 +118,8 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB072.GPC")
-   (image-mem 0 3)
-   (image-file "B:¥GPC¥DB073.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB072.GPC") (image-mem 0 3)
+   (image-file "B:¥GPC¥DB073.GPC") (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (str "Sheila: I noticed this the day after I got the injection. I" 'br)
    (str "went to the hospital, but since Purple Sky is a brand-new" 'br)
@@ -257,12 +250,7 @@
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -272,24 +260,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -320,24 +292,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

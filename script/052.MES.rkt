@@ -20,10 +20,8 @@
   (exec-mem 3744 1 7 43 6 56 12)						; 	Entrance
   (exec-mem 3744 1 8 10 7 19 12)						; 	Stairs
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB083.GPC")
-  (image-mem 0 3)
-  (image-file "B:¥GPC¥DB084.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB083.GPC") (image-mem 0 3)
+  (image-file "B:¥GPC¥DB084.GPC") (image-mem 1 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (if (</>
        (//
@@ -156,10 +154,8 @@
    (text-reset 1)
    (exec-mem 6064 3)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB083.GPC")
-   (image-mem 0 3)
-   (image-file "B:¥GPC¥DB085.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB083.GPC") (image-mem 0 3)
+   (image-file "B:¥GPC¥DB085.GPC") (image-mem 1 3)
    ((cmd 193) 0 "B:¥GPA¥DB085A.GPA")
    ((cmd 193) 1 "B:¥GPA¥DB085B.GPA")
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
@@ -177,8 +173,7 @@
    (str "Zombies: ")(text "ＧＡＡＡＡＡＵＵＵＵＵ！！！")				; 	I (trentsignia) have decided to retain the full-width, because I think it adds texture to the script
    (wait)
    (text-reset 1)
-   (image-file "A:¥GPC¥COUNTER.GPC")						; Battle begins here...
-   (image-mem 0 0)
+   (image-file "A:¥GPC¥COUNTER.GPC")						; Battle begins here... (image-mem 0 0)
    (load-mem "A:¥CLM¥DB085.CLM" 32768)
    (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)			; Zombie hotspots defined here
    (exec-mem 3744 1 5 11 4 14 6)
@@ -245,8 +240,7 @@
          (nop@)
          (set-var P 1))))
    (exec-mem 912 "EXIT")
-   (image-file "A:¥GPC¥DB_FRM3.GPC")
-   (image-mem 0 0)
+   (image-file "A:¥GPC¥DB_FRM3.GPC") (image-mem 0 0)
    (if (</>
         (//
          (? (= P 1))								; Success
@@ -287,8 +281,7 @@
             (text "　　　　　　ＤＥＡＤ　ＯＦ　ＴＨＥ　ＢＲＡＩＮⅡ" 'br)
             (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
             (loop (wait))))))))
-   (image-file "A:¥GPC¥COUNTER.GPC")
-   (image-mem 0 0)
+   (image-file "A:¥GPC¥COUNTER.GPC") (image-mem 0 0)
    (load-mem "A:¥CLM¥DB084.CLM" 32768)						; Hotspots reset to the same four while exploring, more or less
    (exec-mem 3744 1 5 80 0 0 0)
    (exec-mem 3744 1 6 4 6 9 13)
@@ -302,8 +295,7 @@
    (exec-mem 15728 3)
    (exec-mem 3744 3 "P" 32768)
    (exec-mem 15728 4)
-   (image-file "A:¥GPC¥DB_FRM3.GPC")
-   (image-mem 0 0)
+   (image-file "A:¥GPC¥DB_FRM3.GPC") (image-mem 0 0)
    (if (</>
         (//
          (? (= Z 2) (= P 8))							; Success
@@ -346,12 +338,7 @@
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -361,24 +348,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -409,24 +380,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

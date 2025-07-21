@@ -48,7 +48,8 @@
   (text-reset 1)								; First quiz
   (exec-mem 912 "PUT 1 54 38,W 0,O 1")
   (exec-mem 912 "EXIT")
-  (menu1  27 317  39 317  51 317
+  (menu1
+   27 317  39 317  51 317
    (</> (/ (str "Examine it")) (/ (str " Punch it ")) (/ (str " Kick it  "))))
   (text-reset 1)
   (branch-var
@@ -68,7 +69,8 @@
   (str "going off this cliff!")
   (wait)
   (text-reset 1)								; Second quiz
-  (menu1  27 317  39 317  51 317
+  (menu1
+   27 317  39 317  51 317
    (</> (/ (str " Grab gun ")) (/ (str "Gouge eyes")) (/ (str "Push away ")) (/)))
   (text-reset 1)
   (branch-var
@@ -159,14 +161,11 @@
          (wait)
          (text-reset 1)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-         (image-file "B:¥GPC¥DB168.GPC")
-         (image-mem 0 3)
-         (image-file "B:¥GPC¥DB168B.GPC")
-         (image-mem 1 0)
+         (image-file "B:¥GPC¥DB168.GPC") (image-mem 0 3)
+         (image-file "B:¥GPC¥DB168B.GPC") (image-mem 1 0)
          (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
          (exec-mem 912 "A 1,S 0")
-         (image-file "B:¥GPC¥DB168D.GPC")
-         (image-mem 0 3)
+         (image-file "B:¥GPC¥DB168D.GPC") (image-mem 0 3)
          (exec-mem 912 "A 0,S 0")
          (exec-mem 912 "EXIT")
          (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
@@ -194,8 +193,7 @@
         (//
          (? (= Z 1) (= 127 #f))							; Failure
          (exec-mem 15728 4)
-         (image-file "A:¥GPC¥DB_FRM3.GPC")
-         (image-mem 0 0)
+         (image-file "A:¥GPC¥DB_FRM3.GPC") (image-mem 0 0)
          (exec-mem 912 "EXIT")
          (str "Cole: My best-laid plans... Fuck!!!")
          (wait)

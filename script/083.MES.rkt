@@ -8,8 +8,7 @@
  (seg*
   ((cmd 209) 0 5)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
-  (image-file "B:¥GPC¥DB139.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB139.GPC") (image-mem 0 3)
   ((cmd 209) 1 5)
   (sound '|| 0)
   (if (</>

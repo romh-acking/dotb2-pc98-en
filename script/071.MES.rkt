@@ -18,17 +18,14 @@
   (exec-mem 3744 1 6 27 10 31 13)						; 	Urinals
   (exec-mem 3744 1 7 43 5 56 13)						; 	Entrance
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB124.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB124.GPC") (image-mem 0 3)
   (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
   (exec-mem 912 "C 0 2 23 40 238 1 2 23")
   (exec-mem 912 "C 0 40 23 18 238 1 40 23")
   (exec-mem 912 "A 1")
-  (image-file "B:¥GPC¥DB125.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB125.GPC") (image-mem 1 3)
   (exec-mem 912 "GET 0 2 23 54 238")
-  (image-file "B:¥GPC¥DB126.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB126.GPC") (image-mem 1 3)
   (exec-mem 912 "GET 1 2 23 54 238")
   (exec-mem 912 "A 0,S 0")
   (exec-mem 15456 0)
@@ -83,8 +80,7 @@
    (str "Cole: Dammit! Is it hiding?")
    (wait)
    (text-reset 1)
-   (image-file "A:¥GPC¥COUNTER.GPC")
-   (image-mem 0 0)
+   (image-file "A:¥GPC¥COUNTER.GPC") (image-mem 0 0)
    (load-mem "A:¥CLM¥DB125.CLM" 32768)
    (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 3 2 0)
    (exec-mem 3744 1 1 80 0 0 0)
@@ -98,8 +94,7 @@
    (exec-mem 15728 3)
    (exec-mem 3744 3 "P" 32768)
    (exec-mem 15728 4)
-   (image-file "A:¥GPC¥DB_FRM3.GPC")
-   (image-mem 0 0)
+   (image-file "A:¥GPC¥DB_FRM3.GPC") (image-mem 0 0)
    (if (</>
         (//
          (? (= Z 2) (= P 6))							; Success
@@ -112,8 +107,7 @@
          (str "Cole: Huff, huff... Well, that was anticlimactic.")
          (wait)
          (text-reset 1)
-         (image-file "B:¥GPC¥DB127.GPC")
-         (image-mem 0 3)
+         (image-file "B:¥GPC¥DB127.GPC") (image-mem 0 3)
          ((cmd 193) 0 "B:¥GPA¥DB127.GPA")
          (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
          (sound '|| 0)
@@ -304,12 +298,7 @@
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -319,24 +308,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -367,24 +340,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

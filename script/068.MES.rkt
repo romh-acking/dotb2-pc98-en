@@ -26,8 +26,7 @@
   (exec-mem 3744 1 8 38 8 41 10)						; 	Restroom
   (if (</> (// (? (= 138 #t)) (exec-mem 3744 1 9 11 10 16 11))))		; 	Zombie (only appears after visiting stairs)
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB114.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB114.GPC") (image-mem 0 3)
   (if (</> (// (? (= 138 #t)) (image-file "B:¥GPC¥DB122.GPC") (image-mem 1 3))))
   ((cmd 193) 0 "B:¥GPA¥DB114.GPA")
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
@@ -156,12 +155,7 @@
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -171,24 +165,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -219,24 +197,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

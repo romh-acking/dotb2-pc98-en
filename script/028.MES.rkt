@@ -17,10 +17,8 @@
   (exec-mem 3744 1 7 48 3 56 5)							; 	Sign
   (exec-mem 3744 1 8 27 3 35 7)							; 	Catherine
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB050.GPC")
-  (image-mem 0 3)
-  (image-file "B:¥GPC¥DB051.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB050.GPC") (image-mem 0 3)
+  (image-file "B:¥GPC¥DB051.GPC") (image-mem 1 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (if (</>
        (//
@@ -257,12 +255,7 @@
  (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -272,24 +265,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -320,24 +297,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

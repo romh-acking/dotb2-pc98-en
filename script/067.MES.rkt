@@ -9,8 +9,7 @@
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB114.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB114.GPC") (image-mem 0 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (sound '|| 0)
   (if (</>
@@ -29,8 +28,7 @@
   (text-reset 1)
   (sound '|| 2)
   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-  (image-file "B:¥GPC¥DB116.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB116.GPC") (image-mem 0 3)
   ((cmd 193) 0 "B:¥GPA¥DB116.GPA")
   (exec-mem 15456 0)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
@@ -44,9 +42,8 @@
   (text-reset 1)
   (str "Steve: Cole, I'm empty! Kill that thing!")
   (wait)
-  (text-reset 1)
-  (image-file "A:¥GPC¥COUNTER.GPC")						; Battle begins here
-  (image-mem 0 0)
+  (text-reset 1)								; Battle begins here
+  (image-file "A:¥GPC¥COUNTER.GPC") (image-mem 0 0)
   (load-mem "A:¥CLM¥DB116.CLM" 32768)						; Battle hotspots defined here...
   (exec-mem 3744 1 5 37 6 40 7)							; 	
   (exec-mem 3744 1 6 41 7 44 8)							; 	
@@ -60,8 +57,7 @@
   (exec-mem 15728 3)
   (exec-mem 3744 3 "P" 32768)
   (exec-mem 15728 4)
-  (image-file "A:¥GPC¥DB_FRM3.GPC")
-  (image-mem 0 0)
+  (image-file "A:¥GPC¥DB_FRM3.GPC") (image-mem 0 0)
   (if (</>
        (//
         (? (= Z 2) (= P 7))							; Success
@@ -102,10 +98,8 @@
            (text "　　　　　　　　　　　ＧＡＭＥ　ＥＮＤ")
            (loop (wait))))))))
   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-  (image-file "B:¥GPC¥DB114.GPC")
-  (image-mem 0 3)
-  (image-file "B:¥GPC¥DB115.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB114.GPC") (image-mem 0 3)
+  (image-file "B:¥GPC¥DB115.GPC") (image-mem 1 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (sound '|| 0)
   (if (</>

@@ -438,8 +438,7 @@
   (sound '|| 2)									; Jump back to 014.MES starts here
   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
   ((cmd 209) 0 5)
-  (image-file "A:¥GPC¥title.gpc")
-  (image-mem 0 3)
+  (image-file "A:¥GPC¥title.gpc") (image-mem 0 3)
   (exec-mem 912 "INIT")
   (exec-mem 912 "A 1")
   (text-frame 0 0 79 399)

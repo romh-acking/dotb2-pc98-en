@@ -15,23 +15,17 @@
   (exec-mem 3744 1 5 20 2 27 7)							; 	Briar
   (exec-mem 3744 1 6 41 5 48 8)							; 	Bloody Fox
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB061.GPC")
-  (image-mem 0 3)
-  (image-file "B:¥GPC¥DB062.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB061.GPC") (image-mem 0 3)
+  (image-file "B:¥GPC¥DB062.GPC") (image-mem 1 3)
   (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
   (exec-mem 912 "C 0 40 0 40 400 1 40 0")
   (exec-mem 912 "A 1")
-  (image-file "A:¥GPC¥DB_FRM2.GPC")
-  (image-mem 1 0)
-  (image-file "B:¥GPC¥DB064RC.GPC")
-  (image-mem 1 3)
+  (image-file "A:¥GPC¥DB_FRM2.GPC") (image-mem 1 0)
+  (image-file "B:¥GPC¥DB064RC.GPC") (image-mem 1 3)
   (exec-mem 912 "GET 0 54 38 23 134")
-  (image-file "B:¥GPC¥DB064LC.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB064LC.GPC") (image-mem 1 3)
   (exec-mem 912 "GET 1 54 38 23 134")
-  (image-file "B:¥GPC¥DB065C.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB065C.GPC") (image-mem 1 3)
   (exec-mem 912 "GET 2 54 38 23 134")
   (exec-mem 912 "A 0")
   (exec-mem 912 "GET 3 54 38 23 172")
@@ -175,10 +169,8 @@
    (exec-mem 912 "PUT 3 54 38,W 0,O 0")
    (exec-mem 912 "EXIT")
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB061.GPC")
-   (image-mem 0 3)
-   (image-file "B:¥GPC¥DB066.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB061.GPC") (image-mem 0 3)
+   (image-file "B:¥GPC¥DB066.GPC") (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (str "B.F.: Yo! This is bad!")
    (wait)
@@ -224,8 +216,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB061.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB061.GPC") (image-mem 0 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (str "Cole: Zombies tearing up the city? AGAIN? I knew this was" 'br)
    (str "gonna happen!")
@@ -281,12 +272,7 @@
  (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -296,24 +282,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -344,24 +314,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

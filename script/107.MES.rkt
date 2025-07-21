@@ -15,15 +15,12 @@
   (exec-mem 3744 1 5 28 3 34 6)							; 	Briar
   (exec-mem 3744 1 6 37 4 42 7)							; 	Woman
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB183.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB183.GPC") (image-mem 0 3)
   (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
   (exec-mem 912 "C 0 40 0 40 400 1 40 0")
   (exec-mem 912 "A 1")
-  (image-file "A:¥GPC¥DB_FRM2.GPC")
-  (image-mem 1 0)
-  (image-file "B:¥GPC¥DB184C.GPC")
-  (image-mem 1 3)
+  (image-file "A:¥GPC¥DB_FRM2.GPC") (image-mem 1 0)
+  (image-file "B:¥GPC¥DB184C.GPC") (image-mem 1 3)
   (exec-mem 912 "GET 0 54 38 23 134")
   (exec-mem 912 "A 0")
   (exec-mem 912 "GET 1 54 38 23 172")
@@ -210,12 +207,7 @@
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -225,24 +217,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -273,24 +249,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

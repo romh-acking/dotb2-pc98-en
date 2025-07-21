@@ -20,8 +20,7 @@
   (exec-mem 3744 1 6 41 10 44 13)						; 	Bottle
   (exec-mem 3744 1 7 12 3 18 7)							; 	Steve
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB032.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB032.GPC") (image-mem 1 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (sound '|| 0)
   (if (</>
@@ -273,8 +272,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB033.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB033.GPC") (image-mem 0 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (sound '|| 0)
    (sound '|se | 3)
@@ -375,8 +373,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB032.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB032.GPC") (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (mes-jump "A:¥MES¥014A.MES"))
 ;  (mes-load? 0)
@@ -402,12 +399,7 @@
  (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -417,24 +409,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -465,24 +441,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

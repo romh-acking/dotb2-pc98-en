@@ -18,8 +18,7 @@
   (exec-mem 3744 1 6 21 10 41 12)						; 	Flashlight
   (exec-mem 3744 1 7 34 5 40 7)							; 	Tombstones
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB134.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB134.GPC") (image-mem 0 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (if (</>
        (//
@@ -161,16 +160,13 @@
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (exec-mem 6064 3)
-   (image-file "B:¥GPC¥DB135.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB135.GPC") (image-mem 0 3)
    (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
    (exec-mem 912 "C 0 2 23 40 238 1 2 23")
    (exec-mem 912 "C 0 40 23 18 238 1 40 23")
    (exec-mem 912 "A 1")
-   (image-file "B:¥GPC¥DB135.GPC")
-   (image-mem 0 3)
-   (image-file "B:¥GPC¥DB136.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB135.GPC") (image-mem 0 3)
+   (image-file "B:¥GPC¥DB136.GPC") (image-mem 1 3)
    (exec-mem 912 "GET 0 2 23 54 238")
    (exec-mem 912 "A 0,S 0")
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
@@ -279,8 +275,7 @@
    (text-reset 1)
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB137.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB137.GPC") (image-mem 0 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (sound '|| 0)
    (if (</>
@@ -309,23 +304,18 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB138.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB138.GPC") (image-mem 0 3)
    (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
    (exec-mem 912 "C 0 2 23 40 238 1 2 23")
    (exec-mem 912 "C 0 40 23 18 238 1 40 23")
    (exec-mem 912 "A 1")
-   (image-file "B:¥GPC¥DB138.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB138.GPC") (image-mem 0 3)
    (exec-mem 912 "GET 0 2 23 54 238")
-   (image-file "B:¥GPC¥DB138A.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB138A.GPC") (image-mem 0 3)
    (exec-mem 912 "GET 1 2 23 54 238")
-   (image-file "B:¥GPC¥DB138B.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB138B.GPC") (image-mem 0 3)
    (exec-mem 912 "GET 2 2 23 54 238")
-   (image-file "B:¥GPC¥DB138D.GPC")
-   (image-mem 0 3)
+   (image-file "B:¥GPC¥DB138D.GPC") (image-mem 0 3)
    (exec-mem 912 "GET 3 2 23 54 238")
    (exec-mem 912 "A 0,S 0")
    (load-mem "A:¥CLM¥DB138.CLM" 32768)
@@ -338,8 +328,7 @@
    (str "Steve: Cole...now!")
    (wait)
    (text-reset 1)
-   (image-file "A:¥GPC¥COUNTER.GPC")						; Short battle starts here
-   (image-mem 0 0)
+   (image-file "A:¥GPC¥COUNTER.GPC")						; Short battle starts here (image-mem 0 0)
    (exec-mem 15728 0 0 1 5 0 1)
    (exec-mem 15728 1 0 0 0 0 "Z")
    (exec-mem 15728 2 1)
@@ -348,8 +337,7 @@
    (exec-mem 15728 3)
    (exec-mem 3744 3 "P" 32768)
    (exec-mem 15728 4)
-   (image-file "A:¥GPC¥DB_FRM3.GPC")
-   (image-mem 0 0)
+   (image-file "A:¥GPC¥DB_FRM3.GPC") (image-mem 0 0)
    (if (</>
         (//
          (? (= P 5) (= Z 2))							; Success
@@ -414,12 +402,7 @@
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -429,24 +412,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -477,24 +444,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

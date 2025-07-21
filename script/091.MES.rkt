@@ -18,8 +18,7 @@
   (exec-mem 3744 1 6 20 5 23 12)						; 	Storage	(Middle)
   (exec-mem 3744 1 7 24 7 27 11)						; 	Locked	(Right)
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB144.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB144.GPC") (image-mem 0 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (if (</>
        (//
@@ -48,8 +47,7 @@
         (? (= 170 #f))								; Lead-in for second visit
         (sound '|| 2)
         ((cmd 209) 0 5)
-        (image-file "B:¥GPC¥DB147.GPC")
-        (image-mem 0 3)
+        (image-file "B:¥GPC¥DB147.GPC") (image-mem 0 3)
         (sound '|| 0)
         (sound '|se | 5)
         ((cmd 209) 1 5)
@@ -146,8 +144,7 @@
         (text-reset 1)
         (sound '|| 2)
         ((cmd 209) 0 5)
-        (image-file "B:¥GPC¥DB144.GPC")
-        (image-mem 0 3)
+        (image-file "B:¥GPC¥DB144.GPC") (image-mem 0 3)
         (sound '|| 0)
         (if (</>
              (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_02.USO"))
@@ -226,12 +223,7 @@
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -241,24 +233,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -289,24 +265,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

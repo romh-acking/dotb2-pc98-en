@@ -7,8 +7,7 @@
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB031.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB031.GPC") (image-mem 1 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (sound '|| 0)
   (if (</>

@@ -23,8 +23,7 @@
   (exec-mem 3744 1 6 20 3 27 13)						; 	Door
   (exec-mem 3744 1 7 4 12 17 15)						; 	Desk
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB101.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB101.GPC") (image-mem 0 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (sound '|| 0)
   (if (</>
@@ -53,10 +52,8 @@
         (text-frame 0 0 79 399)
         (text-reset 1)
         (text-frame 15 298 74 356)
-        (image-file "A:¥GPC¥DB_FRM.GPC")
-        (image-mem 0 3)
-        (image-file "B:¥GPC¥DB088.GPC")
-        (image-mem 1 3)
+        (image-file "A:¥GPC¥DB_FRM.GPC") (image-mem 0 3)
+        (image-file "B:¥GPC¥DB088.GPC") (image-mem 1 3)
         (str "Cole: Gyaaaaa!")
         ((cmd 209) 1)
         (sound '|| 0)
@@ -77,12 +74,9 @@
         (wait)
         (text-reset 1)
         ((cmd 209) 0 5)
-        (image-file "A:¥GPC¥DB_FRM.GPC")
-        (image-mem 0 3)
-        (image-file "B:¥GPC¥DB101.GPC")
-        (image-mem 0 3)
-        (image-file "B:¥GPC¥DB103.GPC")
-        (image-mem 1 3)
+        (image-file "A:¥GPC¥DB_FRM.GPC") (image-mem 0 3)
+        (image-file "B:¥GPC¥DB101.GPC") (image-mem 0 3)
+        (image-file "B:¥GPC¥DB103.GPC") (image-mem 1 3)
         (if (</>
              (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_07.USO"))
              (// (sound '|| "A:¥USO_D¥BR2_07.USO"))))
@@ -202,12 +196,7 @@
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -217,24 +206,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -265,24 +238,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))

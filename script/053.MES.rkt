@@ -41,8 +41,7 @@
   (exec-mem 3744 1 14 36 12 49 14)						; 	|     ▓▓▓▓▓▓▓   ▓▓▓▓▓▓▓▓▓████████████████▓▓▓▓▓▓▓▓▓     |	14: Desk E
   (exec-mem 3744 1 15 39 10 48 11)						; 	|_____▓▓▓▓▓▓▓____________████████████████▓▓▓▓▓▓▓▓▓_____|	15: Desk F
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB086.GPC")
-  (image-mem 0 3)
+  (image-file "B:¥GPC¥DB086.GPC") (image-mem 0 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (if (</>
        (//
@@ -70,8 +69,7 @@
         (text-reset 1))))
   (exec-mem 15728 0 0 6 0 0 1)
   (exec-mem 15728 1 0 0 0 0 "Z")
-  (image-file "A:¥GPC¥COUNTER.GPC")
-  (image-mem 0 0)
+  (image-file "A:¥GPC¥COUNTER.GPC") (image-mem 0 0)
   (exec-mem 15728 2 1)
   (exec-mem 15456 0)
   (exec-mem 14544 2 0)
@@ -82,14 +80,12 @@
         (//
          (? (= Z 2) (= 152 #t))							; Success
          (exec-mem 15728 4)
-         (image-file "A:¥GPC¥DB_FRM3.GPC")
-         (image-mem 0 0)
+         (image-file "A:¥GPC¥DB_FRM3.GPC") (image-mem 0 0)
          (text-frame 15 298 74 356)
          (str "Cole: I don't hear any more footsteps... They're here!!!")
          (wait)
          (text-reset 1)
-         (image-file "A:¥GPC¥DB_FRM3.GPC")
-         (image-mem 0 0)
+         (image-file "A:¥GPC¥DB_FRM3.GPC") (image-mem 0 0)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
          (mes-jump "A:¥MES¥054.MES"))
         (//
@@ -97,10 +93,8 @@
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
          (exec-mem 15728 4)
          (text-frame 15 298 74 356)
-         (image-file "A:¥GPC¥DB_FRM3.GPC")
-         (image-mem 0 0)
-         (image-file "B:¥GPC¥DB088.GPC")
-         (image-mem 1 3)
+         (image-file "A:¥GPC¥DB_FRM3.GPC") (image-mem 0 0)
+         (image-file "B:¥GPC¥DB088.GPC") (image-mem 1 3)
          (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
          (str "Zombie: ")(text "ＧＵＧＹＡＡＡＡＡＡＡＡ！！！")
          (wait)
