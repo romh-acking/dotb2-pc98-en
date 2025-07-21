@@ -15,10 +15,8 @@
   (exec-mem 3744 1 5 49 9 55 12)						; 	Onlookers
   (exec-mem 3744 1 6 27 4 37 8)							; 	Bloody Fox
   (exec-mem 9920 0 6 6 113 64 0)
-  (image-file "B:¥GPC¥DB010.GPC")
-  (image-mem 1 3)
-  (image-file "B:¥GPC¥DB012.GPC")
-  (image-mem 1 3)
+  (image-file "B:¥GPC¥DB010.GPC") (image-mem 1 3)
+  (image-file "B:¥GPC¥DB012.GPC") (image-mem 1 3)
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (if (</>
        (//
@@ -170,8 +168,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
-   (image-file "B:¥GPC¥DB010.GPC")
-   (image-mem 1 3)
+   (image-file "B:¥GPC¥DB010.GPC") (image-mem 1 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (str "Cole: Right, time to hit the Bayside Research Lab.")
    (wait)
@@ -181,12 +178,7 @@
  (seg (? (= P 2))								; SYSTEM
    (exec-mem 6064 2 2)
    (menu1
-    25
-    317
-    39
-    317
-    53
-    317
+    25 317  39 317  53 317
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
@@ -196,24 +188,8 @@
      (/
       (str "Select Save Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " SAVE No.1 "))
         (/ (str " SAVE No.2 "))
@@ -244,24 +220,8 @@
      (/
       (str "Select Load Number.")
       (menu1
-       18
-       317
-       32
-       317
-       46
-       317
-       60
-       317
-       18
-       337
-       32
-       337
-       46
-       337
-       60
-       337
-       66
-       298
+       18 317  32 317  46 317  60 317
+       18 337  32 337  46 337  60 337  66 298
        (</>
         (/ (str " LOAD No.1 "))
         (/ (str " LOAD No.2 "))
