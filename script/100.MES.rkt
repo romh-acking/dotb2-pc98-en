@@ -49,7 +49,7 @@
   (exec-mem 912 "PUT 1 54 38,W 0,O 1")
   (exec-mem 912 "EXIT")
   (menu1  27 317  39 317  51 317
-   (</> (/ (str " Examine  ")) (/ (str " Punch    ")) (/ (str " Kick     "))))
+   (</> (/ (str "Examine it")) (/ (str " Punch it ")) (/ (str " Kick it  "))))
   (text-reset 1)
   (branch-var
    S
@@ -69,7 +69,7 @@
   (wait)
   (text-reset 1)								; Second quiz
   (menu1  27 317  39 317  51 317
-   (</> (/ (str "Grab gun  ")) (/ (str "Gouge eyes")) (/ (str "Push away ")) (/)))
+   (</> (/ (str " Grab gun ")) (/ (str "Gouge eyes")) (/ (str "Push away ")) (/)))
   (text-reset 1)
   (branch-var
    S

@@ -12,9 +12,9 @@
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
-  (exec-mem 3744 1 5 18 3 33 8)							; 	
-  (exec-mem 3744 1 6 21 10 30 11)						; 	
-  (exec-mem 3744 1 7 46 3 56 7)							; 	
+  (exec-mem 3744 1 5 18 3 33 8)							; 	Building
+  (exec-mem 3744 1 6 21 10 30 11)						; 	Entrance
+  (exec-mem 3744 1 7 46 3 56 7)							; 	Lightning
   (exec-mem 17408 0 0 53798 57344 53800 61439 53798 57344)
   (exec-mem 17408 1 0 "P0 P1 T300 P2 P3 T4 P4 P5")
   (exec-mem 9920 0 6 6 113 64 0)
@@ -45,13 +45,13 @@
         (wait)
         (text-reset 1))))
   (loop (exec-mem 17408 2) (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (exec-mem 17408 3) (seg-call)))
- (seg (? (= P 5) (= 101 #f))							; 
+ (seg (? (= P 5) (= 101 #f))							; Building #1
    (str "Cole: This building's in rough shape. I can't believe this" 'br)
    (str "is Bloody Fox's HQ.")
    (set-reg 101 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 102 #f))							; 
+ (seg (? (= P 5) (= 102 #f))							; Building #2
    (str "Steve: I heard the building's owner is Japanese. He was" 'br)
    (str "taking his sweet time trying to sell it, then Bloody Fox" 'br)
    (str "just swept in and claimed it for themselves.")
@@ -61,7 +61,7 @@
    (str "Cole: Poor guy.")
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 103 #f))							; 
+ (seg (? (= P 5) (= 103 #f))							; Building #3
    (str "Cole: In any case, we're gonna have to get inside.")
    (wait)
    (text-reset 1)
@@ -72,22 +72,22 @@
    (set-reg 103 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))								; 
+ (seg (? (= P 5))								; Building #4 (repeat line)
    (str "Steve: We're ready, so we can bust in at any time.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 104 #f))							; 
+ (seg (? (= P 6) (= 104 #f))							; Entrance #1
    (str "Cole: That's the entrance to the building, but it sure" 'br)
    (str "looks like it's falling apart.")
    (set-reg 104 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 105 #f))							; 
+ (seg (? (= P 6) (= 105 #f))							; Entrance #2
    (str "Cole: Nobody's coming or going...")
    (set-reg 105 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))								; 
+ (seg (? (= P 6))								; Entrance #3 (repeat line)
    (str "Cole: Is the front the only entrance?")
    (wait)
    (text-reset 1)
@@ -99,7 +99,7 @@
    (str "they.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 106 #f))							; 
+ (seg (? (= P 7) (= 106 #f))							; Lightning #1
    (str "Cole: Hell of a storm...")
    (wait)
    (text-reset 1)
@@ -107,12 +107,12 @@
    (set-reg 106 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 107 #f))							; 
+ (seg (? (= P 7) (= 107 #f))							; Lightning #2
    (str "Steve: I had to be careful driving in the rain.")
    (set-reg 107 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))								; 
+ (seg (? (= P 7))								; Lightning #3 (repeat line)
    (str "Cole: I see lightning... We shouldn't stay outside much" 'br)
    (str "longer.")
    (wait)

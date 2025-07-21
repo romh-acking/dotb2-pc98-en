@@ -1,12 +1,19 @@
+; Dead of the Brain 2 (PC-98) - 106.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; On the second floor of Lasnew.
+; --Progression:--
+; Inspect everything, then MOVE.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB182.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 37 10 47 11)
-  (exec-mem 3744 1 6 17 5 23 11)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 37 10 47 11)						; 	Shadows
+  (exec-mem 3744 1 6 17 5 23 11)						; 	Pillar
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB182.GPC")
   (image-mem 0 3)
@@ -24,7 +31,7 @@
         (sound '|| 1))))
   (if (</>
        (//
-        (? (= 119 #f))
+        (? (= 119 #f))								; Lead-in from previous MES file
         (str "Woman's Voice: Ha ha ha ha ha!")
         (wait)
         (text-reset 1)
@@ -36,7 +43,7 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Woman's Voice: Ha ha ha ha haaaa!" 'br)
+        (str "Woman's Voice: Ha ha ha ha haaaa!" 'br)				; Lead-in from loading game
         (wait)
         (text-reset 1)
         (str "Cole: !?")
@@ -48,19 +55,14 @@
         (str "Steve: !?")
         (wait)
         (text-reset 1))))
-  (loop
-   ((cmd 195) 0 65535)
-   (exec-mem 3744 3 "P" 32768)
-   (text-color 15)
-   (text-reset 1)
-   (seg-call)))
- (seg (? (= P 5) (= 120 #f))
+  (loop ((cmd 195) 0 65535) (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
+ (seg (? (= P 5) (= 120 #f))							; Shadows #1
    (str "Cole: Steve...!" 'br)
    (str "Steve: Shh!")
    (set-reg 120 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 121 #f))
+ (seg (? (= P 5) (= 121 #f))							; Shadows #2
    (str "Cole: There's two of them. The last survivors of Bloody Fox?")
    (wait)
    (text-reset 1)
@@ -68,7 +70,7 @@
    (set-reg 121 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 122 #f))
+ (seg (? (= P 5) (= 122 #f))							; Shadows #3
    (str "Cole: I hope Jill's with them...")
    (wait)
    (text-reset 1)
@@ -79,14 +81,14 @@
    (set-reg 122 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Shadows #4 (repeat line)
    (str "Cole: They haven't noticed us yet.")
    (wait)
    (text-reset 1)
    (str "Steve: Don't get spotted.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 123 #f))
+ (seg (? (= P 6) (= 123 #f))							; Pillar #1
    (str "Cole: !?")
    (wait)
    (text-reset 1)
@@ -97,7 +99,7 @@
    (set-reg 123 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 124 #f))
+ (seg (? (= P 6) (= 124 #f))							; Pillar #2
    (str "Cole: ...")
    (wait)
    (text-reset 1)
@@ -111,7 +113,7 @@
    (set-reg 124 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 125 #f))
+ (seg (? (= P 6) (= 125 #f))							; Pillar #3
    (str "Cole: Steve, where are you going?")
    (wait)
    (text-reset 1)
@@ -125,12 +127,12 @@
    (set-reg 125 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 6))								; Pillar #4 (repeat line)
    (str "Steve: Cole, go!")
    (set-reg 126 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 122 #t) (= 126 #t))
+ (seg (? (= P 1) (= 122 #t) (= 126 #t))						; MOVE (after inspecting everything)
    (exec-mem 6064 2 1)
    (str "Steve: Now!")
    (wait)
@@ -140,7 +142,7 @@
    (exec-mem 6064 3)
    ((cmd 197) 0 0)
    (mes-jump "A:¥MES¥107.MES"))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

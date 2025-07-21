@@ -4,7 +4,7 @@
 ; -----Scene:-----
 ; Looking for Doc's satchel inside the cemetery.
 ; --Progression:--
-; 
+; Inspect everything, then keep MOVE-ing.
 ; ----Battle:-----
 ; Run out the timer. (I know, right?)
 (mes
@@ -14,9 +14,9 @@
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
-  (exec-mem 3744 1 5 40 7 56 11)						; 	
-  (exec-mem 3744 1 6 18 11 38 15)						; 	
-  (exec-mem 3744 1 7 28 7 34 8)							; 	
+  (exec-mem 3744 1 5 40 7 56 11)						; 	Tombstones
+  (exec-mem 3744 1 6 18 11 38 15)						; 	Path
+  (exec-mem 3744 1 7 28 7 34 8)							; 	Crosses
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB166.GPC")
   (image-mem 0 3)
@@ -39,13 +39,13 @@
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
- (seg (? (= P 5) (= 116 #f))							; 
+ (seg (? (= P 5) (= 116 #f))							; Tombstones #1
    (str "Cole: There are so many tombstones lining the side of the" 'br)
    (str "path. It feels like they're watching me... Brrrr.")
    (set-reg 116 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 117 #f))							; 
+ (seg (? (= P 5) (= 117 #f))							; Tombstones #2
    (str "Cole: It's been two years since the town fell to the" 'br)
    (str "undead. I can't imagine there are any zombies left.")
    (wait)
@@ -55,56 +55,56 @@
    (set-reg 117 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))								; 
-   (str "Cole: On this tombstone, the name")
+ (seg (? (= P 5))								; Tombstones #3 (repeat line)
+   (str "Cole: On this tombstone, the name“")
    (branch-random
     (</>
-     (/ (str "“Stella Treshil”"))
-     (/ (str "“Seed Relics”"))
-     (/ (str "“Melini Nannette”"))
-     (/ (str "“Robert Gibson”"))
-     (/ (str "“Jonathan Long”"))))
-   (str "is" 'br)
+     (/ (str "Stella Treshil"))
+     (/ (str "Seed Relics"))
+     (/ (str "Melini Nannette"))
+     (/ (str "Robert Gibson"))
+     (/ (str "Jonathan Long"))))
+   (str "”is" 'br)
    (str "enscribed.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 118 #f))							; 
+ (seg (? (= P 6) (= 118 #f))							; Path #1
    (str "Cole: This path just goes on and on... I remember this from" 'br)
    (str "back when we were on the run from Jack.")
    (set-reg 118 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 119 #f))							; 
+ (seg (? (= P 6) (= 119 #f))							; Path #2
    (str "Cole: Even though it's cloudy, the moon's still out, so I" 'br)
    (str "can see the path.")
    (set-reg 119 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 120 #f))							; 
+ (seg (? (= P 6) (= 120 #f))							; Path #3
    (str "Cole: I just hope the cure Doc mentioned still exists after" 'br)
    (str "two years...")
    (set-reg 120 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 121 #f))							; 
+ (seg (? (= P 6) (= 121 #f))							; Path #4
    (str "Cole: I'm getting tired from walking so much. But back when" 'br)
    (str "Jack was after us, we were running for our lives.")
    (set-reg 121 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))								; 
+ (seg (? (= P 6))								; Path #5 (repeat line)
    (str "Cole: Pant, pant... Even if I manage to grab the serum," 'br)
    (str "retracing my steps is going to be a challenge. I came by" 'br)
    (str "car, so I'll need to walk back to the gate.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 122 #f))							; 
+ (seg (? (= P 7) (= 122 #f))							; Crosses #1
    (str "Cole: The path stretches far into the horizon... Hard to" 'br)
    (str "see what's up ahead.")
    (set-reg 122 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 123 #f))							; 
+ (seg (? (= P 7) (= 123 #f))							; Crosses #2
    (str "Cole: Doc tripped and fell a bit further on... Now that I" 'br)
    (str "think about it, we escaped through the back exit and headed" 'br)
    (str "to my apartment.")
@@ -115,11 +115,11 @@
    (set-reg 123 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))								; 
+ (seg (? (= P 7))								; Crosses #3
    (str "Cole: The spot where Doc tripped was a bit further ahead...")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 117 #t) (= 121 #t) (= 123 #t) (= 126 #t))			; 
+ (seg (? (= P 1) (= 117 #t) (= 121 #t) (= 123 #t) (= 126 #t))			; MOVE (after inspecting everything)
    (exec-mem 6064 2 1)
    (str "Cole: Wait, what's that ahead...")
    (wait)
@@ -291,21 +291,21 @@
          (text-reset 1)
          (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
          (mes-jump "A:¥MES¥100.MES")))))
- (seg (? (= P 1) (= 124 #f))							; 
+ (seg (? (= P 1) (= 124 #f))							; MOVE #1
    (exec-mem 6064 2 1)
-   (str "Cole: *Pant pant*")
+   (str "Cole: Pant, pant...")
    (set-reg 124 #t)
    (wait)
    (text-reset 1)
    (exec-mem 6064 3))
- (seg (? (= P 1) (= 125 #f))							; 
+ (seg (? (= P 1) (= 125 #f))							; MOVE #2
    (exec-mem 6064 2 1)
    (str "Cole: I've been walking forever, and I'm still not there...")
    (set-reg 125 #t)
    (wait)
    (text-reset 1)
    (exec-mem 6064 3))
- (seg (? (= P 1) (= 126 #f))							; 
+ (seg (? (= P 1) (= 126 #f))							; MOVE #3~7
    (exec-mem 6064 2 1)
    (if (</> (// (? (= X 4)) (nop@) (set-reg 126 #t))))
    (str "Cole: Pant, pant...")
@@ -313,7 +313,7 @@
    (wait)
    (text-reset 1)
    (exec-mem 6064 3))
- (seg (? (= P 1))								; 
+ (seg (? (= P 1))								; MOVE #8 (repeat line)
    (exec-mem 6064 2 1)
    (str "Cole: Pant, pant...")
    (wait)

@@ -151,7 +151,7 @@
   (text-reset 0)
   ((cmd 209) 1)
 ;
-; 	Name entry code... I believe this is dummied out
+; 	Name entry code; shown on first initialisation, used during the end credits
 ;
   (if (</>
        (//

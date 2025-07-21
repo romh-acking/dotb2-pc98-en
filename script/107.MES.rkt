@@ -1,12 +1,19 @@
+; Dead of the Brain 2 (PC-98) - 107.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; -----Scene:-----
+; Confronting the last of Bloody Fox.
+; --Progression:--
+; Talk to the woman, then Briar.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB183.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 28 3 34 6)
-  (exec-mem 3744 1 6 37 4 42 7)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 28 3 34 6)							; 	Briar
+  (exec-mem 3744 1 6 37 4 42 7)							; 	Woman
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB183.GPC")
   (image-mem 0 3)
@@ -29,7 +36,7 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 127 #f))
+        (? (= 127 #f))								; Lead-in from previous MES file
         (str "Cole: Don't move!")
         (wait)
         (text-reset 1)
@@ -44,12 +51,12 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Briar: Amazing you've come this far, but this is where" 'br)
+        (str "Briar: Amazing you've come this far, but this is where" 'br)	; Lead-in from loading game
         (str "you're both going to die.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
- (seg (? (= P 5) (= 131 #t) (= 132 #t))
+ (seg (? (= P 5) (= 131 #t) (= 132 #t))						; Briar (after talking to him and Woman)
    (str "Cole: Give it to me straight. Where's Jill?")
    (wait)
    (text-reset 1)
@@ -90,7 +97,7 @@
    (nop@)
    (set-reg 133 #t)
    (mes-jump "A:¥MES¥108.MES"))
- (seg (? (= P 5) (= 128 #f))
+ (seg (? (= P 5) (= 128 #f))							; Briar #1
    (str "Briar: Steve, Steve, Steve. I heard you used to be a" 'br)
    (str "detective. Is that right?")
    (wait)
@@ -111,7 +118,7 @@
    (set-reg 128 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 129 #f))
+ (seg (? (= P 5) (= 129 #f))							; Briar #2
    (str "Steve: Not eating? You're looking pretty scrawny these days," 'br)
    (str "Briar. It won't take more than a single bullet to end you.")
    (wait)
@@ -119,7 +126,7 @@
    (str "Cole: I bet you're regretting becoming Daniel's lapdog.")
    (wait)
    (text-reset 1)
-   (str "Briar: Hah! I was told to follow Daniel's orders. There's no" 'br)
+   (str "Briar: Hah! I was told to follow Daniel's orders. There's" 'br)
    (str "no way I would have trusted that old fart in the first" 'br)
    (str "place.")
    (wait)
@@ -128,7 +135,7 @@
    (set-reg 129 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 130 #f))
+ (seg (? (= P 5) (= 130 #f))							; Briar #3
    (str "Briar: Daniel didn't just destroy the city... He killed our" 'br)
    (str "friends, too. I was planning on settling things with him" 'br)
    (str "someday, but it looks like you already did the job.")
@@ -142,7 +149,7 @@
    (set-reg 130 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 131 #f))
+ (seg (? (= P 5) (= 131 #f))							; Briar #4
    (str "Briar: Steve, when you first came into Bar Rease, one of my" 'br)
    (str "low-level guys picked a fight with you. You beat the shit" 'br)
    (str "out of them brilliantly.")
@@ -168,8 +175,11 @@
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5)) (str "Briar: *Snort* Look at this big talker.") (wait) (text-reset 1))
- (seg (? (= P 6))
+ (seg (? (= P 5))								; Briar #5 (repeat line)
+   (str "Briar: Snort, Look at this big talker.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 6))								; Woman
    (branch-random
     (</>
      (/
@@ -196,7 +206,7 @@
       (wait)
       (text-reset 1))))
    (set-reg 132 #t))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

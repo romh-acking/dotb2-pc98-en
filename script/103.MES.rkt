@@ -2,7 +2,7 @@
 ; Translated by Geometrizer
 ; Edited by JackDBS, commented by trentsignia
 ; -----Scene:-----
-; 
+; Cole convenes with Steve regarding his latest findings.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
@@ -70,8 +70,7 @@
   (text-reset 1)
   (str "Steve: ...")
   (wait)
-  (text-reset 1)
-  (str "Steve: ...")
+  (str "...")
   (wait)
   (text-reset 1)
   (str "Steve: Cole, I think your deduction is slightly off.")
@@ -150,14 +149,14 @@
   (str "Steve: Who saved you?")
   (wait)
   (text-reset 1)
-  (str "Cole: A zombie cornered me on the edge of a cliff. I'd" 'br)
-  (str "almost given up, but then I saw a red flash.")
+  (str "Cole: A zombie cornered me on the edge of a cliff. I" 'br)
+  (str "nearly gave up, but then I saw a red flash.")
   (wait)
   (text-reset 1)
   (str "Steve: A flash?")
   (wait)
   (text-reset 1)
-  (str "Cole: Yeah... The same type of thing as Ghoul.")
+  (str "Cole: Yeah... The same type of thing Ghoul did.")
   (wait)
   (text-reset 1)
   (str "Steve: !?")
@@ -236,8 +235,8 @@
   (wait)
   (text-reset 1)
   (str "Steve: It's a building in a dilapidated industrial zone in" 'br)
-  (str "the third district. People know it as Bloody Fox's base, and" 'br)
-  (str "even the cops won't go near it. Too dangerous.")
+  (str "the third district. People know it as Bloody Fox's base, so" 'br)
+  (str "not even the cops will go near it. Too dangerous.")
   (wait)
   (text-reset 1)
   (str "Cole: So it's Bloody Fox's hideout. I don't care where he" 'br)

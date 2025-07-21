@@ -1,13 +1,20 @@
+; Dead of the Brain 2 (PC-98) - 105.MES
+; Translated by Geometrizer
+; Edited by JackDBS, commented by trentsignia
+; --Description:--
+; On the first floor of Lasnew.
+; --Progression:--
+; Inspect everything, then MOVE. (Second visit: Inspect stairs then MOVE)
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
   (load-mem "A:¥CLM¥DB181.CLM" 32768)
-  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)
-  (exec-mem 3744 1 1 80 0 0 0)
-  (exec-mem 3744 1 2 80 0 0 0)
-  (exec-mem 3744 1 5 17 5 23 12)
-  (exec-mem 3744 1 6 7 8 14 10)
-  (exec-mem 3744 1 7 46 14 54 15)
+  (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
+  (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
+  (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
+  (exec-mem 3744 1 5 17 5 23 12)						; 	
+  (exec-mem 3744 1 6 7 8 14 10)							; 	
+  (exec-mem 3744 1 7 46 14 54 15)						; 	
   (exec-mem 3744 1 8 33 3 44 4)
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB181.GPC")
@@ -31,14 +38,14 @@
   (sound '|| 1)
   (if (</>
        (//
-        (? (= 134 #t))
+        (? (= 134 #t))								; Lead-in for second visit
         (str "Cole: Like Briar said, it looks like most of Bloody Fox was" 'br)
         (str "killed by the zombies.")
         (wait)
         (text-reset 1))
        (//
-        (? (= 108 #f))
-        (str "Cole: *Gasp gasp* What a sprint. This is the first floor.")
+        (? (= 108 #f))								; Lead-in from previous MES file
+        (str "Cole: Gasp, gasp... What a sprint. This is the first floor.")
         (wait)
         (text-reset 1)
         (str "Steve: Be careful... We don't know where the enemy's hiding.")
@@ -46,14 +53,14 @@
         (wait)
         (text-reset 1))
        (//
-        (str "Steve: Be careful... We don't know where the enemy's hiding.")
+        (str "Steve: Be careful... We don't know where the enemy's hiding.")	; Lead-in from loading game
         (wait)
         (text-reset 1)
         (str "Cole: Copy that.")
         (wait)
         (text-reset 1))))
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
- (seg (? (= P 5) (= 109 #f))
+ (seg (? (= P 5) (= 109 #f))							; Pillar #1
    (str "Cole: There's an exposed concrete pillar standing there.")
    (wait)
    (text-reset 1)
@@ -62,13 +69,13 @@
    (set-reg 109 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 110 #f))
+ (seg (? (= P 5) (= 110 #f))							; Pillar #2
    (str "Steve: This pillar supports the whole building. It looks" 'br)
    (str "damaged but sturdy.")
    (set-reg 110 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5) (= 111 #f))
+ (seg (? (= P 5) (= 111 #f))							; Pillar #3
    (str "Cole: There's graffiti on the pillar.")
    (wait)
    (text-reset 1)
@@ -76,14 +83,14 @@
    (set-reg 111 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))
+ (seg (? (= P 5))								; Pillar #4 (repeat line)
    (str "Steve: You still eyeing up that pillar?")
    (wait)
    (text-reset 1)
    (str "Cole: Yeah... I've been paranoid since we got here.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 134 #t))
+ (seg (? (= P 6) (= 134 #t))							; Stairs (Second visit)
    (str "Cole: We only found Briar's corpse on the second floor, and" 'br)
    (str "nothing else.")
    (wait)
@@ -92,7 +99,7 @@
    (set-reg 135 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 112 #f))
+ (seg (? (= P 6) (= 112 #f))							; Stairs #1
    (str "Cole: Those are the stairs.")
    (wait)
    (text-reset 1)
@@ -100,12 +107,12 @@
    (set-reg 112 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 113 #f))
+ (seg (? (= P 6) (= 113 #f))							; Stairs #2
    (str "Cole: We can use those stairs to reach the second floor.")
    (set-reg 113 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 114 #f))
+ (seg (? (= P 6) (= 114 #f))							; Stairs #3
    (str "Steve: Better to run up the stairs in one go. If we get" 'br)
    (str "pincered on the stairs, it's game over.")
    (wait)
@@ -117,8 +124,11 @@
    (set-reg 114 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6)) (str "Cole: It doesn't look like anyone's coming down the stairs.") (wait) (text-reset 1))
- (seg (? (= P 7) (= 115 #f))
+ (seg (? (= P 6))								; Stairs #4 (repeat line)
+   (str "Cole: It doesn't look like anyone's coming down the stairs.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 7) (= 115 #f))							; Pipe #1
    (str "Cole: There's an iron pipe on the floor.")
    (wait)
    (text-reset 1)
@@ -126,25 +136,28 @@
    (set-reg 115 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 116 #f))
+ (seg (? (= P 7) (= 116 #f))							; Pipe #2
    (str "Cole: Some Bloody Fox punk must have dropped this pipe. I" 'br)
    (str "have a gun, and I'm not trading it for this.")
    (set-reg 116 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7)) (str "Cole: If someone hit me with that, I'd be in big trouble.") (wait) (text-reset 1))
- (seg (? (= P 8) (= 117 #f))
+ (seg (? (= P 7))								; Pipe #3 (repeat line)
+   (str "Cole: If someone hit me with that, I'd be in big trouble.")
+   (wait)
+   (text-reset 1))
+ (seg (? (= P 8) (= 117 #f))							; Light #1
    (str "Steve: All the fluorescent lights are broken. Not that the" 'br)
    (str "building even has electricity to run them anymore.")
    (set-reg 117 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 8))
+ (seg (? (= P 8))								; Light #2 (repeat line)
    (str "Cole: The lights are off, but I can still see well enough," 'br)
    (str "so I won't complain.")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 134 #t) (= 135 #t))
+ (seg (? (= P 1) (= 134 #t) (= 135 #t))						; MOVE (After inspecting stairs on second visit)
    (exec-mem 6064 2 1)
    (str "Cole: Let's check the second floor again.")
    (wait)
@@ -181,7 +194,7 @@
    (sound '|| 2)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
    (mes-jump "A:¥MES¥109.MES"))
- (seg (? (= P 1) (= 111 #t) (= 114 #t) (= 117 #t) (= 134 #f))
+ (seg (? (= P 1) (= 111 #t) (= 114 #t) (= 117 #t) (= 134 #f))			; MOVE (after inspecting everything the first time)
    (exec-mem 6064 2 1)
    (str "Cole: Let's take the stairs to the second floor.")
    (wait)
@@ -195,13 +208,13 @@
    (set-reg 118 #t)
    (exec-mem 912 "EXIT")
    (mes-jump "A:¥MES¥106.MES"))
- (seg (? (= P 1))
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Steve: Hmm, not yet... Let's investigate a bit more.")
    (wait)
    (text-reset 1)
    (exec-mem 6064 3))
- (seg (? (= P 2))
+ (seg (? (= P 2))								; SYSTEM
    (text-reset 1)
    (exec-mem 6064 2 2)
    (menu1

@@ -2,9 +2,9 @@
 ; Translated by Geometrizer
 ; Edited by JackDBS, commented by trentsignia
 ; -----Scene:-----
-; 
+; Back in the cemetery after the close shave.
 ; --Progression:--
-; 
+; Look at path and crosses, then MOVE.
 ; -----Quiz:------
 ; Ghoul.
 (mes
@@ -14,9 +14,9 @@
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
-  (exec-mem 3744 1 5 40 7 56 11)						; 	
-  (exec-mem 3744 1 6 18 11 38 15)						; 	
-  (exec-mem 3744 1 7 28 7 34 8)							; 	
+  (exec-mem 3744 1 5 40 7 56 11)						; 	Tombstones
+  (exec-mem 3744 1 6 18 11 38 15)						; 	Path
+  (exec-mem 3744 1 7 28 7 34 8)							; 	Crosses
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB166.GPC")
   (image-mem 0 3)
@@ -49,35 +49,35 @@
   (wait)
   (text-reset 1)
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (text-reset 1) (seg-call)))
- (seg (? (= P 5) (= 129 #f))							; 
+ (seg (? (= P 5) (= 129 #f))							; Tombstones #1
    (str "Cole: Maybe the cliff is past that grave...")
    (set-reg 129 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 5))								; 
+ (seg (? (= P 5))								; Tombstones #2 (repeat line)
    (str "Cole: And there could be more zombies lurking, so I need to" 'br)
    (str "stay alert.")
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 130 #f))							; 
+ (seg (? (= P 6) (= 130 #f))							; Path #1
    (str "Cole: This is the same path as before... Weird... Where'd I" 'br)
    (str "get off track?")
    (set-reg 130 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 131 #f))							; 
+ (seg (? (= P 6) (= 131 #f))							; Path #2
    (str "Cole: Wait, those footprints don't match mine... I didn't" 'br)
    (str "see them until just now.")
    (set-reg 131 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 132 #f))							; 
+ (seg (? (= P 6) (= 132 #f))							; Path #3
    (str "Cole: Hold up... Those footprints... They don't look like a" 'br)
    (str "human made them.")
    (set-reg 132 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 133 #f))							; 
+ (seg (? (= P 6) (= 133 #f))							; Path #4
    (str "Cole: Let's keep following the footprints...")
    (wait)
    (text-reset 1)
@@ -96,7 +96,7 @@
    (set-reg 133 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6) (= 134 #f))							; 
+ (seg (? (= P 6) (= 134 #f))							; Path #5
    (str "Cole: No way. The person who made those footprints was... ")
    (wait)
    (text-reset 1)
@@ -111,19 +111,19 @@
    (text-reset 1)
    (str "Cole: ")
    (branch-var S (</> (/ (str "Steve")) (/ (str "Jill")) (/ (str "Ghoul"))))
-   (str "! Right?")
+   (str "! ...Right?")
    (wait)
    (text-reset 1)
    (branch-var
     S
     (</>
      (/
-      (str "Cole: Wait a second. If Steve came to help me, why didn't he" 'br)
-      (str "make himself known?")
+      (str "Cole: Wait a second. If Steve came to help me, why didn't" 'br)
+      (str "he make himself known?")
       (wait)
       (text-reset 1)
-      (str "Cole: It's not like he's got a reason to hide from me. Those" 'br)
-      (str "prints have to belong to someone else.")
+      (str "Cole: It's not like he's got a reason to hide from me." 'br)
+      (str "Those prints have to belong to someone else.")
       (wait)
       (text-reset 1))
      (/
@@ -133,7 +133,7 @@
       (wait)
       (text-reset 1))
      (/
-      (str "Cole: No, that's impossible. Richard Gris...Ghoul...is" 'br)
+      (str "Cole: No, that's impossible. Richard Gris... Ghoul...is" 'br)
       (str "dead. I saw him explode right in front of me. Steve even" 'br)
       (str "has a part of his head.")
       (wait)
@@ -150,7 +150,7 @@
       (set-reg 134 #t)
       (wait)
       (text-reset 1)))))
- (seg (? (= P 6) (= 135 #f))							; 
+ (seg (? (= P 6) (= 135 #f))							; Path #6
    (str "Cole: If those footprints are from an android like Ghoul..." 'br)
    (str "Could it mean this one is an ally?")
    (wait)
@@ -160,27 +160,27 @@
    (set-reg 135 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 6))								; 
+ (seg (? (= P 6))								; Path #7 (repeat line)
    (str "Cole: I can see an android's footprints in the soil.")
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 136 #f))							; 
+ (seg (? (= P 7) (= 136 #f))							; Crosses #1
    (str "Cole: If the path ahead ends at a cliff... Maybe there's" 'br)
    (str "another route.")
    (set-reg 136 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7) (= 137 #f))							; 
+ (seg (? (= P 7) (= 137 #f))							; Crosses #2
    (str "Cole: I know it's not this way, but there doesn't seem to" 'br)
    (str "be another path around here.")
    (set-reg 137 #t)
    (wait)
    (text-reset 1))
- (seg (? (= P 7))								; 
+ (seg (? (= P 7))								; Crosses #3 (repeat line)
    (str "Cole: I remember running down this path two years ago...")
    (wait)
    (text-reset 1))
- (seg (? (= P 1) (= 137 #t) (= 135 #t))						; 
+ (seg (? (= P 1) (= 137 #t) (= 135 #t))						; MOVE (after looking at crosses and path)
    (exec-mem 6064 2 1)
    (str "Cole: I need to find the cure and let Steve know what's" 'br)
    (str "happening.")
@@ -203,7 +203,7 @@
    (nop@)
    (set-reg 138 #t)
    (mes-jump "A:¥MES¥102.MES"))
- (seg (? (= P 1))								; 
+ (seg (? (= P 1))								; MOVE
    (exec-mem 6064 2 1)
    (str "Cole: If I keep going this way I'll reach the same cliff" 'br)
    (str "again. I'd better look around before moving on.")
