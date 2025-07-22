@@ -68,8 +68,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 150 #f))							; Entrance #1
-   (str "Cole: The entrance is marked 'Perain Lab.' That's a name" 'br)
-   (str "you don't hear every day.")
+   (str "Cole:“Perain Lab”is written above the entrance. That's a" 'br)
+   (str "name you don't hear every day.")
    (wait)
    (text-reset 1)
    (str "Cole: Since we're here to investigate Purple Sky, we should" 'br)

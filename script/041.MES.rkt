@@ -81,7 +81,7 @@
    (text-reset 1))
  (seg (? (= P 7) (= 131 #f))							; Calendar #3
    (str "Cole: There's marks on the calendar dates. Circles, crosses" 'br)
-   (str "and“G13\", whatever that means.")
+   (str "...and whatever“G13”means.")
    (set-reg 131 #t)
    (wait)
    (text-reset 1))

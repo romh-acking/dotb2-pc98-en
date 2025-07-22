@@ -334,7 +334,7 @@
         (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
         (mes-jump "A:¥MES¥110.MES"))
        (//
-        (str "Catherine: GUAAAAAA!!!")
+        (str "Catherine: ")(text "ＧＵＡＡＡＡＡＡ！！！！")
         (wait)
         (text-reset 1)
         (sound '|| 0)

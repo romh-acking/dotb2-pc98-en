@@ -6,19 +6,27 @@
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg*
+;
+; 	Staff Roll starts here (ROLL.TCM is loaded, and the credits are read from STAFF.DAT)
+;
   (text-frame 0 0 79 399)
   (text-reset 1)
   ((cmd 209) 1)
   (exec-mem 27088 0 28032 4 0 1 23)
-  ((cmd 203) 0 1) (delay 7600 0)
-  (sound '|| 2) (delay 400 0)
+  ((cmd 203) 0 1)
+  (delay 7600 0)
+  (sound '|| 2)
+  (delay 400 0)
   (exec-mem 27088 1)
   ((cmd 203) 0 0)
+;
+; 	Special Thanks starts here (this is actually where the name entered in INIT.MES is used)
+;
   (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
   (exec-mem 912 "A 1")
   (text-frame 0 0 79 399)
   (text-reset 1)
-  (str "ＳＰＥＣＩＡＬ　ＴＨＡＮＫＳ　ＴＯ　＊＊＊")
+  (text "Ｓｐｅｃｉａｌ　Ｔｈａｎｋｓ　ｔｏ　＊＊＊")
   (exec-mem 912 "GET 0 0 0 2 16")
   (exec-mem 912 "GET 1 2 0 2 16")
   (exec-mem 912 "GET 2 4 0 2 16")
@@ -73,6 +81,9 @@
   (exec-mem 912 "PUT 24 58 182,W 0,O 0") (sound '|se | 12) (delay 8 0) (sound '|se | 0)
   (exec-mem 912 "EXIT")
   (sound '|| 0)
+;
+; 	Ending starts here (good or bad outcome determined by whether Doc was revived or not)
+;
   (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
   (exec-mem 912 "A 1")
   (image-file "A:¥GPC¥DB_FRM.GPC") (image-mem 0 3)
@@ -118,8 +129,11 @@
   (exec-mem 912 "A 0,S 0")
   (exec-mem 912 "EXIT")
   (if (</>
-       (// (? (= 901 #t)) (exec-mem 24896 0 0 "B:¥GPC¥SEI.WSB" 0))
-       (// (exec-mem 24896 0 0 "B:¥GPC¥ZOM.WSB" 0))))
+       (//
+       (? (= 901 #t))
+        (exec-mem 24896 0 0 "B:¥GPC¥SEI.WSB" 0))
+       (//
+        (exec-mem 24896 0 0 "B:¥GPC¥ZOM.WSB" 0))))
   (exec-mem 24896 1 0 "A.....A.....A....A....A.....A")
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
   (str "Cole: Sheila... You came to pick me up!")
@@ -129,7 +143,7 @@
   (exec-mem 24896 3 0)
   (if (</>
        (//
-        (? (= 901 #t))
+        (? (= 901 #t))								; Doc revived
         (str "Sheila: Cole, thank God you're safe!")
         (wait)
         (text-reset 1)
@@ -147,7 +161,7 @@
         (text-reset 1)
         (sound '|| 2))
        (//
-        (sound '|| 0)
+        (sound '|| 0)								; Doc not revived
         (sound '|se | 4)
         (str "Sheila: ")(text "ＧＷＡＡＡＡＡＡＡ！！！！")
         (wait)
@@ -157,10 +171,16 @@
         (text-reset 1))))
   (exec-mem 14544 1 3)
   ((cmd 209) 0 3)
+;
+; 	IDES production logo
+;
   (text-frame 0 0 79 399)
   (text-reset 0)
   (sound '|| 0)
   (image-file "A:¥GPC¥IDES#1.GPC") (image-mem 0 3)
   ((cmd 209) 1 3)
+;
+; 	And just like that, the game is over. Thanks for playing. Or reading. Whatever.
+;
   (loop (wait)))
  (seg*))

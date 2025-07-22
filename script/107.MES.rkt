@@ -116,8 +116,9 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 129 #f))							; Briar #2
-   (str "Steve: Not eating? You're looking pretty scrawny these days," 'br)
-   (str "Briar. It won't take more than a single bullet to end you.")
+   (str "Steve: Not eating? You're looking pretty scrawny these" 'br)
+   (str "days, Briar. It won't take more than a single bullet to end" 'br)
+   (str "you.")
    (wait)
    (text-reset 1)
    (str "Cole: I bet you're regretting becoming Daniel's lapdog.")

@@ -101,7 +101,7 @@
         (text-reset 1)
         (str "Steve: Research!? Refining reanimation serum into Purple" 'br)
         (str "Sky and distributing it through Bloody Fox, causing so much" 'br)
-        (str "death and misery to the innocent... That's your“research\"!?")
+        (str "death and misery to innocents... That's“research”to you!?")
         (wait)
         (text-reset 1)
         (str "Daniel: There are still many mysteries hidden within the" 'br)
