@@ -133,8 +133,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 8))								; Catherine #4 (repeat line)
-   (str "Cole: Catherine's a little emotional now, so I should leave" 'br)
-   (str "her be for a while.")
+   (str "Cole: (Catherine's a little emotional now, so I should" 'br)
+   (str "leave her be for a while.)")
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 199 #f))							; Bed #1

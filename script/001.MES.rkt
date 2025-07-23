@@ -22,6 +22,11 @@
    (exec-mem 912 "A 0,S 0")
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (load-mem "A:¥CLM¥DB004.CLM" 32768)
+;
+; 	A quick guide to how the game defines bounding boxes for objects in a scene (using pclickh.tcm):
+; 	The numbers after "3744 1" define first the object number, then the X/Y coordinates of the box's top-left and bottom-right pixels (in units of a half-width character that is 8px wide, 16px tall).
+; 	So in (exec-mem 3744 1 5 15 5 24 13) Sheila is defined as object 5, with the top-left pixel of the bounding box located at (120px, 80px) on the screen and the bottom-right at (200px, 224px).
+;
    (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
    (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
    (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
@@ -36,6 +41,9 @@
         (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_07.USO"))
         (// (sound '|| "A:¥USO_D¥BR2_07.USO"))))
    (sound '|| 1)
+;
+; 	Most of this game's scripts start with one of two introductions, depending on whether the player has viewed the script before.
+;
    (text-frame 15 298 74 356)
    (if (</>
         (//
@@ -166,7 +174,7 @@
    (str "listening in, weren't you?")
    (wait)
    (text-reset 1)
-   (str "Sheila: After all, I am a tomboy, you know!")
+   (str "Sheila: I'm a tomboy, deal with it!")
    (set-reg 101 #t)
    (wait)
    (text-reset 1))
@@ -278,7 +286,7 @@
    (text-reset 1))
  (seg (? (= P 7) (= 108 #f))							; Aircon #1
    (str "Cole: The air conditioner on the ceiling is super powerful." 'br)
-   (str "It can go from m to chill in just three minutes.")
+   (str "It can go from muggy to chill in just three minutes.")
    (set-reg 108 #t)
    (wait)
    (text-reset 1))

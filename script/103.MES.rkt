@@ -236,7 +236,7 @@
   (text-reset 1)
   (str "Steve: It's a building in a dilapidated industrial zone in" 'br)
   (str "the third district. People know it as Bloody Fox's base, so" 'br)
-  (str "not even the cops will go near it. Too dangerous.")
+  (str "not even cops will go near it. Too dangerous.")
   (wait)
   (text-reset 1)
   (str "Cole: So it's Bloody Fox's hideout. I don't care where he" 'br)

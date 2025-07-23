@@ -163,7 +163,7 @@
   (str "Cole: !?")
   (wait)
   (text-reset 1)
-  (str "Steve: My brother, you need to stop! I'm begging you!")
+  (str "Steve: You need to stop! I'm begging you!")
   (wait)
   (text-reset 1)
   (str "Jill: Heh heh.. Such wasted breath...")
@@ -178,7 +178,7 @@
   (str "Jill: What's wrong with you, Ghoul? Shoot Steve! Now!")
   (wait)
   (text-reset 1)
-  (str "Cole: Ghoul...Stop...")
+  (str "Cole: Ghoul... Don't...")
   (wait)
   (text-reset 1)
   (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)
@@ -275,7 +275,7 @@
   (wait)
   (text-reset 1)
   ((cmd 197) 0 15)
-  (str "Ghoul: ...BURY STEVE FOR ME...")
+  (str "Ghoul: . . . ")(text "ＢＵＲＹ　ＳＴＥＶＥ　ＦＯＲ　ＭＥ")(str ". . . ")
   (wait)
   (text-reset 1)
   ((cmd 197) 0 0)
@@ -370,11 +370,11 @@
   (text-reset 1)
   (if (</>
        (//
-        (? (= 901 #t))
+        (? (= 901 #t))								; Revive Doc dialogue
         (str "Cole: I believe it was your own free will that saved me at" 'br)
         (str "the graveyard. And you shot Steve out of kindness, knowing" 'br)
         (str "he was infected..."))
-       (// (str "Cole: Shooting Steve was done out of kindness, knowing he" 'br)
+       (// (str "Cole: Shooting Steve was done out of kindness, knowing he" 'br); Didn't revive dialogue
            (str "was infected..."))))
   (wait)
   (text-reset 1)

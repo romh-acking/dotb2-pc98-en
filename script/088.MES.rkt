@@ -407,7 +407,8 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 8) (= 148 #f))							; Catherine #3
-   (str "Cole: Huh, I've never thought about it that seriously before.")
+   (str "Cole: Huh, I've never thought about it that seriously" 'br)
+   (str "before.")
    (wait)
    (text-reset 1)
    (str "Catherine: I've worked in a ton of different jobs, so I" 'br)
