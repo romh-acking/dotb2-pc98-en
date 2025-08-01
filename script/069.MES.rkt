@@ -143,7 +143,7 @@
          (set-reg 127 #f)
          (mes-jump "A:¥MES¥068.MES"))
         (//
-         (str "Cole: Shit! I'm losing my balance--")				; Failure
+         (str "Cole: Shit! I'm losing my balance−")				; Failure
          (wait)
          (text-reset 1)
          (str "Zombie: ")(text "ＧＵＡＡＡＡＡ！！！")

@@ -141,7 +141,7 @@
    (wait)
    (text-reset 1)
    (str "Cole: Whoa whoa whoa, if that stuff gets injected into" 'br)
-   (str "someone and it's got a bunch of DNV--")
+   (str "someone and it's got a bunch of DNV−")
    (wait)
    (text-reset 1)
    (str "B.F.: Stop struggling!")

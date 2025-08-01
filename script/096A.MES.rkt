@@ -46,7 +46,7 @@
   (wait)
   (text-reset 1)
   (str "Cole: What choice do I have? Without Doc's mind, Sheila's" 'br)
-  (str "body is going to--")
+  (str "body is going to−")
   (wait)
   (text-reset 1)
   (sound '|| 0)

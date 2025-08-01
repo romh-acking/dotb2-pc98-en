@@ -3,7 +3,7 @@
 ; Edited by JackDBS, commented by trentsignia
 ; --Description:--
 ; Catherine's room.
-; -----Quiz:------
+; -----Quiz:-----/
 ; 1. Going after Daniel
 ; 2. He seemed uneasy... / Suddenly became quiet.
 (mes
@@ -160,7 +160,7 @@
                (image-file "B:¥GPC¥DB108.GPC") (image-mem 0 3)
                (image-file "B:¥GPC¥DB141.GPC") (image-mem 1 3)
                (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
-               (str "Cole: What is it, Cath--")
+               (str "Cole: What is it, Cath−")
                (wait)
                (text-reset 1)
                (str "Catherine: Cole... Don't you die on me.")
@@ -394,7 +394,7 @@
    (str "their feelings.")
    (wait)
    (text-reset 1)
-   (str "Cole: Maybe they thought they did, though--")
+   (str "Cole: Maybe they thought they did, though−")
    (wait)
    (text-reset 1)
    (str "Catherine: You just assume the other person understands you" 'br)

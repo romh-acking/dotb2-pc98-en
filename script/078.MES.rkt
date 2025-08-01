@@ -317,7 +317,7 @@
   ((cmd 197) 0 0)
   ((cmd 193) 0 "B:¥GPA¥DB131C.GPA")
   ((cmd 197) 1 0)
-  (str "Lisle: This isn't good, it's having withdrawal symptoms--")
+  (str "Lisle: This isn't good, it's having withdrawal symptoms−")
   (wait)
   (text-reset 1)
   ((cmd 197) 1 15)

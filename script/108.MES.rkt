@@ -3,7 +3,7 @@
 ; Edited by JackDBS, commented by trentsignia
 ; -----Scene:-----
 ; It ends here for Bloody Fox...
-; -----Battle:----
+; ----Battle:-----
 ; 1. Punch the Bloody Fox behind Cole.
 ; 2. Shoot the woman. (We never do learn her name, do we?)
 (mes
@@ -81,7 +81,7 @@
   (str "B.F.: No way!")
   (wait)
   (text-reset 1)
-  (str "Briar: Hey, he's messing with you, don't--")
+  (str "Briar: Hey, he's messing with you, don't−")
   (wait)
   (text-reset 1)								; Battle 1 starts here
   (image-file "A:¥GPC¥COUNTER.GPC") (image-mem 0 0)

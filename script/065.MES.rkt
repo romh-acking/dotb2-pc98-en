@@ -119,7 +119,7 @@
    (str "Cole: ...")
    (wait)
    (text-reset 1)
-   (str "Catherine: Cole... I'm in love with--")
+   (str "Catherine: Cole... I'm in love with−")
    (wait)
    (text-reset 1)
    (str "Cole: Stop it, Catherine. We're in too deep on this case." 'br)

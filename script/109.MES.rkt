@@ -3,7 +3,7 @@
 ; Edited by JackDBS, commented by trentsignia
 ; -----Scene:-----
 ; Steve and Cole finally mett Jill.
-; -----Battle:----
+; ----Battle:-----
 ; Get her head.
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
@@ -206,7 +206,7 @@
   ((cmd 193) 0 "B:¥GPA¥DB196RB.GPA")
   ((cmd 193) 1 "B:¥GPA¥DB196RBB.GPA")
   ((cmd 194) 0 "ｱ..ｲ..ｳ..ｱ..ｲ..ｳ..ｱ..ｲ..ｳ..")
-  (str "Cole: Wait, Steve, don't--")
+  (str "Cole: Wait, Steve, don't−")
   (wait)
   (text-reset 1)
   (sound '|| 0)

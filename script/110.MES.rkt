@@ -23,7 +23,7 @@
   (str "Jill: Ho ho ho, it's a touching family reunion!")
   (wait)
   (text-reset 1)
-  (str "Cole: What?! Holy shit, is this--")
+  (str "Cole: What?! Holy shit, is this−")
   (wait)
   (text-reset 1)
   (str "Jill: Yes! Feast your eyes upon your old friend Ghoul!")

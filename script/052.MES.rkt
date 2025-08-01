@@ -149,7 +149,7 @@
    (str "slightly... Or was that just my imagination?")
    (wait)
    (text-reset 1)
-   (str "Cole: Oh shit--")
+   (str "Cole: Oh shit−")
    (wait)
    (text-reset 1)
    (exec-mem 6064 3)

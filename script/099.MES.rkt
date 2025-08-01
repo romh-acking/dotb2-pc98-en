@@ -131,7 +131,7 @@
    (str "Cole: A dead end? Did I take a wrong turn?")
    (wait)
    (text-reset 1)
-   (str "Cole: Damn, maybe I should backtrack--")
+   (str "Cole: Damn, maybe I should backtrack−")
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)

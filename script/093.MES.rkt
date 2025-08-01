@@ -241,7 +241,7 @@
         (wait)
         (text-reset 1)
         (str "Daniel: Once you're all dead I can fully engage in my" 'br)
-        (str "research. My next target -- Montana! A vast, open land... I" 'br)
+        (str "research. My next target − Montana! A vast, open land... I" 'br)
         (str "can't wait to see how quickly the zombies multiply there.")
         (wait)
         (text-reset 1)

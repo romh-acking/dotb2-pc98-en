@@ -207,7 +207,7 @@
    (str "Steve: Halfway there.")
    (wait)
    (text-reset 1)
-   (str "Cole: ...Steve, you're really tough on your people..." 'br)
+   (str "Cole: ...Steve, you're really tough on your people...")
    (wait)
    (text-reset 1)
    (str "...Dig...Dig...Dig...Dig...Dig...Dig")

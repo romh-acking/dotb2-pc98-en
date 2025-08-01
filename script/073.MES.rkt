@@ -156,7 +156,7 @@
    (str "Cole: What is it...?")
    (wait)
    (text-reset 1)
-   (str "Lisle: If it's about that, I can--")
+   (str "Lisle: If it's about that, I can−")
    (wait)
    (text-reset 1)
    (str "Steve: I'm sorry.")

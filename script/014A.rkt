@@ -26,7 +26,7 @@
   (str "Steve: You're right.")
   (wait)
   (text-reset 1)
-  (str "Steve: As you'd expect... Ghoul -- no, Richard Gris, was my" 'br)
+  (str "Steve: As you'd expect... Ghoul − no, Richard Gris, was my" 'br)
   (str "brother.")
   (wait)
   (text-reset 1)

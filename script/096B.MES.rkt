@@ -135,7 +135,7 @@
   ((cmd 197) 1 0)
   (str "Cole: Doc, it wouldn't have happened if it had been" 'br)
   (str "presented to the world in a better way, if it'd been" 'br)
-  (str "officially released--")
+  (str "officially released−")
   (wait)
   (text-reset 1)
   ((cmd 197) 0 15)

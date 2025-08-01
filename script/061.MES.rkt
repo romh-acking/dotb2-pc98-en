@@ -238,7 +238,7 @@
   (str "Cole: It's Steve...")
   (wait)
   (text-reset 1)
-  (str "Catherine: But Steve is--" 'br)
+  (str "Catherine: But Steve is−")
   (wait)
   (text-reset 1)
   (str "Cole: Shh!")

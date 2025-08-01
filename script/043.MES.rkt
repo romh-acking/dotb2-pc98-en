@@ -122,7 +122,7 @@
    (str "Sheila: !!")
    (wait)
    (text-reset 1)
-   (str "Sheila: Oh my god, Catherine--")
+   (str "Sheila: Oh my god, Catherine−")
    (wait)
    (text-reset 1)
    (str "Cole: Wait, do you think...")

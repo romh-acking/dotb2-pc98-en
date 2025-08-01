@@ -10,6 +10,7 @@
 ; 	- The text box is 60 characters wide, but for this translation only 59 of them are used for text. The remaining space is reserved for the linebreak "character" (and aesthetic reasons).
 ; 	- The original game's scripts gave the character names their own column, and padded out the area below it manually with spaces. This hasn't been preserved here for text length concerns.
 ; 	- Menu options are padded out with spaces to ensure consistent highlight box length; usually aligned left but sometimes to the center if there is more than one column
+; 	- Most of the translated script uses half-width characters, with the exception of em dashes, quotation marks and the zombie and robotic characters.
 ;
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
@@ -176,7 +177,7 @@
    (str "Sheila: And you're saying I should have stayed that way?")
    (wait)
    (text-reset 1)
-   (str "Cole: Well, a little more ladylike would -- hey! You were" 'br)
+   (str "Cole: Well, a little more ladylike would − hey! You were" 'br)
    (str "listening in, weren't you?")
    (wait)
    (text-reset 1)

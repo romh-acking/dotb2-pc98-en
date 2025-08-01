@@ -132,7 +132,7 @@
    (image-file "B:¥GPC¥DB156.GPC") (image-mem 0 3)
    (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)
    (sound '|se | 3)
-   (str "Cole: Cather--!")
+   (str "Cole: Cather−!")
    (wait)
    (text-reset 1)
    (str "Cole: Hey... Hey!!! Catherine!")

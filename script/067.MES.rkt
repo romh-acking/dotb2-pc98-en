@@ -17,7 +17,7 @@
        (// (sound '|| "A:¥USO_D¥BR2_02.USO"))))
   (sound '|| 1)
   (str "Cole: Huff, huff... I made it to the first floor, but I" 'br)
-  (str "don't see Steve anywhere--")
+  (str "don't see Steve anywhere−")
   (wait)
   (text-reset 1)
   (str "Steve: Cole! Over here!")

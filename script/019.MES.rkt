@@ -75,7 +75,7 @@
    (str "answering machine.")
    (wait)
    (text-reset 1)
-   (str "Cole: Hello, Sheila? I --")
+   (str "Cole: Hello, Sheila? I −")
    (wait)
    (text-reset 1)
    (str "Answering Machine:“Hi, this is Sheila. Thanks for calling," 'br)
