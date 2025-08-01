@@ -162,7 +162,7 @@
    (text-reset 1)
    (if (</> (// (? (= S 4)) (nop@) (set-reg 191 #t))))
    (str "Sheila: The bodies of the Bloody Fox members at Shuffle" 'br)
-   (str "food... Catherine said the zombies attacked them when she" 'br)
+   (str "Food... Catherine said the zombies attacked them when she" 'br)
    (str "was about to be abducted.")
    (wait)
    (text-reset 1)

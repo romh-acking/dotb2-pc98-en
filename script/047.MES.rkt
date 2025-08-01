@@ -151,7 +151,7 @@
   (str "real piece of -- wait, did you say Razovan?")
   (wait)
   (text-reset 1)
-  (str "Cole: The Pharmaceutical Company, Razovan?")
+  (str "Cole: The pharmaceutical company, Razovan?")
   (wait)
   (text-reset 1)
   (str "Catherine: One and the same. Their director...that grinning" 'br)

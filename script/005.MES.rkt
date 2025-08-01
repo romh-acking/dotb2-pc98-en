@@ -61,7 +61,7 @@
    (str "takes real balls, and I'm gonna cut 'em off!")
    (wait)
    (text-reset 1)
-   (str "Cole: Oh boy, I've really kicked the hornets nest now.")
+   (str "Cole: Oh boy, I've really kicked the hornet's nest now.")
    (wait)
    (text-reset 1)
    (str "B.F.: I'll show you why your dumb ass should be scared of" 'br)

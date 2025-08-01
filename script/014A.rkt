@@ -110,7 +110,7 @@
   (str "the cat killed him.")
   (wait)
   (text-reset 1)
-  (str "Cole: ....")
+  (str "Cole: ...")
   (wait)
   (text-reset 1)
   (str "Steve: Don't stop there.")

@@ -5,6 +5,12 @@
 ; Sheila and Cole hang out after celebrating their engagement with friends Terry and Lynn.
 ; --Progression:--
 ; Talk to Sheila after inspecting everything in the room.
+;
+; 	Some quick stats about DOTB2:
+; 	- The text box is 60 characters wide, but for this translation only 59 of them are used for text. The remaining space is reserved for the linebreak "character" (and aesthetic reasons).
+; 	- The original game's scripts gave the character names their own column, and padded out the area below it manually with spaces. This hasn't been preserved here for text length concerns.
+; 	- Menu options are padded out with spaces to ensure consistent highlight box length; usually aligned left but sometimes to the center if there is more than one column
+;
 (mes
  (meta (engine 'ADV) (charset "pc98") (extraop #t))
  (seg (? (>= M A))
@@ -58,7 +64,7 @@
          (str "though they have work tomorrow.")
          (wait)
          (text-reset 1)
-         (str "Sheila: We sure made you put back the drinks.")
+         (str "Sheila: We sure made you knock back the drinks.")
          (wait)
          (text-reset 1)
          (str "Cole: Yeah, and I'll be sleeping like a log after all that" 'br)
