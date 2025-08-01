@@ -3,7 +3,7 @@
 ; Edited by JackDBS, commented by trentsignia
 ; --Description:--
 ; Catherine's room.
-; -----Quiz:-----/
+; -----Quiz:------
 ; 1. Going after Daniel
 ; 2. He seemed uneasy... / Suddenly became quiet.
 (mes

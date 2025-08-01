@@ -24,7 +24,7 @@
   (if (</>
        (//
         (? (= 133 #f))								; Lead-in for first visit
-        (str "Cole: Hey, Shei−huh?")
+        (str "Cole: Hey, Shei− Huh?")
         (wait)
         (text-reset 1)
         (str "Cole: Where did she get to?")
