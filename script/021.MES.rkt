@@ -57,7 +57,7 @@
    (wait)
    (text-reset 1)
    (str "Cole: He went berserk inside a police station? Now that's" 'br)
-   (str "dedication. To something.")
+   (str "dedication...to something.")
    (wait)
    (text-reset 1)
    (str "Steve: Guy was a junkie, so you never know what'll make 'em" 'br)

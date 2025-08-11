@@ -284,7 +284,7 @@
    (wait)
    (exec-mem 29792 1))
  (seg (? (= P 6) (= 122 #t) (= 130 #f))						; Toolbox (after inspecting locker) #1
-   (str "Cole: This wrench could be useful. Mine now.")
+   (str "Cole: This spanner could be useful. Mine now.")
    (set-reg 130 #t)
    (wait)
    (exec-mem 29792 1))

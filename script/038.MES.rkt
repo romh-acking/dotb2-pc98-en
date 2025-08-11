@@ -111,9 +111,9 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 106 #f))							; Sheila #3
-   (str "Sheila: When I asked about Purple Sky, someone had" 'br)
-   (str "mentioned they saw a case stamped with the Razovan" 'br)
-   (str "Pharmaceuticals logo.")
+   (str "Sheila: When I asked about Purple Sky, someone mentioned" 'br)
+   (str "they saw a case stamped with the Razovan Pharmaceuticals" 'br)
+   (str "logo.")
    (wait)
    (text-reset 1)
    (str "Cole: Razovan?")

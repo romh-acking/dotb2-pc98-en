@@ -37,7 +37,7 @@
   (loop (exec-mem 3744 3 "P" 32768) (text-color 15) (seg-call)))
  (seg (? (= P 5) (= 124 #f))							; Station #1
    (str "Cole: This station is pretty far from my apartment. I left" 'br)
-   (str "home around 2pm, and it's aready sunset...")
+   (str "home around 2pm, and it's already sunset...")
    (set-reg 124 #t)
    (wait)
    (text-reset 1))
