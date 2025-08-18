@@ -462,7 +462,7 @@
       (str "Woman: Please, help me!")
       (wait)
       (text-reset 1)
-      (str "Cole: Poor girl's pleading for help. I better intervene...")
+      (str "Cole: Poor girl's pleading for help. I'd better intervene...")
       (wait)
       (text-reset 1)))))
  (seg (? (= P 2))								; SYSTEM

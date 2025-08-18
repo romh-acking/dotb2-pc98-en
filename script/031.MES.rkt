@@ -36,7 +36,7 @@
        (// (? (= 900 #f)) (sound '|| "A:¥USO_V¥BR2_07.USO"))
        (// (sound '|| "A:¥USO_D¥BR2_07.USO"))))
   (sound '|| 1)
-  (str "Cole: Finally back at my apartment. It's quite a hump from" 'br)	; Lead-in
+  (str "Cole: Finally back at my apartment. It's quite a walk from" 'br)	; Lead-in
   (str "the disco.")
   (wait)
   (text-reset 1)

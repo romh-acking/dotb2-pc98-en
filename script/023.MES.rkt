@@ -77,7 +77,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 5) (= 155 #t) (= 157 #t) (= 160 #t) (= 162 #f))			; Lisle (after inspecting everything) #2
-   (str "Lisle: What was Cooger's first name?")
+   (str "Lisle: What was Cooger's last name?")
    (wait)
    (text-reset 1)
    (str "Cole: Hamilton. Cooger Hamilton.")
