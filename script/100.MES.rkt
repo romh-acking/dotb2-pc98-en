@@ -52,8 +52,7 @@
    27 317  39 317  51 317
    (</> (/ (str "Examine it")) (/ (str " Punch it ")) (/ (str " Kick it  "))))
   (text-reset 1)
-  (branch-var
-   S
+  (branch-var S
    (</>
     (/
      (str "Cole: It's bleeding from the forehead. I definitely shot it" 'br)
@@ -73,8 +72,7 @@
    27 317  39 317  51 317
    (</> (/ (str " Grab gun ")) (/ (str "Gouge eyes")) (/ (str "Push away ")) (/)))
   (text-reset 1)
-  (branch-var
-   S
+  (branch-var S
    (</>
     (/
      (str "Cole: I don't have the space to grab my gun!"))
@@ -111,8 +109,7 @@
     (/ (str " Steve will save me...      "))
     (/ (str " I can survive the fall...  "))))
   (text-reset 1)
-  (branch-var
-   S
+  (branch-var S
    (</>
     (/
      (str "Cole: No matter what I do, it's impossible!"))
@@ -208,8 +205,7 @@
          (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
          (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
          (text-reset 1)
-         (branch-var
-          S
+         (branch-var S
           (</>
            (/ (exec-mem 9920 0 6 6 113 64 0) (mes-jump "A:¥MES¥100.MES"))
            (/

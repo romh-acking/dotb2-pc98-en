@@ -385,8 +385,7 @@
          (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
          (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
          (text-reset 1)
-         (branch-var
-          S
+         (branch-var S
           (</>
            (/
             (exec-mem 9920 0 6 6 113 64 0)
@@ -406,8 +405,7 @@
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
-   (branch-var
-    S
+   (branch-var S
     (</>
      (/
       (str "Select Save Number.")
@@ -429,8 +427,7 @@
       (text #:col 15 'br)
       (text "　　　　　　　　　　　　　")
       (str "WAIT....")
-      (branch-var
-       S
+      (branch-var S
        (</>
         (/ (nop@) (set-reg 108 #f) (flag-save 1))
         (/ (nop@) (set-reg 108 #f) (flag-save 2))
@@ -459,8 +456,7 @@
       (text-reset 1)
       (if (</> (// (? (= S 255)) (nop@) (set-var S 8))))
       (exec-mem 6064 3)
-      (branch-var
-       S
+      (branch-var S
        (</>
         (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 1))
         (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 2))

@@ -85,8 +85,7 @@
            (/ (str "Sheila's bodily change"))))
          (text-reset 1)
          (str "Cole: I think ")
-         (branch-var
-          S
+         (branch-var S
           (</>
            (/ (str "Doc's brain revival"))
            (/ (str "My shooting skills"))
@@ -113,8 +112,7 @@
            (/ (str "He left the room upset"))))
          (text-reset 1)
          (str "Cole: Well, he ")
-         (branch-var
-          S
+         (branch-var S
           (</>
            (/ (str "became uneasy... Something was wrong") (set-reg 152 #t))
            (/ (str "got quiet all of a sudden") (set-reg 152 #t))
@@ -517,8 +515,7 @@
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
-   (branch-var
-    S
+   (branch-var S
     (</>
      (/
       (str "Select Save Number.")
@@ -540,8 +537,7 @@
       (text #:col 15 'br)
       (text "　　　　　　　　　　　　　")
       (str "WAIT....")
-      (branch-var
-       S
+      (branch-var S
        (</>
         (/ (flag-save 1))
         (/ (flag-save 2))
@@ -570,8 +566,7 @@
       (text-reset 1)
       (if (</> (// (? (= S 255)) (nop@) (set-var S 8))))
       (exec-mem 6064 3)
-      (branch-var
-       S
+      (branch-var S
        (</>
         (/ (exec-mem 9920 0 6 6 113 64 0) (flag-load 1))
         (/ (exec-mem 9920 0 6 6 113 64 0) (flag-load 2))

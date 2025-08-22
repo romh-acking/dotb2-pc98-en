@@ -113,8 +113,7 @@
         (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
         (text-reset 1)
-        (branch-var
-         S
+        (branch-var S
          (</>
           (/ (exec-mem 9920 0 6 6 113 64 0) (mes-jump "A:¥MES¥111.MES"))
           (/
@@ -214,8 +213,7 @@
         (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "GAME END"))))
         (text-reset 1)
-        (branch-var
-         S
+        (branch-var S
          (</>
           (/ (exec-mem 9920 0 6 6 113 64 0) (mes-jump "A:¥MES¥111.MES"))
           (/

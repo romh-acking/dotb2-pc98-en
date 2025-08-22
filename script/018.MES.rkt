@@ -122,8 +122,7 @@
         (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
         (text-reset 1)
-        (branch-var
-         S
+        (branch-var S
          (</>
           (/
            (sound '|| 0)
@@ -252,8 +251,7 @@
         (text "　　　　　　　　　　ＧＡＭＥ　ＯＶＥＲ")
         (menu1 32 337 48 337 (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
         (text-reset 1)
-        (branch-var
-         S
+        (branch-var S
          (</>
           (/
            (sound '|| 0)

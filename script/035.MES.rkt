@@ -71,8 +71,7 @@
             (/ (str "Bar Rease         "))))
           (text-reset 1)
           (str "Cole: That's right. After Disco Zeena, Sheila ")		; Answer 1 selected
-          (branch-var
-           S
+          (branch-var S
            (</>
             (/
              (str "went to" 'br)
@@ -117,8 +116,7 @@
             (/ (str "Nobody            "))))
           (text-reset 1)
           (str "Cole: That's right, ")						; Answer 2 selected
-          (branch-var
-           S
+          (branch-var S
            (</>
             (/ (str "Sheila was rescued by Steve.") (set-reg 128 #t))
             (/ (str "Sheila was rescued by Catherine."))
@@ -131,8 +129,7 @@
           (wait)
           (text-reset 1)
           (str "Cole: Right, so to find Sheila, I should try checking")
-          (branch-var
-           S
+          (branch-var S
            (</>
             (/
              (text 'br)
@@ -297,8 +294,7 @@
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
-   (branch-var
-    S
+   (branch-var S
     (</>
      (/
       (str "Select Save Number.")
@@ -320,8 +316,7 @@
       (text #:col 15 'br)
       (text "　　　　　　　　　　　　　")
       (str "WAIT....")
-      (branch-var
-       S
+      (branch-var S
        (</>
         (/ (flag-save 1))
         (/ (flag-save 2))
@@ -350,8 +345,7 @@
       (text-reset 1)
       (if (</> (// (? (= S 255)) (nop@) (set-var S 8))))
       (exec-mem 6064 3)
-      (branch-var
-       S
+      (branch-var S
        (</>
         (/ (exec-mem 9920 0 6 6 113 64 0) (flag-load 1))
         (/ (exec-mem 9920 0 6 6 113 64 0) (flag-load 2))

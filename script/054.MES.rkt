@@ -38,7 +38,7 @@
   (exec-mem 9920 1 6 32 113 32 6 6 113 64 8 50)					; Battle 1 starts here...
   (when (</>
          (//
-          (str "Zombie: ")(text "Ｂ一ＢＲＡＩＮ！！！　ＭＯＲＥ　ＢＲＡＩＮ！！")
+          (str "Zombie: ")(text "Ｂ−ＢＲＡＩＮ！！！　ＭＯＲＥ　ＢＲＡＩＮ！！")
           (wait)
           (text-reset 1)
           (str "Cole: Motherfucker!")
@@ -92,8 +92,7 @@
                  337
                  (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
                 (text-reset 1)
-                (branch-var
-                 S
+                (branch-var S
                  (</>
                   (/
                    (exec-mem 9920 0 6 6 113 64 0)
@@ -236,8 +235,7 @@
                  337
                  (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
                 (text-reset 1)
-                (branch-var
-                 S
+                (branch-var S
                  (</>
                   (/
                    (exec-mem 9920 0 6 6 113 64 0)
@@ -395,8 +393,7 @@
                 (menu1 32 337 48 337
                  (</> (/ (str "CONTINUE")) (/ (str "END GAME"))))
                 (text-reset 1)
-                (branch-var
-                 S
+                (branch-var S
                  (</>
                   (/
                    (exec-mem 9920 0 6 6 113 64 0)

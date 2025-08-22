@@ -81,8 +81,7 @@
   (text 'br) (str "                                                     DX･DS･DA･UX etc..")
   (menu1 6 140 6 200 (</> (/ (text "□")) (/ (text "□"))))
   (text-reset 0)
-  (branch-var
-   S
+  (branch-var S
    (</>
     (/ (sound '|se | "A:¥USO_V¥BRAIN2_V.SE") (nop@) (set-reg 900 #f))
     (/ (sound '|se | "A:¥USO_D¥BRAIN2_D.SE") (set-reg 900 #t))))
@@ -191,8 +190,7 @@
      (/ (str " LOAD GAME "))
      (/ (str " MUSIC MODE "))))
    (text-reset 0)
-   (branch-var
-    S
+   (branch-var S
     (</>
      (/ (nop@) (set-var Q 0) (seg-call))
      (/ (nop@) (set-var Q 1) (seg-call))
@@ -222,8 +220,7 @@
      (/ (str " LOAD No.7 "))
      (/ (str " LOAD No.8 "))
      (/ (str "[CANCEL]"))))
-   (branch-var
-    S
+   (branch-var S
     (</>
      (/
       ((cmd 209) 0 5)
