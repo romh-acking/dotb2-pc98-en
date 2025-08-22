@@ -12,10 +12,10 @@
   (exec-mem 3744 0 #"\353\237\353\240\353\241\353\242" 6 5 1)			; Hotspots and buttons defined here...
   (exec-mem 3744 1 1 80 0 0 0)							; 	MOVE button
   (exec-mem 3744 1 2 80 0 0 0)							; 	SYSTEM button
-  (exec-mem 3744 1 5 17 5 23 12)						; 	
-  (exec-mem 3744 1 6 7 8 14 10)							; 	
-  (exec-mem 3744 1 7 46 14 54 15)						; 	
-  (exec-mem 3744 1 8 33 3 44 4)
+  (exec-mem 3744 1 5 17 5 23 12)						; 	Pillar
+  (exec-mem 3744 1 6 7 8 14 10)							; 	Stairs
+  (exec-mem 3744 1 7 46 14 54 15)						; 	Pipe
+  (exec-mem 3744 1 8 33 3 44 4)							; 	Light
   (exec-mem 9920 0 6 6 113 64 0)
   (image-file "B:¥GPC¥DB181.GPC") (image-mem 0 3)
   (exec-mem 912 "INIT,A 0,S 0,O 0,D 1")
@@ -218,8 +218,7 @@
     (</> (/ (str "  SAVE  ")) (/ (str "  LOAD  ")) (/ (str " CANCEL "))))
    (text-reset 1)
    (if (</> (// (? (= S 255)) (nop@) (set-var S 2))))
-   (branch-var
-    S
+   (branch-var S
     (</>
      (/
       (str "Select Save Number.")
@@ -241,8 +240,7 @@
       (text #:col 15 'br)
       (text "　　　　　　　　　　　　　")
       (str "WAIT....")
-      (branch-var
-       S
+      (branch-var S
        (</>
         (/ (flag-save 1))
         (/ (flag-save 2))
@@ -271,8 +269,7 @@
       (text-reset 1)
       (if (</> (// (? (= S 255)) (nop@) (set-var S 8))))
       (exec-mem 6064 3)
-      (branch-var
-       S
+      (branch-var S
        (</>
         (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 1))
         (/ (exec-mem 912 "EXIT") (exec-mem 9920 0 6 6 113 64 0) (flag-load 2))

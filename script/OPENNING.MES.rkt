@@ -618,7 +618,9 @@
   (exec-mem 256 9 0 0 0) (delay 4)
   (sound '|| 0)
 ;
-; 	Intro starts here
+; 	Intro starts here.
+; 	Unlike the rest of the game, the text in this section is printed character-by-character.
+; 	I've tweaked the speed of the text display to be quicker at displaying words than the original game, but slow down when displaying punctuation... As such, the scripting here is a bit messy.
 ;
   (text-reset 0)
   (image-file "A:¥GPC¥DB_FRM.GPC") (image-mem 0)
