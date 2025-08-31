@@ -182,5 +182,9 @@
 ;
 ; 	And just like that, the game is over. Thanks for playing. Or reading. Whatever.
 ;
-  (loop (wait)))
+  (loop (wait))
+
+; 	Oh, and one more thing. Just to repeat the small disclaimer from the readme:
+
+  (str "Version 1.0 English Translation by WINE. For hosting on Archive.org, GBATemp.net, Romhack.ing, Romhackplaza.org and Github.com. The patch and patched version of this translation project may not be rehosted elsewhere."))
  (seg*))

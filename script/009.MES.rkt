@@ -216,7 +216,7 @@
    (wait)
    (text-reset 1))
  (seg (? (= P 5))								; Sheila #6 (repeat line)
-   (str "Cole: I think we're gonna need to pay Rease a visit.")
+   (str "Cole: I think I'm gonna need to pay Rease a visit.")
    (wait)
    (text-reset 1)
    (str "Sheila: Taking on the big dogs. You sure you'll be okay?")

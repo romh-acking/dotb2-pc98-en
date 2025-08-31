@@ -55,7 +55,7 @@
    (wait)
    (text-reset 1)
    (str "Cole: Well, I'm not sure I'd call it that. When those" 'br)
-   (str "zombies popped out at the station, I nearly shit myself.")
+   (str "zombies popped out at the station, I nearly shat myself.")
    (wait)
    (text-reset 1)
    (str "Catherine: Well, you're quick-thinking at least, right?")
@@ -67,7 +67,7 @@
    (text-reset 1))
  (seg (? (= P 8) (= 131 #f))							; Catherine #2
    (str "Catherine: I've always wondered, why do you call them" 'br)
-   (str "zombies and not undead?")
+   (str "zombies and not the undead?")
    (wait)
    (text-reset 1)
    (str "Cole: Hmm... Well, in movies, they're usually called" 'br)

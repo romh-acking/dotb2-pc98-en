@@ -68,7 +68,7 @@
   (wait)
   (text-reset 1)
   (str "Cole: Hold up. Aren't we talking about an abuser AND the" 'br)
-  (str "mastermind behind a horrific mass-casualty zombie incident?")
+  (str "mastermind behind a horrific mass-casualty zombie epidemic?")
   (wait)
   (text-reset 1)
   (str "Catherine: I know...")

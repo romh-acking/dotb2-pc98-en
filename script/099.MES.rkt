@@ -64,7 +64,7 @@
      (/ (str "Robert Gibson"))
      (/ (str "Jonathan Long"))))
    (str "”is" 'br)
-   (str "enscribed.")
+   (str "engraved.")
    (wait)
    (text-reset 1))
  (seg (? (= P 6) (= 118 #f))							; Path #1

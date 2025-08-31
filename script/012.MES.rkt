@@ -159,7 +159,7 @@
    (str "the Purple Sky that's sitting on the table right now?")
    (wait)
    (text-reset 1)
-   (str "Briar: How many times I gotta tell you to fuck off!?")
+   (str "Briar: How many times do I gotta tell you to fuck off!?")
    (wait)
    (text-reset 1)
    (exec-mem 9920 2 6 6 113 64 6 32 113 32 0 50)

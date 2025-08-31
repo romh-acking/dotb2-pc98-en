@@ -192,7 +192,7 @@
    (str "Steve: We need to move her to a...safe place.")
    (wait)
    (text-reset 1)
-   (str "Cole: Sheila turning into a zombie? That's ridiculous!")
+   (str "Cole: Sheila's turning into a zombie? That's ridiculous!")
    (wait)
    (text-reset 1)
    (str "Lisle: We still don't know what will happen to her, but..." 'br)
